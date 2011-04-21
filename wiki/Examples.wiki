@@ -1,4 +1,4 @@
-#summary Basic exmaples.
+#summary Basic examples.
 
 = Introduction =
 
