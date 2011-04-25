@@ -2,5 +2,6 @@
 
 Add your content here.
 
+*[Installation]*
 
-[Examples]
+*[Examples]*
