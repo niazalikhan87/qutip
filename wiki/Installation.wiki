@@ -1,13 +1,19 @@
-#summary One-sentence summary of this page.
+#summary Qutip installation instructions
 
-= Introduction =
+= Installation on Ubuntu Linux =
 
-Add your content here.
+ * Requirements. 
+{{{
+sudo apt-get install python-scipy
+sudo apt-get install python-tk
+sudo apt-get install python-gtk2
+sudo apt-get install python-matplotlib
+}}}
 
+ * QuTiP installation
+{{{
+sudo apt-get install python-setuptools
+sudo python setup.py install
+}}}
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Installation on Mac OS X =
