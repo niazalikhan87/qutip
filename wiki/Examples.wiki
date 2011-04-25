@@ -1,13 +1,9 @@
 #summary Basic examples.
-
-= Introduction =
-
-Add your content here.
+*<wiki:toc max_depth="1" />*
 
 
-= Details =
+= Monte-Carlo =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+
+= Trilinear =
