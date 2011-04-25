@@ -3,5 +3,4 @@
 Add your content here.
 
 
-= Details =
-
+[Examples]
