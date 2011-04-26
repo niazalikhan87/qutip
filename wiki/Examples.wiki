@@ -3,7 +3,7 @@
 
 
 = Monte-Carlo =
-[ExamplesMonteCarloExpectation Calculates the expectation values for a atom+cavity system using Monte-Carlo trajectory method.]
+*[ExamplesMonteCarloExpectation Calculates the expectation values for a atom+cavity system using Monte-Carlo trajectory method.]*
 
 
 = Trilinear =
