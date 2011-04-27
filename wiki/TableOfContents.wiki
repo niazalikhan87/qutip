@@ -2,3 +2,4 @@
   * [Installation Installation]
   * [Examples Examples]
     * [ExamplesMonteCarloExpectation]
+    * [ExamplesJaynesCummingsModel]
