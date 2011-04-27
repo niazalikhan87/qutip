@@ -1,6 +1,8 @@
 #summary Basic examples.
 *<wiki:toc max_depth="1" />*
 
+= Jaynes-Cummings model =
+*[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
 
 = Monte-Carlo =
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
