@@ -3,6 +3,7 @@
 
 = Basics =
 *[ExamplesWigner Simple Wigner distribution of a linear combination of Fock states.]*
+
 *[ExamplesSchCatDist Calculate the Wigner and Q-funtion distributions for a Schrodinger-Cat state.]*
 
 = Jaynes-Cummings model =
