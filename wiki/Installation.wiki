@@ -17,7 +17,7 @@ sudo python setup.py install
 }}}
 
 = Installation on Mac OS X =
- * Beginner.
+ * *Beginner*
  
 Grab the latest Python 2.x installer from the Python website:
 
