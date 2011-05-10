@@ -3,5 +3,6 @@
   * [Examples Examples]
     * [ExamplesWigner] 
     * [ExamplesSchCatDist]  
-    * [ExamplesMonteCarloExpectation]
     * [ExamplesJaynesCummingsModel]
+    * [ExamplesMonteCarloExpectation]
+    * [ExamplesTrilinearMonteCarlo]
