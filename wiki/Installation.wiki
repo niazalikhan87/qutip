@@ -29,4 +29,4 @@ sudo python setup.py install
 
 [http://sourceforge.net/projects/scipy/files/scipy/]
 
-making sure that they correspond to the Python version listed above.
+*making sure that they correspond to the Python version listed above.
