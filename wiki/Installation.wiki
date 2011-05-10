@@ -19,11 +19,11 @@ sudo python setup.py install
 = Installation on Mac OS X =
  ==*Beginner*==
  
-Grab the latest Python 2.x installer from the Python website:
+*Grab the latest Python 2.x installer from the Python website:
 
 [http://www.python.org/ftp/python/2.7.1/python-2.7.1-macosx10.6.dmg]
 
-After installation, grab the latest Numpy and Scipy Mac packages from:
+*After installation, grab the latest Numpy and Scipy Mac packages from:
 
 [http://sourceforge.net/projects/numpy/files/NumPy/]
 
