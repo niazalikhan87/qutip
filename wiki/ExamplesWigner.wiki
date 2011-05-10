@@ -4,7 +4,7 @@ from qutip import *
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm,mpl
 from pylab import *
-x=basis(10,4) + basis(10,2)
+x=1.0/sqrt(2)*(basis(10,4) + basis(10,2))
 xvec=arange(-5,5,10.0/100)
 yvec=xvec
 W=wigner(x,xvec,yvec)
