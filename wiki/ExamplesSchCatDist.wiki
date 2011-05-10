@@ -1,8 +1,8 @@
+#labels Examples,Basic,Distributions
+Calculates the Wigner and Q-function distributions for a Schrodinger Cat-state composed of two coherent states.
 {{{
-
 from qutip import *
 from pylab import *
-
 N = 20;
 #amplitudes of coherent states
 alpha1=-2-2j
