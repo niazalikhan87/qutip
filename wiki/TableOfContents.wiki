@@ -1,5 +1,6 @@
   * [WIKI Home]
   * [Installation Installation]
   * [Examples Examples]
+    * [ExamplesSchCatDist]  
     * [ExamplesMonteCarloExpectation]
     * [ExamplesJaynesCummingsModel]
