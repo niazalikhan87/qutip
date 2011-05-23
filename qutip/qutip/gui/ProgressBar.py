@@ -1,3 +1,21 @@
+#This file is part of QuTIP.
+#
+#    QuTIP is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#    QuTIP is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with QuTIP.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2011, Paul D. Nation & Robert J. Johansson
+#
+###########################################################################
 import sys,time
 try:
     from PySide.QtCore import *
@@ -7,14 +25,14 @@ except:
         from PyQt4.QtCore import *
         from PyQt4.QtGui import *
     except:
-        gui=False
+        raise RuntimeError('PyQt4 or PySide GUI module is not installed.')
 
 
 class ProgressBar(QWidget):
     def __init__(self, parent = None):
         QWidget.__init__(self, parent)
         self.thread = Worker()
-        self.step = 0
+        self.percent = 0
         self.pbar = QProgressBar(self)
         self.pbar.setStyleSheet("QProgressBar {width: 25px;border: 3px solid black; border-radius: 5px; background: white;text-align: center;padding: 0px;}" 
                                +"QProgressBar::chunk:horizontal {background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #6699FF, stop: 0.5 #66AAFF, stop: 0.6 #66CCFF, stop:1 #FFFFFF);}")
@@ -34,11 +52,11 @@ class ProgressBar(QWidget):
         self.connect(self.thread, SIGNAL("done"), self.end)
         self.thread.start()
     def updateUi(self):
-        self.step+=1
-        self.pbar.setValue(self.step)
-        self.label.setText('Trajectories completed: '+str(self.step)+ '/100')
+        self.percent+=1
+        self.pbar.setValue(self.percent)
+        self.label.setText('Trajectories completed: '+str(self.percent)+ '/100')
     def end(self):
-        time.sleep(1)
+        time.sleep(0.5)
         return self.close()
             
 class Worker(QThread):
