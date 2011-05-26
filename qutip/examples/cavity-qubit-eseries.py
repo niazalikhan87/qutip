@@ -1,3 +1,7 @@
+#
+# Monte-Carlo time evolution of an atom+cavity system.
+# Adapted from a qotoolbox example by Sze M. Tan
+#
 from qutip import *
 from pylab import *
 
@@ -25,7 +29,7 @@ def probevolve(E,kappa,gamma,g,wc,w0,wl,N,tlist):
 
     # Calculate the Liouvillian
     c_op_list = [C1, C2]
-    L = liuovillian(H, c_op_list)
+    L = liouvillian(H, c_op_list)
 
     # Calculate solution as an exponential series
     start_time=time.time()
