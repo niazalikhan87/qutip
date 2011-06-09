@@ -46,7 +46,7 @@ sudo easy_install pyobjc-core
 sudo easy_install pyobjc
 }}}
 ==*Intermediate*==
-*Install the Numpy, Scipy ,Matplotlib, Qt4, PySide (or PyQt4), and PyObjc packages via [http://www.macports.org/ MacPorts] or Fink.
+*Install the Numpy, Scipy ,Matplotlib, Qt4, PySide (or PyQt4), and PyObjc packages via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink].
 
  ==*Advanced*==
-*Build the Numpy, Scipy ,Matplotlib, Qt4, PySide (or PyQt4), and PyObjc packages yourself!
+*Build the Numpy, Scipy ,Matplotlib, qt4, pyside (or pyQt4), and pyobjc packages yourself!
