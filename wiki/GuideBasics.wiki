@@ -8,3 +8,4 @@ from qutip import *
 }}}
 
 = The quantum object class =
+The key difference between classical and quantum mechanics lies in the use of operators instead of numbers.  Therefore, in computing the dynamics of quantum systems we need some data structure that is capable of encapsulating the properties of a quantum operator.  The quantum object class (Qobj) accomplishes this using the matrix representation of an operator.
