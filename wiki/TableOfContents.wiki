@@ -1,6 +1,7 @@
   * [WIKI Home]
   * [Installation Installation]
   * [Guide Guide]
+    * [GuideBasics Basics] 
   * [Examples Examples]
     * [ExamplesWigner] 
     * [ExamplesSchCatDist]  
