@@ -1,4 +1,4 @@
-#Basic calculations
+#Intro to the Qobj class
 
 = First things first =
 
@@ -8,6 +8,8 @@ from qutip import *
 }}}
 
 = The quantum object class =
+
+== Intro ==
 The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Moreover, we need to specify state vectors and their properties. Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator and ket/bra vectors.  The quantum object class, Qobj, accomplishes this using matrix representation.
 
 To begin, let us create a blank Qobj: *(in Python, Objects differ from functions in the use of a beginning capital letter)*
@@ -58,6 +60,8 @@ Qobj data =
 }}}
 Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.
 
+
+== States and operators ==
 Now, unless you have lots of free time, specifying the data for each object is inefficient.  Even more so when most objects correspond to commonly used types such as the ladder operators of a harmonic oscillator,the Pauli spin operators for a two-level system, or state vectors such as Fock states.  Therefore, QuTiP includes predefined objects for a variety of states and operators.
 
 || *States* || *Command* (# means optional) || *Inputs*||
@@ -74,10 +78,11 @@ Now, unless you have lots of free time, specifying the data for each object is i
 || Raising (creation) operator || || create(N) || ||  ||
  
 
+== Qobj attributes ==
 
 
+== Qobj math ==
 
 
-
-
+== Functions operating on Qobj class ==
 
