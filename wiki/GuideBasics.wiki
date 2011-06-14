@@ -136,8 +136,39 @@ Qobj data =
 
 }}}
 
-== Qobj attributes ==
+== Qobj properties ==
+We have seen that a quantum object has three internal attributes, the data, dims, and shape properties.  These can be accessed in the following way:
+{{{
+q=destroy(4)
+print q.dims
+[[4], [4]]
 
+print q.shape
+[4, 4]
+}}}  
+In general, the properties of a Qobj object (or any Python class) can be retrieved using the `Q.prop` notation.  In addition to the properties shown with the `print` function, the Qobj class also has the following:
+
+|| *Property* || *Command* || *Description* ||
+|| Data || Q.data || Matrix representing state or operator ||
+|| Dimensions || Q.dims || List keeping track of shapes for individual components of a multipartite system (for tensor products and partial traces) ||
+|| Shape || Q.shape || Dimensions of underlying data matrix ||
+|| is Hermitian? || Q.isherm || Is the operator Hermitian or not ||
+|| Type || Q.type || Is object of type 'ket, 'bra', 'oper', or 'super' ||
+
+For the destruction operator above:
+{{{
+q.type
+'oper'
+
+q.isherm
+False
+
+q.data
+<4x4 sparse matrix of type '<type 'numpy.float64'>'
+	with 3 stored elements in Compressed Sparse Row format>
+
+}}}
+The data property returns a message stating that the data is a sparse matrix.  All Qobj's store their data as a sparse matrix to save memory.  To access the underlying matrix one needs to use the `full()` function as described in the functions section.
 
 == Qobj math ==
 
