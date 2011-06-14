@@ -23,7 +23,7 @@ sudo apt-get install python-matplotlib
 sudo python setup.py install
 }}}
 
-= Installation on Mac OS X =
+= Installation on Mac OS X (10.6) =
 
 Sadly, installing QuTiP on the Mac is not as easy as on Linux.  For those who do not want to build the Numpy, Scipy ,Matplotlib, qt4, pyside, and pyobjc packages via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink], the following provides a set of installers which will get you up and running.
  
