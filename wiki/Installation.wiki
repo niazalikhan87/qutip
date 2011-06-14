@@ -1,6 +1,6 @@
 #summary Qutip installation instructions
 
-= Installation on Ubuntu Linux =
+= Installation on Ubuntu Linux (11.04+) =
 
  * Requirements. 
 {{{
