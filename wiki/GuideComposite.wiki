@@ -1,7 +1,7 @@
 #Intro. to tensor products and partial traces in QuTiP
 *<wiki:toc max_depth="2" />*
 
-= Tensor producuts =
+= Tensor products =
 
 
 = Partial trace =
