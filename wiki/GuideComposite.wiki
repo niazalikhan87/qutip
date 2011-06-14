@@ -1,0 +1,7 @@
+#Intro. to tensor products and partial traces in QuTiP
+
+= Tensor producuts =
+
+
+= Partial trace =
+
