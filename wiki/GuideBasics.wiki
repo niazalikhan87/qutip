@@ -72,11 +72,69 @@ Now, unless you have lots of free time, specifying the data for each object is i
 || Thermal density matrix (for n particles) || thermal_dm(N,n) || n = expectation value for number of particles ||
 
 
-|| *Operators* || || *Command* (# is optional) || || *Inputs* ||
-|| Identity || || qeye(N) || ||N = number of levels in Hilbert space ||
-|| Lowering (destruction) operator|| || destroy(N) || ||  ||
-|| Raising (creation) operator || || create(N) || ||  ||
- 
+|| *Operators* || *Command* (# is optional) || *Inputs* ||
+|| Identity || qeye(N) || N = number of levels in Hilbert space ||
+|| Lowering (destruction) operator || destroy(N) || same as above   ||
+|| Raising (creation) operator || create(N) || same as above  ||
+|| Sigma-X || sigmax() || - ||
+|| Sigma-Y || sigmay() || - ||
+|| Sigma-Z || sigmaz() || - ||
+|| Sigma plus || sigmap() || - ||
+|| Sigma minus || sigmam() || - ||
+|| Higher spin operators || jmat(j,d) || j = integer or half-integer representing spin, d = 'x', 'y', 'z', '+', or '-' ||
+
+As an example, we give the output for a few of these objects:
+
+{{{
+print basis(5,3)
+
+Quantum object: dims = [[5], [1]], shape = [5, 1]
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]]
+
+print coherent(5,0.5-0.5j)
+
+Quantum object: dims = [[5], [1]], shape = [5, 1]
+Qobj data = 
+[[  7.78801702e-01 -5.63234865e-20j]
+ [  3.89391417e-01 -3.89391417e-01j]
+ [  7.59246032e-19 -2.75458952e-01j]
+ [ -7.89861710e-02 -7.89861710e-02j]
+ [ -4.31427083e-02 +3.46944695e-18j]]
+
+print destroy(4)
+
+Quantum object: dims = [[4], [4]], shape = [4, 4]
+Qobj data = 
+[[ 0.          1.          0.          0.        ]
+ [ 0.          0.          1.41421356  0.        ]
+ [ 0.          0.          0.          1.73205081]
+ [ 0.          0.          0.          0.        ]]
+
+
+print sigmaz()
+
+Quantum object: dims = [[2], [2]], shape = [2, 2]
+Qobj data = 
+[[ 1.  0.]
+ [ 0. -1.]]
+
+print jmat(5/2.0,'+')
+
+Quantum object: dims = [[6], [6]], shape = [6, 6]
+Qobj data = 
+[[ 0.          2.23606798  0.          0.          0.          0.        ]
+ [ 0.          0.          2.82842712  0.          0.          0.        ]
+ [ 0.          0.          0.          3.          0.          0.        ]
+ [ 0.          0.          0.          0.          2.82842712  0.        ]
+ [ 0.          0.          0.          0.          0.          2.23606798]
+ [ 0.          0.          0.          0.          0.          0.        ]]
+
+}}}
 
 == Qobj attributes ==
 
@@ -85,4 +143,3 @@ Now, unless you have lots of free time, specifying the data for each object is i
 
 
 == Functions operating on Qobj class ==
-
