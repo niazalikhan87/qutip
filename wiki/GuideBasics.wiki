@@ -8,7 +8,7 @@ from qutip import *
 }}}
 
 = The quantum object class =
-The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator.  The quantum object class, Qobj, accomplishes this using the matrix representation of an operator.
+The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Moreover, we need to specify state vectors and their properties. Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator and ket/bra vectors.  The quantum object class, Qobj, accomplishes this using matrix representation.
 
 To begin, let us create a blank Qobj: *(in Python, Objects differ from functions in the use of a beginning capital letter)*
 
@@ -33,9 +33,7 @@ print Qobj([1,2,3,4,5])
 Quantum object: dims = [[1], [5]], shape = [1, 5]
 Qobj data = 
 [[1 2 3 4 5]]
-}}}
-or
-{{{
+
 x=array([[1],[2],[3],[4],[5]])
 print Qobj(x)
 
@@ -46,4 +44,40 @@ Qobj data =
  [3]
  [4]
  [5]]
+
+r=random((4,4))
+print Qobj(r)
+
+Quantum object: dims = [[4], [4]], shape = [4, 4]
+Qobj data = 
+[[ 0.76799998  0.06936066  0.10970546  0.13724402]
+ [ 0.70644984  0.15371775  0.90649545  0.15349102]
+ [ 0.69515726  0.13609801  0.52707457  0.6484309 ]
+ [ 0.78328543  0.87295996  0.58964046  0.3998962 ]]
+
 }}}
+Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.
+
+Now, unless you have lots of free time, specifying the data for each object is inefficient.  Even more so when most objects correspond to commonly used types such as the ladder operators of a harmonic oscillator,the Pauli spin operators for a two-level system, or state vectors such as Fock states.  Therefore, QuTiP includes predefined objects for a variety of states and operators.
+
+|| *States* || *Command* (# means optional) || *Inputs*||
+|| Fock state ket vector || basis(N,#m) / fock(N,#m) || N = number of levels in Hilbert space, m = level containing excitation (0 if no m given)  ||
+|| Fock density matrix (outer product of basis) ||fock_dm(N,#p) || same as basis(N,m) / fock(N,m) ||
+|| Coherent state || coherent(N,alpha) || alpha = complex number (eigenvalue) for requested coherent state ||
+|| Coherent density matrix (outer product of coherent) || coherent_dm(N,alpha) || same as coherent(N,alpha) ||
+|| Thermal density matrix (for n particles) || thermal_dm(N,n) || n = expectation value for number of particles ||
+
+
+|| *Operators* || || *Command* (# is optional) || || *Inputs* ||
+|| Identity || || qeye(N) || ||N = number of levels in Hilbert space ||
+|| Lowering (destruction) operator|| || destroy(N) || ||  ||
+|| Raising (creation) operator || || create(N) || ||  ||
+ 
+
+
+
+
+
+
+
+
