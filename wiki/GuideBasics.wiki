@@ -77,6 +77,7 @@ Now, unless you have lots of free time, specifying the data for each object is i
 || Identity || qeye(N) || N = number of levels in Hilbert space ||
 || Lowering (destruction) operator || destroy(N) || same as above   ||
 || Raising (creation) operator || create(N) || same as above  ||
+|| RNumber operator || num(N) || same as above  ||
 || Sigma-X || sigmax() || - ||
 || Sigma-Y || sigmay() || - ||
 || Sigma-Z || sigmaz() || - ||
