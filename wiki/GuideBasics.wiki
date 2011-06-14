@@ -13,7 +13,7 @@ from qutip import *
 == Intro ==
 The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Moreover, we need to specify state vectors and their properties. Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator and ket/bra vectors.  The quantum object class, Qobj, accomplishes this using matrix representation.
 
-To begin, let us create a blank Qobj: *(in Python, Objects differ from functions in the use of a beginning capital letter)*
+To begin, let us create a blank Qobj: *(in Python, Class objects differ from functions in the use of a beginning capital letter)*
 
 {{{
 Qobj() 
