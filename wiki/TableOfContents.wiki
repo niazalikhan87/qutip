@@ -1,7 +1,7 @@
   * [WIKI Home]
   * [Installation Installation]
   * [Guide Guide]
-    * [GuideBasics Basics] 
+    * [GuideBasics Intro. to Quantum object (Qobj) class] 
   * [Examples Examples]
     * [ExamplesWigner] 
     * [ExamplesSchCatDist]  
