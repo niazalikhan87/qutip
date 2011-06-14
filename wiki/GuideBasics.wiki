@@ -1,8 +1,5 @@
 #Intro to the Qobj class
 
-[WikiSyntax#Wiki-style_markup]
-
-#Wiki-style_markup
 = First things first =
 
 To load the qutip modules, we must first call the import statement:
