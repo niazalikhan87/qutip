@@ -8,4 +8,42 @@ from qutip import *
 }}}
 
 = The quantum object class =
-The key difference between classical and quantum mechanics lies in the use of operators instead of numbers.  Therefore, in computing the dynamics of quantum systems we need some data structure that is capable of encapsulating the properties of a quantum operator.  The quantum object class (Qobj) accomplishes this using the matrix representation of an operator.
+The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator.  The quantum object class, Qobj, accomplishes this using the matrix representation of an operator.
+
+To begin, let us create a blank Qobj: *(in Python, Objects differ from functions in the use of a beginning capital letter)*
+
+{{{
+Qobj() 
+}}}
+
+which returns `<qutip.Qobj.Qobj instance at 0x3cfbfc8>` indicating that we have created a instance of a Qobj class object.  This however is not very insightful, therefore we use the `print` command to get the relvant information about a quantum object:
+{{{
+print Qobj()
+}}}
+returning,
+{{{
+Quantum object: dims = [[1], [1]], shape = [1, 1]
+Qobj data = 
+[[0]]
+}}}
+where we now see the blank `Qobj` object dimensions, shape, and data.  Here the data corresponds to a 1x1-dimensional matrix consisting of a single zero entry.  We can create a `Qobj` with a user defined data set by passing a list or array of data into the `Qobj`:
+{{{
+print Qobj([1,2,3,4,5])
+
+Quantum object: dims = [[1], [5]], shape = [1, 5]
+Qobj data = 
+[[1 2 3 4 5]]
+}}}
+or
+{{{
+x=array([[1],[2],[3],[4],[5]])
+print Qobj(x)
+
+Quantum object: dims = [[5], [1]], shape = [5, 1]
+Qobj data = 
+[[1]
+ [2]
+ [3]
+ [4]
+ [5]]
+}}}
