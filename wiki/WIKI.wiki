@@ -1,8 +1,8 @@
 http://dml.riken.jp/~paul/code.google/logo.png
 
-=About=
+= Sections =
+*[Installation installation]*
 
 
-
-=Funding=
-QuTiP was started at [http://www.dartmouth.edu/~physics Dartmouth College] under a U.S. Dept. of Education Graduate Assistance in Areas of National Need (GAANN) Fellowship.  Currently, support comes from the [http://www.jsps.go.jp/english/ Japanese Society for the Promotion of Science (JSPS)] under the Foreign Postdoctoral Fellowship program.
+= Acknowledgements =
+This project is partially supported by the [http://www.jsps.go.jp/english/ Japanese Society for the Promotion of Science (JSPS)] under the Foreign Postdoctoral Fellowship program.
