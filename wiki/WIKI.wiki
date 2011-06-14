@@ -1,7 +1,7 @@
 http://dml.riken.jp/~paul/code.google/logo.png
 
 = Sections =
-*[Installation installation]* - Gives instructions on how to install QuTiP and it's dependencies.
+*[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
 
 *[Guide Guide]* - Guide giving an overview of QuTiP data structures and functions
 
