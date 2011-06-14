@@ -1,5 +1,8 @@
 #Intro to the Qobj class
 
+[WikiSyntax#Wiki-style_markup]
+
+#Wiki-style_markup
 = First things first =
 
 To load the qutip modules, we must first call the import statement:
@@ -18,7 +21,7 @@ To begin, let us create a blank Qobj: *(in Python, Objects differ from functions
 Qobj() 
 }}}
 
-which returns `<qutip.Qobj.Qobj instance at 0x3cfbfc8>` indicating that we have created a instance of a Qobj class object.  This however is not very insightful, therefore we use the `print` command to get the relvant information about a quantum object:
+which returns `<qutip.Qobj.Qobj instance at 0x3cfbfc8>` indicating that we have created a instance of a Qobj class object.  This however is not very insightful, therefore we use the `print` command to get the relevant information about a quantum object:
 {{{
 print Qobj()
 }}}
@@ -171,6 +174,55 @@ q.data
 The data property returns a message stating that the data is a sparse matrix.  All Qobj's store their data as a sparse matrix to save memory.  To access the underlying matrix one needs to use the `full()` function as described in the functions section.
 
 == Qobj math ==
+The rules for mathematical operations on Qobj's is similar to standard matrix arithmetic:
+{{{
+q=destroy(4)
+x=sigmax()
 
+print q+5
+Quantum object: dims = [[4], [4]], shape = [4, 4]
+Qobj data = 
+[[ 5.          6.          5.          5.        ]
+ [ 5.          5.          6.41421356  5.        ]
+ [ 5.          5.          5.          6.73205081]
+ [ 5.          5.          5.          5.        ]]
+
+print x*x
+Quantum object: dims = [[2], [2]], shape = [2, 2]
+Qobj data = 
+[[ 1.  0.]
+ [ 0.  1.]]
+
+print q**3
+Quantum object: dims = [[4], [4]], shape = [4, 4]
+Qobj data = 
+[[ 0.          0.          0.          2.44948974]
+ [ 0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.        ]]
+
+print x/sqrt(2)
+Quantum object: dims = [[2], [2]], shape = [2, 2]
+Qobj data = 
+[[ 0.          0.70710678]
+ [ 0.70710678  0.        ]]
+
+}}} 
+of course, like matrices, multiplying two objects of incompatible shape throws an error:
+{{{
+q*x
+TypeError: Incompatible Qobj shapes
+}}}
+In addition, the logic operators is equal `==` and is not equal `!=` are also supported.
 
 == Functions operating on Qobj class ==
+Like properties, the quantum object class has defined functions which operate only on members of the Qobj class.  For a general quantum object `Q`:
+
+|| *Function* || *Command* || *Description* ||
+|| Dagger (adjoint) || Q.dag() || Returns adjoint (dagger) of object ||
+|| Exponential || Q.expm() || Returns matrix exponential of operator ||
+|| Full || Q.full() || Returns full (not sparse) array of Q's data property||
+|| Norm || Q.norm() || Returns L2 norm for states, trace norm for operators ||
+|| Sqrt || Q.sqrtm() || Returns matrix sqrt of operator ||
+|| Trace || Q.tr() || Returns trace of quantum object ||
+|| Unit || Q.unit() || Returns normalised (unit) vector Q/Q.norm()||
