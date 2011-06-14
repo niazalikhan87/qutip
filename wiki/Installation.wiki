@@ -37,7 +37,7 @@ After installation, grab the latest Numpy, Scipy, and Mac packages from:
 
 [http://sourceforge.net/projects/scipy/files/scipy/]
 
-making sure that they correspond to the Python version listed above (Py27).  This will give you all of the dependencies needed to run QuTiP.  The MatPlotLib package provided on their website does not work for universal or 64-bit python distributions.  Therefore we have made our own installer for version 1.0.1 which is available from the MacEssentials file in the Downloads section.
+making sure that they correspond to the Python version listed above (Py27).  The MatPlotLib package provided on their website does not work for universal or 64-bit python distributions.  Therefore we have made our own installer for version 1.0.1 which is available from the MacEssentials file in the Downloads section.  This will give you all of the dependencies needed to run QuTiP. 
 
 In order to have GUI elements (optional) such as an About box and progress bar for Monte-Carlo simulations you need to further install the Qt4 and PySide packages at:
 
