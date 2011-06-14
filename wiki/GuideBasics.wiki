@@ -218,6 +218,7 @@ Like properties, the quantum object class has defined functions which operate on
 
 || *Function* || *Command* || *Description* ||
 || Dagger (adjoint) || Q.dag() || Returns adjoint (dagger) of object ||
+|| Diagonal || Q.diag() || Returns the diagonal elements of  Qobj ||
 || Exponential || Q.expm() || Returns matrix exponential of operator ||
 || Full || Q.full() || Returns full (not sparse) array of Q's data property||
 || Norm || Q.norm() || Returns L2 norm for states, trace norm for operators ||
