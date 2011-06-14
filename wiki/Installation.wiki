@@ -8,7 +8,7 @@ sudo apt-get install python-scipy
 sudo apt-get install python-pyside
 sudo apt-get install python-setuptools
 }}}
-At present, Ubuntu 11.04 or lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository
+At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository
 {{{
 sudo add-apt-repository ppa:bgamari/matplotlib-unofficial
 sudo apt-get update
@@ -24,36 +24,28 @@ sudo python setup.py install
 }}}
 
 = Installation on Mac OS X =
- ==*Beginner*==
+
+Sadly, installing QuTiP on the Mac is not as easy as on Linux.  For those who do not want to build the Numpy, Scipy ,Matplotlib, qt4, pyside, and pyobjc packages via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink], the following provides a set of installers which will get you up and running.
  
-*Grab the latest 64-bit Python 2.7.x installer from the Python website:
+Grab the latest 64-bit Python 2.7.x installer from the Python website:
 
 [http://www.python.org/download]
 
-*After installation, grab the latest Numpy, Scipy, and MatPlotLib Mac packages from:
+After installation, grab the latest Numpy, Scipy, and Mac packages from:
 
 [http://sourceforge.net/projects/numpy/files/NumPy/]
 
 [http://sourceforge.net/projects/scipy/files/scipy/]
 
-[http://sourceforge.net/projects/matplotlib/files/matplotlib/]
+making sure that they correspond to the Python version listed above (Py27).  This will give you all of the dependencies needed to run QuTiP.  The MatPlotLib package provided on their website does not work for universal or 64-bit python distributions.  Therefore we have made our own installer for version 1.0.1 which is available in the [Downloads Downloads] section.
 
-*making sure that they correspond to the Python version listed above (Py27).  This will give you all of the dependencies needed to run QuTiP.
 
-*In order to have GUI elements (optional) such as an About box and progress bar for Monte-Carlo simulations you need to further install the Qt4 and PySide packages at:
+
+In order to have GUI elements (optional) such as an About box and progress bar for Monte-Carlo simulations you need to further install the Qt4 and PySide packages at:
 
 [http://qt.nokia.com/downloads/qt-for-open-source-cpp-development-on-mac-os-x]
 
 [http://developer.qt.nokia.com/wiki/PySide_Binaries_MacOSX]
 
-*and also compile (using Xcode) the PyObjc library.  This is readily done using the setuptools easy_install function:
 
-{{{
-sudo easy_install pyobjc-core
-sudo easy_install pyobjc
-}}}
-==*Intermediate*==
-*Install the Numpy, Scipy ,Matplotlib, Qt4, PySide (or PyQt4), and PyObjc packages via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink].
 
- ==*Advanced*==
-*Build the Numpy, Scipy ,Matplotlib, qt4, pyside (or pyQt4), and pyobjc packages yourself!
