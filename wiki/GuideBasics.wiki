@@ -1,4 +1,4 @@
-#Intro to the Qobj class
+#Intro to the quantum object (Qobj) class
 *<wiki:toc max_depth="2" />*
 
 = First things first =
