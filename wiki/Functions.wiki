@@ -1,14 +1,24 @@
 #Function list
-This is a complete, alphabetical, function list for QuTiP.
+
+This is a complete, alphabetical, function list for QuTiP.  Examples are also given where appropriate.  Arguments with the #-sign are optional.
+*<wiki:toc max_depth="2" />*
 
 = A =
 
-Add your content here.
+==about()==
+    @brief Displays QuTip about box.
 
+----
 
-= Details =
+= B = 
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+==basis(N,#m)==
+    @brief Generate the vector representation of a bosonic number state
+    
+    @param N the number of states in the Hilbert space
+    
+    @param m `int` corresponding to desired number state, defaults to 0 if omitted
+    
+    @returns quantum object representing the requested number state |args>
+
+----
