@@ -20,12 +20,25 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
     @param *m* `int` corresponding to desired number state, defaults to 0 if omitted
     
     @returns *Qobj* quantum object representing the requested number state |args>
+
+{{{
+basis(5,3)
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]]
+}}}
+
 ----
 
 =C=
 
 ==clebsch(j1,j2,j3,m1,m2,m3)==
-    @brief Calculates the Clebsch-Gordon coefficient for coupling (j1,m1) and (j2,m2) to give (j3,m3).
+    @brief  Calculates the Clebsch-Gordon coefficient for coupling (j1,m1) and (j2,m2) to give (j3,m3).
 
     @param *j1*
 
@@ -41,9 +54,9 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 
 ----
 ==correlation_es(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
-     @brief Calculate a two-time correlation function <A(t+tau)B(t)> using exponential series and the quantum regression theorem.
+     @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using exponential series and the quantum regression theorem.
 
-     @param *H*              ` Qobj`  system Hamiltonian
+    @param *H*              ` Qobj`  system Hamiltonian
 
     @param *rho0*          `Qobj`  initial density matrix
 
@@ -56,3 +69,77 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
     @param *a_op*          `Qobj` of A operator
 
     @param *b_op*          `Qobj` of B operator
+----
+
+==correlation_ode(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
+    @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the ode solver, and the quantum regression theorem. 
+
+    @param *H*              ` Qobj`  system Hamiltonian
+
+    @param *rho0*          `Qobj`  initial density matrix
+
+    @param *tlist*           `list`/`array` of times
+
+    @param *taulist*       `list`/`array` of tau times
+
+    @param *c_op_list*   `list` of collapse operators
+
+    @param *a_op*          `Qobj` of A operator
+
+    @param *b_op*          `Qobj` of B operator
+
+----
+
+==correlation_mc(H, psi0, tlist, taulist, c_op_list, a_op, b_op)==
+    @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the Monte-Carle solver, and the quantum regression theorem.. 
+
+    @param *H*              ` Qobj`  system Hamiltonian
+
+    @param *rho0*          `Qobj`  initial density matrix
+
+    @param *tlist*           `list`/`array` of times
+
+    @param *taulist*       `list`/`array` of tau times
+
+    @param *c_op_list*   `list` of collapse operators
+
+    @param *a_op*          `Qobj` of A operator
+
+    @param *b_op*          `Qobj` of B operator
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
