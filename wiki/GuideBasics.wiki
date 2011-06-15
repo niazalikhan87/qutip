@@ -27,7 +27,7 @@ Qobj data =
 }}}
 where we  see the blank `Qobj` object dimensions, shape, and data.  Here the data corresponds to a 1x1-dimensional matrix consisting of a single zero entry.  We can create a `Qobj` with a user defined data set by passing a list or array of data into the `Qobj`:
 {{{
- Qobj([1,2,3,4,5])
+Qobj([1,2,3,4,5])
 
 Quantum object: dims = [[1], [5]], shape = [1, 5]
 Qobj data = 
@@ -55,7 +55,7 @@ Qobj data =
  [ 0.78328543  0.87295996  0.58964046  0.3998962 ]]
 
 }}}
-Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.
+Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.  *If you are running QuTiP from a python script you must use the 'print' function to view the Qobj properties*
 
 
 == States and operators ==
