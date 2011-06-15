@@ -19,19 +19,15 @@ To begin, let us create a blank Qobj: *(in Python, Class objects differ from fun
 Qobj() 
 }}}
 
-which returns `<qutip.Qobj.Qobj instance at 0x3cfbfc8>` indicating that we have created a instance of a Qobj class object.  This however is not very insightful, therefore we use the `print` command to get the relevant information about a quantum object:
-{{{
-print Qobj()
-}}}
-returning,
+which returns
 {{{
 Quantum object: dims = [[1], [1]], shape = [1, 1]
 Qobj data = 
 [[0]]
 }}}
-where we now see the blank `Qobj` object dimensions, shape, and data.  Here the data corresponds to a 1x1-dimensional matrix consisting of a single zero entry.  We can create a `Qobj` with a user defined data set by passing a list or array of data into the `Qobj`:
+where we  see the blank `Qobj` object dimensions, shape, and data.  Here the data corresponds to a 1x1-dimensional matrix consisting of a single zero entry.  We can create a `Qobj` with a user defined data set by passing a list or array of data into the `Qobj`:
 {{{
-print Qobj([1,2,3,4,5])
+ Qobj([1,2,3,4,5])
 
 Quantum object: dims = [[1], [5]], shape = [1, 5]
 Qobj data = 
