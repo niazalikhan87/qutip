@@ -13,12 +13,46 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 = B = 
 
 ==basis(N,#m)==
-    @brief Generate the vector representation of a bosonic number state
+    @brief Generates the vector representation of a bosonic number state.
     
-    @param N the number of states in the Hilbert space
+    @param *N* the number of states in the Hilbert space
     
-    @param m `int` corresponding to desired number state, defaults to 0 if omitted
+    @param *m* `int` corresponding to desired number state, defaults to 0 if omitted
     
-    @returns quantum object representing the requested number state |args>
+    @returns *Qobj* quantum object representing the requested number state |args>
+----
+
+=C=
+
+==clebsch(j1,j2,j3,m1,m2,m3)==
+    @brief Calculates the Clebsch-Gordon coefficient for coupling (j1,m1) and (j2,m2) to give (j3,m3).
+
+    @param *j1*
+
+    @param *j2*
+
+    @param *j3*
+
+    @param *m1*
+
+    @param *m2*
+
+    @param *m3*
 
 ----
+==correlation_es(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
+     @brief Calculate a two-time correlation function <A(t+tau)B(t)> using exponential series and the quantum regression theorem.
+
+     @param *H*              ` Qobj`  system Hamiltonian
+
+    @param *rho0*          `Qobj`  initial density matrix
+
+    @param *tlist*           `list`/`array` of times
+
+    @param *taulist*       `list`/`array` of tau times
+
+    @param *c_op_list*   `list` of collapse operators
+
+    @param *a_op*          `Qobj` of A operator
+
+    @param *b_op*          `Qobj` of B operator
