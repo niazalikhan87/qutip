@@ -55,6 +55,63 @@ Qobj data =
     @param *m3*
 
 ----
+
+==coherent(N,alpha)==
+    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space.
+    
+    @param *N* number of levels in truncated  Hilbert space
+    
+    @param *alpha* eigenvalue for coherent state
+    
+    @returns *Qobj* quantum object for coherent state
+{{{
+coherent(4,0.5*0.5j)
+Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket
+Qobj data = 
+[[ 0.96923323+0.j        ]
+ [ 0.00000000+0.24230859j]
+ [-0.04282883+0.j        ]
+ [ 0.00000000-0.00626025j]]
+}}}
+----
+
+==coherent_dm(N, alpha)== 
+    @brief Generate the density matrix representation of a coherent state via outer product
+    
+    @param *N* number of levels in truncated Hilbert space
+    
+    @param *alpha* eigenvalue for coherent state
+    
+    @returns *Qobj* density matrix representation of coherent state
+{{{
+coherent_dm(3,0.5j)
+Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True
+Qobj data = 
+[[ 0.77901768+0.j          0.00000000-0.38817824j -0.14651550+0.j        ]
+ [ 0.00000000+0.38817824j  0.19342609+0.j          0.00000000-0.07300749j]
+ [-0.14651550+0.j          0.00000000+0.07300749j  0.02755623+0.j        ]]
+}}}
+----
+
+==coherent_fast(N, alpha)== 
+    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space by direct matrix population.  Faster than coherent()
+    
+    @param *N* number of levels in truncated  Hilbert space
+    
+    @param *alpha* eigenvalue for coherent state
+    
+    @returns *Qobj* quantum object for coherent state
+{{{
+coherent_fast(4,0.5*0.5j)
+Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket
+Qobj data = 
+[[ 0.96923323+0.j        ]
+ [ 0.00000000+0.24230831j]
+ [-0.04283446+0.j        ]
+ [ 0.00000000-0.00618262j]]
+}}}
+----
+
 ==correlation_es(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
      @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using exponential series and the quantum regression theorem.
      
@@ -378,7 +435,39 @@ Qobj data =
  [ 0.00000000+0.j          0.92387953+0.38268343j]]
 }}}
 ----
+
+==ptrace(rho,sel)==
+    @brief partial trace of composite quantum  object
+    
+    @param *rho* density matrix of composite quantum object
+    
+    @param *sel* Integer or list of integers for components to keep.
+    
+    @returns *Qobj* Density matrix quantum object with components from sel.
+----
+
 =Q=
+==qstate(str)==
+    @brief 	Creates a tensor product for a set of qubits in either the 'up' |0> or 'down' |1> state.
+    
+    @param *str* String containing 'u' or 'd' for each qubit (ex. 'ududd')
+    
+    @returns *Qobj* Tensor product corresponding to input string.
+{{{
+qstate('udu')
+Quantum object: dims = [[2, 2, 2], [1, 1, 1]], shape = [8, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]
+ [ 0.]]
+}}}
+----
+
 ==qeye(N)==
     @brief Identity operator for N-dimensional Hilbert space
     
