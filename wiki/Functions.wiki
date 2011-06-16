@@ -39,7 +39,7 @@ Qobj data =
 ==clebsch(j1,j2,j3,m1,m2,m3)==
     @brief  Calculates the Clebsch-Gordon coefficient for coupling (j1,m1) and (j2,m2) to give (j3,m3).
 
-    @param *j1*
+    @param *j1* 
 
     @param *j2*
 
@@ -196,6 +196,36 @@ Qobj data =
 =I=
 
 =J=
+==jmat(j,#s)==
+    @brief generates spin matrices corresponding to a given spin value j
+
+    @param *j* `int` or half-`int` value of spin
+
+    @param *s* `str` representing requested operator: 'x', 'y', 'z', '+', '-'.  Returns `array` of ['x', 'y', 'z'] quantum objects if *s* is not given.
+{{{
+jmat(3/2.,'x')
+Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 0.         0.8660254  0.         0.       ]
+ [ 0.8660254  0.         1.         0.       ]
+ [ 0.         1.         0.         0.8660254]
+ [ 0.         0.         0.8660254  0.       ]]
+
+jmat(1/2.)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.   0.5]
+ [ 0.5  0. ]]
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j   0.+0.5j]
+ [ 0.-0.5j  0.+0.j ]]
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.5  0. ]
+ [ 0.  -0.5]]
+}}}
+----
 
 =K=
 
@@ -223,6 +253,18 @@ Qobj data =
 =O=
 
 =P=
+==parfor(func,frange)==
+    @brief Parallel execution of a for-loop over single-variable function 'func()' for values in list 'frange'
+
+    @param *func* single-variable function
+
+    @param *frange* `list`/`array` of values for which to evaluate function *func*
+
+   @returns *array* an array with length equal to the number of output parameters from *func* with elements consisting of arrays containing return values from evaluating *func* at values in *frange*.
+
+See cavity-qubit-steadystate exmaple.
+----
+
 ==phasegate(theta)==
     @brief quantum object representation of phase gate with angle theta
 
@@ -365,8 +407,6 @@ Qobj data =
 =Y=
 
 =Z=
-
-
 
 
 
