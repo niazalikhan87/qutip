@@ -23,7 +23,6 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 
 {{{
 basis(5,3)
-
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
 Qobj data = 
 [[ 0.]
@@ -109,14 +108,139 @@ Qobj data =
 
 ----
 
+==cnot()==
+    @brief   Quantum object representing the CNOT gate.
+
+    @returns *Qobj*    CNOT quantum object
+{{{
+cnot()
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0.  0.  1.]
+ [ 0.  0.  1.  0.]]
+}}}
+----
 
 
+=D=
 
+=E=
 
+=F=
+==fredkin()==
+    @brief quantum object representing the Fredkin gate.
 
+    @returns *Qobj* quantum object for Fedkin gate
+{{{
+fredkin()
+Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1.]]
+}}}
+----
+=G=
 
+=H=
+==hadamard()==
+    @brief  quantum object representing the Hadamard gate.
 
+    @returns *Qobj* quantum object for Hadamard gate
+{{{
+hadamard()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.70710678  0.70710678]
+ [ 0.70710678 -0.70710678]]
+}}}
+----
 
+=I=
+
+=J=
+
+=K=
+
+=L=
+
+=M=
+
+=N=
+
+=O=
+
+=P=
+==phasegate(theta)==
+    @brief quantum object representation of phase gate with angle theta
+
+    @param *theta* angle of phase rotation, exp(1j*theta).
+
+    @returns *Qobj*  quantum object for phase gate with angle theta.
+{{{
+phasegate(pi/8)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False
+Qobj data = 
+[[ 1.00000000+0.j          0.00000000+0.j        ]
+ [ 0.00000000+0.j          0.92387953+0.38268343j]]
+}}}
+----
+=Q=
+
+=R=
+
+=S=
+==swap()==
+    @brief quantum object representing swap gate.
+
+    @returns *Qobj* quantum object for swap gate
+{{{
+swap()
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.]
+ [ 0.  0.  1.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0.  0.  1.]]
+}}}
+----
+=T=
+==toffoli()==
+    @brief quantum operator for Toffoli gate.
+ 
+    @returns *Qobj* quantum object for Toffoli gate
+{{{
+toffoli()
+Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  1.  0.]]
+}}}
+----
+=U=
+
+=V=
+
+=W=
+
+=X=
+
+=Y=
+
+=Z=
 
 
 
