@@ -1,6 +1,6 @@
 #Function list
 
-This is a complete, alphabetical, function list for QuTiP.  Examples are also given where appropriate.  Arguments with the #-sign are optional.
+This is a complete, alphabetical, function list for QuTiP.  Examples are also given where appropriate.  Arguments with the &-sign are optional.
 *<wiki:toc max_depth="2" />*
 
 = A =
@@ -227,8 +227,13 @@ fidelity(x,y)
 }}}
 ----
 
+<<<<<<< .mine
+==fock(N,&m)==
+    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,&m) basis]* 
+=======
 ==fock(N,#m)==
     @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,&m) basis]* 
+>>>>>>> .r367
     
     @param *N* the number of states in the Hilbert space
     
@@ -316,6 +321,14 @@ Qobj data =
     @returns *str* type of structure: 'ket', 'bra', 'oper', or 'super'
 ----
 
+==isherm(Q)==
+    @brief checks if quantum object corresponds to a Hermitian operator
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is Hermitian operator, *False* otherwise
+----
+
 ==isket(Q)==
     @brief checks if quantum object corresponds to a ket vector
     
@@ -340,16 +353,8 @@ Qobj data =
     @returns *True* if object is super-operator, *False* otherwise
 ----
 
-==isherm(Q)==
-    @brief checks if quantum object corresponds to a Hermitian operator
-    
-    @param *Q* quantum object to be tested
-    
-    @returns *True* if object is Hermitian operator, *False* otherwise
-----
-
 =J=
-==jmat(j,#s)==
+==jmat(j,&s)==
     @brief generates spin matrices corresponding to a given spin value j
     
     @param *j* `int` or half-`int` value of spin
@@ -592,6 +597,16 @@ Qobj data =
 }}}
 ----
 
+==simdiag(ops)==
+    @brief Simulateous diagonalization of communting Hermitian matricies
+    
+    @param *ops* list of commuting, Hermitian operators
+    
+    @returns *eigvals,eigvecs* array of eigenvalues for each operator along rows ; array of quantum objects corresponding to simultaneous eigenvectors.
+    
+    See GHZ example for usage
+----
+
 ==spost(A)==
     @brief Super operator formed from post-multiplication by operator A
     
@@ -608,6 +623,24 @@ Qobj data =
     @returns *Qobj* superoperator formed from input qauntum object
 ----
 
+==steady(L)==
+   @brief Calculate the steady state for the evolution subject to the supplied Louvillian using the inverse power method. See any Linear Algebra book with a iterative methods section for details.
+   
+   @param *L* Louvillian superoperator
+   
+   @returns *Qobj* State vector corresponding to steady state of system.
+----
+
+==steadystate(H, c_op_list)==
+    @brief Calculate the steady state for the evolution subject to the supplied Hamiltonian and lsit of collapse operators. Does nothing more than form the Louvillian for you and call *[Functions#steady(L) steady]*.
+    
+    @param *H* Hamiltonian operator
+    
+    @param *c_op_list* List of collapse operators
+    
+    @returns *Qobj* State vector corresponding to steady state of system.
+----
+
 ==swap()==
     @brief quantum object representing swap gate.
     
@@ -622,6 +655,7 @@ Qobj data =
  [ 0.  0.  0.  1.]]
 }}}
 ----
+
 =T=
 ==tensor(args)==
     @brief calculates tensor product from input operators
