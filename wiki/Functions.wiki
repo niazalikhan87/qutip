@@ -6,7 +6,7 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 = A =
 
 ==about()==
-    @brief Displays QuTip about box.
+    @brief Displays QuTiP about box.
 
 ----
 
@@ -123,9 +123,39 @@ Qobj data =
 }}}
 ----
 
+==create(N)==
+    @brief Bosonic creation (raising) operator for Hilbert space with dimension N
 
+    @param *N* number of levels in truncated  Hilbert space
+
+    @returns *Qobj* quantum object for creation operator on truncated Hilbert space
+{{{
+create(4)
+Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False
+Qobj data = 
+[[ 0.          0.          0.          0.        ]
+ [ 1.          0.          0.          0.        ]
+ [ 0.          1.41421356  0.          0.        ]
+ [ 0.          0.          1.73205081  0.        ]]
+}}}
+----
 =D=
+==destroy(N)==
+    @brief Bosonic destruction (lowering) operator for Hilbert space with dimension N
 
+    @param *N* number of levels in truncated  Hilbert space
+
+    @returns *Qobj* quantum object for destruction operator on truncated Hilbert space
+{{{
+destroy(4)
+Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False
+Qobj data = 
+[[ 0.          1.          0.          0.        ]
+ [ 0.          0.          1.41421356  0.        ]
+ [ 0.          0.          0.          1.73205081]
+ [ 0.          0.          0.          0.        ]]
+}}}
+----
 =E=
 
 =F=
@@ -174,7 +204,22 @@ Qobj data =
 =M=
 
 =N=
+==num(N)==
+    @brief Number operator on N-dimensional Hilbert space
 
+    @param *N* number of levels in truncated  Hilbert space
+
+    @returns *Qobj* number operator on N-dimensional Hilbert space
+{{{
+num(4)
+Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[0 0 0 0]
+ [0 1 0 0]
+ [0 0 2 0]
+ [0 0 0 3]]
+}}}
+----
 =O=
 
 =P=
@@ -193,10 +238,89 @@ Qobj data =
 }}}
 ----
 =Q=
+==qeye(N)==
+    @brief Identity operator for N-dimensional Hilbert space
 
+    @param *N* number of levels in truncated  Hilbert space
+
+    @returns *Qobj* Identity operator on N-dimensional Hilbert space
+{{{
+qeye(3)
+Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [ 0.  0.  1.]]
+}}}
+----
 =R=
 
 =S=
+==sigmam()==
+    @brief lowering (sigma-minus) operator for Pauli spins
+
+    @returns *Qobj* quantum object for sigma-minus operator
+{{{
+sigmam()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False
+Qobj data = 
+[[ 0.  0.]
+ [ 1.  0.]]
+}}}
+----
+
+==sigmap()==
+    @brief raising (sigma-plus) operator for Pauli spins
+
+    @returns *Qobj* quantum object for sigma-plus operator
+{{{
+sigmap()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False
+Qobj data = 
+[[ 0.  1.]
+ [ 0.  0.]]
+}}}
+----
+
+==sigmax()==
+    @brief Quantum object for Pauli sigma-x operator
+
+    @returns *Qobj* quantum object for sigma-x
+{{{
+sigmax()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  1.]
+ [ 1.  0.]]
+}}}
+----
+
+==sigmay()==
+    @brief Quantum object for Pauli sigma-y operator
+
+    @returns *Qobj* quantum object for sigma-y
+{{{
+sigmay()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j  0.-1.j]
+ [ 0.+1.j  0.+0.j]]
+}}}
+----
+
+==sigmaz()==
+    @brief Quantum object for Pauli sigma-z operator
+
+    @returns *Qobj* quantum object for sigma-z
+{{{
+sigmaz()
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.]
+ [ 0. -1.]]
+}}}
+----
+
 ==swap()==
     @brief quantum object representing swap gate.
 
@@ -241,8 +365,6 @@ Qobj data =
 =Y=
 
 =Z=
-
-
 
 
 
