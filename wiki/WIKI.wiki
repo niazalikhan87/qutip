@@ -3,9 +3,12 @@ http://dml.riken.jp/~paul/code.google/logo.png
 = Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
 
-*[Guide Guide]* - Guide giving an overview of QuTiP data structures and functions
+*[Guide Guide]* - Guide giving an overview of QuTiP data structures and functions.
+
+*[Functions Function list]* - Complete listing of functions and classes available in QuTiP.
 
 *[Examples Examples]* - A list of examples demonstrating the use of QuTiP in solving a variety of calculations.
+
 
 
 = Acknowledgements =
