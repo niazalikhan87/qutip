@@ -261,8 +261,8 @@ Qobj data =
     @param *frange* `list`/`array` of values for which to evaluate function *func*
 
    @returns *array* an array with length equal to the number of output parameters from *func* with elements consisting of arrays containing return values from evaluating *func* at values in *frange*.
-
-See [DrivenCavitySS] example.
+ 
+    See [DrivenCavitySS] example.
 ----
 
 ==phasegate(theta)==
@@ -407,8 +407,6 @@ Qobj data =
 =Y=
 
 =Z=
-
-
 
 
 
