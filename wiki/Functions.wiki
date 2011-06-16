@@ -15,7 +15,7 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
     @brief Class for plotting vectors and data points on the Bloch sphere.
 ----
 
-==basis(N,#m)==
+==basis(N,&m)==
     @brief Generates the vector representation of a bosonic number state.
     
     @param *N* the number of states in the Hilbert space
@@ -228,7 +228,7 @@ fidelity(x,y)
 ----
 
 ==fock(N,#m)==
-    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,#m) basis]* 
+    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,&m) basis]* 
     
     @param *N* the number of states in the Hilbert space
     
@@ -698,8 +698,6 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
 
 
 
