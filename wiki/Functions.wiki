@@ -228,7 +228,7 @@ fidelity(x,y)
 ----
 
 ==fock(N,#m)==
-    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,m) basis]* 
+    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,#m) basis]* 
     
     @param *N* the number of states in the Hilbert space
     
