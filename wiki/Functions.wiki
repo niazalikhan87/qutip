@@ -157,6 +157,19 @@ Qobj data =
 }}}
 ----
 =E=
+==expect(oper,state)==
+    @brief calculates the expectation value for operator *oper* in state *state*
+
+    @param *oper* quantum object representing an operator
+
+    @param *state* quantum object representing a quantum state or density matrix
+
+    @returns *float* if operator is Hermitian; possibly *complex* if operator is _not_ Hermitian
+{{{
+expect(num(4),basis(4,3))
+3.0
+}}}
+----
 
 =F=
 ==fredkin()==
@@ -407,8 +420,6 @@ Qobj data =
 =Y=
 
 =Z=
-
-
 
 
 
