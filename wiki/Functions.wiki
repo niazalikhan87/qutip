@@ -94,7 +94,7 @@ Qobj data =
 ----
 
 ==coherent_fast(N, alpha)== 
-    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space by direct matrix population.  Faster than coherent()
+    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space by direct matrix population.  Faster than [Functions#coherent(N,alpha) coherent]
     
     @param *N* number of levels in truncated  Hilbert space
     
@@ -611,8 +611,6 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
 
 
 
