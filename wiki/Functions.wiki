@@ -11,7 +11,9 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 ----
 
 = B = 
-
+==Bloch()==
+    @brief Class for plotting vectors and data points on the Bloch sphere.
+----
 ==basis(N,#m)==
     @brief Generates the vector representation of a bosonic number state.
     
@@ -207,6 +209,53 @@ Qobj data =
 ----
 
 =I=
+==isbra(Q)==
+    @brief checks if quantum object corresponds to a bra vector
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is a bra, *False* otherwise
+----
+
+==ischeck(Q)==
+    @brief determines type of quantum structure
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *str* type of structure: 'ket', 'bra', 'oper', or 'super'
+----
+
+==isket(Q)==
+    @brief checks if quantum object corresponds to a ket vector
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is a ket, *False* otherwise
+----
+
+==isoper(Q)==
+    @brief checks if quantum object corresponds to a operator
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is operator, *False* otherwise
+----
+
+==issuper(Q)==
+    @brief checks if quantum object corresponds to a super-operator
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is super-operator, *False* otherwise
+----
+
+==isherm(Q)==
+    @brief checks if quantum object corresponds to a Hermitian operator
+    
+    @param *Q* quantum object to be tested
+    
+    @returns *True* if object is Hermitian operator, *False* otherwise
+----
 
 =J=
 ==jmat(j,#s)==
@@ -245,13 +294,33 @@ Qobj data =
 =L=
 
 =M=
+==Mcoptions()==
+    @brief Class of options for the ODE solver used by the Monte-Carlo integrator.
+----
 
+==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,#options=Mcoptions())==
+    @brief Monte-Carlo evolution of a state vector |psi> for a given Hamiltonian and sets of collapse operators and operators for calculating expectation values.  Options for solver are given by the Mcoptions class.
+    
+    @param *H* quantum object representing system Hamiltonian
+    
+    @param *psi0* quantum object for initial state vector 
+    
+    @param *tlist* `list`/`array` of times at which to evaluate state or expectation values
+    
+    @param *ntraj* `int` representing the number of Monte-Carlo trajectories to run.
+    
+    @param *collapse_ops* `list` of collapse operators
+    
+    @param *expect_ops* `list` of operators to calculate expectation values
+    
+    @param *options* optional settings for ODE solver given by the Mcoptions class.
+----
 =N=
 ==num(N)==
     @brief Number operator on N-dimensional Hilbert space
-
+    
     @param *N* number of levels in truncated  Hilbert space
-
+    
     @returns *Qobj* number operator on N-dimensional Hilbert space
 {{{
 num(4)
@@ -268,11 +337,11 @@ Qobj data =
 =P=
 ==parfor(func,frange)==
     @brief Parallel execution of a for-loop over single-variable function 'func()' for values in list 'frange'
-
+    
     @param *func* single-variable function
-
+    
     @param *frange* `list`/`array` of values for which to evaluate function *func*
-
+    
    @returns *array* an array with length equal to the number of output parameters from *func* with elements consisting of arrays containing return values from evaluating *func* at values in *frange*.
  
     See [DrivenCavitySS] example.
@@ -280,9 +349,9 @@ Qobj data =
 
 ==phasegate(theta)==
     @brief quantum object representation of phase gate with angle theta
-
+    
     @param *theta* angle of phase rotation, exp(1j*theta).
-
+    
     @returns *Qobj*  quantum object for phase gate with angle theta.
 {{{
 phasegate(pi/8)
