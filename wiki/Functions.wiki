@@ -262,7 +262,7 @@ Qobj data =
 
    @returns *array* an array with length equal to the number of output parameters from *func* with elements consisting of arrays containing return values from evaluating *func* at values in *frange*.
 
-See cavity-qubit-steadystate exmaple.
+See [DrivenCavitySS] example.
 ----
 
 ==phasegate(theta)==
@@ -407,8 +407,6 @@ Qobj data =
 =Y=
 
 =Z=
-
-
 
 
 
