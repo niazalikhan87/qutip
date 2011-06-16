@@ -227,13 +227,8 @@ fidelity(x,y)
 }}}
 ----
 
-<<<<<<< .mine
 ==fock(N,&m)==
     @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,&m) basis]* 
-=======
-==fock(N,#m)==
-    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,&m) basis]* 
->>>>>>> .r367
     
     @param *N* the number of states in the Hilbert space
     
@@ -251,7 +246,7 @@ Qobj data =
 }}}
 ----
 
-==fock_dm(N, m)== 
+==fock_dm(N,m)== 
     @brief Generate the density matrix representation of a Fock state via outer product
     
     @param *N* number of levels in truncated Hilbert space
@@ -483,7 +478,7 @@ Qobj data =
 ----
 
 ==ptrace(rho,sel)==
-    @brief partial trace of composite quantum object formed by *[tensor(args) tensor]*
+    @brief partial trace of composite quantum object formed by *[Functions#tensor(args) tensor]*
     
     @param *rho* density matrix of composite quantum object
     
