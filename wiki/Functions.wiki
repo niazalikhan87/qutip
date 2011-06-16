@@ -23,7 +23,6 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
     @param *m* `int` corresponding to desired number state, defaults to 0 if omitted
     
     @returns *Qobj* quantum object representing the requested number state |args>
-
 {{{
 basis(5,3)
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
@@ -34,7 +33,6 @@ Qobj data =
  [ 1.]
  [ 0.]]
 }}}
-
 ----
 
 =C=
@@ -57,7 +55,7 @@ Qobj data =
 ----
 
 ==coherent(N,alpha)==
-    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space.
+    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space via displacement operator on vacuum state
     
     @param *N* number of levels in truncated  Hilbert space
     
@@ -90,25 +88,6 @@ Qobj data =
 [[ 0.77901768+0.j          0.00000000-0.38817824j -0.14651550+0.j        ]
  [ 0.00000000+0.38817824j  0.19342609+0.j          0.00000000-0.07300749j]
  [-0.14651550+0.j          0.00000000+0.07300749j  0.02755623+0.j        ]]
-}}}
-----
-
-==coherent_fast(N, alpha)== 
-    @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space by direct matrix population.  Faster than *[Functions#coherent(N,alpha) coherent]*
-    
-    @param *N* number of levels in truncated  Hilbert space
-    
-    @param *alpha* eigenvalue for coherent state
-    
-    @returns *Qobj* quantum object for coherent state
-{{{
-coherent_fast(4,0.5*0.5j)
-Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket
-Qobj data = 
-[[ 0.96923323+0.j        ]
- [ 0.00000000+0.24230831j]
- [-0.04283446+0.j        ]
- [ 0.00000000-0.00618262j]]
 }}}
 ----
 
@@ -248,6 +227,44 @@ fidelity(x,y)
 }}}
 ----
 
+==fock(N,#m)==
+    @brief Generates the vector representation of a bosonic Fock (number) state.  Same as *[Functions#basis(N,m) basis]* 
+    
+    @param *N* the number of states in the Hilbert space
+    
+    @param *m* `int` corresponding to desired number state, defaults to 0 if omitted
+    
+    @returns *Qobj* quantum object representing the requested number state |args>
+{{{
+fock(4,2)
+Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]]    
+}}}
+----
+
+==fock_dm(N, m)== 
+    @brief Generate the density matrix representation of a Fock state via outer product
+    
+    @param *N* number of levels in truncated Hilbert space
+    
+    @param *m* `int` corresponding to desired number state, defaults to 0 if omitted
+    
+    @returns *Qobj* density matrix representation of Fock state
+{{{
+fock_dm(4,2)
+Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.  0.]
+ [ 0.  0.  0.  0.]
+ [ 0.  0.  1.  0.]
+ [ 0.  0.  0.  0.]]
+}}}
+----
+
 ==fredkin()==
     @brief quantum object representing the Fredkin gate.
     
@@ -364,6 +381,21 @@ Qobj data =
 ----
 
 =K=
+==ket2dm(Q)==
+    @brief Takes input ket or bra vector and returns density matrix formed by outer product.
+    
+    @param *Q* Ket or bra vector
+    
+    @returns *Qobj* Density matrix formed by outer product
+{{{
+ket2dm(basis(3,2)) 
+Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.]
+ [ 0.  0.  0.]
+ [ 0.  0.  1.]]
+}}}
+----
 
 =L=
 
@@ -437,7 +469,7 @@ Qobj data =
 ----
 
 ==ptrace(rho,sel)==
-    @brief partial trace of composite quantum  object
+    @brief partial trace of composite quantum object formed by *tensor*
     
     @param *rho* density matrix of composite quantum object
     
@@ -471,7 +503,7 @@ Qobj data =
 ==qeye(N)==
     @brief Identity operator for N-dimensional Hilbert space
     
-    @param *N* number of levels in truncated  Hilbert space
+    @param *N* number of levels in truncated Hilbert space
     
     @returns *Qobj* Identity operator on N-dimensional Hilbert space
 {{{
@@ -566,6 +598,26 @@ Qobj data =
 }}}
 ----
 =T=
+==thermal_dm(N, n)==
+    @brief Generates the density matrix for a single-mode thermal state with n particles
+    
+    @param *N* number of levels in truncated Hilbert space
+    
+    @param *n* expectation value for number of particles in thermal state
+    
+    @returns *Qobj* quantum object representing single-mode thermal density matrix 
+{{{
+thermal_dm(5,2)
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.33333333  0.          0.          0.          0.        ]
+ [ 0.          0.22222222  0.          0.          0.        ]
+ [ 0.          0.          0.14814815  0.          0.        ]
+ [ 0.          0.          0.          0.09876543  0.        ]
+ [ 0.          0.          0.          0.          0.06584362]]
+}}}
+----
+
 ==toffoli()==
     @brief quantum operator for Toffoli gate.
  
