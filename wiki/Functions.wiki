@@ -14,6 +14,7 @@ This is a complete, alphabetical, function list for QuTiP.  Examples are also gi
 ==Bloch()==
     @brief Class for plotting vectors and data points on the Bloch sphere.
 ----
+
 ==basis(N,#m)==
     @brief Generates the vector representation of a bosonic number state.
     
@@ -40,79 +41,79 @@ Qobj data =
 
 ==clebsch(j1,j2,j3,m1,m2,m3)==
     @brief  Calculates the Clebsch-Gordon coefficient for coupling (j1,m1) and (j2,m2) to give (j3,m3).
-
+    
     @param *j1* 
-
+    
     @param *j2*
-
+    
     @param *j3*
-
+    
     @param *m1*
-
+    
     @param *m2*
-
+    
     @param *m3*
 
 ----
 ==correlation_es(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
      @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using exponential series and the quantum regression theorem.
-
+     
     @param *H*              ` Qobj`  system Hamiltonian
-
+    
     @param *rho0*          `Qobj`  initial density matrix
-
+    
     @param *tlist*           `list`/`array` of times
-
+    
     @param *taulist*       `list`/`array` of tau times
-
+    
     @param *c_op_list*   `list` of collapse operators
-
+    
     @param *a_op*          `Qobj` of A operator
-
+    
     @param *b_op*          `Qobj` of B operator
 ----
 
 ==correlation_ode(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
     @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the ode solver, and the quantum regression theorem. 
-
+    
     @param *H*              ` Qobj`  system Hamiltonian
-
+    
     @param *rho0*          `Qobj`  initial density matrix
-
+    
     @param *tlist*           `list`/`array` of times
-
+    
     @param *taulist*       `list`/`array` of tau times
-
+    
     @param *c_op_list*   `list` of collapse operators
-
+    
     @param *a_op*          `Qobj` of A operator
-
+    
     @param *b_op*          `Qobj` of B operator
 
 ----
 
 ==correlation_mc(H, psi0, tlist, taulist, c_op_list, a_op, b_op)==
     @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the Monte-Carle solver, and the quantum regression theorem.. 
-
+    
     @param *H*              ` Qobj`  system Hamiltonian
-
+    
     @param *rho0*          `Qobj`  initial density matrix
-
+    
     @param *tlist*           `list`/`array` of times
-
+    
     @param *taulist*       `list`/`array` of tau times
-
+    
     @param *c_op_list*   `list` of collapse operators
-
+    
     @param *a_op*          `Qobj` of A operator
-
+    
     @param *b_op*          `Qobj` of B operator
 
 ----
 
 ==cnot()==
     @brief   Quantum object representing the CNOT gate.
-
+    
     @returns *Qobj*    CNOT quantum object
 {{{
 cnot()
@@ -127,9 +128,9 @@ Qobj data =
 
 ==create(N)==
     @brief Bosonic creation (raising) operator for Hilbert space with dimension N
-
+    
     @param *N* number of levels in truncated  Hilbert space
-
+    
     @returns *Qobj* quantum object for creation operator on truncated Hilbert space
 {{{
 create(4)
@@ -144,9 +145,9 @@ Qobj data =
 =D=
 ==destroy(N)==
     @brief Bosonic destruction (lowering) operator for Hilbert space with dimension N
-
+    
     @param *N* number of levels in truncated  Hilbert space
-
+    
     @returns *Qobj* quantum object for destruction operator on truncated Hilbert space
 {{{
 destroy(4)
@@ -161,11 +162,11 @@ Qobj data =
 =E=
 ==expect(oper,state)==
     @brief calculates the expectation value for operator *oper* in state *state*
-
+    
     @param *oper* quantum object representing an operator
-
+    
     @param *state* quantum object representing a quantum state or density matrix
-
+    
     @returns *float* if operator is Hermitian; possibly *complex* if operator is _not_ Hermitian
 {{{
 expect(num(4),basis(4,3))
@@ -174,9 +175,25 @@ expect(num(4),basis(4,3))
 ----
 
 =F=
+==fidelity(A,B)==
+    @brief Calculates the fidelity (pseudo-metric) between two density matricies.  See: Nielsen & Chuang, "Quantum Computation and Quantum Information".
+    
+    @param *A* density matrix quantum object
+    
+    @param *B* density matrix with same dimensions as A
+    
+    @returns *float* fidelity
+{{{
+x=coherent_dm(5,sqrt(2)*1.0j)
+y=thermal_dm(5,1)
+fidelity(x,y)
+0.42968726436823845
+}}}
+----
+
 ==fredkin()==
     @brief quantum object representing the Fredkin gate.
-
+    
     @returns *Qobj* quantum object for Fedkin gate
 {{{
 fredkin()
@@ -197,7 +214,7 @@ Qobj data =
 =H=
 ==hadamard()==
     @brief  quantum object representing the Hadamard gate.
-
+    
     @returns *Qobj* quantum object for Hadamard gate
 {{{
 hadamard()
@@ -260,9 +277,9 @@ Qobj data =
 =J=
 ==jmat(j,#s)==
     @brief generates spin matrices corresponding to a given spin value j
-
+    
     @param *j* `int` or half-`int` value of spin
-
+    
     @param *s* `str` representing requested operator: 'x', 'y', 'z', '+', '-'.  Returns `array` of ['x', 'y', 'z'] quantum objects if *s* is not given.
 {{{
 jmat(3/2.,'x')
@@ -364,9 +381,9 @@ Qobj data =
 =Q=
 ==qeye(N)==
     @brief Identity operator for N-dimensional Hilbert space
-
+    
     @param *N* number of levels in truncated  Hilbert space
-
+    
     @returns *Qobj* Identity operator on N-dimensional Hilbert space
 {{{
 qeye(3)
@@ -382,7 +399,7 @@ Qobj data =
 =S=
 ==sigmam()==
     @brief lowering (sigma-minus) operator for Pauli spins
-
+    
     @returns *Qobj* quantum object for sigma-minus operator
 {{{
 sigmam()
@@ -395,7 +412,7 @@ Qobj data =
 
 ==sigmap()==
     @brief raising (sigma-plus) operator for Pauli spins
-
+    
     @returns *Qobj* quantum object for sigma-plus operator
 {{{
 sigmap()
@@ -408,7 +425,7 @@ Qobj data =
 
 ==sigmax()==
     @brief Quantum object for Pauli sigma-x operator
-
+    
     @returns *Qobj* quantum object for sigma-x
 {{{
 sigmax()
@@ -421,7 +438,7 @@ Qobj data =
 
 ==sigmay()==
     @brief Quantum object for Pauli sigma-y operator
-
+    
     @returns *Qobj* quantum object for sigma-y
 {{{
 sigmay()
@@ -434,7 +451,7 @@ Qobj data =
 
 ==sigmaz()==
     @brief Quantum object for Pauli sigma-z operator
-
+    
     @returns *Qobj* quantum object for sigma-z
 {{{
 sigmaz()
@@ -447,7 +464,7 @@ Qobj data =
 
 ==swap()==
     @brief quantum object representing swap gate.
-
+    
     @returns *Qobj* quantum object for swap gate
 {{{
 swap()
@@ -476,6 +493,22 @@ Qobj data =
  [ 0.  0.  0.  0.  0.  1.  0.  0.]
  [ 0.  0.  0.  0.  0.  0.  0.  1.]
  [ 0.  0.  0.  0.  0.  0.  1.  0.]]
+}}}
+----
+
+==tracedist(A,B)==
+    @brief Calculates the trace distance between two density matricies.  See: Nielsen & Chuang, "Quantum Computation and Quantum Information"
+    
+    @param *A* density matrix quantum object
+    
+    @param *B* density matrix quantum object with same dimensions as A
+    
+    @returns *float* trace distance
+{{{
+x=coherent_dm(5,sqrt(2)*1.0j)
+y=thermal_dm(5,1)
+tracedist(x,y)
+0.818555240587471
 }}}
 ----
 =U=
