@@ -398,6 +398,15 @@ Qobj data =
 ----
 
 =L=
+==liouvillian(H, c_op_list)==
+    @brief Assembles the Liouvillian superoperator from a Hamiltonian and a list of collapse operators.
+    
+    @param *H* Hamiltonian 
+    
+    @param *c_op_list* list of collpase operators
+    
+    @returns *Qobj* quantum object for Louvillian superoperator
+----
 
 =M=
 ==Mcoptions()==
@@ -469,7 +478,7 @@ Qobj data =
 ----
 
 ==ptrace(rho,sel)==
-    @brief partial trace of composite quantum object formed by *tensor*
+    @brief partial trace of composite quantum object formed by *[tensor(args) tensor]*
     
     @param *rho* density matrix of composite quantum object
     
@@ -581,6 +590,22 @@ Qobj data =
 [[ 1.  0.]
  [ 0. -1.]]
 }}}
+----
+
+==spost(A)==
+    @brief Super operator formed from post-multiplication by operator A
+    
+    @param *A* quantum operator for post multiplication
+    
+    @returns *Qobj* superoperator formed from input qauntum object
+----
+
+==spre(A)==
+    @brief Super operator formed from pre-multiplication by operator A
+    
+    @param *A* quantum operator for pre-multiplication
+    
+    @returns *Qobj* superoperator formed from input qauntum object
 ----
 
 ==swap()==
