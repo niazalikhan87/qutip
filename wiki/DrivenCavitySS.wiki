@@ -69,3 +69,6 @@ xlabel('Detuning')
 ylabel('Intracavity phase shift')
 show()
 }}}
+
+http://dml.riken.jp/~paul/code.google/ss-countrates.png
+http://dml.riken.jp/~paul/code.google/ss-phaseshift.png
