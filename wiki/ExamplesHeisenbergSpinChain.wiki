@@ -92,3 +92,5 @@ title(r'Dynamics of a Heisenberg spin chain')
 legend(loc = "lower right")
 show()
 }}}
+
+http://dml.riken.jp/~paul/code.google/mc_expect.png
