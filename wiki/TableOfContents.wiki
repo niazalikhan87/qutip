@@ -1,5 +1,6 @@
   * [WIKI Home]
   * [Installation Installation]
+  * [Tutorial]
   * [Guide Guide]
     * [GuideBasics Intro. to Quantum object (Qobj) class] 
     * [GuideComposite Creating and manipulating composite objects with tensor and ptrace] 
