@@ -1,0 +1,7 @@
+# QuTiP tutorial
+
+= Tutorial =
+
+A brief overview, and a tutorial on how to get started using QuTiP:
+ * [http://dml.riken.jp/~rob/QuTiP-tutorial.pdf PDF]
+ * [http://dml.riken.jp/~rob/QuTiP-tutorial.odp ODP] (Libreoffice presentation)
