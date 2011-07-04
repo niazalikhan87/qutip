@@ -222,3 +222,35 @@ Like properties, the quantum object class has defined functions which operate on
 || Sqrt || Q.sqrtm() || Returns matrix sqrt of operator ||
 || Trace || Q.tr() || Returns trace of quantum object ||
 || Unit || Q.unit() || Returns normalised (unit) vector Q/Q.norm()||
+
+{{{
+basis(5,3)
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]]
+
+basis(5,3).dag()
+Quantum object: dims = [[1], [5]], shape = [1, 5], type = bra
+Qobj data = 
+[[ 0.  0.  0.  1.  0.]]
+
+coherent_dm(5,1)
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.36791117  0.36774407  0.26105441  0.14620658  0.08826704]
+ [ 0.36774407  0.36757705  0.26093584  0.14614018  0.08822695]
+ [ 0.26105441  0.26093584  0.18523331  0.10374209  0.06263061]
+ [ 0.14620658  0.14614018  0.10374209  0.05810197  0.035077  ]
+ [ 0.08826704  0.08822695  0.06263061  0.035077    0.0211765 ]]
+
+coherent_dm(5,1).diag()
+array([ 0.36791117,  0.36757705,  0.18523331,  0.05810197,  0.0211765 ])
+
+
+
+
+}}}
