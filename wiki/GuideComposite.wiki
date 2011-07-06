@@ -3,5 +3,56 @@
 
 = Tensor products =
 
+To describe the states of coupled quantum systems, such as two coupled qubits, a qubit coupled to an oscillator, etc., we need to expand the Hilbert space by taking the tensor product of the state vectors of the component systems. Similarly, the operators acting on the state vectors in the combined Hilbert space (describing the coupled system) are formed by taking the tensor product of the component operators.
+
+In QuTiP the function the function *tensor()* is used for this. The *tensor* function takes as argument a list of state vectors _or_ operators and returns the corresponding quantity for the combined Hilbert space.
+
+For example, the state vector describing two qubits in their ground states is formed by taking the tensor product of the two single-qubit groundstate vectors:
+{{{
+>> tensor(basis(2,0), basis(2,0))
+Quantum object: dims = [[2, 2], [1, 1]], shape = [4, 1], type = ket
+Qobj data = 
+[[ 1.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+This is straight forward to generalize to more qubits by adding more component state vectors in the argument list to the *tensor* function, as illustrated in the following example:
+{{{
+>>tensor((basis(2,0)+basis(2,1)).unit(), (basis(2,0)+basis(2,1)).unit(), basis(2,0))
+Quantum object: dims = [[2, 2, 2], [1, 1, 1]], shape = [8, 1], type = ket
+Qobj data = 
+[[ 0.5]
+ [ 0. ]
+ [ 0.5]
+ [ 0. ]
+ [ 0.5]
+ [ 0. ]
+ [ 0.5]
+ [ 0. ]]
+}}}
+(This state is slightly more complicated, describing two qubits in a superposition between the up and down states, while the third qubit is in its ground state).
+
+To construct operators that act on an extended Hilbert space of a combined system, we similarly pass a list of operators for each component system to the *tensor* function. For example, to form the operator that represents the simultaneous action of the sigma x operator on two qubits:
+{{{
+>> tensor(sigmax(), sigmax())
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.  1.]
+ [ 0.  0.  1.  0.]
+ [ 0.  1.  0.  0.]
+ [ 1.  0.  0.  0.]]
+}}}
+
+To form operators in a combined Hilbert space that only act only on a single component we take the tensor product of the component system with the identity operator for the other component systems. For example, the operator that represents sigma z on one of the qubits in a two-qubit system, while leaving the other qubit uneffected:
+{{{
+>> tensor(sigmaz(), qeye(2))
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0. -1.  0.]
+ [ 0.  0.  0. -1.]]
+}}}
 
 = Partial trace =
