@@ -93,9 +93,20 @@ Qobj data =
  [ 0.    0.5   0.    0.    0.25  0.    0.   -3.  ]]
 }}}
 
-=== A two-level system coupled to an oscillator ===
+=== A two-level system coupled to a cavity: The Jaynes-Cummings model ===
 
-
+The simplest possible quantum mechanical description for light-matter interaction is encapsulated in the Jaynes-Cummings model, which describes the coupling between a two-level atom and a single-mode electomagnetic field (a cavity mode). Denoting the energy splitting of the atom and cavity omega_a and omega_c, respectively, and the atom-cavity interaction strength g, the Jaynes-Cumming Hamiltonian can be constructed as:
+{{{
+>> N = 10
+>> omega_a = 1.0
+>> omega_c = 1.25
+>> g = 0.05
+>> a = tensor(qeye(2), destroy(N))
+>> sm = tensor(sigmam(), qeye(N))
+>> sz = tensor(sigmaz(), qeye(N))
+>> H = 0.5 * omega_a * sz + omega_c * a.dag() * a + g * (a.dag() * sm + a * sm.dag())
+}}}
+Here N is the number of Fock states included in the cavity mode. 
 
 = Partial trace =
 
