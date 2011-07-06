@@ -56,6 +56,47 @@ Qobj data =
  [ 0.  0.  0. -1.]]
 }}}
 
+== Example: Constructing composite Hamiltonians ==
+
+The *tensor* function is extensively used when constructing Hamiltonians for composite systems. Here we'll look at some simple examples.
+
+=== Two coupled qubits ===
+
+First, let's consider a system of two coupled qubits. Assume that both qubit has equal energy splitting, and that the qubits are coupled through a sigmax-sigmax interaction with strength g = 0.05 (in units where the bare qubit energy splitting is unity). The Hamiltonian describing this system is:
+{{{
+>> H = tensor(sigmaz(), qeye(2)) + tensor(qeye(2), sigmaz()) + 0.05 * tensor(sigmax(), sigmax())
+>> H
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 2.   0.   0.   0.05]
+ [ 0.   0.   0.05 0. ]
+ [ 0.   0.05 0.   0. ]
+ [ 0.05 0.   0.  -2. ]]
+}}}
+
+=== Three coupled qubits ====
+
+The two-qubit example is easily generalized to three coupled qubits:
+{{{
+>> H = tensor(sigmaz(), qeye(2), qeye(2)) + tensor(qeye(2), sigmaz(), qeye(2)) + tensor(qeye(2), qeye(2), sigmaz()) + 
+   0.5 * tensor(sigmax(), sigmax(), qeye(2)) +  0.25 * tensor(qeye(2), sigmax(), sigmax())
+>> H
+Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True
+Qobj data = 
+[[ 3.    0.    0.    0.25  0.    0.    0.5   0.  ]
+ [ 0.    1.    0.25  0.    0.    0.    0.    0.5 ]
+ [ 0.    0.25  1.    0.    0.5   0.    0.    0.  ]
+ [ 0.25  0.    0.   -1.    0.    0.5   0.    0.  ]
+ [ 0.    0.    0.5   0.    1.    0.    0.    0.25]
+ [ 0.    0.    0.    0.5   0.   -1.    0.25  0.  ]
+ [ 0.5   0.    0.    0.    0.    0.25 -1.    0.  ]
+ [ 0.    0.5   0.    0.    0.25  0.    0.   -3.  ]]
+}}}
+
+=== A two-level system coupled to an oscillator ===
+
+
+
 = Partial trace =
 
 The partial trace is an operation that reduces the dimension of a Hilbert space by eliminating some degrees of freedom by averaging (tracing). In this sense it is therefore the converse of the tensor product. It is useful when only interested in the state of a part of a coupled quantum system. In QuTiP the function 
