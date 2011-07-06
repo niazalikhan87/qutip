@@ -75,4 +75,12 @@ Qobj data =
  [ 0.  1.]]
 }}}
 
-Note that the partial trace always results in a density matrix (mixed state), regardless of whether the composite system is a pure state (described by a state vector) or a mixed state (described by a density matrix).
+Note that the partial trace always results in a density matrix (mixed state), regardless of whether the composite system is a pure state (described by a state vector) or a mixed state (described by a density matrix):
+{{{
+>> rho = tensor((basis(2,0)+basis(2,1)).unit(), basis(2,0))
+>> ptrace(rho, 0)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.5  0.5]
+ [ 0.5  0.5]]
+}}}
