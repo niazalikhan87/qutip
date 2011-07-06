@@ -44,7 +44,7 @@ Qobj data =
  [ 1.  0.  0.  0.]]
 }}}
 
-To form operators in a combined Hilbert space that only act only on a single component we take the tensor product of the component system with the identity operator for the other component systems. For example, the operator that represents sigma z on one of the qubits in a two-qubit system, while leaving the other qubit uneffected:
+To form operators in a combined Hilbert space that only act only on a single component we take the tensor product of that operator with the identity operators for the other component systems. For example, the operator that represents sigma z on one of the qubits in a two-qubit system, while leaving the other qubit uneffected:
 {{{
 >> tensor(sigmaz(), qeye(2))
 Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
