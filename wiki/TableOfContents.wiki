@@ -13,3 +13,4 @@
     * [ExamplesMonteCarloExpectation]
     * [ExamplesTrilinearMonteCarlo]
     * [ExamplesDampedParAmp]
+    * [ExamplesDrivenCavitySS]
