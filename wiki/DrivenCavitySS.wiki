@@ -72,8 +72,4 @@ show()
 
 http://qutip.googlecode.com/svn/wiki/images/ss-countrates.png
 
-<<<<<<< .mine
-http://qutip.googlecode.com/svn/wiki/images/ss-phaseshift.png=======
-http:/qutip.googlecode.com/svn/wiki/images/ss-countrates.png
-
-http:/qutip.googlecode.com/svn/wiki/images/ss-phaseshift.png>>>>>>> .r447
+http://qutip.googlecode.com/svn/wiki/images/ss-phaseshift.png
