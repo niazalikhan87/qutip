@@ -62,4 +62,4 @@ about()
 }}}
 that will pop-up the about box for QuTiP which gives you information on the installed version of QuTiP and its dependencies.  If instead you get command-line output, then your graphics is not installed properly or unavailable.
 
-http://dml.riken.jp/~paul/code.google/about.png
+http://qutip.googlecode.com/svn/wiki/images/about.png
