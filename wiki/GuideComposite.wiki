@@ -77,7 +77,27 @@ Qobj data =
 
 Note that the partial trace always results in a density matrix (mixed state), regardless of whether the composite system is a pure state (described by a state vector) or a mixed state (described by a density matrix):
 {{{
->> rho = tensor((basis(2,0)+basis(2,1)).unit(), basis(2,0))
+>> psi = tensor((basis(2,0)+basis(2,1)).unit(), basis(2,0))
+>> psi
+Quantum object: dims = [[2, 2], [1, 1]], shape = [4, 1], type = ket
+Qobj data = 
+[[ 0.70710678]
+ [ 0.        ]
+ [ 0.70710678]
+ [ 0.        ]]
+>> ptrace(psi, 0)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.5  0.5]
+ [ 0.5  0.5]]
+>> rho = tensor(ket2dm((basis(2,0)+basis(2,1)).unit()), fock_dm(2,0))
+>> rho
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 0.5  0.   0.5  0. ]
+ [ 0.   0.   0.   0. ]
+ [ 0.5  0.   0.5  0. ]
+ [ 0.   0.   0.   0. ]]
 >> ptrace(rho, 0)
 Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
 Qobj data = 
