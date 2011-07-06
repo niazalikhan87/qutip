@@ -50,4 +50,4 @@ legend(('Mode 0', 'Mode 1','Mode 2') )
 show()
 }}}
 
-http://dml.riken.jp/~paul/code.google/trilinearMC.png
+http://qutip.googlecode.com/svn/wiki/images/trilinearMC.png

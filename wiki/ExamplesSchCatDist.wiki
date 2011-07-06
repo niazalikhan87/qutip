@@ -18,4 +18,4 @@ fig2.colorbar(surf, shrink=0.65, aspect=20)
 show()
 }}}
 
-http://dml.riken.jp/~paul/code.google/coherent-cat.png
+http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png

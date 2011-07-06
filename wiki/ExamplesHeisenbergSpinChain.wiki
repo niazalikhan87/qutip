@@ -93,4 +93,4 @@ legend(loc = "lower right")
 show()
 }}}
 
-http://dml.riken.jp/~paul/code.google/spinchain.png
+http://qutip.googlecode.com/svn/wiki/images/spinchain.png
