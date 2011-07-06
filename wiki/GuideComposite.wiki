@@ -56,3 +56,23 @@ Qobj data =
 }}}
 
 = Partial trace =
+
+The partial trace is an operation that reduces the dimension of a Hilbert space by eliminating some degrees of freedom by averaging (tracing). In this sense it is therefore the converse of the tensor product. It is useful when only interested in the state of a part of a coupled quantum system. In QuTiP the function *ptrace(rho, sel)* is used to take partial traces. It takes two arguments: *rho* is the density matrix of the composite system, and *sel* is a list of integers that mark the component systems that should be kept (all other components are traced out).
+
+For example, the density matrix describing a single qubit from a coupled two-qubit system is formed as:
+
+{{{
+>> rho = tensor(basis(2,0), basis(2,1))
+>> ptrace(rho, 0)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.]
+ [ 0.  0.]]
+>> ptrace(rho, 1)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.]
+ [ 0.  1.]]
+}}}
+
+Note that the partial trace always results in a density matrix (mixed state), regardless of whether the composite system is a pure state (described by a state vector) or a mixed state (described by a density matrix).
