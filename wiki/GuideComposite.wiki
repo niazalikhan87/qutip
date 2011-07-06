@@ -102,7 +102,7 @@ The simplest possible quantum mechanical description for light-matter interactio
 >> omega_c = 1.25
 >> g = 0.05
 >> a = tensor(qeye(2), destroy(N))
->> sm = tensor(sigmam(), qeye(N))
+>> sm = tensor(destroy(2), qeye(N))
 >> sz = tensor(sigmaz(), qeye(N))
 >> H = 0.5 * omega_a * sz + omega_c * a.dag() * a + g * (a.dag() * sm + a * sm.dag())
 }}}
