@@ -12,3 +12,4 @@
     * [ExamplesHeisenbergSpinChain]
     * [ExamplesMonteCarloExpectation]
     * [ExamplesTrilinearMonteCarlo]
+    * [ExamplesDampedParAmp]
