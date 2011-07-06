@@ -9,6 +9,7 @@
 = Jaynes-Cummings model =
 *[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
 
+*[ExamplesDrivenCavitySS Driven cavity steady-state]*
 = Monte-Carlo =
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
 
