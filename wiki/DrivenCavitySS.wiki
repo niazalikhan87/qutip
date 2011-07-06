@@ -72,4 +72,6 @@ show()
 
 http:/qutip.googlecode.com/svn/wiki/images/ss-countrates.png
 
+http:/qutip.googlecode.com/svn/wiki/images/ss-countrates.png
+
 http:/qutip.googlecode.com/svn/wiki/images/ss-phaseshift.png
