@@ -70,5 +70,5 @@ ylabel('Intracavity phase shift')
 show()
 }}}
 
-http://dml.riken.jp/~paul/code.google/ss-countrates.png
-http://dml.riken.jp/~paul/code.google/ss-phaseshift.png
+http:/qutip.googlecode.com/svn/wiki/images/ss-countrates.png
+http:/qutip.googlecode.com/svn/wiki/images/ss-phaseshift.png
