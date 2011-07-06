@@ -5,7 +5,8 @@
 
 To describe the states of coupled quantum systems, such as two coupled qubits, a qubit coupled to an oscillator, etc., we need to expand the Hilbert space by taking the tensor product of the state vectors of the component systems. Similarly, the operators acting on the state vectors in the combined Hilbert space (describing the coupled system) are formed by taking the tensor product of the component operators.
 
-In QuTiP the function the function *tensor()* is used for this. The *tensor* function takes as argument a list of state vectors _or_ operators and returns the corresponding quantity for the combined Hilbert space.
+In QuTiP the function the function 
+*[Functions#tensor(args) tensor(args)]* is used for this. The *tensor* function takes as argument a list of state vectors _or_ operators and returns the corresponding quantity for the combined Hilbert space.
 
 For example, the state vector describing two qubits in their ground states is formed by taking the tensor product of the two single-qubit groundstate vectors:
 {{{
@@ -57,7 +58,8 @@ Qobj data =
 
 = Partial trace =
 
-The partial trace is an operation that reduces the dimension of a Hilbert space by eliminating some degrees of freedom by averaging (tracing). In this sense it is therefore the converse of the tensor product. It is useful when only interested in the state of a part of a coupled quantum system. In QuTiP the function *ptrace(rho, sel)* is used to take partial traces. It takes two arguments: *rho* is the density matrix (or state vector) of the composite system, and *sel* is a list of integers that mark the component systems that should be kept (all other components are traced out).
+The partial trace is an operation that reduces the dimension of a Hilbert space by eliminating some degrees of freedom by averaging (tracing). In this sense it is therefore the converse of the tensor product. It is useful when only interested in the state of a part of a coupled quantum system. In QuTiP the function 
+*[Functions#ptrace(rho,sel) ptrace(rho, sel)]* is used to take partial traces. It takes two arguments: *rho* is the density matrix (or state vector) of the composite system, and *sel* is a list of integers that mark the component systems that should be kept (all other components are traced out).
 
 For example, the density matrix describing a single qubit from a coupled two-qubit system is formed as:
 
