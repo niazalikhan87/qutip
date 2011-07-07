@@ -10,4 +10,4 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 *[GuideComposite  Tensor product/Partial trace]* - How to build and decompose composite states using the *[Functions#tensor(args) tensor product]* and *[Functions#ptrace(rho,sel) partial trace]* functions.
 
-*[GuideParfor Parallel computation with parfor]* - Using the *[Function#parfor(func,frange) parfor]* function to speedup tasks.
+*[GuideParfor Parallel computation with parfor]* - Using the *[Functions#parfor(func,frange) parfor]* function to speedup tasks.
