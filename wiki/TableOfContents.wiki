@@ -4,6 +4,7 @@
   * [Guide Guide]
     * [GuideBasics Intro. to Quantum object (Qobj) class] 
     * [GuideComposite Creating and manipulating composite objects with tensor and ptrace] 
+    * [GuideDynamics Time evolution of quantum systems] 
   * [Functions Function list]
   * [Examples Examples]
     * [ExamplesWigner] 
