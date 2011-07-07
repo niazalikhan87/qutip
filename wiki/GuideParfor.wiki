@@ -1,0 +1,4 @@
+#guide to using the parlor function to speedup repedative tasks.
+
+= Introduction =
+
