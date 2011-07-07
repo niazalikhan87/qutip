@@ -62,3 +62,33 @@ Qobj data =
 [[4]]
 ['' 'a' 'aa' 'aaa' 'aaaa']
 }}}
+
+Although parfor allows functions with only one input, we can in fact pass more an a single variable by using a list of lists. Sounds confusing, but it is quite easy.
+
+{{{
+def func1(args):
+    index,x=args
+    print index
+    return x,x**2,x**3
+
+args=[[k,2*k] for k in range(10)]
+print args
+print ''
+[a,b,c]=parfor(func1,args)
+print a
+
+[[0, 0], [1, 2], [2, 4], [3, 6], [4, 8], [5, 10], [6, 12], [7, 14], [8, 16], [9, 18]]
+
+0
+1
+2
+3
+4
+5
+6
+8
+9
+7
+[ 0  2  4  6  8 10 12 14 16 18]
+}}}
+This example also highlights the fact that the parfor function does not evaluate the sequence of elements sequentially.  Therefore, passing an index variable, as done in the previous example, is useful if one needs to keep track of individual function evaluations.
