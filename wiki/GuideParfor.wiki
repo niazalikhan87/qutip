@@ -1,3 +1,3 @@
 #guide to using the parlor function to speedup tasks.
 
-= Introduction =
+Often one is interested in the output of a given function as a single-parameter is varied.  For instance, in the *[ExampleDrivenCavitySS Driven steady-state cavity]* example, we calculate the steady-state response as the driving frequency is varied.  In cases such as this, where each iteration is independent of the others, we may speedup the calculations by performing the iterations in parallel.  In QuTiP, parallel computations may be performed using the *[Functions#parfor(func,frange) parfor]* (parallel-for-loop) function.
