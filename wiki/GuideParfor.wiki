@@ -67,11 +67,11 @@ Although parfor allows functions with only one input, we can in fact pass more a
 
 {{{
 def func1(args):
-    index,x=args
-    print index
+    index,x=args #<--sets the index variable to args[0], and x to args[1]
+    print index #<-- print which element in sequence is being calculated
     return x,x**2,x**3
 
-args=[[k,2*k] for k in range(10)]
+args=[[k,2*k] for k in range(10)] #<-- create list of lists with more than one variable
 print args
 print ''
 [a,b,c]=parfor(func1,args)
