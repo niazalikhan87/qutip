@@ -459,7 +459,7 @@ Qobj data =
     
    @returns *array* an array with length equal to the number of output parameters from *func* with elements consisting of arrays containing return values from evaluating *func* at values in *frange*.
  
-    See [DrivenCavitySS] example.
+    See *[GuideParfor Guide to parfor]* or *[ExamplesDrivenCavitySS Steady-state driven cavity]* example.
 ----
 
 ==phasegate(theta)==
