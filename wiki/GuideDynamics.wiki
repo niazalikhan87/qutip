@@ -3,7 +3,7 @@
 In this section we describe how to set up time-evolution simulations of closed
 and open quantum systems. 
 
-= Schrödinger equation =
+= Unitary evolution =
 
 The Schrödinger equation, which governs the time-evolution of closed quantum
 systems, is defined by its Hamiltonian and state vector. In the previous section,
@@ -81,7 +81,7 @@ Qobj data =
 ]
 }}}
 
-= Master equation =
+= Non-unitary evolution =
 
 
 = Monte-Carlo evolution =
