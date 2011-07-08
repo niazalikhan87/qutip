@@ -41,30 +41,17 @@ sudo python setup.py install
 
 = Installation on Mac OS X (10.6) =
 
-Sadly, installing QuTiP on the Mac is not as easy as on Linux.  For those who do not want to build the Numpy, Scipy ,Matplotlib, qt4, pyside, and pyobjc packages via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink], the following provides a set of installers which will get you up and running.
- 
-Grab the latest 64-bit Python 2.7.x installer from the Python website:
+On the Mac, it is recommended that you install the *[http://www.enthought.com/products/epd.php Enthought Python Distribution]* version 7.1 or higher to satisfy the QuTiP dependencies.  Otherwise, the required libraries can be built via [http://www.macports.org/ MacPorts] or [http://www.finkproject.org/ Fink].  
 
-[http://www.python.org/download]
-
-After installation, grab the latest Numpy, Scipy, and Mac packages from:
-
-[http://sourceforge.net/projects/numpy/files/NumPy/]
-
-[http://sourceforge.net/projects/scipy/files/scipy/]
-
-making sure that they correspond to the Python version listed above (Py27).  The MatPlotLib package provided on their website does not work for universal or 64-bit python distributions.  Therefore we have made our own installer for version 1.0.1 which is available from the MacEssentials file in the Downloads section.  This will give you all of the dependencies needed to run QuTiP. 
-
-In order to have GUI elements (optional) such as an About box and progress bar for Monte-Carlo simulations you need to further install the Qt4 and PySide packages at:
+A further possibility is to use the *[http://stronginference.com/scipy-superpack/ Scipy Superpack installer script]*.  In order to have GUI elements using this method, you need to further install the Qt4 and PySide packages at:
 
 [http://qt.nokia.com/downloads/qt-for-open-source-cpp-development-on-mac-os-x]
 
 [http://developer.qt.nokia.com/wiki/PySide_Binaries_MacOSX]
 
-Furthermore, one must install the pyobjc bridge used by the Qt modules.  Again, we have included a pre-compiled version in the downloads section MacEssentials file.  After installation, from the terminal application run:
-{{{
-sudo easy_install pyobjc==2.3
-}}}
+
+= Installation on Microsoft Windows =
+The developers of QuTiP have not touched Windows in several years, and will be continuing this trend for the foreseeable future.  Therefore we recommend the *[http://www.enthought.com/products/epd.php Enthought Python Distribution]* version 7.1 or higher to satisfy the QuTiP dependencies.
 
 = Does it work? =
 To verify that everything is installed properly, from the python command line:
@@ -75,6 +62,6 @@ If nothing but another command prompt appears then you are ready to go.  To see 
 {{{
 about()
 }}}
-that will pop-up the about box for QuTiP which gives you information on the installed version of QuTiP and its dependencies.  If instead you get command-line output, then your graphics is not installed properly or unavailable.
+which will pop-up the about box for QuTiP which gives you information on the installed version of QuTiP and its dependencies.  If instead you get command-line output, then your graphics is not installed properly or unavailable.
 
 http://qutip.googlecode.com/svn/wiki/images/about.png
