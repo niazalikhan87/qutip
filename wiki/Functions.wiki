@@ -182,7 +182,7 @@ Qobj data =
 ==destroy(N)==
     @brief Bosonic destruction (lowering) operator for Hilbert space with dimension N
     
-    @param *N* number of levels in truncated  Hilbert space
+    @param *N* number of levels in truncated Hilbert space
     
     @returns *Qobj* quantum object for destruction operator on truncated Hilbert space
 {{{
@@ -195,6 +195,25 @@ Qobj data =
  [ 0.          0.          0.          0.        ]]
 }}}
 ----
+
+==displace(N,alpha)==
+    @brief Single mode displacement operator for Hilbert space of dimension N and amplitude alpha
+
+	@param *N* number of levels in truncated Hilbert space
+	
+	@param *alpha* displacement amplitude (and phase)
+	
+	@returns *Qobj* quantum object representing displacement operator
+{{{
+displace(3,0.25j)
+Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = False
+Qobj data = 
+[[ 0.96923524+0.j          0.00000000+0.24226042j -0.04350794+0.j        ]
+ [ 0.00000000+0.24226042j  0.90770572+0.j          0.00000000+0.34260797j]
+ [-0.04350794+0.j          0.00000000+0.34260797j  0.93847048+0.j        ]]
+}}}
+----
+
 =E=
 ==expect(oper,state)==
     @brief calculates the expectation value for operator *oper* in state *state*
@@ -628,6 +647,24 @@ Qobj data =
     @param *A* quantum operator for pre-multiplication
     
     @returns *Qobj* superoperator formed from input qauntum object
+----
+
+==squeez(N,sp)==
+	@brief Single mode squeezing operator for Hilbert space of dimension N and squeezing parameter sp
+    
+	@param: *N* size of truncated Hilbert space
+    
+	@param *sp* squeezing parameter
+    
+	@returns *Qobj* quantum object for squeezing operator
+{{{
+squeez(3,0.2j)
+Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = False
+Qobj data = 
+[[ 0.99001666+0.j          0.00000000+0.j          0.00000000-0.14095042j]
+ [ 0.00000000+0.j          1.00000000+0.j          0.00000000+0.j        ]
+ [ 0.00000000-0.14095042j  0.00000000+0.j          0.99001666+0.j        ]]
+}}}
 ----
 
 ==steady(L)==
