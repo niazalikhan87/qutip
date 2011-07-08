@@ -16,4 +16,4 @@
     * [ExamplesTrilinearMonteCarlo]
     * [ExamplesDampedParAmp]
     * [ExamplesDrivenCavitySS]
-  *[Contributors Contributors]
+  * [Contributors Contributors]
