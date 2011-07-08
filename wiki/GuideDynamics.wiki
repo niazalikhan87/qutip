@@ -1,8 +1,62 @@
 #summary Time-evolution of quantum systems.
 
-In this section we describe how to set up time-evolution simulations of closed and open quantum systems.
+In this section we describe how to set up time-evolution simulations of closed
+and open quantum systems. 
 
 = Schrödinger equation =
+
+The Schrödinger equation, which governs the time-evolution of closed quantum
+systems, is defined by its Hamiltonian and state vector. In the previous section,
+[GuideComposite Creating and manipulating composite objects with tensor and ptrace],
+we showed how Hamiltonians and state vectors are constructed in QuTiP.
+Given a Hamiltonian, we can calculate the unitary (non-dissipative)
+time-evolution of an arbitrary state vector *psi0* using the QuTiP function
+*[Functions#ode_solve(H, rho0, tlist, c_op_list, expt_op_list, &H_args) ode_solve()]*.
+It evolves the state vector and evaluates the expectation values of a set of 
+operators *expt_op_list* at the points in time in the list *tlist*. 
+
+For example, the time evolution of a quantum spin-1/2 system with tunneling
+rate 0.1 that initially is in the up state is calculated, and the 
+expectation values of the sigma-Z operator evaluated, with the following code: 
+{{{
+>> H = 2 * pi * 0.1 * sigmax()
+>> psi0 = basis(2, 0)
+>> tlist = linspace(0.0, 10.0, 20.0)
+>> ode_solve(H, psi0, tlist, [], [sigmaz()])
+array([[ 1.00000000+0.j,  0.78914229+0.j,  0.24548596+0.j, -0.40169696+0.j,
+        -0.87947669+0.j, -0.98636356+0.j, -0.67728166+0.j, -0.08257676+0.j,
+         0.54695235+0.j,  0.94582040+0.j,  0.94581706+0.j,  0.54694422+0.j,
+        -0.08258520+0.j, -0.67728673+0.j, -0.98636329+0.j, -0.87947111+0.j,
+        -0.40168898+0.j,  0.24549302+0.j,  0.78914528+0.j,  0.99999927+0.j]])
+}}}
+The brackets in the fourth argument is an empty list of collapse operators, 
+since we consider unitary evolution in this example. See the next section for examples
+on how dissipation is included by defining a list of collapse operators.
+
+The function returns an array of expectation values for the operators that are
+included in the list in the fifth argument. Adding operators to this
+list results in a larger putout array returned by the function (one list of
+numbers, corresponding to the times in tlist, for each operator):
+{{{
+>> ode_solve(H, psi0, tlist, [], [sigmaz(), sigmay()])
+array([[  1.00000000e+00+0.j,   7.89142292e-01+0.j,   2.45485961e-01+0.j,
+         -4.01696962e-01+0.j,  -8.79476686e-01+0.j,  -9.86363558e-01+0.j,
+         -6.77281655e-01+0.j,  -8.25767574e-02+0.j,   5.46952346e-01+0.j,
+          9.45820404e-01+0.j,   9.45817056e-01+0.j,   5.46944216e-01+0.j,
+         -8.25852032e-02+0.j,  -6.77286734e-01+0.j,  -9.86363287e-01+0.j,
+         -8.79471112e-01+0.j,  -4.01688979e-01+0.j,   2.45493023e-01+0.j,
+          7.89145284e-01+0.j,   9.99999271e-01+0.j],
+       [  0.00000000e+00+0.j,  -6.14214010e-01+0.j,  -9.69403055e-01+0.j,
+         -9.15775807e-01+0.j,  -4.75947716e-01+0.j,   1.64596791e-01+0.j,
+          7.35726839e-01+0.j,   9.96586861e-01+0.j,   8.37166184e-01+0.j,
+          3.24695883e-01+0.j,  -3.24704840e-01+0.j,  -8.37170685e-01+0.j,
+         -9.96585195e-01+0.j,  -7.35720619e-01+0.j,  -1.64588257e-01+0.j,
+          4.75953748e-01+0.j,   9.15776736e-01+0.j,   9.69398541e-01+0.j,
+          6.14206262e-01+0.j,  -8.13905967e-06+0.j]])
+}}}
+
+If an empty list of operators is pass as parameter five, the *ode_solve* function
+returns a list of state vectors for the times specified in *tlist*.
 
 
 = Master equation =
