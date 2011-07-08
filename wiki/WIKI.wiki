@@ -1,4 +1,4 @@
-http://dml.riken.jp/~paul/code.google/logo.png
+http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 
 = Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
