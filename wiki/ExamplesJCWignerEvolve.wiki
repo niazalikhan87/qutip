@@ -77,7 +77,7 @@ def func(args):
     #plt.colorbar()
     plt.savefig("jc_images/jc_model_wigner_"+str(i)+".png")       
     plt.close()
-    print i
+    print i #<--- useful to get feedback on how far along the computation is
 
 parfor(func,args) #evaluate func in parallel
 }}}
