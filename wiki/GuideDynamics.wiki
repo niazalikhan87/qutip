@@ -99,5 +99,59 @@ Qobj data =
 
 = Non-unitary evolution: Master equation =
 
+For non-unitary evolution of a quantum systems, i.e., evolution that includes
+incoherent processes such as relaxation and dephasing, it is common to use a
+master equations. In QuTiP, the same function (*ode_solve*) is used for 
+evolution both according to the Schrödinger equation and to master equations,
+even though these two equations of motions are very different. The *ode_solve*
+function automatically determines if it is sufficient to use the Schrödinger 
+equation (if no collapse operators were given) or if it has to use the
+master equation (if collapse operators were given). Note that to calculate
+the time evolution according to the Schrödinger equation is easier and much
+faster (for large systems) than using the master equation. 
+
+What is new in the master equation compared to the Schrödinger equation are
+processes that describe dissipation in the quantum system due to its interaction
+with an environment. These environmental interactions are defined by the
+operators through which the system couples to the environment, and rates that
+describe the strength of the processes.
+
+In QuTiP, the product of the square root of the rate and the operator that 
+describe the dissipation process is called a collase operator. A list of 
+collapse operators (*c_op_list*) is passed as the fourth argument to the 
+*ode_solve* function in order to define the dissipation processes in the master
+eqaution. When the *c_op_list* isn't empty, the *ode_solve* function will use
+the master equation instead of the unitary Schröderinger equation.
+
+Using the example with the spin dynamics from the previous section, we can
+easily add a relaxation process (describing the dissipation of energy from the
+spin to its environment), by adding `sqrt(0.05) * sigmax()` to
+the previously empty list in the fourth parameter to the *ode_solve* function:
+{{{
+tlist = linspace(0.0, 10.0, 100)
+expt_list = ode_solve(H, psi0, tlist, [sqrt(0.05) * sigmax()], [sigmaz(), sigmay()])
+from pylab import *
+plot(tlist, real(expt_list[0]))
+plot(tlist, real(expt_list[1]))
+xlabel('Time')
+ylabel('Expectation values')
+legend(("Sigma-Z", "Sigma-Y"))
+show()
+}}}
+Here, `0.05` is the rate and the operator `sigmax()` describes the dissipation 
+process.
+
+http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics-dissip.png
+
 
 = Non-unitary evolution: Monte-Carlo evolution =
+
+
+
+
+
+
+
+
+
+
