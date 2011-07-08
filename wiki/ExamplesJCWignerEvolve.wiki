@@ -75,7 +75,7 @@ def func(args):
     fig.colorbar(surf, shrink=0.65, aspect=20)
     #plt.pcolor(X, Y, W)
     #plt.colorbar()
-    plt.savefig("jc_animation/jc_model_wigner_"+str(i)+".png")       
+    plt.savefig("jc_images/jc_model_wigner_"+str(i)+".png")       
     plt.close()
     print i
 
