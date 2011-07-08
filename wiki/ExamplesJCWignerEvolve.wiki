@@ -84,4 +84,6 @@ parfor(func,args) #evaluate func in parallel
 
 The saved images may be used to generate a animation of the Wigner function dynamics.
 
-http://qutip.googlecode.com/svn/wiki/images/JC_Wigner_evolution.mp4
+http://qutip.googlecode.com/svn/wiki/images/JC_Wigner_evolution.gif
+
+A higher resolution movie can also be seen at: http://qutip.googlecode.com/svn/wiki/images/JC_Wigner_evolution.mp4
