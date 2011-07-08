@@ -55,8 +55,23 @@ array([[  1.00000000e+00+0.j,   7.89142292e-01+0.j,   2.45485961e-01+0.j,
           4.75953748e-01+0.j,   9.15776736e-01+0.j,   9.69398541e-01+0.j,
           6.14206262e-01+0.j,  -8.13905967e-06+0.j]])
 }}}
+The resulting list of expectation values can easily be visualized using
+matplotlib's plotting functions:
+{{{
+>> tlist = linspace(0.0, 10.0, 100)
+>> expt_list = ode_solve(H, psi0, tlist, [], [sigmaz(), sigmay()])
+>> from pylab import *
+>> plot(tlist, real(expt_list[0]))
+>> plot(tlist, real(expt_list[1]))
+>> xlabel('Time')
+>> ylabel('Expectation values')
+>> legend(("Simga-Z", "Sigma-Y"))
+>> show()
+}}}
 
-If an empty list of operators is passed as firth parameter, the *ode_solve* function
+http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics.png
+
+If an empty list of operators is passed as fifth parameter, the *ode_solve* function
 returns a list of state vectors for the times specified in *tlist*.
 {{{
 >> tlist = [0.0, 1.0]
@@ -81,7 +96,8 @@ Qobj data =
 ]
 }}}
 
-= Non-unitary evolution =
+
+= Non-unitary evolution: Master equation =
 
 
-= Monte-Carlo evolution =
+= Non-unitary evolution: Monte-Carlo evolution =
