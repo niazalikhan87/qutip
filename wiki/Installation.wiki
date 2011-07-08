@@ -1,7 +1,22 @@
 #summary Qutip installation instructions
 *<wiki:toc max_depth="2" />*
 
-= Installation on Ubuntu Linux (11.04+) =
+=General Installation Requirements =
+QuTiP requires the following packages to run:
+
+|| *Package* || *Version* || *Details* ||
+|| Python || 2.6+ (not 3) || Requires multiprocessing (v2.6 and higher only).  At present, Matplotlib does not work for Python 3 ||
+|| Numpy || 1.5.1+ || Not tested on lower versions. ||
+|| Scipy || 0.8+ || Not tested on lower versions (use 0.9+ if possible). ||
+|| Matplotlib || 1.0.1+ || Some plotting routines do not work on lower versions. ||
+|| Qt libraries || 4.7.3+|| Not tested on lower versions.||
+|| PyQt4 || 4.8+ || Optional, required only for GUI elements. Can be substituted with PySide. ||
+|| PySide || 1.0+ || Optional, required only for GUI elements. PyQt4 can be used instead. ||
+|| PyObjC || 2.2+ || *MAC ONLY.* Very optional.  Needed only for a GUI Monte-Carlo progress bar on the mac. Other GUI elements will work without this package.||
+
+*On all platforms (Linux, Mac, Windows), QuTiP works "out-of-the-box" using the [http://www.enthought.com/products/epd.php Enthought Python Distribution].  This distribution is created by the developers of Numpy and Scipy, is free for academic use, and does not require a compiler.*
+
+= Installation on Ubuntu Linux =
 
  * Requirements. 
 {{{
