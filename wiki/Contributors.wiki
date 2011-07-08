@@ -1,0 +1,9 @@
+#list of people who have contributed to QuTiP
+
+*Below is a list of people who have in one way or another contributed to the development of QuTiP.*
+
+=Contributors=
+
+Jonas Neergaard-Nielsen - Bug hunter
+
+
