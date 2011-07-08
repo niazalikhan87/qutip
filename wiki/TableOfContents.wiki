@@ -11,6 +11,7 @@
     * [ExamplesWigner] 
     * [ExamplesSchCatDist]  
     * [ExamplesJaynesCummingsModel]
+    * [ExamplesJCWignerEvolve]
     * [ExamplesHeisenbergSpinChain]
     * [ExamplesMonteCarloExpectation]
     * [ExamplesTrilinearMonteCarlo]
