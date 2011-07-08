@@ -11,9 +11,10 @@ systems, is defined by its Hamiltonian and state vector. In the previous section
 we showed how Hamiltonians and state vectors are constructed in QuTiP.
 Given a Hamiltonian, we can calculate the unitary (non-dissipative)
 time-evolution of an arbitrary state vector *psi0* using the QuTiP function
-*[Functions#ode_solve(H, rho0, tlist, c_op_list, expt_op_list, &H_args) ode_solve()]*.
-It evolves the state vector and evaluates the expectation values of a set of 
-operators *expt_op_list* at the points in time in the list *tlist*. 
+*[Functions#ode_solve(H,rho0,tlist,c_op_list,expt_op_list,&H_args) ode_solve()]*.
+It evolves the state vector and evaluates the expectation values for a set of 
+operators *expt_op_list* at the points in time in the list *tlist*,
+using an ordinary differential equation solver. 
 
 For example, the time evolution of a quantum spin-1/2 system with tunneling
 rate 0.1 that initially is in the up state is calculated, and the 
@@ -55,9 +56,30 @@ array([[  1.00000000e+00+0.j,   7.89142292e-01+0.j,   2.45485961e-01+0.j,
           6.14206262e-01+0.j,  -8.13905967e-06+0.j]])
 }}}
 
-If an empty list of operators is pass as parameter five, the *ode_solve* function
+If an empty list of operators is passed as firth parameter, the *ode_solve* function
 returns a list of state vectors for the times specified in *tlist*.
-
+{{{
+>> tlist = [0.0, 1.0]
+>> ode_solve(H, psi0, tlist, [], [])
+[
+Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
+Qobj data = 
+[[ 1.+0.j]
+ [ 0.+0.j]]
+, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
+Qobj data = 
+[[ 0.80901765+0.j        ]
+ [ 0.00000000-0.58778584j]]
+, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
+Qobj data = 
+[[ 0.3090168+0.j        ]
+ [ 0.0000000-0.95105751j]]
+, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
+Qobj data = 
+[[-0.30901806+0.j        ]
+ [ 0.00000000-0.95105684j]]
+]
+}}}
 
 = Master equation =
 
