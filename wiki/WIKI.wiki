@@ -9,6 +9,8 @@ http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 
 *[Examples Examples]* - A list of examples demonstrating the use of QuTiP in solving a variety of calculations.
 
+*[Contributors Contributors]* - A list of people who have helped to improve QuTiP. 
+
 
 
 = Acknowledgements =
