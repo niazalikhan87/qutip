@@ -91,4 +91,4 @@ print a
 7
 [ 0  2  4  6  8 10 12 14 16 18]
 }}}
-This example also highlights the fact that the parfor function does not evaluate the sequence of elements sequentially.  Therefore, passing an index variable, as done in the previous example, is useful if one needs to keep track of individual function evaluations.
+This example also highlights the fact that the parfor function does not evaluate the sequence of elements sequentially.  Therefore, passing an index variable, as done in the previous example, is useful if one needs to keep track of individual function evaluations.  Parfor is also useful for repeated tasks such as generating plots corresponding to the dynamical evolution of your system.  An example of this is shown in the *[ExamplesJCWignerEvolve  Jaynes-Cumming Wigner evolution]* example.
