@@ -36,7 +36,7 @@ on how dissipation is included by defining a list of collapse operators.
 
 The function returns an array of expectation values for the operators that are
 included in the list in the fifth argument. Adding operators to this
-list results in a larger putout array returned by the function (one list of
+list results in a larger output array returned by the function (one list of
 numbers, corresponding to the times in tlist, for each operator):
 {{{
 >> ode_solve(H, psi0, tlist, [], [sigmaz(), sigmay()])
@@ -167,6 +167,65 @@ Now a slightly more complex example: Consider a two-level atom coupled to a leak
 http://qutip.googlecode.com/svn/wiki/images/guide-jc-dynamics.png
 
 = Non-unitary evolution: Monte-Carlo evolution =
+
+= Evolution with time-dependent Hamiltonians (unitary and nonunitary) =
+
+In the previous examples of quantum system evolution, we assumed that
+the systems under consideration were described by a time-independent
+Hamiltonian. The two main evolution solvers in QuTiP, *ode_solve* and
+*mcsolve*, can also handle time-dependent Hamiltonians. If a callback function
+is passed as first parameter to the solver function (instead of *Qobj*
+Hamiltonian), then this function is called at each time step and it should
+to return the *Qobj* Hamiltonian for that point in time. The callback function
+takes two arguments: the time `t` and list additional Hamiltonian parameters
+`H_param`. This list of additional parameters is the same object as is passed
+as the sixth parameter to the solver function (only used for time-dependent
+Hamiltonians).
+
+For example, let's consider a two-level system with energy splitting 1.0, and
+subjected to a time-dependent field that couples to the Sigma-X operator with 
+ampltidue 0.1. Furthermore, to make the example a little bit more interesting,
+let's also assume that the two-level system is subject to relaxation, with 
+relaxation rate 0.01. The following code calculates the dynamics of the system
+in the absence and in the presence of the time-dependent driving signal:
+{{{
+>> def hamiltonian_t(t, args):
+>>     H0 = args[0]
+>>     H1 = args[1]
+>>     w  = args[2]
+>>     return H0 + H1 * sin(w * t)
+>> 
+>> H0 = - 2*pi * 0.5  * sigmaz()
+>> H1 = - 2*pi * 0.05 * sigmax() 
+>> H_args = (H0, H1, 2*pi*1.0)
+>> psi0 = fock(2, 0)                   # intial state |0>
+>> c_op_list = [sqrt(0.01) * sigmam()] # relaxation
+>> tlist = arange(0.0, 50.0, 0.01)
+>>
+>> expt_sz    = ode_solve(H0, psi0, tlist, c_op_list, [sigmaz()])
+>> expt_sz_td = ode_solve(hamiltonian_t, psi0, tlist, c_op_list, [sigmaz()], H_args)
+>> 
+>> from pylab import *
+>> plot(tlist, expt_sz[0],    'r')
+>> plot(tlist, expt_sz_td[0], 'b')
+>> ylabel("Expectation value of Sigma-Z")
+>> xlabel("time")
+>> legend(("H = H0", "H = H0 + H1 * sin(w*t)"), loc=4)
+>> show()
+}}}
+
+http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
+
+
+
+
+
+
+
+
+
+
+
 
 
 
