@@ -172,16 +172,18 @@ Quantum trajectory Monte-Carlo is an alternative approach for calculating the
 time-evolution of dissipative quantum systems. Unlike the master equation, 
 the Monte-Carlo method is based on the unitary evolution and uses the state
 vector instead of density matrix to describe the state of the system.
-Dissipation is then introduced into the dynamics by stochastic quantum jumps,
+Dissipation is introduced into the dynamics by stochastic quantum jumps,
 whose rate and effect on the state of the system is described by the same
 collapse operators that are used to define the master equation. The average of
 a large number of such stochastic trajectories describes the dissipative 
 dynamics of the system, and has been shown to give identical results as the
-master equation. In QuTiP, Monto-Carlo evolution is implemented with the
+master equation. 
+
+In QuTiP, Monto-Carlo evolution is implemented with the
 *mcsolve* function. It takes nearly the same arguments as the *ode_solve*
 function for master-equation evolution, expect for one additional parameter
-`ntraj` (forth parameter), which define the number of stochastic trajectories
-that should be average. This number should usually be in the range 100 - 500 to
+`ntraj` (fourth parameter), which define the number of stochastic trajectories
+that should be averaged. This number should usually be in the range 100 - 500 to
 give a smooth results (although the optimal number for `ntraj` can vary from
 case to case).
 
@@ -202,6 +204,7 @@ invoke the *mcsolve* function instead of *ode_solve*, and a new parameter
 >> from pylab import *
 >> plot(tlist, real(expt_list[0]))
 >> plot(tlist, real(expt_list[1]))
+>> title('Monte-Carlo time evolution')
 >> xlabel('Time')
 >> ylabel('Expectation values')
 >> legend(("cavity photon number", "atom excitation probability"))
@@ -209,6 +212,16 @@ invoke the *mcsolve* function instead of *ode_solve*, and a new parameter
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/guide-mc-dynamics.png
+
+The advantage of the Monte-Carlo method over the master equation approach is that
+only the state vector is required to be kept in the computer memory (as opposed to
+the entire density matrix). For large quantum system this becomes a significant
+advantage and the Monte-Carlo is therefore generally recommended for such systems.
+But on the other hand, for small systems the added overhead of averaging a large 
+number of stochastic trajectories to obtain the open system dynamics does not
+outwieght the benefits of the (small) memory saving, 
+and master equations are therefore generally more efficient for small quantum systems.
+
 
 = Evolution with time-dependent Hamiltonians (unitary and non-unitary) =
 
