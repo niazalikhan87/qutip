@@ -217,10 +217,8 @@ The advantage of the Monte-Carlo method over the master equation approach is tha
 only the state vector is required to be kept in the computer memory (as opposed to
 the entire density matrix). For large quantum system this becomes a significant
 advantage and the Monte-Carlo is therefore generally recommended for such systems.
-But on the other hand, for small systems the added overhead of averaging a large 
-number of stochastic trajectories to obtain the open system dynamics does not
-outwieght the benefits of the (small) memory saving, 
-and master equations are therefore generally more efficient for small quantum systems.
+But for small systems, on the other hand, the added overhead of averaging a large number of stochastic trajectories to obtain the open system dynamics outweigh the benefits of the (small) memory saving, 
+and master equations are therefore generally more efficient.
 
 
 = Evolution with time-dependent Hamiltonians (unitary and non-unitary) =
@@ -270,8 +268,6 @@ in the absence and in the presence of the time-dependent driving signal:
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
-
-
 
 
 
