@@ -5,6 +5,7 @@
     * [GuideBasics Intro. to Quantum object (Qobj) class] 
     * [GuideComposite Creating and manipulating composite objects with tensor and ptrace] 
     * [GuideDynamics Time evolution of quantum systems]
+    * [GuideBloch Plotting quit states on the Bloch sphere with the Bloch class]
     * [GuideParfor Parallel computations using the parfor function]
   * [Functions Function list]
   * [Examples Examples]
