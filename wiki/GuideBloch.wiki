@@ -1,0 +1,2 @@
+#guide to plotting with the Bloch sphere class
+
