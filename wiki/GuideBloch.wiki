@@ -18,7 +18,7 @@ In addition to the `show()` command, the Bloch class has the following functions
 
 ||Name|| Input Parameters || Usage ||
 ||add_points|| list/array of (x,y,z) points|| adds a single or set of data points to be plotted on the sphere||
-||add_state|| Qobj representing state or density matrix of a two-level system|| can only handle a single input state||
+||add_states|| Qobj representing state or density matrix of a two-level system|| can only handle a single input state||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||save||format (optional) format of output file, direc (optional) output directory|| saves Bloch sphere as a file with format (default='png') to given directory (default = current working directory)||
 ||show|| none || creates Bloch sphere with given data sets||
@@ -42,12 +42,10 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png
 and then add another vector corresponding to the |up> state:
 {{{
 up=basis(2,0)
-b.add_state(up)
+b.add_states(up)
 b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png
 
 Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).
-
-
 
