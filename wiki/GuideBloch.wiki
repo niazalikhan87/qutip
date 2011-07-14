@@ -1,2 +1,14 @@
 #guide to plotting with the Bloch sphere class
 
+==Intro==
+When studying the dynamics of a two-level system, it is often convent to visualize the state of the system by plotting the state-vector on the Bloch sphere.  In QuTiP, we have created the Bloch class to allow for easy creation and manipulation of of data sets, both vectors and data points, on the Bloch sphere.
+
+==The Bloch class==
+In QuTiP, creating a Bloch sphere is accomplished by calling:
+{{{
+b=Bloch()
+}}}
+which will load an instance of the Bloch class.  Before getting into the details of this object, we can plot the blank Bloch sphere associated with this object via:
+{{{
+b.show()
+}}}
