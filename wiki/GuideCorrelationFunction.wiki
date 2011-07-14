@@ -1,0 +1,6 @@
+#summary Calculating correlation functions
+#labels correlation
+
+= Correlation functions =
+
+Here we describe how to calculate two-time correlation functions in QuTiP. Using the quantum regression theorem, we apply use the equation of motion for the system itself also to calculate two-time correlation functions. In QuTiP, there are three functions that assists in this process: *correlation_ode*, *correlation_es*, and *correlation_mc*. As the names suggest, these functions use the ODE, the exponential series, and the Monte-Carlo solvers, respectively, to evolve the correlation functions in time.
