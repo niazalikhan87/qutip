@@ -39,7 +39,7 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png
 
-and then add another vector corresponding to the up state:
+and then add another vector corresponding to the |up> state:
 {{{
 up=basis(2,0)
 b.add_state(up)
@@ -47,9 +47,7 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png
 
-Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set.
-
-
+Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).
 
 
 
