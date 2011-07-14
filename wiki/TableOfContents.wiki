@@ -19,4 +19,5 @@
     * [ExamplesTrilinearMonteCarlo]
     * [ExamplesDampedParAmp]
     * [ExamplesDrivenCavitySS]
+    * [ExamplesBlochQubitDecay] 
   * [Contributors Contributors]
