@@ -8,7 +8,7 @@ In QuTiP, creating a Bloch sphere is accomplished by calling:
 {{{
 b=Bloch()
 }}}
-which will load an instance of the Bloch class.  Before getting into the details of this object, we can plot the blank Bloch sphere associated with this object via:
+which will load an instance of the Bloch class.  Before getting into the details of this object, we can plot the blank Bloch sphere associated with this instance via:
 {{{
 b.show()
 }}}
@@ -21,3 +21,22 @@ In addition to the `show()` command, the Bloch class has the following functions
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||save||format (optional) format of output file, direc (optional) output directory|| saves Bloch sphere as a file with format (default='png') to given directory (default = current working directory)||
 ||show|| none || creates Bloch sphere with given data sets||
+
+As an example, we can add a single data point:
+{{{
+xpnt=[1,0,0]
+b.add_points(xpnt)
+b.show()
+}}}
+
+
+
+
+
+
+
+
+
+
+
+
