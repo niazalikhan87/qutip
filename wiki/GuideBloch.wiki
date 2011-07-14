@@ -12,4 +12,5 @@ which will load an instance of the Bloch class.  Before getting into the details
 {{{
 b.show()
 }}}
-http://qutip.googlecode.com/svn/wiki/images/Bloch_empty.png
+http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
+
