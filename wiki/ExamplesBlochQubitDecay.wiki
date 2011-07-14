@@ -56,3 +56,5 @@ sphere.vector_color = ['b']
 sphere.add_vectors([sin(theta),0,cos(theta)])
 sphere.show()
 }}}
+
+http://qutip.googlecode.com/svn/wiki/images/example_bloch_decay.png
