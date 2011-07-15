@@ -429,7 +429,7 @@ Qobj data =
 
 =M=
 
-==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,#options=Mcoptions())==
+==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&options=Odeoptions())==
     @brief Monte-Carlo evolution of a state vector |psi> for a given Hamiltonian and sets of collapse operators and operators for calculating expectation values.  Options for solver are given by the Mcoptions class.
     
     @param *H* quantum object representing system Hamiltonian
@@ -669,7 +669,7 @@ Qobj data =
 }}}
 ----
 
-==steady(L,&maxiter,&tol)==
+==steady(L,&maxiter=100=,&tol=1e-6)==
    @brief Calculate the steady state for the evolution subject to the supplied Louvillian using the inverse power method. See any Linear Algebra book with a iterative methods section for details.
    
    @param *L* Louvillian superoperator
@@ -683,7 +683,7 @@ Qobj data =
    See *[GuideSteadyState Guide to Steady state solver]* for more details
 ----
 
-==steadystate(H, c_op_list,&maxiter,&tol)==
+==steadystate(H, c_op_list,&maxiter=100,&tol=1e-6)==
     @brief Calculate the steady state for the evolution subject to the supplied Hamiltonian and lsit of collapse operators. Does nothing more than form the Louvillian for you and call *[Functions#steady(L) steady]*.
     
     @param *H* Hamiltonian operator
