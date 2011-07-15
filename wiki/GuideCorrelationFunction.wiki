@@ -5,9 +5,7 @@
 
 Here we demonstrate how to calculate two-time correlation functions in QuTiP. Using the quantum regression theorem, we apply use the equation of motion for the system itself also to calculate two-time correlation functions. In QuTiP, there are family functions that assists in this process: *correlation_ode*, *correlation_es*, *correlation_mc*, and *correlation_ss_ode*, *correlation_ss_es*, *correlation_ss_mc*. As the names suggest, these functions use the ODE, the exponential series, and the Monte-Carlo solvers, respectively, to evolve the correlation functions in time. The following table describes in detail the usage of each function:
 
-
-|| *Function* || *Input parameters" || *Usage* ||
-
+|| *Function* || *Input parameters* || *Usage* ||
 || `correlation_ss_es` || `H` - the Hamiltonian, `tlist` - list of times to evaluate the correlation function, `c_op_list` - list of collapse operator, `a_op` and `b_op` - the operators for which to calculate correlations. || Calculates the steady state correlation <a(0)b(tau)>, using the Exponential series solver. ||
 || `correlation_ss_ode` || Same as above. || Calculates the steady state correlation <a(0)b(tau)>, using the ODE solver. ||
 || `correlation_ss_mc`  || Same as above. || Calculates the steady state correlation <a(0)b(tau)>, using the Monte-Carlo evolution. ||
@@ -15,3 +13,24 @@ Here we demonstrate how to calculate two-time correlation functions in QuTiP. Us
 || `correlation_ode` || Same as above. || Calculates the steady state correlation <a(t1)b(t1+t2)>, using the ODE solver. ||
 || `correlation_mc`  || Same as above. || Calculates the steady state correlation <a(t1)b(t1+t2)>, using the Monte-Carlo evolution. ||
 
+The most common use-case is to calculate correlation functions of the kind `<a(0)b(t)>`, in which case we use the correlation function solvers that start from the steady state, i.e., the *correlation_ss_xxx* functions. These functions return a vector (in general complex) with the correlations between the operators as a function of the difference time. 
+
+The following code demonstrates how to calculate the `<x(0)x(t)>` correlation for a leaky cavity:
+{{{
+>> tlist = linspace(0,10.0,200);
+>> a  = destroy(10)
+>> x  = a.dag() + a
+>> H  = a.dag()*a
+>> 
+>> corr1 = correlation_ss_ode(H, tlist, [sqrt(0.5)*a], x, x)
+>> corr2 = correlation_ss_ode(H, tlist, [sqrt(1.0)*a], x, x)
+>> corr3 = correlation_ss_ode(H, tlist, [sqrt(2.0)*a], x, x)
+>> 
+>> from pylab import *
+>> plot(tlist, real(corr1), tlist, real(corr2), tlist, real(corr3))
+>> xlabel('Time')
+>> ylabel('Correlation <x(0)x(t)>')
+>> show()
+}}}
+
+http://qutip.googlecode.com/svn/wiki/images/guide-correlation-1.png
