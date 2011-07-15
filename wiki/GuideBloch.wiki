@@ -20,7 +20,7 @@ In addition to the `show()` command, the Bloch class has the following functions
 ||add_points|| list/array of (x,y,z) points, 's' (optional)|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
 ||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
-||clear|| none|| removes all data from Bloch sphere, and resets plot numbering.  Keeps customized figure properties.||
+||clear|| none|| removes all data from Bloch sphere.  Keeps customized figure properties in [GuideBloch$Configuring the Bloch sphere].||
 ||save||format (optional) format of output file, direc (optional) output directory|| saves Bloch sphere as a file with format (default='png') to given directory (default = current working directory)||
 ||show|| none || creates Bloch sphere with given data sets||
 
@@ -157,8 +157,6 @@ At the end of the last section we saw that the colors and marker shapes of the d
 ||b.ylpos||Position of y-axis labels||`[1.2,-1.2]`||
 ||b.zlabel||Labels for z-axis||`['$\left|0\\right>$','$\left|1\\right>$']` +z and -z (labels use LaTeX)||
 ||b.zlpos||Position of z-axis labels||`[1.2,-1.2]`||
-
-
 
 
 
