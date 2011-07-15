@@ -13,6 +13,8 @@ This is a (*not yet*) complete, alphabetical, function list for QuTiP.  Examples
 = B = 
 ==Bloch()==
     @brief Class for plotting vectors and data points on the Bloch sphere.
+
+    See *[GuideBloch Plotting on the Bloch sphere]* for further information
 ----
 
 ==basis(N,&m)==
@@ -790,8 +792,6 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
 
 
 
