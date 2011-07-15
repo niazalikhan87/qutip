@@ -49,6 +49,10 @@ A further possibility is to use the *[http://stronginference.com/scipy-superpack
 
 [http://developer.qt.nokia.com/wiki/PySide_Binaries_MacOSX]
 
+Installing QuTiP is the same as on linux.  From the QuTiP directory:
+{{{
+sudo python setup.py install
+}}}
 
 = Installation on Microsoft Windows =
 The developers of QuTiP have not touched Windows in several years, and will be continuing this trend for the foreseeable future.  Therefore we recommend the *[http://www.enthought.com/products/epd.php Enthought Python Distribution]* version 7.1 or higher to satisfy the QuTiP dependencies. QuTiP has also been reported to work out-of-the-box with
