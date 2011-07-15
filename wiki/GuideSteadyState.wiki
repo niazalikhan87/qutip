@@ -1,1 +1,36 @@
 #a brief overview of the steady-state dynamics solver.
+
+For open quantum systems with decay rates larger than the corresponding excitation rate, the system will tend toward a steady-state as t->infinity.  For many these systems, solving for the asymptotic state vector can be achieved using an iterative method faster than master equation or monte-carlo methods.  In QuTiP, the steady-state solution for a given Hamiltonian or Louivillian is given by `steadystate` or `steady`, respectively.  Both of these functions use an inverse power method with a random initial state.  (Details of these methods may be found in any iterative linear algebra text.)  In general, it is best to use the `steadystate` function with a given Hamiltonian and list of collapse operators.  This function will automatically build the Louivillian for you and then call the `steady` function. 
+
+
+{{{
+from qutip import *
+from pylab import *
+
+N=20
+a=destroy(N)
+H=a.dag()*a
+psi0=basis(N,10)
+kappa=0.1
+# collapse operators
+c_op_list = []
+n_th_a = 2 # temperature with average of 2 excitations
+rate = kappa * (1 + n_th_a)
+if rate > 0.0:
+    c_op_list.append(sqrt(rate) * a) #excitation operators
+rate = kappa * n_th_a
+if rate > 0.0:
+    c_op_list.append(sqrt(rate) * a.dag()) #decay operators
+ntraj=100
+tlist=linspace(0,50,100)
+mcexpt = mcsolve(H,psi0,tlist,ntraj,c_op_list, [a.dag()*a])
+meexpt = ode_solve(H,psi0,tlist,c_op_list, [a.dag()*a])
+final_state=steadystate(H,c_op_list)
+fexpt=expect(a.dag()*a,final_state)
+plot(tlist,mcexpt[0],tlist,meexpt[0],lw=1.5)
+axhline(y=fexpt,color='r',lw=1.5)
+ylim([0,10])
+xlabel('Time')
+ylabel('Number of excitations')
+show()
+}}}
