@@ -59,4 +59,4 @@ time coordinates:
 
 || http://qutip.googlecode.com/svn/wiki/images/guide-correlation-2.png alpha = 2.5 || http://qutip.googlecode.com/svn/wiki/images/guide-correlation-3.png  alpha = 0.0 ||
 
-
+Notice that in the figure above to the right, where `alpha = 0.0` and the system therefore initially is in its groundstate, that the correlations does not depend on the `t1` coordinate, and we could in this case have used the steadystate solver to only calculate the `t2` dependence. 
