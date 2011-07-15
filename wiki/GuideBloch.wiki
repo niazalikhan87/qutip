@@ -89,6 +89,7 @@ Adding multiple points to the Bloch sphere works slightly differently than addin
 xp=[cos(th) for th in linspace(0,2*pi,20)]
 yp=[sin(th) for th in linspace(0,2*pi,20)]
 zp=zeros(20)
+pnts=[xp,yp,zp]
 b.add_points(pnts)
 b.show()
 }}}
@@ -175,5 +176,3 @@ for k in range(120):
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/bloch_movie.gif
-
-
