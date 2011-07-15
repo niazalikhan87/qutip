@@ -18,8 +18,9 @@ In addition to the `show()` command, the Bloch class has the following functions
 
 ||Name|| Input Parameters || Usage ||
 ||add_points|| list/array of (x,y,z) points|| adds a single or set of data points to be plotted on the sphere||
-||add_states|| Qobj representing state or density matrix of a two-level system|| can only handle a single input state||
+||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
+||clear|| none|| removes all data from Bloch sphere, and resets plot numbering.  Keeps customized figure properties.||
 ||save||format (optional) format of output file, direc (optional) output directory|| saves Bloch sphere as a file with format (default='png') to given directory (default = current working directory)||
 ||show|| none || creates Bloch sphere with given data sets||
 
@@ -60,4 +61,56 @@ up=basis(2,0)
 b.add_states(up)
 b.show()
 }}}
-where we have commented out the extra `show()` commands.
+where we have commented out the extra `show()` commands.  We can also plot multiple points, vectors, and states at the same time by passing list or arrays instead of individual elements.  Before giving an example, we can use the `clear()` command to remove the current data from our Bloch sphere instead of creating a new instance:
+{{{
+b.clear()
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
+
+Now on the same Bloch sphere, we can plot the three states associated with the x, y, and z directions:
+{{{
+x=(basis(2,0)+(1+0j)*basis(2,1)).unit()
+y=(basis(2,0)+(0+1j)*basis(2,1)).unit()
+z=(basis(2,0)+(0+0j)*basis(2,1)).unit()
+b.add_states([x,y,z])
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_xyz_states.png
+
+a similar method works for adding vectors:
+{{{
+vec=[[1,0,0],[0,1,0],[0,0,1]]
+b.add_vectors(vec)
+}}}
+
+Adding multiple points to the Bloch sphere works slightly differently than adding multiple states or vectors.  For example, lets add a set of 20 points around the equator (after calling `clear()`):
+{{{
+xp=[cos(th) for th in linspace(0,2*pi,20)]
+yp=[sin(th) for th in linspace(0,2*pi,20)]
+zp=zeros(20)
+b.add_points(pnts)
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png
+
+Notice that, in contrast to states or vectors, each point remains the same color as the initial point.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
