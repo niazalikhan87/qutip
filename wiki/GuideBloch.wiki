@@ -17,7 +17,7 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
 In addition to the `show()` command, the Bloch class has the following functions:
 
 ||Name|| Input Parameters || Usage ||
-||add_points|| list/array of (x,y,z) points, meth (optional|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
+||add_points|| list/array of (x,y,z) points, 's' (optional)|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
 ||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||clear|| none|| removes all data from Bloch sphere, and resets plot numbering.  Keeps customized figure properties.||
@@ -94,14 +94,47 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png
 
-Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because multiple data points are interpreted, by default, to correspond to a single data point (single quit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in [ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere] example.
+Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because multiple data points are interpreted, by default, to correspond to a single data point (single quit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in the [ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere] example.  If instead we want to plot each of these data points as a separate quit state, we can indicate this using the following commands (again after `clear()`:
+{{{
+xp=[cos(th) for th in linspace(0,2*pi,20)]
+yp=[sin(th) for th in linspace(0,2*pi,20)]
+zp=zeros(20)
+b.add_points(pnts,'s') # <-- add a 's' string to signify 'single' points
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png
 
+Now, the data points will cycle through a variety of predefined colors, and marker shapes.  Now lets add another set of points, but this time we want the set to represent a single state as a function of time, say from the |up> state to the |down> state in the y-z plane:
+{{{
+xz=zeros(20)
+yz=[sin(th) for th in linspace(0,pi,20)]
+zz=[cos(th) for th in linspace(0,pi,20)]
+b.add_points([xz,yz,zz]) # no 's'
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png
 
+The entire code for this final sphere is thus:
+{{{
+b=Bloch()
+
+xp=[cos(th) for th in linspace(0,2*pi,20)]
+yp=[sin(th) for th in linspace(0,2*pi,20)]
+zp=zeros(20)
+
+xz=zeros(20)
+yz=[sin(th) for th in linspace(0,pi,20)]
+zz=[cos(th) for th in linspace(0,pi,20)]
+
+b.add_points([xp,yp,zp],'s')
+b.add_points([xz,yz,zz])
+
+b.show()
+}}}
+We have had to call `add_points` twice because adding more than one set of multiple data points is *not* supported by the add_points function.
 
 ==Configuring the Bloch sphere==
-
-
-
+At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming `b=Bloch()':   
 
 
 
