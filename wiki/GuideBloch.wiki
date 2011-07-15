@@ -35,7 +35,7 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_1pnt.png
 and then a single vector:
 {{{
 vec=[0,1,0]
-b.add_vectors(pnt)
+b.add_vectors(vec)
 b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png
