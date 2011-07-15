@@ -48,14 +48,14 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png
 
-Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).  In total, the code for constructing our Bloch sphere with two vectors and a single data point is:
+Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).  In total, the code for constructing our Bloch sphere with one vector, one state, and a single data point is:
 {{{
 b=Bloch()
 pnt=[1/sqrt(3),1/sqrt(3),1/sqrt(3)]
 b.add_points(pnt)
 #b.show()
 vec=[0,1,0]
-b.add_vectors(pnt)
+b.add_vectors(vec)
 #b.show()
 up=basis(2,0)
 b.add_states(up)
