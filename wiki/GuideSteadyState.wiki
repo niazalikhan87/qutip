@@ -34,3 +34,4 @@ xlabel('Time')
 ylabel('Number of excitations')
 show()
 }}}
+http://qutip.googlecode.com/svn/wiki/images/guide_steady.png
