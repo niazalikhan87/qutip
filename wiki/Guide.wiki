@@ -14,7 +14,7 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 *[GuideCorrelationFunction Solving two-time correlation functions]* - Guide to solving two-time correlation functions using various methods.
 
-*[GuideSteadyState Solving steady-state dynamics]* - Solving for steady-state solutions via *steady* and *steadystate*.
+*[GuideSteadyState Solving steady-state dynamics]* - Solving for steady-state solutions via *[Functions#steady(L,&maxiter=100=,&tol=1e-6) steady]* and *[Functions#steadystate(H, c_op_list,&maxiter=100,&tol=1e-6) steadystate]*.
 
 *[GuideBloch Plotting on the Bloch sphere]* - Plotting qubit states on the Bloch sphere using the Bloch class. 
 
