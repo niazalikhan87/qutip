@@ -1,5 +1,5 @@
 #guide to plotting with the Bloch sphere class
-
+*<wiki:toc max_depth="2" />*
 ==Intro==
 When studying the dynamics of a two-level system, it is often convent to visualize the state of the system by plotting the state-vector on the Bloch sphere.  In QuTiP, we have created the Bloch class to allow for easy creation and manipulation of data sets, both vectors and data points, on the Bloch sphere.
 
@@ -17,7 +17,7 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
 In addition to the `show()` command, the Bloch class has the following functions:
 
 ||Name|| Input Parameters || Usage ||
-||add_points|| list/array of (x,y,z) points|| adds a single or set of data points to be plotted on the sphere||
+||add_points|| list/array of (x,y,z) points, meth (optional|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
 ||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||clear|| none|| removes all data from Bloch sphere, and resets plot numbering.  Keeps customized figure properties.||
@@ -94,13 +94,11 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png
 
-Notice that, in contrast to states or vectors, each point remains the same color as the initial point.
+Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because multiple data points are interpreted, by default, to correspond to a single data point (single quit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in [ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere] example.
 
 
 
-
-
-
+==Configuring the Bloch sphere==
 
 
 
