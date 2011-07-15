@@ -12,7 +12,7 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 *[GuideDynamics Quantum dynamics]* - An overview of the multiple ways in which to calculate the evolution of a quantum system.
 
-*[GuideCorrelationFunction Solving two-time correlation functions]* -
+*[GuideCorrelationFunction Solving two-time correlation functions]* - Guide to solving two-time correlation functions using various methods.
 
 *[GuideSteadyState Solving steady-state dynamics]* - Solving for steady-state solutions via *steady* and *steadystate*.
 
