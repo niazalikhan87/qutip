@@ -7,7 +7,7 @@ Here we demonstrate how to calculate two-time correlation functions in QuTiP. Us
 
 || *Function* || *Input parameters* || *Usage* ||
 || `correlation_ss_es` || `H` - the Hamiltonian, `tlist` - list of times to evaluate the correlation function, `c_op_list` - list of collapse operators, `a_op` and `b_op` - the operators for which to calculate correlations. || Calculates the steady state correlation <a(0)b(tau)>, using the Exponential series solver. ||
-|| `correlation_ss_ode` || Same as above. || Calculates the steady state correlation <a(0)b(tau)>, using the ODE solver. ||
+|| `correlation_ss_ode` || Same as above. || CalculatIn QuTiP, we can evoluate such es the steady state correlation <a(0)b(tau)>, using the ODE solver. ||
 || `correlation_ss_mc`  || Same as above. || Calculates the steady state correlation <a(0)b(tau)>, using the Monte-Carlo evolution. ||
 || `correlation_es` || `H` - the Hamiltonian, `rho0` - initial state of the system, `t1list` and `t2list`- list of times to evaluate the correlation function (t1 for operator `a` and t1+t2 for operator `b`), `c_op_list` - list of collapse operators, `a_op` and `b_op` - the operators for which to calculate correlations. || Calculates the correlation <a(t1)b(t1+t2)>, using the Exponential series solver. ||
 || `correlation_ode` || Same as above. || Calculates the  correlation <a(t1)b(t1+t2)>, using the ODE solver. ||
@@ -59,4 +59,4 @@ time coordinates:
 
 || http://qutip.googlecode.com/svn/wiki/images/guide-correlation-2.png alpha = 2.5 || http://qutip.googlecode.com/svn/wiki/images/guide-correlation-3.png  alpha = 0.0 ||
 
-Notice that in the figure above to the right, where `alpha = 0.0` and the system therefore initially is in its groundstate, that the correlations does not depend on the `t1` coordinate, and we could in this case have used the steadystate solver to only calculate the `t2` dependence. 
+Notice that in the figure above to the right, where `alpha = 0.0` and the system therefore initially is in its steadystate, that the correlations does not depend on the `t1` coordinate, and we could in this case have used the steadystate solver to only calculate the `t2` dependence. 
