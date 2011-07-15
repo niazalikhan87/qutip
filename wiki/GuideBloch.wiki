@@ -94,7 +94,7 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png
 
-Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because multiple data points are interpreted, by default, to correspond to a single data point (single qubit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in the [ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere] example.  If instead we want to plot each of these data points as a separate quit state, we can indicate this using the following commands (again after `clear()`:
+Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because multiple data points are interpreted, by default, to correspond to a single data point (single qubit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in the [ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere] example.  If instead we want to plot each of these data points as a separate qubit state, we can indicate this using the following commands (again after `clear()`:
 {{{
 xp=[cos(th) for th in linspace(0,2*pi,20)]
 yp=[sin(th) for th in linspace(0,2*pi,20)]
@@ -175,7 +175,5 @@ for k in range(120):
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/bloch_movie.gif
-
-
 
 
