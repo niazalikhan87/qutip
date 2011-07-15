@@ -3,6 +3,8 @@ http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 = Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
 
+*[Tutorial Tutorial]* - Presentation giving a brief overview of QuTiP
+
 *[Guide Guide]* - Guide giving an overview of QuTiP data structures and functions.
 
 *[Functions Function list]* - Complete listing of functions and classes available in QuTiP.
