@@ -428,9 +428,6 @@ Qobj data =
 ----
 
 =M=
-==Mcoptions()==
-    @brief Class of options for the ODE solver used by the Monte-Carlo integrator.
-----
 
 ==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,#options=Mcoptions())==
     @brief Monte-Carlo evolution of a state vector |psi> for a given Hamiltonian and sets of collapse operators and operators for calculating expectation values.  Options for solver are given by the Mcoptions class.
@@ -467,6 +464,11 @@ Qobj data =
 }}}
 ----
 =O=
+
+==Odeoptions()==
+    @brief Class of options for the ODE solvers used by odesolve and mcsolve.
+----
+
 === ode_solve(H, rho0, tlist, c_op_list, expt_op_list, &H_args) ===
 
     Evolution of a state vector or density matrix (rho0) for a given
@@ -672,11 +674,13 @@ Qobj data =
    
    @param *L* Louvillian superoperator
    
-   @param *maxiter* (Optional) Max number of iterations to perform, default = 100
+   @param *maxiter* Max number of iterations to perform, default = 100
  
-   @param *tol* (Optional) Tolerance, default = 1e-6
+   @param *tol* Tolerance, default = 1e-6
  
    @returns *Qobj* State vector corresponding to steady state of system.
+
+   See *[GuideSteadyState Guide to Steady state solver]* for more details
 ----
 
 ==steadystate(H, c_op_list,&maxiter,&tol)==
@@ -686,11 +690,13 @@ Qobj data =
     
     @param *c_op_list* List of collapse operators
  
-    @param *maxiter* (Optional) Max number of iterations to perform, default = 100  
+    @param *maxiter* Max number of iterations to perform, default = 100  
     
-    @param *tol* (Optional) Tolerance, default = 1e-6
+    @param *tol* Tolerance, default = 1e-6
     
     @returns *Qobj* State vector corresponding to steady state of system.
+
+    See *[GuideSteadyState Guide to Steady state solver]* for more details
 ----
 
 ==swap()==
