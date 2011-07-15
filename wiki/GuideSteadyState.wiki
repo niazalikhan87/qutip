@@ -11,7 +11,7 @@ N=20 #number of basis states to consider
 a=destroy(N)
 H=a.dag()*a 
 psi0=basis(N,10) #initial state
-kappa=0.1 #coupling to cavity
+kappa=0.1 #coupling to oscillator
 
 # collapse operators
 c_op_list = []
