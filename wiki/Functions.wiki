@@ -1,6 +1,6 @@
 #Function list
 
-This is a complete, alphabetical, function list for QuTiP.  Examples are also given where appropriate.  Arguments with the &-sign are optional.
+This is a (*not yet*) complete, alphabetical, function list for QuTiP.  Examples are also given where appropriate.  Arguments with the &-sign are optional.
 *<wiki:toc max_depth="2" />*
 
 = A =
@@ -776,8 +776,6 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
 
 
 
