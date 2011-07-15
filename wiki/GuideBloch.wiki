@@ -100,6 +100,7 @@ Notice that, in contrast to states or vectors, each point remains the same color
 xp=[cos(th) for th in linspace(0,2*pi,20)]
 yp=[sin(th) for th in linspace(0,2*pi,20)]
 zp=zeros(20)
+pnts=[xp,yp,zp]
 b.add_points(pnts,'s') # <-- add a 's' string to signify 'single' points
 b.show()
 }}}
