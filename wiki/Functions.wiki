@@ -667,20 +667,28 @@ Qobj data =
 }}}
 ----
 
-==steady(L)==
+==steady(L,&maxiter,&tol)==
    @brief Calculate the steady state for the evolution subject to the supplied Louvillian using the inverse power method. See any Linear Algebra book with a iterative methods section for details.
    
    @param *L* Louvillian superoperator
    
+   @param *maxiter* (Optional) Max number of iterations to perform, default = 100
+ 
+   @param *tol* (Optional) Tolerance, default = 1e-6
+ 
    @returns *Qobj* State vector corresponding to steady state of system.
 ----
 
-==steadystate(H, c_op_list)==
+==steadystate(H, c_op_list,&maxiter,&tol)==
     @brief Calculate the steady state for the evolution subject to the supplied Hamiltonian and lsit of collapse operators. Does nothing more than form the Louvillian for you and call *[Functions#steady(L) steady]*.
     
     @param *H* Hamiltonian operator
     
     @param *c_op_list* List of collapse operators
+ 
+    @param *maxiter* (Optional) Max number of iterations to perform, default = 100  
+    
+    @param *tol* (Optional) Tolerance, default = 1e-6
     
     @returns *Qobj* State vector corresponding to steady state of system.
 ----
