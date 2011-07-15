@@ -12,7 +12,7 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 *[GuideDynamics Quantum dynamics]* - An overview of the multiple ways in which to calculate the evolution of a quantum system.
 
-*[GuideSteadyState Solving Steady-State Dynamics]* - Solving for steady-state solutions via *steady* and *steadystate*.
+*[GuideSteadyState Solving steady-state dynamics]* - Solving for steady-state solutions via *steady* and *steadystate*.
 
 *[GuideBloch Plotting on the Bloch sphere]* - Plotting qubit states on the Bloch sphere using the Bloch class. 
 
