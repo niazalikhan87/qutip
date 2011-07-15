@@ -17,11 +17,11 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
 In addition to the `show()` command, the Bloch class has the following functions:
 
 ||Name|| Input Parameters || Usage ||
-||add_points|| list/array of (x,y,z) points, 's' (optional)|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
+||add_points|| list/array of (x,y,z) points, *'s'* (optional)|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
 ||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||clear|| none|| removes all data from Bloch sphere.  Keeps customized figure properties in the [GuideBloch#Configuring_the_Bloch_sphere Configuring the Bloch sphere] section.||
-||save||format (optional) format of output file, direc (optional) output directory|| saves Bloch sphere as a file with format (default='png') to given directory (default = current working directory)||
+||save||*format* (optional) format of output file, *dirc* (optional) output directory|| saves Bloch sphere as a file with format (default: format='png') to given directory (default: dirc= current working directory)||
 ||show|| none || creates Bloch sphere with given data sets||
 
 As an example, we can add a single data point:
@@ -159,11 +159,22 @@ At the end of the last section we saw that the colors and marker shapes of the d
 ||b.zlpos||Position of z-axis labels||`[1.2,-1.2]`||
 
 ==Animating with the Bloch sphere==
+The Bloch class was designed from the outset to generate animations.  To animate a set of vectors or data points the basic idea is: plot the data at time t1, save the sphere, clear the sphere, plot data at t2,... The Bloch sphere will automatically number the output file based on how many times the object has been saved (this is stored in b.savenum).  An example of generating images for animation is given below:
+{{{
+from qutip import *
 
+b=Bloch()
 
+vec=array([[cos(th),sin(th),0.5*sin(4*th)] for th in linspace(0,2*pi,120)])
+vec=array([k/norm(k) for k in vec]) #normalize
 
+for k in range(120):
+    b.add_vectors(vec[k])
+    b.save(dirc=os.getcwd()+'/temp') #saving images to temp directory in current working directory
+    b.clear()
+}}}
 
-
+http://qutip.googlecode.com/svn/wiki/images/bloch_movie.gif
 
 
 
