@@ -136,6 +136,39 @@ We have had to call `add_points` twice because adding more than one set of multi
 ==Configuring the Bloch sphere==
 At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming `b=Bloch()':   
 
+||Attribute||Function||Default Setting||
+||b.font_color||Color of fonts|| `'black'`||
+||b.font_size||Size of fonts||20||
+||b.frame_alpha||Transparency of wireframe||0.1||
+||b.frame_color||Color of wireframe||`'gray'`||
+||b.frame_width||Width of wireframe||1||
+||b.point_color||List of colors for Bloch point markers to cycle through||`['b','r','g','#CC6600']`||
+||b.point_marker||List of point marker shapes to cycle through||`['o','s','d','^']`||
+||b.point_size||List of point marker sizes (not all markers look the same size when plotted)||`[25,32,35,45]`||
+||b.sphere_alpha||Transparency of Bloch sphere|| 0.2||
+||b.sphere_color||Color of Bloch sphere|| `'#FFDDDD'`||
+||b.size||Sets size of figure window||`[7,7]` (700x700 pixels)||
+||b.vector_color||List of colors for Bloch vectors to cycle through|| `['g','#CC6600','b','r']`||
+||b.vector_width||Width of Bloch vectors||3||
+||b.view||Azimuthal and Elvation viewing angles|| `[-60,30]`||
+||b.xlabel||Labels for x-axis||`['$x$','']` +x and -x (labels use LaTeX)||
+||b.xlpos||Position of x-axis labels||`[1.1,-1.1]`||
+||b.ylabel||Labels for y-axis||`['$y$','']` +y and -y (labels use LaTeX)||
+||b.ylpos||Position of y-axis labels||`[1.2,-1.2]`||
+||b.zlabel||Labels for z-axis||`['$\left|0\\right>$','$\left|1\\right>$']` +z and -z (labels use LaTeX)||
+||b.zlpos||Position of z-axis labels||`[1.2,-1.2]`||
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
