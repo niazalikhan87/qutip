@@ -471,7 +471,7 @@ Qobj data =
     @brief Class of options for the ODE solvers used by odesolve and mcsolve.
 ----
 
-===odesolve(H, rho0, tlist, c_op_list, expt_op_list, &H_args)===
+==odesolve(H, rho0, tlist, c_op_list, expt_op_list, &H_args)==
 
     Evolution of a state vector or density matrix (rho0) for a given
     Hamiltonian (H) and set of collapse operators (c_op_list), by integrating
@@ -792,7 +792,5 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
 
 
