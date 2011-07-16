@@ -36,7 +36,7 @@ H=1.0j*K*(a1.dag()*a2.dag()-a1*a2)
 #run Monte-Carlo
 avgmc=mcsolve(H,psi0,taulist,ntraj,[C1,C2],[num1,num2])
 #run Master equation
-avg=ode_solve(H,psi0,taulist,[C1,C2],[num1,num2])
+avg=odesolve(H,psi0,taulist,[C1,C2],[num1,num2])
 
 #set legend font size
 params = {'legend.fontsize': 12}
