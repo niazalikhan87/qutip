@@ -43,7 +43,7 @@ def jc_integrate(N, wc, wa, g, kappa, gamma, psi0, use_rwa, tlist):
         c_op_list.append(sqrt(rate) * sm)
 
     # evolve and calculate expectation values
-    expt_list = me_odesolve(tlist, H, psi0, c_op_list, [a.dag() * a, sm.dag() * sm])  
+    expt_list = odesolve(tlist, H, psi0, c_op_list, [a.dag() * a, sm.dag() * sm])  
 
     return expt_list[0], expt_list[1]
     
