@@ -29,7 +29,7 @@ fexpt=expect(a.dag()*a,final_state) #find expectation value for particle number
 ntraj=100
 tlist=linspace(0,50,100)
 mcexpt = mcsolve(H,psi0,tlist,ntraj,c_op_list, [a.dag()*a]) #monte-carlo
-meexpt = ode_solve(H,psi0,tlist,c_op_list, [a.dag()*a])      #master eq.
+meexpt = odesolve(H,psi0,tlist,c_op_list, [a.dag()*a])      #master eq.
 
 plot(tlist,mcexpt[0],tlist,meexpt[0],lw=1.5)
 axhline(y=fexpt,color='r',lw=1.5) #plot steady-state expt. value as horizontal line (should be 2)
