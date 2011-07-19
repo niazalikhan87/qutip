@@ -153,6 +153,8 @@ In general, the properties of a Qobj object (or any Python class) can be retriev
 || is Hermitian? || Q.isherm || Is the operator Hermitian or not ||
 || Type || Q.type || Is object of type 'ket, 'bra', 'oper', or 'super' ||
 
+http://qutip.googlecode.com/svn/wiki/images/qobj_box.png
+
 For the destruction operator above:
 {{{
 q.type
