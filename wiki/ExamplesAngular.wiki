@@ -1,1 +1,11 @@
 #plotting angular wavefunctions
+
+{{{
+
+}}}
+
+http://qutip.googlecode.com/svn/wiki/images/sphereplot.png
+
+
+
+http://qutip.googlecode.com/svn/wiki/images/direction.png
