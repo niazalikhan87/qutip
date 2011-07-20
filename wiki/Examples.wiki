@@ -16,3 +16,5 @@
 *[ExamplesTrilinearMonteCarlo Evolution of the harmonic mode particle numbers for the trilinear Hamiltonian subject to damping.]*
 
 *[ExamplesDampedParAmp  Master equation vs. Monte-Carlo evolution for a damped parametric amplifier]*
+
+= Correlation functions and spectra =
