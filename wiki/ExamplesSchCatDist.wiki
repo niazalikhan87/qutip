@@ -19,3 +19,14 @@ show()
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png
+
+Now plot the Q-function:
+{{{
+Q = qfunc(psi,xvec,xvec)
+fig2 = plt.figure(figsize=(9, 6))
+ax = Axes3D(fig2,azim=-107,elev=49)
+surf=ax.plot_surface(X, Y, Q, rstride=1, cstride=1, cmap=cm.jet, alpha=1.0,linewidth=0.05)
+fig2.colorbar(surf, shrink=0.65, aspect=20)
+show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/qcat.png
