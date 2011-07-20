@@ -488,9 +488,9 @@ Qobj data =
 ==orbital(theta,phi,state)==
     @brief Calculates an angular wave function on a sphere at the mesh of points defined by theta     and phi.  Each ket must have 2l+1 components for some integer l.
 
-    @param *theta* list of points 
+    @param *theta* list of points defining angles with respect to z-axis
 
-    @param *phi* list of points
+    @param *phi* list of points defining angle in x-y plane
 
     @param *state* ket to be converted to angular wavefunction on mesh defined by theta and phi
 
