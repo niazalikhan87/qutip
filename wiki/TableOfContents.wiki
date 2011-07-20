@@ -12,7 +12,7 @@
   * [Functions Function list]
   * [Examples Examples]
     * [ExamplesWigner]
-    * [ ExamplesSqueezed] 
+    * [ExamplesSqueezed] 
     * [ExamplesSchCatDist]  
     * [ExamplesJaynesCummingsModel]
     * [ExamplesJCWignerEvolve]
