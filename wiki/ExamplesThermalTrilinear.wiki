@@ -59,4 +59,4 @@ ax.set_zlim3d(0,1)
 show()
 }}}
 
-http://qutip.googlecode.com/svn/wiki/images/thermal_deviations.png
+http://qutip.googlecode.com/svn/wiki/images/trilinear_deviations.png
