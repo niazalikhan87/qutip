@@ -484,6 +484,19 @@ Qobj data =
     at that point in time. H_args is a list of parameters that is
     passed to the callback function H (only used for time-dependent Hamiltonians).
 ----
+
+==orbital(theta,phi,state)==
+    @brief Calculates an angular wave function on a sphere at the mesh of points defined by theta     and phi.  Each ket must have 2l+1 components for some integer l.
+
+    @param *theta* list of points 
+
+    @param *phi* list of points
+
+    @param *state* ket to be converted to angular wavefunction on mesh defined by theta and phi
+
+    @returns array of values for wavefunction evaluated at mesh points defined by theta and phi.
+----
+
 =P=
 ==parfor(func,frange)==
     @brief Parallel execution of a for-loop over single-variable function 'func()' for values in list 'frange'
@@ -635,6 +648,20 @@ Qobj data =
     @returns *eigvals,eigvecs* array of eigenvalues for each operator along rows ; array of quantum objects corresponding to simultaneous eigenvectors.
     
     See GHZ example for usage
+----
+
+==sphereplot(theta,phi,values,&save)==
+    @brief Plots a array of values on a sphere
+
+    @param *theta* Angle with respect to z-axis
+
+    @param *phi* Angle in x-y plane
+
+    @param *values* Data set to be plotted
+
+    @param *save* Whether to save the figure or not (Figure can always be saved after being displayed.)
+
+    @returns None
 ----
 
 ==spost(A)==
