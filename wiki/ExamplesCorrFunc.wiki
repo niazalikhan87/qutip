@@ -64,4 +64,4 @@ legend(("g = 0.5", "g = 0.0"))
 show()
 }}}
 
-http://qutip.googlecode.com/svn/wiki/images/example-correlation-function.png
+http://qutip.googlecode.com/svn/wiki/images/examples-correlation-function.png
