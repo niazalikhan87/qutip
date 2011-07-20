@@ -50,11 +50,13 @@ x=range(N1) #defines x-axis of plot
 fig = plt.figure()
 ax = Axes3D(fig)
 for j in range(5): #add bar plot for each probability distribution
-    ax.bar(x, diags1[10*j], zs=tlist[10*j], zdir='y',color=colors[j],linewidth=1.0,alpha=0.6,align='center')
-    ax.plot(x,thermal[10*j],zs=tlist[10*j],zdir='y',color='r',linewidth=3,alpha=1)
+    ax.bar(x, diags1[10*j], zs=tlist[10*j], zdir='y',color=colors[j],linewidth=1.0,alpha=0.6,align='center') #actual dist.
+    ax.plot(x,thermal[10*j],zs=tlist[10*j],zdir='y',color='r',linewidth=3,alpha=1) #plots red line for expected thermal dist.
 ax.set_zlabel(r'Probability')
 ax.set_xlabel(r'Number State')
 ax.set_ylabel(r'Time')
 ax.set_zlim3d(0,1)
 show()
 }}}
+
+http://qutip.googlecode.com/svn/wiki/images/thermal_deviations.png
