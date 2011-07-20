@@ -18,6 +18,7 @@
     * [ExamplesHeisenbergSpinChain]
     * [ExamplesMonteCarloExpectation]
     * [ExamplesTrilinearMonteCarlo]
+    * [ExamplesThermalTrilinear]
     * [ExamplesDampedParAmp]
     * [ExamplesDrivenCavitySS]
     * [ExamplesBlochQubitDecay] 
