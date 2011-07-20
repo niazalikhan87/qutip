@@ -1,8 +1,8 @@
-#summary One-sentence summary of this page.
+#summary Qubit dynamics shown in a Bloch sphere.
 
 {{{
 #
-# Textbook example: Rabi oscillation in the dissipative Jaynes-Cummings model.
+# Textbook example: Qubit dynamics shown in a Bloch sphere.
 # 
 #
 from qutip import *
