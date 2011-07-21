@@ -227,7 +227,7 @@ Qobj data =
 
     @returns *float* Entropy of density matrix rho
 
-    See exmaple *[ExamplesEntropy]*
+    See example: *[ExamplesEntropy]*
 ----
 
 ==expect(oper,state)==
