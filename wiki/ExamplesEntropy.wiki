@@ -1,6 +1,6 @@
 #Simple example using Von-Neumann entropy function
 
-Calculates the entropy of a mixture of a*|up><up| + (1-a)*|down><down| states as the mixing parameter 'a' is varied from 0 to 1.
+Calculates the entropy of a mixture of a`*`|up><up| + (1-a)`*`|down><down| states as the mixing parameter 'a' is varied from 0 to 1.
 
 {{{
 from qutip import *
