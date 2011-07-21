@@ -1,0 +1,36 @@
+#summary One-sentence summary of this page.
+
+{{{
+from qutip import *
+from matplotlib import pyplot, mpl,cm
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+
+Q=Qobj(random.random((6,6)))
+
+num_elem=prod(Q.shape)
+xpos,ypos=meshgrid(range(Q.shape[0]),range(Q.shape[1]))
+xpos=xpos.T.flatten()-0.5
+ypos=ypos.T.flatten()-0.5
+zpos = zeros(num_elem)
+dx =ones(num_elem)
+dy = dx.copy()
+dz = Q.full().flatten()
+
+#nrm=mpl.colors.Normalize(0,max(dz)) #<-- normalize colors to max. data
+nrm=mpl.colors.Normalize(0,1) #<-- normalize colors to 1
+colors=cm.jet(nrm(dz)) #list of colors for each bar
+
+fig = plt.figure()
+ax = Axes3D(fig,azim=-40,elev=70)
+ax.bar3d(xpos, ypos, zpos, dx, dy, dz, color=colors)
+ax.axes.w_xaxis.set_major_locator(IndexLocator(1,-0.5))
+ax.axes.w_yaxis.set_major_locator(IndexLocator(1,-0.5))
+ax.axes.w_zaxis.set_major_locator(IndexLocator(1,0))
+ax.set_zlim3d([0,1.1])
+
+cax,kw=mpl.colorbar.make_axes(ax,shrink=.75,pad=.02)
+cb1=mpl.colorbar.ColorbarBase(cax,cmap=cm.jet,norm=nrm)
+
+plt.show()
+}}}
