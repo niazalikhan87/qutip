@@ -217,6 +217,17 @@ Qobj data =
 ----
 
 =E=
+
+==entropy_vn(rho,&base)==
+    @brief Calculates the Von-Neumann entropy of a given density matrix.
+
+    @param *rho* Quantum object representing density matrix
+
+    @param *base* Base of logarithm, either '2' or 'e'. Default base='2'
+
+    @returns float Entropy of density matrix rho
+----
+
 ==expect(oper,state)==
     @brief calculates the expectation value for operator *oper* in state *state*
     
