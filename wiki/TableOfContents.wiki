@@ -25,4 +25,5 @@
     * [ExamplesBlochQubitDecay]
     * [ExamplesAngular]   
     * [ExamplesCorrFunc]
+    * [ExamplesSpectrum]
   * [Contributors Contributors]
