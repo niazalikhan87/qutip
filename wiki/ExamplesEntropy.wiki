@@ -15,3 +15,5 @@ xlabel('Percentage of excited state')
 ylabel('Entropy')
 show()
 }}}
+
+http://qutip.googlecode.com/svn/wiki/images/entropy.png
