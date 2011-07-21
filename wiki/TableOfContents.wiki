@@ -27,4 +27,5 @@
     * [ExamplesCorrFunc]
     * [ExamplesSpectrum]
     * [ExamplesEntropy]
+    * [ExamplesBar3D]
   * [Contributors Contributors]
