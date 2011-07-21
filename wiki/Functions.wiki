@@ -225,7 +225,9 @@ Qobj data =
 
     @param *base* Base of logarithm, either '2' or 'e'. Default base='2'
 
-    @returns float Entropy of density matrix rho
+    @returns *float* Entropy of density matrix rho
+
+    See exmaple *[ExamplesEntropy]*
 ----
 
 ==expect(oper,state)==
