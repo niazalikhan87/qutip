@@ -26,4 +26,5 @@
     * [ExamplesAngular]   
     * [ExamplesCorrFunc]
     * [ExamplesSpectrum]
+    * [ExamplesEntropy]
   * [Contributors Contributors]
