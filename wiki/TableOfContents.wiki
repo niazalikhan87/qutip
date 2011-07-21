@@ -24,4 +24,5 @@
     * [ExamplesDrivenCavitySS]
     * [ExamplesBlochQubitDecay]
     * [ExamplesAngular]   
+    * [ExamplesCorrFunc]
   * [Contributors Contributors]
