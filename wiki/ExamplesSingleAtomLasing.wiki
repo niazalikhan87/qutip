@@ -13,44 +13,6 @@ from pylab import *
 import time
 import math
 
-def jc_steadystate(N, wc, wa, g, kappa, gamma, pump, psi0, use_rwa, tlist):
-
-    # Hamiltonian
-    a  = tensor(destroy(N), qeye(2))
-    sm = tensor(qeye(N), destroy(2))
-
-    if use_rwa: 
-        # use the rotating wave approxiation
-        H = wc * a.dag() * a + wa * sm.dag() * sm + g * (a.dag() * sm + a * sm.dag())
-    else:
-        H = wc * a.dag() * a + wa * sm.dag() * sm + g * (a.dag() + a) * (sm + sm.dag())
-           
-    # collapse operators
-    c_op_list = []
-
-    n_th_a = 0.0 # zero temperature
-
-    rate = kappa * (1 + n_th_a)
-    if rate > 0.0:
-        c_op_list.append(sqrt(rate) * a)
-
-    rate = kappa * n_th_a
-    if rate > 0.0:
-        c_op_list.append(sqrt(rate) * a.dag())
-
-    rate = gamma
-    if rate > 0.0:
-        c_op_list.append(sqrt(rate) * sm)
-
-    rate = pump
-    if rate > 0.0:
-        c_op_list.append(sqrt(rate) * sm.dag())
-
-
-    # find the steady state
-    rho_ss = steadystate(H, c_op_list)
-
-    return expect(a.dag() * a, rho_ss), expect(sm.dag() * sm, rho_ss)
 
 def jc_integrate(N, wc, wa, g, kappa, gamma, pump, psi0, use_rwa, tlist):
 
@@ -155,3 +117,15 @@ colorbar()
 show()
 
 }}}
+
+== Cavity and atom occupation probabilities ==
+
+http://qutip.googlecode.com/svn/wiki/images/examples-lasing-occupations.png
+
+== Cavity photon distribution (final state) ==
+
+http://qutip.googlecode.com/svn/wiki/images/examples-lasing-distribution.png
+
+== Cavity Winger function (final state) ==
+
+http://qutip.googlecode.com/svn/wiki/images/examples-lasing-wigner.png
