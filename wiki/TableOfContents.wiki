@@ -16,6 +16,7 @@
     * [ExamplesSchCatDist]  
     * [ExamplesJaynesCummingsModel]
     * [ExamplesJCWignerEvolve]
+    * [ExamplesSingleAtomLasing]
     * [ExamplesHeisenbergSpinChain]
     * [ExamplesMonteCarloExpectation]
     * [ExamplesTrilinearMonteCarlo]
