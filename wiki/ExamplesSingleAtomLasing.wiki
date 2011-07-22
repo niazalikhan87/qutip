@@ -2,7 +2,7 @@
 
 = Single-atom Lasing =
 
-This examples illustrates a simple model for single-atom lasing in the a Jaynes-Cumming-like system, by adding an incoherent pump on the qubit.
+This example illustrates a simple model for single-atom lasing in a Jaynes-Cumming-like system, with an additional incoherent pump on the qubit.
 
 {{{
 #
