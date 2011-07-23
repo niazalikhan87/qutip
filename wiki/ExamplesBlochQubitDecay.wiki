@@ -64,7 +64,7 @@ http://qutip.googlecode.com/svn/wiki/images/example_bloch_decay.png
 Suppose we want to vary the color of our points as a function of time.  Here we show you how to do this.  After running the previous example:
 
 {{{
-from matplotlib import cm #need to import colormap (cm)
+from matplotlib import mpl,cm #need to import colormap (cm)
 sphere.clear() #clear the previous data
 nrm=mpl.colors.Normalize(0,3)#normalize colors to tlist range
 colors=cm.jet(nrm(tlist)) #make list of colors, one for each time in twist
@@ -73,7 +73,7 @@ sphere.add_points([sx,sy,sz],'s')#add points as 'single' points
 sphere.point_marker=['o'] #make all markers same 'circle' shape
 sphere.point_size=[25] #same point sizes
 sphere.view=[-23,5] #change viewing angle to see all the colors
-sphere.save()
+sphere.show()
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/bloch_color.png
