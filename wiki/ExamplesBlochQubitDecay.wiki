@@ -1,5 +1,6 @@
 #summary Qubit dynamics shown in a Bloch sphere.
 
+==Basic==
 {{{
 #
 # Textbook example: Qubit dynamics shown in a Bloch sphere.
@@ -44,7 +45,7 @@ gamma2 = 1.0      # qubit dephasing rate
 a = .5
 
 psi0 = (a* basis(2,0) + (1-a)*basis(2,1)).unit()
-tlist = linspace(0,10,1000)
+tlist = linspace(0,3,500)
 
 sx, sy, sz = qubit_integrate(w, theta, gamma1, gamma2, psi0, tlist)
 stop_time = time.time()
@@ -58,3 +59,21 @@ sphere.show()
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/example_bloch_decay.png
+
+==Slightly More Advanced==
+Suppose we want to vary the color of our points as a function of time.  Here we show you how to do this.  After running the previous example:
+
+{{{
+from matplotlib import cm #need to import colormap (cm)
+sphere.clear() #clear the previous data
+nrm=mpl.colors.Normalize(0,3)#normalize colors to tlist range
+colors=cm.jet(nrm(tlist)) #make list of colors, one for each time in twist
+sphere.point_color=list(colors) #define sphere point colors
+sphere.add_points([sx,sy,sz],'s')#add points as 'single' points
+sphere.point_marker=['o'] #make all markers same 'circle' shape
+sphere.point_size=[25] #same point sizes
+sphere.view=[-23,5] #change viewing angle to see all the colors
+sphere.save()
+}}}
+
+http://qutip.googlecode.com/svn/wiki/images/bloch_color.png
