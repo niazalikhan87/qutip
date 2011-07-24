@@ -459,7 +459,7 @@ Qobj data =
     
     @param *expect_ops* `list` of operators to calculate expectation values
     
-    @param *options* optional settings for ODE solver given by the Mcoptions class.
+    @param *options* optional settings for ODE solver given by the Odeoptions class.
 ----
 =N=
 ==num(N)==
@@ -832,5 +832,3 @@ tracedist(x,y)
 =Y=
 
 =Z=
-
-
