@@ -1,6 +1,7 @@
 # QuTiP tutorial
 
 = Tutorial =
+*This tutorial is somewhat out of date.  This will be updated after version 1.0 is released.*
 
 A brief overview, and a tutorial on how to get started using QuTiP:
  * [http://qutip.googlecode.com/svn/wiki/docs/QuTiP-tutorial.pdf PDF]
