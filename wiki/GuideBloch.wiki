@@ -17,7 +17,7 @@ http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png
 In addition to the `show()` command, the Bloch class has the following functions:
 
 ||Name|| Input Parameters || Usage ||
-||add_points|| list/array of (x,y,z) points, *'s'* (optional)|| adds a single or set of data points to be plotted on the sphere. meth='s' (default meth=None) will plot multiple data points as a collection of single points.||
+||add_points|| list/array of (x,y,z) points, *'m'* (optional)|| adds a single or set of data points to be plotted on the sphere. meth='m' (default meth='s') will plot a collection of points as multi colored data points.||
 ||add_states|| Qobj representing state or density matrix of a two-level system|| can input multiple states as a list or array||
 ||add_vectors|| list/array of  (x,y,z) points giving direction and length of state vectors|| adds single or multiple  vectors to plot|| 
 ||clear|| none|| removes all data from Bloch sphere.  Keeps customized figure properties in the [GuideBloch#Configuring_the_Bloch_sphere Configuring the Bloch sphere] section.||
