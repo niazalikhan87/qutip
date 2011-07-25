@@ -175,6 +175,34 @@ At the end of the last section we saw that the colors and marker shapes of the d
 ||b.zlabel||Labels for z-axis||`['$\left|0\\right>$','$\left|1\\right>$']` +z and -z (labels use LaTeX)||
 ||b.zlpos||Position of z-axis labels||`[1.2,-1.2]`||
 
+These properties can also be accessed via the print command:
+{{{
+b=Bloch()
+print b
+
+Bloch sphere properties:
+------------------------
+font_color:    black
+font_size:     20
+frame_alpha:   0.2
+frame_color:   gray
+frame_width:   1
+point_color:   ['b', 'r', 'g', '#CC6600']
+point_marker:  ['o', 's', 'd', '^']
+point_size:    [25, 32, 35, 45]
+sphere_alpha:  0.2
+sphere_color:  #FFDDDD
+size:          [7, 7]
+vector_color:  ['g', '#CC6600', 'b', 'r']
+vector_width:  3
+view:          [-60, 30]
+xlabel:        ['$x$', '']
+xlpos:         [1.2, -1.2]
+ylabel:        ['$y$', '']
+ylpos:         [1.1, -1.1]
+zlabel:        ['$\\left|0\\right>$', '$\\left|1\\right>$']
+zlpos:         [1.2, -1.2]
+}}}
 ==Animating with the Bloch sphere==
 The Bloch class was designed from the outset to generate animations.  To animate a set of vectors or data points the basic idea is: plot the data at time t1, save the sphere, clear the sphere, plot data at t2,... The Bloch sphere will automatically number the output file based on how many times the object has been saved (this is stored in b.savenum).  An example of generating images for animation is given below:
 {{{
