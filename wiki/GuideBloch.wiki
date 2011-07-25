@@ -103,9 +103,9 @@ zz=[cos(th) for th in linspace(0,pi,20)]
 b.add_points([xz,yz,zz])
 b.show()
 }}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_2pnts.png
 
-
- this using the following commands (again after `clear()`:
+this using the following commands (again after `clear()`:
 {{{
 xp=[cos(th) for th in linspace(0,2*pi,20)]
 yp=[sin(th) for th in linspace(0,2*pi,20)]
