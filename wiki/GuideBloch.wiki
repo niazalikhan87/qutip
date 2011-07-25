@@ -105,26 +105,7 @@ b.show()
 }}}
 http://qutip.googlecode.com/svn/wiki/images/bloch_2pnts.png
 
-this using the following commands (again after `clear()`:
-{{{
-xp=[cos(th) for th in linspace(0,2*pi,20)]
-yp=[sin(th) for th in linspace(0,2*pi,20)]
-zp=zeros(20)
-pnts=[xp,yp,zp]
-b.add_points(pnts,'s') # <-- add a 's' string to signify 'single' points
-b.show()
-}}}
-http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png
-
-Now, the data points will cycle through a variety of predefined colors, and marker shapes.  Now lets add another set of points, but this time we want the set to represent a single state as a function of time, say from the |up> state to the |down> state in the y-z plane:
-{{{
-xz=zeros(20)
-yz=[sin(th) for th in linspace(0,pi,20)]
-zz=[cos(th) for th in linspace(0,pi,20)]
-b.add_points([xz,yz,zz]) # no 's'
-b.show()
-}}}
-http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png
+Notice how the color and point markers change for each set of data.
 
 The entire code for this final sphere is thus:
 {{{
@@ -143,7 +124,29 @@ b.add_points([xz,yz,zz])
 
 b.show()
 }}}
-We have had to call `add_points` twice because adding more than one set of multiple data points is *not* supported by the add_points function.
+Again, we have had to call `add_points` twice because adding more than one set of multiple data points is *not* supported by the `add_points` function.
+
+What if we want to vary the color of our points.  We can tell the `Bloch class` to vary the color of each point according to the colors listed in the b.point_color list (see *[Configuring_the_Bloch_sphere]* below).  Again after `clear()`:
+{{{
+xp=[cos(th) for th in linspace(0,2*pi,20)]
+yp=[sin(th) for th in linspace(0,2*pi,20)]
+zp=zeros(20)
+pnts=[xp,yp,zp]
+b.add_points(pnts,'m') # <-- add a 'm' string to signify 'multi' colored points
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png
+
+Now, the data points will cycle through a variety of predefined colors, and marker shapes.  Now lets add another set of points, but this time we want the set to represent a single state as a function of time, say from the |up> state to the |down> state in the y-z plane:
+{{{
+xz=zeros(20)
+yz=[sin(th) for th in linspace(0,pi,20)]
+zz=[cos(th) for th in linspace(0,pi,20)]
+b.add_points([xz,yz,zz]) # no 's'
+b.show()
+}}}
+http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png
+
 
 ==Configuring the Bloch sphere==
 At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming `b=Bloch()':   
