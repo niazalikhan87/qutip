@@ -126,7 +126,7 @@ b.show()
 }}}
 Again, we have had to call `add_points` twice because adding more than one set of multiple data points is *not* supported by the `add_points` function.
 
-What if we want to vary the color of our points.  We can tell the `Bloch class` to vary the color of each point according to the colors listed in the b.point_color list (see *[GuideBloch#Configuring_the_Bloch_sphere]* below).  Again after `clear()`:
+What if we want to vary the color of our points.  We can tell the `Bloch class` to vary the color of each point according to the colors listed in the b.point_color list (see *[GuideBloch#Configuring_the_Bloch_sphere Configuring the Bloch sphere]* below).  Again after `clear()`:
 {{{
 xp=[cos(th) for th in linspace(0,2*pi,20)]
 yp=[sin(th) for th in linspace(0,2*pi,20)]
