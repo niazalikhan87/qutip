@@ -16,6 +16,6 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 *[GuideSteadyState Solving steady-state dynamics]* - Solving for steady-state solutions via *[Functions#steady(L,&maxiter=100=,&tol=1e-6) steady]* and *[Functions#steadystate(H,c_op_list,&maxiter=100,&tol=1e-6) steadystate]*.
 
-*[GuideBloch Plotting on the Bloch sphere]* - Plotting qubit states on the Bloch sphere using the Bloch class. 
+*[GuideBloch Plotting on the Bloch sphere]* - Plotting qubit states on the Bloch sphere using the *[Functions#Bloch() Bloch]* class. 
 
 *[GuideParfor Parallel computation with parfor]* - Using the *[Functions#parfor(func,frange) parfor]* function to speedup tasks.
