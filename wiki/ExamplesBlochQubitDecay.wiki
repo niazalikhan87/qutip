@@ -48,7 +48,6 @@ psi0 = (a* basis(2,0) + (1-a)*basis(2,1)).unit()
 tlist = linspace(0,3,500)
 
 sx, sy, sz = qubit_integrate(w, theta, gamma1, gamma2, psi0, tlist)
-stop_time = time.time()
 
 sphere=Bloch()
 sphere.add_points([sx,sy,sz])
