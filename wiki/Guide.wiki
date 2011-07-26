@@ -6,7 +6,9 @@ The goal of this guide is to introduce you to the basic structures and functions
 
 = Sections =
 
-* [GuideBasics Qobj Basics]* - Describes the base object class of QuTiP, the quantum object (Qobj).
+*[GuideBasics Qobj Basics]* - Describes the base object class of QuTiP, the quantum object (Qobj).
+
+*[GuideOperStates Manipulating states & operators]* - A quick overview of using states and operators
 
 *[GuideComposite  Tensor product/Partial trace]* - How to build and decompose composite states using the *[Functions#tensor(args) tensor product]* and *[Functions#ptrace(rho,sel) partial trace]* functions.
 
