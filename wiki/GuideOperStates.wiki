@@ -244,11 +244,58 @@ Qobj data =
 Of course, displacing the vacuum gives a coherent state, which can also be generated using the built in *[Functions#coherent(N,alpha) coherent]* function.
 
 === Density matrices ===
+The main purpose of QuTiP is to explore the dynamics of *open* quantum systems, where the most general state of a system is not longer a state vector, but rather a density matrix.  Since operations on density matrices operate identically to those of vectors, we will just briefly highlight creating and using these structures.
 
+The simplest density matrix is created by forming the outer-product of a ket vector:
+{{{
+vec=basis(5,2)
+vec*vec.dag()
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]]
+}}} 
+
+a similar task can also be accomplished via the *[Functions#fock_dm(N,m) fock_dm]* or *[Functions#ket2dm(Q) ket2dm]* functions:
+{{{
+fock_dm(5,2)
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]]
+
+ket2dm(vec)
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.]]
+}}}
+
+If we want to create a density matrix with equal classical probability of being found in the |2> or |4> number states we can do the following:
+{{{
+0.5*ket2dm(basis(5,4))+0.5*ket2dm(basis(5,2))
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.   0.   0.   0.   0. ]
+ [ 0.   0.   0.   0.   0. ]
+ [ 0.   0.   0.5  0.   0. ]
+ [ 0.   0.   0.   0.   0. ]
+ [ 0.   0.   0.   0.   0.5]]
+}}}
+or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.
 
 == Qubit (two-level) systems ==
 
 = Expectation values = 
-
-
-= More operations on states = 
