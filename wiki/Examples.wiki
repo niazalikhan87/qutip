@@ -4,7 +4,15 @@
 = Basics =
 *[ExamplesWigner Simple Wigner distribution of a linear combination of Fock states.]*
 
+*[ExamplesSqueezed Wigner and Q-functions of a squeezed state]*
+
 *[ExamplesSchCatDist Calculate the Wigner and Q-funtion distributions for a Schrodinger-Cat state.]*
+
+*[ExamplesEntropy Von-Neumann entropy of a binary mixture of |up> and |down> states]*
+
+*[ExamplesBar3D Visualizing a density matrix as a 3D histogram]*
+
+*[ExamplesAngular Plotting an angular wave function and direction eigen-ket]*
 
 = Jaynes-Cummings model =
 *[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
