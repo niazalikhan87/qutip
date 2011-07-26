@@ -26,6 +26,7 @@
       * [ExamplesHeisenbergSpinChain]
       * [ExamplesBlochQubitDecay]
       * [ExamplesTimeDependence]
+      * [ExamplesLandauZener]
     * Monte-Carlo
       * [ExamplesMonteCarloExpectation]
       * [ExamplesTrilinearMonteCarlo]
