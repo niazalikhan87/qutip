@@ -16,7 +16,8 @@
       * [ExamplesSqueezed] 
       * [ExamplesSchCatDist]
       * [ExamplesEntropy]      
-      * [ExamplesBar3D]  
+      * [ExamplesBar3D] 
+      * [ExamplesAngular] 
     * Master equation
       * [ExamplesJaynesCummingsModel]
       * [ExamplesJCWignerEvolve]
@@ -28,8 +29,8 @@
       * [ExamplesTrilinearMonteCarlo]
       * [ExamplesThermalTrilinear]
       * [ExamplesDampedParAmp]
-    * [ExamplesDrivenCavitySS]
-    * [ExamplesAngular]   
-    * [ExamplesCorrFunc]
-    * [ExamplesSpectrum]
+    * Steady state calculations
+      * [ExamplesDrivenCavitySS]   
+      * [ExamplesCorrFunc]
+      * [ExamplesSpectrum]
   * [Contributors Contributors]
