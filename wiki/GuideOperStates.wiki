@@ -1,5 +1,5 @@
 #brief intro into manipulating quantum operators and states.
-*<wiki:toc max_depth="2" />*
+*<wiki:toc max_depth="3" />*
 
 = Introduction =
 In the previous guide section *[GuideBasics]* we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the *[Examples Examples]* section of the WIKI.
@@ -7,6 +7,8 @@ In the previous guide section *[GuideBasics]* we saw how to create operators and
 = Combining states and operators = 
 
 == Harmonic oscillator states ==
+
+=== State vectors ===
 Here we begin by creating a Fock (*[Functions#basis(N,&m) basis]*) vacuum state vector with 5 number states, 0 -> 4:
 {{{
 vec=basis(5,0)
@@ -240,6 +242,9 @@ Qobj data =
 }}}
 
 Of course, displacing the vacuum gives a coherent state, which can also be generated using the built in *[Functions#coherent(N,alpha) coherent]* function.
+
+=== Density matricies ===
+
 
 == Qubit (two-level) systems ==
 
