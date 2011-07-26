@@ -13,11 +13,11 @@ print vec
 
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
 Qobj data = 
-[[ 1.]
- [ 0.]
- [ 0.]
- [ 0.]
- [ 0.]]
+[[ 1.]  #<-- |0>
+ [ 0.]  #<-- |1>
+ [ 0.]  #<-- |2>
+ [ 0.]  #<-- |3>
+ [ 0.]] #<-- |4>
 }}}
 and then create a lowering operator corresponding to 5 number states using the `destroy()` function:
 {{{
@@ -96,8 +96,6 @@ Qobj data =
  [ 0.        ]
  [ 0.        ]]
 }}}
-
-
 
 
 
