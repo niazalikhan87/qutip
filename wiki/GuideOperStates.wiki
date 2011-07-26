@@ -96,10 +96,92 @@ Qobj data =
  [ 0.        ]
  [ 0.        ]]
 }}}
+Applying the raising operator twice gives the expected sqrt(n+1) dependence.  We can use the product of `c*a` to also apply the number operator to the state vector `vec`:
+{{{
+c*a*vec
 
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+or on the |1> state:
+{{{
+c*a*(c*vec)
 
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 1.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+or the |2> state:
+{{{
+c*a*(c**2*vec)
 
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.        ]
+ [ 0.        ]
+ [ 2.82842712]
+ [ 0.        ]
+ [ 0.        ]]
 
+}}}
+Notice how in this last example, application of the number operator does not give the expected value n=2, but rather sqrt(2)*2.  This is because this last state is not normalized to unity as c*|n>=sqrt(n+1)*|n+1>.  Therefore, we should normalize our vector first:
+{{{
+c*a*(c**2*vec).unit()
 
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 2.]
+ [ 0.]
+ [ 0.]]
+}}}
+Since we are giving a demonstration of using states and operators, we have done a lot more work than we should have.  For example, we do not need to operate on the vacuum state to generate a higher number fock state.  Instead we can use the basis (or fock) function to directly obtain the required state:
+{{{
+vec=basis(5,2)
+print vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 1.]
+ [ 0.]
+ [ 0.]]
+}}}
+Notice how it is automatically normalized.  We can also use the built in number operator:
+{{{
+n=num(5)
+print n
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[0 0 0 0 0]
+ [0 1 0 0 0]
+ [0 0 2 0 0]
+ [0 0 0 3 0]
+ [0 0 0 0 4]]
+}}}
+Therefore, instead of `c*a*(c**2*vec).unit()` we have:
+{{{
+n*vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 2.]
+ [ 0.]
+ [ 0.]]
+}}}
 
 
