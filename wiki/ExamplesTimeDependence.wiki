@@ -89,4 +89,4 @@ show()
 }}}
 
 
-http://qutip.googlecode.com/svn/wiki/images/example-time-dependence.png
+http://qutip.googlecode.com/svn/wiki/images/examples-time-dependence.png
