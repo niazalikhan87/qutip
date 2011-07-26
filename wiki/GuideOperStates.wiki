@@ -239,7 +239,7 @@ Qobj data =
  [ 0.26352814+0.11512178j]]
 }}}
 
-Of course, displacing the vacuum gives a coherent state, which can also be generated using the built in *[Function#coherent(N,alpha) coherent]* function.
+Of course, displacing the vacuum gives a coherent state, which can also be generated using the built in *[Functions#coherent(N,alpha) coherent]* function.
 
 == Qubit (two-level) systems ==
 
