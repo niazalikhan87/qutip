@@ -78,3 +78,5 @@ title('Excitation probabilty of qubit')
 legend(("Excited state", "Ground state", "Landau-Zener formula"), loc=0)
 show()
 }}}
+
+http://qutip.googlecode.com/svn/wiki/images/examples-landau-zener.png
