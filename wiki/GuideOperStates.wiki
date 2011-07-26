@@ -133,7 +133,7 @@ Qobj data =
  [ 0.        ]]
 
 }}}
-Notice how in this last example, application of the number operator does not give the expected value n=2, but rather sqrt(2)*2.  This is because this last state is not normalized to unity as c*|n>=sqrt(n+1)*|n+1>.  Therefore, we should normalize our vector first:
+Notice how in this last example, application of the number operator does not give the expected value n=2, but rather `sqrt(2)*2`.  This is because this last state is not normalized to unity as `c*|n>=sqrt(n+1)*|n+1>`.  Therefore, we should normalize our vector first:
 {{{
 c*a*(c**2*vec).unit()
 
@@ -183,5 +183,3 @@ Qobj data =
  [ 0.]
  [ 0.]]
 }}}
-
-
