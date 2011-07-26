@@ -53,7 +53,7 @@ a.dag()*vec
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
 Qobj data = 
 [[ 0.]
- [ 1.]
+ [ 1.]  #<-- |1>
  [ 0.]
  [ 0.]
  [ 0.]]
@@ -80,7 +80,7 @@ Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
 Qobj data = 
 [[ 0.        ]
  [ 0.        ]
- [ 1.41421356]
+ [ 1.41421356] #<-- |2>
  [ 0.        ]
  [ 0.        ]]
 }}}
@@ -96,8 +96,6 @@ Qobj data =
  [ 0.        ]
  [ 0.        ]]
 }}}
-
-
 
 
 
