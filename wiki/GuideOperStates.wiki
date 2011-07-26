@@ -5,3 +5,105 @@
 In the previous guide section *[GuideBasics]* we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the *[Examples Examples]* section of the WIKI.
 
 = Combining states and operators = 
+
+Here we begin by creating a Fock (basis) vacuum state vector with 5 number states, 0 -> 4:
+{{{
+vec=basis(5,0)
+print vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 1.]
+ [ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+and then create a lowering operator corresponding to 5 number states using the `destroy()` function:
+{{{
+a=destroy(5)
+print a
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = False
+Qobj data = 
+[[ 0.          1.          0.          0.          0.        ]
+ [ 0.          0.          1.41421356  0.          0.        ]
+ [ 0.          0.          0.          1.73205081  0.        ]
+ [ 0.          0.          0.          0.          2.        ]
+ [ 0.          0.          0.          0.          0.        ]]
+
+}}}
+Now lets apply the destruction operator to our vacuum state `vec':
+{{{
+a*vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+
+We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator:
+{{{
+a.dag()*vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 1.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+
+The raising operator has in indeed raised the state `vec` from the vacuum to the |1> state.  Instead of using the dagger (`dag()) command to raise the state, we could have also used the built in `create()` function to make a raising operator:
+
+{{{
+c=create(5)
+c*vec()
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.]
+ [ 1.]
+ [ 0.]
+ [ 0.]
+ [ 0.]]
+}}}
+which obviously does the same thing.  We can of course raise the vacuum state more than once:
+{{{
+c*c*vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.        ]
+ [ 0.        ]
+ [ 1.41421356]
+ [ 0.        ]
+ [ 0.        ]]
+}}}
+or just taking the square of the raising operator:
+{{{
+c**2*vec
+
+Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
+Qobj data = 
+[[ 0.        ]
+ [ 0.        ]
+ [ 1.41421356]
+ [ 0.        ]
+ [ 0.        ]]
+}}}
+
+
+
+
+
+
+
+
+
+
+
