@@ -1,4 +1,4 @@
-#Trilinear Hamiltonian deviations: from a thermal spectrum.
+#Trilinear Hamiltonian: deviation from a thermal spectrum.
 
 Adapted from: P. D. Nation and M. P. Blencowe, "The Trilinear Hamiltonian: a zero-dimensional model of Hawking radiation from a quantized source", NJP *12* 095013 (2010)
 
