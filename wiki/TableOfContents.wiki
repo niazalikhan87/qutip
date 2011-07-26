@@ -25,6 +25,7 @@
       * [ExamplesSingleAtomLasing]
       * [ExamplesHeisenbergSpinChain]
       * [ExamplesBlochQubitDecay]
+      * [ExamplesTimeDependence]
     * Monte-Carlo
       * [ExamplesMonteCarloExpectation]
       * [ExamplesTrilinearMonteCarlo]
