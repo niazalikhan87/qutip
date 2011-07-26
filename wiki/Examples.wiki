@@ -25,6 +25,10 @@
 
 *[ExamplesDampedParAmp  Master equation vs. Monte-Carlo evolution for a damped parametric amplifier]*
 
-= Correlation functions and spectra =
+= Steady state calculations =
+
+*[ExamplesDrivenCavitySS steady-state solution for a driven-cavity coupled to a qubit]*
 
 *[ExamplesCorrFunc  Two-time correlation functions]*
+
+*[ExamplesSpectrum Spectrum of a cavity coupled to a two-level atom]*
