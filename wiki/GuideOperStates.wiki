@@ -1,1 +1,7 @@
 #brief intro into manipulating quantum operators and states.
+*<wiki:toc max_depth="1" />*
+
+= Introduction =
+In the previous guide section *[GuideBasics]* we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the *[Examples Examples]* section of the WIKI.
+
+= Combining states and operators = 
