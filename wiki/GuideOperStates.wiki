@@ -243,7 +243,7 @@ Qobj data =
 
 Of course, displacing the vacuum gives a coherent state, which can also be generated using the built in *[Functions#coherent(N,alpha) coherent]* function.
 
-=== Density matricies ===
+=== Density matrices ===
 
 
 == Qubit (two-level) systems ==
