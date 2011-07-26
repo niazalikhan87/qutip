@@ -5,5 +5,4 @@
 =Contributors=
 
 Jonas Neergaard-Nielsen - Bug hunter
-
-
+Per Kaer Nielsen - Testing the ODE solver
