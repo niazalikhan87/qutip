@@ -3,6 +3,7 @@
   * [Tutorial]
   * [Guide Guide]
     * [GuideBasics Intro. to Quantum object (Qobj) class] 
+    * [GuideOperStates  Guide to states and operators]
     * [GuideComposite Creating and manipulating composite objects with tensor and ptrace] 
     * [GuideDynamics Time evolution of quantum systems]
     * [GuideCorrelationFunction Calculation of two-time correlation functions]
