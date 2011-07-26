@@ -1,5 +1,5 @@
 http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
-*<wiki:toc max_depth="1" />*
+*<wiki:toc max_depth="2" />*
 
 = Overview =
 
