@@ -34,8 +34,9 @@ def calc_spectrum(N, wc, wa, g, kappa, gamma, wlist):
     if rate > 0.0:
         c_op_list.append(sqrt(rate) * sm)
 
-    # calculate the power spectrum
-    return spectrum_ss(H, wlist, c_op_list, a.dag(), a)
+    # calculate the spectrum
+    x = a.dag() + a
+    return spectrum_ss(H, wlist, c_op_list, x, x)
 
 #
 # setup the calcualtion
@@ -61,4 +62,3 @@ show()
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/examples-spectrum.png
-
