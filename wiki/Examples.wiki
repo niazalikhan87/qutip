@@ -25,6 +25,7 @@
 
 *[ExamplesBlochQubitDecay Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere.]*
 
+*[ExamplesTimeDependence Rabi oscillation in a two-level system subject to a time-dependent classical driving field.]*
 = Monte-Carlo =
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
 
