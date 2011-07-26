@@ -30,11 +30,13 @@
 
 *[ExamplesTrilinearMonteCarlo Evolution of the harmonic mode particle numbers for the trilinear Hamiltonian subject to damping.]*
 
+*[ExamplesThermalTrilinear  Trilinear Hamiltonian: deviation from a thermal spectrum]*
+
 *[ExamplesDampedParAmp  Master equation vs. Monte-Carlo evolution for a damped parametric amplifier]*
 
 = Steady state calculations =
 
-*[ExamplesDrivenCavitySS steady-state solution for a driven-cavity coupled to a qubit]*
+*[ExamplesDrivenCavitySS Steady-state solution for a driven-cavity coupled to a qubit]*
 
 *[ExamplesCorrFunc  Two-time correlation functions]*
 
