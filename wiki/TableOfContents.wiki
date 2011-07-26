@@ -11,7 +11,7 @@
     * [GuideParfor Parallel computations using the parfor function]
   * [Functions Function list]
   * [Examples Examples]
-    * Basic  
+    * [Examples#Basics Basic]  
       * [ExamplesWigner]
       * [ExamplesSqueezed] 
       * [ExamplesSchCatDist]
