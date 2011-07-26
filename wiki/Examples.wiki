@@ -14,10 +14,17 @@
 
 *[ExamplesAngular Plotting an angular wave function and direction eigen-ket]*
 
-= Jaynes-Cummings model =
+= Master equation =
 *[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
 
-*[ExamplesDrivenCavitySS Driven cavity steady-state]*
+*[ExamplesJCWignerEvolve Wigner distributions from the master equation evolution of the Jaynes-Cummings model]*
+
+*[ExamplesSingleAtomLasing Single-atom lasing in a Jaynes-Cumming-like system, with an additional incoherent pump]*
+
+*[ExamplesHeisenbergSpinChain Heisenberg spin-chain example]*
+
+*[ExamplesBlochQubitDecay Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere.]*
+
 = Monte-Carlo =
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
 
