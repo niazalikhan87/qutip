@@ -14,6 +14,8 @@
 
 *[ExamplesAngular Plotting an angular wave function and direction eigen-ket]*
 
+*[ExamplesGHZ Simultaneous diagonalization of operators using simdiag to generate GHZ states]*
+
 = Master equation =
 *[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
 
