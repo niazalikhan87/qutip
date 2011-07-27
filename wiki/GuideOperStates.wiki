@@ -331,7 +331,7 @@ fidelity(x,x)
 tracedist(y,y)
 0.0
 }}}
-We also know that for two-pure states, the trace distance (T) and the fidelity (F) are related by T=sqrt(1-F**2).
+We also know that for two-pure states, the trace distance (T) and the fidelity (F) are related by `T=sqrt(1-F**2)`.
 {{{
 tracedist(y,x)
 0.9771565838870081
@@ -339,7 +339,7 @@ tracedist(y,x)
 sqrt(1-fidelity(y,x)**2)
 0.97715657039974568
 }}}
-For a pure state and a mixed state, 1-F**2<=T which can also be verified:
+For a pure state and a mixed state, `1-F**2<=T` which can also be verified:
 {{{
 1-fidelity(x,z)**2
 0.7784456314854065
