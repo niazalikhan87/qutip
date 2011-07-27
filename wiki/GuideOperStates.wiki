@@ -294,7 +294,28 @@ Qobj data =
  [ 0.   0.   0.   0.   0. ]
  [ 0.   0.   0.   0.   0.5]]
 }}}
-or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.
+or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.  There are also several other built in functions for creating predefined density matrices, for example *[Functions#coherent_dm(N, alpha) coherent_dm]* and *[Functions#thermal_dm(N, n) thermal_dm]* which create coherent state and thermal state density matrices, respectively.
+{{{
+coherent_dm(5,1.25)
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.20980701  0.26141096  0.23509686  0.15572585  0.13390765]
+ [ 0.26141096  0.32570738  0.29292109  0.19402805  0.16684347]
+ [ 0.23509686  0.29292109  0.26343512  0.17449684  0.1500487 ]
+ [ 0.15572585  0.19402805  0.17449684  0.11558499  0.09939079]
+ [ 0.13390765  0.16684347  0.1500487   0.09939079  0.0854655 ]]
+
+thermal_dm(5,1.25)
+
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[ 0.44444444  0.          0.          0.          0.        ]
+ [ 0.          0.24691358  0.          0.          0.        ]
+ [ 0.          0.          0.13717421  0.          0.        ]
+ [ 0.          0.          0.          0.0762079   0.        ]
+ [ 0.          0.          0.          0.          0.04233772]]
+}}}
 
 == Qubit (two-level) systems ==
 
