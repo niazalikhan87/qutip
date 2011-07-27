@@ -36,7 +36,7 @@ QuTiP is the culmination of more than a years worth of work by two people.  Alth
 {{{ 
 P.D. Nation and J. R. Johansson, QuTiP: The Quantum Toolbox in Python, http://code.google.com/p/qutip
 }}}
-until a formal publication is finished.  We have no direct funding for working on QuTiP, and any citations will be beneficial in helping to to secure future funding specifically for improving QuTiP.
+until a formal publication is finished.  We have no direct funding for working on QuTiP, and any citations will be beneficial in helping to to secure future funding focused on improving QuTiP.
 
 = Acknowledgements =
 This project is partially supported by the [http://www.jsps.go.jp/english/ Japanese Society for the Promotion of Science (JSPS)] under the Foreign Postdoctoral Fellowship program.
