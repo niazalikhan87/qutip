@@ -16,9 +16,12 @@ To add more terms to an *eseries* object we simply add *eseries* object using th
 {{{
 >> es2 = eseries(0.5 * sigmax(), 1j * omega) + eseries(0.5 * sigmax(), -1j * omega)
 }}}
-The *eseries* in this example represents the operator `0.5 * sigmax() * exp(i * omega * t) + 0.5 * sigmax() * exp(i * omega * t)`, which is the exponential series representation of `sigmax() * cos(omega * t)`
+The *eseries* in this example represents the operator `0.5 * sigmax() * exp(i * omega * t) + 0.5 * sigmax() * exp(i * omega * t)`, which is the exponential series representation of `sigmax() * cos(omega * t)`. Alternatively, we can also specify a list of amplitudes and rates when the *eseries* is created:
+{{{
+>> es2 = eseries([0.5 * sigmax(), 0.5 * sigmax()], [1j * omega, -1j * omega])
+}}}
 
-We can inspect the structure of an *eseries* object by printing it:
+We can inspect the structure of an *eseries* object by printing it to the standard output console:
 {{{
 >> print es2
 ESERIES object: 2 terms
@@ -35,10 +38,9 @@ Qobj data =
 [[ 0.   0.5]
  [ 0.5  0. ]]
 }}}
-
-and we can evaluate it for time `t` by using the *esval* function
+and we can evaluate it at time `t` by using the *esval* function 
 {{{
->>> esval(es2, 0.0)
+>>> esval(es2, 0.0)                    # equivalent to es2.value(0.0)
 Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
 Qobj data = 
 [[ 0.+0.j  1.+0.j]
@@ -46,7 +48,8 @@ Qobj data =
 }}}
 or for a list of times `[0.0, 1.0 * pi, 2.0 * pi]`
 {{{
->>> esval(es2, [0.0, 1.0 * pi, 2.0 * pi])
+>> tlist = [0.0, 1.0 * pi, 2.0 * pi]
+>> esval(es2, tlist)                  # equivalent to es2.value(tlist)
 [
 Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
 Qobj data = 
@@ -63,7 +66,7 @@ Qobj data =
 ]
 }}}
 
-To calculate the expectation value of an operator for a system with a state described by an *eseries*, we use the *expect* function. For example, consider the operator `sigmax() * cos(omega * t) + sigmaz() * sin(omega * t)`, and say we would like to know the expectation value of this operator for a spin in its excited state (`rho = fock_dm(2,1)` produce this state):
+To calculate the expectation value of an time-dependent operator represented by an *eseries*, we use the *expect* function. For example, consider the operator `sigmax() * cos(omega * t) + sigmaz() * sin(omega * t)`, and say we would like to know the expectation value of this operator for a spin in its excited state (`rho = fock_dm(2,1)` produce this state):
 {{{
 >> es3 = eseries([0.5*sigmaz(), 0.5*sigmaz()], [1j, -1j]) + eseries([-0.5j*sigmax(), 0.5j*sigmax()], [1j, -1j])
 >> rho = fock_dm(2, 1)
@@ -78,8 +81,10 @@ Exponent #1 = 1j
 >> print es3_expect.value([0.0, pi/2])
 [ -1.00000000e+00+0.j  -6.12303177e-17+0.j]
 }}}
-Note the expectation value of the *eseries* `expect(rho, es3)` itself is an *eseries*, but with amplitude coefficients that are C-numbers instead of quantum operators. To evaluate the C-number *eseries* at times `tlist` we use `esval(es3_expect, tlist)`, or, equivalently, `es3_expect.value(tlist)`.
+Note the expectation value of the *eseries* object, `expect(rho, es3)`, itself is an *eseries*, but with amplitude coefficients that are C-numbers instead of quantum operators. To evaluate the C-number *eseries* at the times `tlist` we use `esval(es3_expect, tlist)`, or, equivalently, `es3_expect.value(tlist)`.
 
 == Applications of exponential series ==
 
-The exponential series formalism can be useful for the time-evolution of quantum systems. One approach to calculating the time evolution of a quantum system in time is to diagonalize the Hamiltonian and to express the propagator (e.g., `exp(-i*H*t)` or `exp(-i*H*t)*rho*exp(i*H*t)`) as an exponential series. The QuTiP function *es2ode* and *essolve* use this method to evolve quantum systems. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be run independently for each initial state).
+The exponential series formalism can be useful for the time-evolution of quantum systems. One approach to calculating the time evolution of a quantum system is to diagonalize its Hamiltonian (or Liouvillian, for dissipative systems) and to express the propagator (e.g., `exp(-i*H*t)*rho*exp(i*H*t)`) as an exponential series. 
+
+The QuTiP function *es2ode* and *essolve* use this method to evolve quantum systems in time. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be ran independently for each initial state).
