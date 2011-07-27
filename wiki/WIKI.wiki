@@ -16,6 +16,7 @@ QuTiP aims to provide a convient framework for solving the dynamics of both open
 
   * QuTiP was designed from the start to require a minimal learning curve for those users who have experience using the popular quantum optics toolbox by Sze M. Tan. 
 
+  * Includes the ability to create high-quality plots, and animations, using the excellent [http://matplotlib.sourceforge.net/ matplotlib] package.
 
 = Wiki Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
