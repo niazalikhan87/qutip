@@ -1,0 +1,18 @@
+#summary An overview of exponential series.
+
+= Exponential-series representation of time-dependent quantum objects =
+
+The eseries object in QuTiP is a representation of an exponential-series expansion of time-dependent quantum objects (a concept borrowed from the quantum optics toolbox). 
+
+An exponential series is parameterized by its amplitude coefficients `c_i` and rates `r_i`, so that the series takes the form `eseries(t) = sum_i c_i exp(r_i * t)`. The coefficients are typically quantum objects (type Qobj: states, operators, etc.), so that the value of the eseries also is a quantum object, and the rates can be either real or complex numbers. Note that all amplitude coefficients in an exponential series must be of the same dimensions and composition. 
+
+In QuTiP, an exponential series object is constructed by creating an instance of the class *eseries*,
+{{{
+>> es1 = eseries(sigmax(), 1j)
+}}}
+where the first argument is the amplitude coefficient (here, the sigma-X operator), and the second argument is the rate. The eseries in this example represents the time-dependent operator `sigmax() * exp(1j * t)`. 
+
+To add more terms to an *eseries* object we simply add *eseries* object using the `+` operator:
+{{{
+>> es2 = eseries(sigmax(), 1j * omega) + eseries(sigmax(), -1j * omega)
+}}}
