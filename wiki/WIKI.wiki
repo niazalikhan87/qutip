@@ -3,7 +3,7 @@ http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 
 = Overview =
 
-= Sections =
+= Wiki Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
 
 *[Tutorial Tutorial]* - Presentation giving a brief overview of QuTiP
