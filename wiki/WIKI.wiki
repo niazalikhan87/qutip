@@ -31,7 +31,12 @@ QuTiP aims to provide a convient framework for solving the dynamics of both open
 
 *[Contributors Contributors]* - A list of people who have helped to improve QuTiP. 
 
-
+= Citing QuTiP =
+QuTiP is the culmination of more than a years worth of work by two people.  Although QuTiP may be used and/or modified freely, we ask for users who find this framework useful to cite this project as
+{{{ 
+P.D. Nation and J. R. Johansson, QuTiP: The Quantum Toolbox in Python, http://code.google.com/p/qutip
+}}}
+until a formal publication is finished.  We have no direct funding for working on QuTiP, and any citations will be beneficial in helping to to secure future funding directly related to improving QuTiP.
 
 = Acknowledgements =
 This project is partially supported by the [http://www.jsps.go.jp/english/ Japanese Society for the Promotion of Science (JSPS)] under the Foreign Postdoctoral Fellowship program.
