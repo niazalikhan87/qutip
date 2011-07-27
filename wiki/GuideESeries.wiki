@@ -4,7 +4,7 @@
 
 The eseries object in QuTiP is a representation of an exponential-series expansion of time-dependent quantum objects (a concept borrowed from the quantum optics toolbox). 
 
-An exponential series is parameterized by its amplitude coefficients `c_i` and rates `r_i`, so that the series takes the form `eseries(t) = sum_i c_i exp(r_i * t)`. The coefficients are typically quantum objects (type Qobj: states, operators, etc.), so that the value of the eseries also is a quantum object, and the rates can be either real or complex numbers. Note that all amplitude coefficients in an exponential series must be of the same dimensions and composition. 
+An exponential series is parameterized by its amplitude coefficients `c_i` and rates `r_i`, so that the series takes the form `eseries(t) = sum_i c_i exp(r_i * t)`. The coefficients are typically quantum objects (type Qobj: states, operators, etc.), so that the value of the eseries also is a quantum object, and the rates can be either real or complex numbers (describing decay rates and oscillation frequencies, respectively). Note that all amplitude coefficients in an exponential series must be of the same dimensions and composition. 
 
 In QuTiP, an exponential series object is constructed by creating an instance of the class *eseries*,
 {{{
@@ -14,5 +14,51 @@ where the first argument is the amplitude coefficient (here, the sigma-X operato
 
 To add more terms to an *eseries* object we simply add *eseries* object using the `+` operator:
 {{{
->> es2 = eseries(sigmax(), 1j * omega) + eseries(sigmax(), -1j * omega)
+>> es2 = eseries(0.5 * sigmax(), 1j * omega) + eseries(0.5 * sigmax(), -1j * omega)
+}}}
+The *eseries* in this example represents the operator `0.5 * sigmax() * exp(i * omega * t) + 0.5 * sigmax() * exp(i * omega * t)`, which is the exponential series representation of `sigmax() * cos(omega * t)`
+
+We can inspect the structure of an *eseries* object by printing it:
+{{{
+>> print es2
+ESERIES object: 2 terms
+Hilbert space dimensions: [[2], [2]]
+Exponent #0 = 1j
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.   0.5]
+ [ 0.5  0. ]]
+
+Exponent #1 = -1j
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.   0.5]
+ [ 0.5  0. ]]
+}}}
+
+and we can evaluate it for time `t` by using the *esval* function
+{{{
+>>> esval(es2, 0.0)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j  1.+0.j]
+ [ 1.+0.j  0.+0.j]]
+}}}
+or for a list of times `[0.0, 1.0 * pi, 2.0 * pi]`
+{{{
+>>> esval(es2, [0.0, 1.0 * pi, 2.0 * pi])
+[
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j  1.+0.j]
+ [ 1.+0.j  0.+0.j]]
+, Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j -1.+0.j]
+ [-1.+0.j  0.+0.j]]
+, Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j  1.+0.j]
+ [ 1.+0.j  0.+0.j]]
+]
 }}}
