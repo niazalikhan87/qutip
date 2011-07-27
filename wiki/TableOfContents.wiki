@@ -19,7 +19,8 @@
       * [ExamplesSchCatDist]
       * [ExamplesEntropy]      
       * [ExamplesBar3D] 
-      * [ExamplesAngular] 
+      * [ExamplesAngular]
+      * [ExamplesGHZ] 
     * Master equation
       * [ExamplesJaynesCummingsModel]
       * [ExamplesJCWignerEvolve]
