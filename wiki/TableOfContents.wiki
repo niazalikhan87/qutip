@@ -10,6 +10,7 @@
     * [GuideSteadyState Guide to Steady-State Solver]
     * [GuideBloch Plotting qubit states on the Bloch sphere with the Bloch class]
     * [GuideParfor Parallel computations using the parfor function]
+    * [GuideESeries Exponential series]
   * [Functions Function list]
   * [Examples Examples]
     * Basic  
