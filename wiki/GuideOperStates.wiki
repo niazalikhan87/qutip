@@ -294,7 +294,7 @@ Qobj data =
  [ 0.   0.   0.   0.   0. ]
  [ 0.   0.   0.   0.   0.5]]
 }}}
-or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.  There are also several other built in functions for creating predefined density matrices, for example *[Functions#coherent_dm(N, alpha) coherent_dm]* and *[Functions#thermal_dm(N, n) thermal_dm]* which create coherent state and thermal state density matrices, respectively.
+or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.  There are also several other built in functions for creating predefined density matrices, for example *[Functions#coherent_dm(N, alpha) coherent_dm]* and *[Functions#thermal_dm(N,n) thermal_dm]* which create coherent state and thermal state density matrices, respectively.
 {{{
 coherent_dm(5,1.25)
 
@@ -315,6 +315,37 @@ Qobj data =
  [ 0.          0.          0.13717421  0.          0.        ]
  [ 0.          0.          0.          0.0762079   0.        ]
  [ 0.          0.          0.          0.          0.04233772]]
+}}}
+
+QuTiP also provides a set of distance metrics for determining how close two density matrix distributions are to each other.  Included are the trace distance *[Functions#tracedist(A,B) tracedist]* and the fidelity *[Functions#fidelity(A,B) fidelity]*.
+{{{
+#pure
+x=coherent_dm(5,1.25)
+y=coherent_dm(5,1.25j) #<-- note the 'j'
+#mixed
+z=thermal_dm(5,0.125)
+
+fidelity(x,x)
+1.0000000051410474
+
+tracedist(y,y)
+0.0
+}}}
+We also know that for two-pure states, the trace distance (T) and the fidelity (F) are related by T=sqrt(1-F**2).
+{{{
+tracedist(y,x)
+0.9771565838870081
+
+sqrt(1-fidelity(y,x)**2)
+0.97715657039974568
+}}}
+For a pure state and a mixed state, 1-F**2<=T which can also be verified:
+{{{
+1-fidelity(x,z)**2
+0.7784456314854065
+
+tracedist(x,z)
+0.8563182215236257
 }}}
 
 == Qubit (two-level) systems ==
