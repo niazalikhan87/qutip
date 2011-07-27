@@ -317,7 +317,7 @@ Qobj data =
  [ 0.          0.          0.          0.          0.04233772]]
 }}}
 
-QuTiP also provides a set of distance metrics for determining how close two density matrix distributions are to each other.  Included are the trace distance *[Functions#tracedist(A,B) tracedist]* and the fidelity *[Functions#fidelity(A,B) fidelity]*.
+QuTiP also provides a set of distance metrics for determining how close two density matrix distributions are to each other.  Included are the trace distance *[Functions#tracedist(A,_B) tracedist]* and the fidelity *[Functions#fidelity(A,_B) fidelity]*.
 {{{
 #pure
 x=coherent_dm(5,1.25)
