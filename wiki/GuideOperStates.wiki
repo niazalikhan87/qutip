@@ -294,7 +294,7 @@ Qobj data =
  [ 0.   0.   0.   0.   0. ]
  [ 0.   0.   0.   0.   0.5]]
 }}}
-or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.  There are also several other built in functions for creating predefined density matrices, for example *[Functions#coherent_dm(N, alpha) coherent_dm]* and *[Functions#thermal_dm(N,n) thermal_dm]* which create coherent state and thermal state density matrices, respectively.
+or use `0.5*fock_dm(5,2)+0.5*fock_dm(5,4)`.  There are also several other built in functions for creating predefined density matrices, for example *[Functions#coherent_dm(N,_alpha) coherent_dm]* and *[Functions#thermal_dm(N,_n) thermal_dm]* which create coherent state and thermal state density matrices, respectively.
 {{{
 coherent_dm(5,1.25)
 
