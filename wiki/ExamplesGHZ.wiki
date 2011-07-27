@@ -1,6 +1,6 @@
 #creation of GHZ states using simdiag
 
-Simultaneous diagonalization of operators using *[simdiag(ops) simdiag]* to generate GHZ states.
+Simultaneous diagonalization of operators using *[Functions#simdiag(ops) simdiag]* to generate GHZ states.
 
 {{{
 #adapted from the quantum optics toolbox by Sze M. Tan
@@ -41,6 +41,4 @@ Qobj data =
  [ 0.00000000+0.j]
  [ 0.70710678+0.j]]
 }}}
-
-
 
