@@ -79,3 +79,7 @@ Exponent #1 = 1j
 [ -1.00000000e+00+0.j  -6.12303177e-17+0.j]
 }}}
 Note the expectation value of the *eseries* `expect(rho, es3)` itself is an *eseries*, but with amplitude coefficients that are C-numbers instead of quantum operators. To evaluate the C-number *eseries* at times `tlist` we use `esval(es3_expect, tlist)`, or, equivalently, `es3_expect.value(tlist)`.
+
+== Applications of exponential series ==
+
+The exponential series formalism can be useful for the time-evolution of quantum systems. One approach to calculating the time evolution of a quantum system in time is to diagonalize the Hamiltonian and to express the propagator (e.g., `exp(-i*H*t)` or `exp(-i*H*t)*rho*exp(i*H*t)`) as an exponential series. The QuTiP function *es2ode* and *essolve* use this method to evolve quantum systems. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be run independently for each initial state).
