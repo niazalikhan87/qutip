@@ -62,3 +62,20 @@ Qobj data =
  [ 1.+0.j  0.+0.j]]
 ]
 }}}
+
+To calculate the expectation value of an operator for a system with a state described by an *eseries*, we use the *expect* function. For example, consider the operator `sigmax() * cos(omega * t) + sigmaz() * sin(omega * t)`, and say we would like to know the expectation value of this operator for a spin in its excited state (`rho = fock_dm(2,1)` produce this state):
+{{{
+>> es3 = eseries([0.5*sigmaz(), 0.5*sigmaz()], [1j, -1j]) + eseries([-0.5j*sigmax(), 0.5j*sigmax()], [1j, -1j])
+>> rho = fock_dm(2, 1)
+>> es3_expect = expect(rho, es3)
+>> print es3_expect
+ESERIES object: 2 terms
+Hilbert space dimensions: [[1, 1]]
+Exponent #0 = -1j
+(-0.5+0j)
+Exponent #1 = 1j
+(-0.5+0j)
+>> print es3_expect.value([0.0, pi/2])
+[ -1.00000000e+00+0.j  -6.12303177e-17+0.j]
+}}}
+Note the expectation value of the *eseries* `expect(rho, es3)` itself is an *eseries*, but with amplitude coefficients that are C-numbers instead of quantum operators. To evaluate the C-number *eseries* at times `tlist` we use `esval(es3_expect, tlist)`, or, equivalently, `es3_expect.value(tlist)`.
