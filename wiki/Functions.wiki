@@ -658,7 +658,7 @@ Qobj data =
     
     @param *ops* list of commuting, Hermitian operators
     
-    @returns *eigvals,eigvecs* array of eigenvalues for each operator along rows ; array of quantum objects corresponding to simultaneous eigenvectors.
+    @returns *eigvecs,eigvals* array of eigenvalues for each operator along rows ; array of quantum objects corresponding to simultaneous eigenvectors.
     
     See GHZ example for usage
 ----
