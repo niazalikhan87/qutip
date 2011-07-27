@@ -29,6 +29,8 @@
 
 *[ExamplesLandauZener Landau-Zener transitions in a quantum two-level system]*
 
+*[ExamplesFidelity  Measuring the distance between density matrices via the fidelity]*
+
 = Monte-Carlo =
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
 
