@@ -2,6 +2,20 @@ http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 *<wiki:toc max_depth="2" />*
 
 = Overview =
+QuTiP aims to provide a convient framework for solving the dynamics of both open and closed quantum systems.  The focus of QuTiP is on systems who's Hamiltonian is composed of harmonic oscillator modes, and multi-level (typically two-levels) atoms, where the Hilbert space may be constructed using the Fock basis.  This large class of Hamiltonians appears in a wide variety of physical problems, including those in quantum optics, trapped ions, superconducting circuit devices, and mechanical systems in the quantum regime.  Although similar software options are already available, QuTiP differs from these alternatives by combining the following benefits:
+
+  * QuTiP relies on completely open-source software.  You are free to modify and use it as you wish with no licensing fees.
+
+  * QuTiP is based on the Python scripting language, providing easy to read, fast code generation without the need to compile after modification.
+
+  * The numerics underlying QuTiP are time-tested algorithms that run at C-code speeds, thanks to the numpy and scipy libraries, and are based on many of the same algorithms used in propriety software.
+
+  * QuTiP allows for solving the dynamics of Hamiltonians with arbitrary time-dependence (does not yet include collapse operators).
+
+  * Takes advantage of multiple processors found in essentially all modern computers.
+
+  * QuTiP was designed from the start to require a minimal learning curve for those users who have experience using the popular quantum optics toolbox by Sze M. Tan. 
+
 
 = Wiki Sections =
 *[Installation Installation]* - Gives instructions on how to install QuTiP and it's dependencies.
