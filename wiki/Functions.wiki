@@ -846,7 +846,7 @@ tracedist(x,y)
 =W=
 
 ==wigner(state,xvec,yvec,&g)==
-    @brief Calculates the Wigner function of a given state vector or density matrix at points xvec+i*yvec
+    @brief Calculates the Wigner function of a given state vector or density matrix at points `xvec+i*yvec`
 
     @param *state* Qobj representing a state vector or density matrix
 
