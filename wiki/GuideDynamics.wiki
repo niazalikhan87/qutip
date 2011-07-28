@@ -1,4 +1,5 @@
 #summary Time-evolution of quantum systems.
+*<wiki:toc max_depth="2" />*
 
 In this section we describe how to set up time-evolution simulations of closed
 and open quantum systems. 
@@ -98,7 +99,9 @@ Qobj data =
 }}}
 
 
-= Non-unitary evolution: Master equation =
+= Non-unitary evolution =
+
+==Master equation==
 
 For non-unitary evolution of a quantum systems, i.e., evolution that includes
 incoherent processes such as relaxation and dephasing, it is common to use
@@ -166,7 +169,7 @@ Now a slightly more complex example: Consider a two-level atom coupled to a leak
 
 http://qutip.googlecode.com/svn/wiki/images/guide-jc-dynamics.png
 
-= Non-unitary evolution: Monte-Carlo evolution =
+==Monte-Carlo evolution==
 
 Quantum trajectory Monte-Carlo is an alternative approach for calculating the
 time-evolution of dissipative quantum systems. Unlike the master equation, 
@@ -221,7 +224,7 @@ But for small systems, on the other hand, the added overhead of averaging a larg
 and master equations are therefore generally more efficient.
 
 
-= Evolution with time-dependent Hamiltonians (unitary and non-unitary) =
+= Time-dependent Hamiltonians (unitary and non-unitary) =
 
 In the previous examples of quantum system evolution, we assumed that
 the systems under consideration were described by a time-independent
@@ -268,8 +271,6 @@ in the absence and in the presence of the time-dependent driving signal:
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
-
-
 
 
 
