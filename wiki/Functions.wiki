@@ -567,6 +567,21 @@ Qobj data =
 ----
 
 =Q=
+
+==qfunc(state,xvec,yvec,&g)==
+    @brief Calculates the Q function of a given state vector or density matrix at points `xvec+i*yvec`
+
+    @param *state* Qobj representing a state vector or density matrix
+
+    @param *xvec* list/array of x-coordinates at which to calculate the Q function
+
+    @param *yvec* list/array of y-coordinates at which to calculate the Q function
+
+    @param *g* (optional) scaling factor for `a = 0.5*g*(x+iy)`, default g=sqrt(2)
+
+    @returns *array* returns array of values representing the Q function calculated over the specified range
+----
+
 ==qstate(str)==
     @brief 	Creates a tensor product for a set of qubits in either the 'up' |0> or 'down' |1> state.
     
