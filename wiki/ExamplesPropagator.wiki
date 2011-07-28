@@ -4,7 +4,7 @@
 
 In this example we consider a strongly driven two-level system where the driving field couples to the sigma-Z operator. The system is subject to repeated Landau-Zener-like transitions.
 
-In the following code we evolve the system for a few driving periods and plot the results, to get an idea of how the state of the qubit changes at the avoided-level crossing points (where the Sigma-Z coefficient in the Hamiltonian is zero). 
+In the following code we evolve the system for a few driving periods and plot the results, to get an idea of how the state of the two-level system changes at the avoided-level crossing points (where the Sigma-Z coefficient in the Hamiltonian is zero). 
 
 Next, we use the *propagator* function to find the propagator for the system for one driving period, and then we use the *propagator_steadystate* function to find the pseudo steady state density matrix that follows from infinitely many applications of the one-period propagotor.
 
@@ -81,7 +81,7 @@ psi0   = basis(2,0)    # initial state
 omega  = 0.05 * 2 * pi # driving frequency
 T      = (2*pi)/omega  # driving period
 
-tlist = linspace(0.0, 2 * T, 1500)
+tlist = linspace(0.0, 3 * T, 1500)
 
 # solve for the dynamics for two driving periods, and find the steady state
 start_time = time.time()
