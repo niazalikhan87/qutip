@@ -1,7 +1,22 @@
 #summary Basic examples.
-*<wiki:toc max_depth="1" />*
+*<wiki:toc max_depth="2" />*
 
-= Basics =
+=Running QuTiP demos=
+QuTip includes 20 built in demos for the examples below that demonstrate the usage of the built in functions for solving a variety of examples.  To run the demos, load the QuTiP package,
+{{{
+from qutip import *
+}}}
+and run the demos function,
+{{{
+demos()
+}}}
+This will generate the examples GUI, or command line list of demos, depending on the availability of the graphics libraries:
+
+http://qutip.googlecode.com/svn/wiki/images/demos.png
+
+=Examples=
+
+== Basics ==
 *[ExamplesWigner Simple Wigner distribution of a linear combination of Fock states.]*
 
 *[ExamplesSqueezed Wigner and Q-functions of a squeezed state]*
@@ -16,7 +31,7 @@
 
 *[ExamplesGHZ Simultaneous diagonalization of operators using simdiag to generate GHZ states]*
 
-= Master equation =
+== Master equation ==
 *[ExamplesJaynesCummingsModel Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation.]*
 
 *[ExamplesJCWignerEvolve Wigner distributions from the master equation evolution of the Jaynes-Cummings model]*
@@ -33,7 +48,7 @@
 
 *[ExamplesFidelity  Measuring the distance between density matrices via the fidelity]*
 
-= Monte-Carlo =
+== Monte-Carlo ==
 *[ExamplesMonteCarloExpectation Calculate the expectation values for an atom+cavity system using the Monte-Carlo trajectory method.]*
 
 *[ExamplesTrilinearMonteCarlo Evolution of the harmonic mode particle numbers for the trilinear Hamiltonian subject to damping.]*
@@ -42,7 +57,7 @@
 
 *[ExamplesDampedParAmp  Master equation vs. Monte-Carlo evolution for a damped parametric amplifier]*
 
-= Steady state calculations =
+== Steady state calculations ==
 
 *[ExamplesDrivenCavitySS Steady-state solution for a driven-cavity coupled to a qubit]*
 
