@@ -2,7 +2,7 @@
 *<wiki:toc max_depth="2" />*
 
 =Running QuTiP demos=
-QuTip includes 20 built in demos for the examples below that demonstrate the usage of the built in functions for solving a variety of examples.  To run the demos, load the QuTiP package,
+QuTip includes 20 built in demos from the examples below that demonstrate the usage of the built in functions for solving a variety of problems.  To run the demos, load the QuTiP package,
 {{{
 from qutip import *
 }}}
@@ -10,7 +10,7 @@ and run the demos function,
 {{{
 demos()
 }}}
-This will generate the examples GUI, or command line list of demos, depending on the availability of the graphics libraries:
+This will generate the examples GUI, or a command line list of demos, depending on the availability of the graphics libraries:
 
 http://qutip.googlecode.com/svn/wiki/images/demos.png
 
