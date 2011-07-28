@@ -1,8 +1,9 @@
 #summary Time-evolution of quantum systems.
-*<wiki:toc max_depth="2" />*
 
-In this section we describe how to set up time-evolution simulations of closed
-and open quantum systems. 
+*In this section we describe how to set up time-evolution simulations of closed
+and open quantum systems.* 
+
+*<wiki:toc max_depth="2" />*
 
 = Unitary evolution =
 
@@ -271,8 +272,6 @@ in the absence and in the presence of the time-dependent driving signal:
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
-
-
 
 
 
