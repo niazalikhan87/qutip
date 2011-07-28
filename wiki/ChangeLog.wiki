@@ -1,5 +1,4 @@
 #list of changes in each released version
 
-==Version 1.0.0== [svn-xxx] (July 29, 2011):
-----------------------------------------
+==Version 1.0.0 `[svn-xxx]` (July 29, 2011):==
 Initial release.
