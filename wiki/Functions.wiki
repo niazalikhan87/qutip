@@ -238,13 +238,6 @@ Qobj data =
 
 ----
 
-==ode2es(L, rho0)==
-
-    Creates an exponential series that describes the time evolution for the
-    initial state rho0, given the Liouvillian L.
-
-----
-
 ==essolve(H, rho0, tlist, c_op_list, expt_op_list)==
 
     Evolution of a state vector or density matrix (rho0) for a given
@@ -507,6 +500,13 @@ Qobj data =
 }}}
 ----
 =O=
+
+==ode2es(L, rho0)==
+
+    Creates an exponential series that describes the time evolution for the
+    initial state rho0, given the Liouvillian L.
+
+----
 
 ==Odeoptions()==
     @brief Class of options for the ODE solvers used by odesolve and mcsolve.
