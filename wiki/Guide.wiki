@@ -21,3 +21,5 @@ The goal of this guide is to introduce you to the basic structures and functions
 *[GuideBloch Plotting on the Bloch sphere]* - Plotting qubit states on the Bloch sphere using the *[Functions#Bloch() Bloch]* class. 
 
 *[GuideParfor Parallel computation with parfor]* - Using the *[Functions#parfor(func,frange) parfor]* function to speedup tasks.
+
+*[GuideESeries Eseries] - An overview of exponential series
