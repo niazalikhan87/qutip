@@ -56,22 +56,17 @@ def qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, option):
     if rate > 0.0:
         c_op_list.append(sqrt(rate) * sz)
 
-    if option == "dynamics":
-        # evolve and calculate expectation values
-        expt_list = odesolve(hamiltonian_t, psi0, tlist, c_op_list, [sm.dag() * sm], H_args)  
+    # evolve and calculate expectation values
+    expt_list = odesolve(hamiltonian_t, psi0, tlist, c_op_list, [sm.dag() * sm], H_args)  
 
-        return expt_list[0]
+    # find the propagator for one driving period
+    T = 2*pi / omega
+    U = propagator(hamiltonian_t, T, c_op_list, H_args)
 
-    else: # option = steadystate
+    # find the steady state of successive application of the propagator
+    rho_ss = propagator_steadystate(U)
 
-        # find the propagator for one driving period
-        T = 2*pi / omega
-        U = propagator(hamiltonian_t, T, c_op_list, H_args)
-
-        # find the steady state of successive application of the propagator
-        rho_ss = propagator_steadystate(U)
-
-        return real(expect(sm.dag() * sm, rho_ss))
+    return expt_list[0], real(expect(sm.dag() * sm, rho_ss))
     
 #
 # set up the calculation: a strongly driven two-level system
@@ -88,15 +83,10 @@ T      = (2*pi)/omega  # driving period
 
 tlist = linspace(0.0, 2 * T, 1500)
 
-# solve for the dynamics for two driving periods
+# solve for the dynamics for two driving periods, and find the steady state
 start_time = time.time()
-p_ex = qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, "dynamics")
-print 'dynamics: time elapsed = ' + str(time.time() - start_time) 
-
-# find the steady state
-start_time = time.time()
-p_ex_ss = qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, "steadystate")
-print 'steady state: time elapsed = ' + str(time.time() - start_time) 
+p_ex, p_ex_ss = qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, "dynamics")
+print 'time elapsed = ' + str(time.time() - start_time) 
 
 #
 # plot the results
