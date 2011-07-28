@@ -1,0 +1,5 @@
+#summary Using the propagators to find the steady state of a driven system
+
+= Steady state of a strongly driven two-level system =
+
+In this example we consider a strongly driven two-level system where the driving field couples to the sigma-Z operator. The system is subject to repeated Landau-Zener-like transitions. In the following code we evolve the system for a few driving periods and plot the results, to get an idea of how the state of the qubit changes at the avoided-level crossing points (where the Sigma-Z coefficient in the Hamiltonian is zero). 
