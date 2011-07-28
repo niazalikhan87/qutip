@@ -425,6 +425,6 @@ Qobj data =
 }}}
 the non-zero component is the zeroth-element of the underlying matrix (remember that python uses c-indexing, and matrices start with the zeroth element).  The `|down>` state therefore has a non-zero entry in the first index postion.  This corresponds nicely with the quantum information definitions of qubit states, where the excited `|up>` state is label as `|0>`, and the `|down>` state by `|1>`.
 
-If one wants to create spin operators for higher spin systems, then the *[Functions#jmat(j,&s) jmat]* function comes in handy.  
+*If one wants to create spin operators for higher spin systems, then the [Functions#jmat(j,&s) jmat] function comes in handy.* 
 
 = Expectation values = 
