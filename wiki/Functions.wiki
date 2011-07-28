@@ -184,6 +184,8 @@ Qobj data =
 
 ==demos()==
     @brief Displays a list of demo scripts built into QuTiP.
+
+    See the *[Examples]* page for more further details.
 ----
 
 ==destroy(N)==
