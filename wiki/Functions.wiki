@@ -235,6 +235,27 @@ Qobj data =
     @returns *float* Entropy of density matrix rho
 
     See example: *[ExamplesEntropy]*
+
+----
+
+==ode2es(L, rho0)==
+
+    Creates an exponential series that describes the time evolution for the
+    initial state rho0, given the Liouvillian L.
+
+----
+
+==essolve(H, rho0, tlist, c_op_list, expt_op_list)==
+
+    Evolution of a state vector or density matrix (rho0) for a given
+    Hamiltonian (H) and set of collapse operators (c_op_list), by expressing
+    the ODE as an exponential series. 
+
+    The output is either the state vector at arbitrary points in time (tlist),
+    or the expectation values of the supplied operators (expt_op_list). 
+
+    This solver does not support time-dependent Hamiltonians.
+
 ----
 
 ==expect(oper,state)==
