@@ -274,13 +274,37 @@ in the absence and in the presence of the time-dependent driving signal:
 http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
 
 
+=Setting ODE solver options=
+Occasionally it is necessary to change the built in parameters of the ODE solvers used by both the odesolve and mcsolve functions.  The ODE options for either of these functions may be changed by calling the Odeoptions class:
+{{{
+opts=Odeoptions()
+}}}
+the properties and default values of this class can be view via the `print` command:
+{{{
+print opts
 
+Odeoptions properties:
+----------------------
+atol:        1e-10
+rtol:        1e-08
+method:      adams
+order:       12
+nsteps:      1000
+first_step:  0
+min_step:    0
+max_step:    0
+}}}
+These properties are detailed in the following table.  Assuming `opts=Odeoptions()':
 
-
-
-
-
-
+||property|| Default setting|| Description||
+||opts.atol|| 1e-10|| Absolute tolerance||
+||opts.rtol|| 1e-08|| Relative tolerance||
+||opts.method|| 'adams'|| Solver method.  Can be 'adams' (non-stiff) or 'bdf' (stiff)||
+||opts.order||12|| Order of solver.  Must be <=12 for 'adams' and <=5 for 'bdf'||
+||opts.nsteps|| 1000|| Max. number of steps to take for each interval||
+||opts.first_step||0|| Size of initial step.  0 = determined automatically by solver.||
+||opts.min_step||0|| Minimum step size.  0 = determined automatically by solver.||
+||opts.max_step||0|| Maximum step size.  0 = determined automatically by solver.||
 
 
 
