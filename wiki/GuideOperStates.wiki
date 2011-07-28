@@ -395,26 +395,26 @@ Qobj data =
  [ 0. -1.]]
 
 
-sigmaz()*vec
+sigmaz()*spin
 Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
 Qobj data = 
 [[ 1.]
  [ 0.]]
 
-vec2=basis(2,1)
-vec2
+spin2=basis(2,1)
+spin2
 Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
 Qobj data = 
 [[ 0.]
  [ 1.]]
 
-sigmaz()*vec2
+sigmaz()*spin2
 Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
 Qobj data = 
 [[ 0.]
  [-1.]]
 }}}
-The answer is now apparent.  Since the QuTiP `sigmaz` function uses the standard z-basis representation of the sigma-z spin operator, the `vec` state corresponds to the `|up>` state of a two-level spin system while `vec2` gives the `|down>` state.  Therefore, in our previous example `sigmap()*vec`, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.  
+The answer is now apparent.  Since the QuTiP `sigmaz` function uses the standard z-basis representation of the sigma-z spin operator, the `spin` state corresponds to the `|up>` state of a two-level spin system while `spin2` gives the `|down>` state.  Therefore, in our previous example `sigmap()*spin`, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.  
 
 While at first glance this convention might seem somewhat odd, it is in fact quite handy.  For one, the spin operators remain in the conventional form.  Second, when the spin system is in the `|up>` state:
 {{{
