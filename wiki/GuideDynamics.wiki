@@ -13,7 +13,7 @@ systems, is defined by its Hamiltonian and state vector. In the previous section
 we showed how Hamiltonians and state vectors are constructed in QuTiP.
 Given a Hamiltonian, we can calculate the unitary (non-dissipative)
 time-evolution of an arbitrary state vector *psi0* using the QuTiP function
-*[Functions#odesolve(H,rho0,tlist,c_op_list,expt_op_list,&H_args) odesolve()]*.
+*[Functions#odesolve(H,rho0,tlist,c_op_list,expt_op_list,&H_args,&opt) odesolve()]*.
 It evolves the state vector and evaluates the expectation values for a set of 
 operators *expt_op_list* at the points in time in the list *tlist*,
 using an ordinary differential equation solver. Alternatively, we can use the function 
