@@ -372,7 +372,7 @@ Qobj data =
 [[ 0.]
  [ 1.]]
 }}}
-For a spin system, the operator analogous to the raising operator is the sigma-plus operator *[Functions#sigmam() sigmam]*.  Operating on the `spin` state gives:
+For a spin system, the operator analogous to the raising operator is the sigma-plus operator *[Functions#sigmap() sigmap]*.  Operating on the `spin` state gives:
 {{{
 spin
 Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
