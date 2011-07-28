@@ -469,7 +469,35 @@ expect(c,basis(5,4))
 }}}
 we get a real number.  This is because the expect function looks to see whether the operator is Hermitian or not.  If the operator is Hermitian, than the output will always be real.  In the case of non-Hermitian operators, the return values may be complex.  Therefore, the expect function will return a array of complex values for non-Hermitian operators when the input is a list/array of states or density matrices.
 
+Of course, the expect function works for spin states and operators:
 
+{{{
+up=basis(2,0)
+down=basis(2,1)
+
+expect(sigmaz(),up)
+1.0
+
+expect(sigmaz(),down)
+-1.0
+}}}
+as well as the composite objects discussed in the next section *[GuideComposite]*:
+
+{{{
+spin1=basis(2,0)
+spin2=basis(2,1)
+
+two_spins=tensor(spin1,spin2)
+
+sz1=tensor(sigmaz(),qeye(2))
+sz2=tensor(qeye(2),sigmaz())
+
+expect(sz1,two_spins)
+1.0
+
+expect(sz2,two_spins)
+-1.0
+}}}
 
 
 
