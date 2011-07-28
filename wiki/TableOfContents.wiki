@@ -29,6 +29,7 @@
       * [ExamplesBlochQubitDecay]
       * [ExamplesTimeDependence]
       * [ExamplesLandauZener]
+      * [ExamplesPropagator]
       * [ExamplesFidelity]
     * Monte-Carlo
       * [ExamplesMonteCarloExpectation]
