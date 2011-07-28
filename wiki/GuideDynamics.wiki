@@ -226,9 +226,14 @@ But for small systems, on the other hand, the added overhead of averaging a larg
 and master equations are therefore generally more efficient.
 
 ==Which solver should I use?==
-In general, the choice of solver is determined by the size of your system, as well as your desired output.  
+In general, the choice of solver is determined by the size of your system, as well as your desired output.  The computational resources required by the master equation solver scales as `N**2`, where N is the dimensionality of the Hilbert space.  For small systems, the master equation method is very efficient. In contrast, the monte-carlo solver scales as `N`, but requires running multiple trajectories to average over to get the desired expectation values.  Therefore, if your system is too large, and you run out of memory using odesolve`, then the only option available will be `mcsolve'.  On the other hand, the monte-carlo method cannot return the full density matrix as a function of time and you need to use `odesolve` if this is required.
+
+If your system is intermediate in size (you are not bound by memory) then it is interesting to calculate the crossover point where the monte-carlo solver begins to perform better than the master equation method.  The exact point at which one solver is better than the other will depend on the system of interest and number of processors. However as a guideline, below we have plotted the time required to solve for the evolution of coupled dissipative harmonic oscillators as a function of Hilbert space size.
 
 http://qutip.googlecode.com/svn/wiki/images/solver-performance.png
+
+Here, the number of trajectories used in `mcsolve` is `250` and the number of processors (which determines the slope of the monte-carlo line) is `4`.  Here we see that the monte-carlo solver begins to be more efficient than the corresponding master-equation method at a Hilbert space size of `N~40`.  Therefore, if your system size is greater than `N~40` and you do not need the full density matrix, then it is recommended to try the `mcsolve` function. 
+
 
 = Time-dependent Hamiltonians (unitary and non-unitary) =
 
