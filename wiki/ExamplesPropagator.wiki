@@ -83,7 +83,7 @@ T      = (2*pi)/omega  # driving period
 
 tlist = linspace(0.0, 3 * T, 1500)
 
-# solve for the dynamics for two driving periods, and find the steady state
+# solve for the dynamics for a few driving periods, and find the steady state
 start_time = time.time()
 p_ex, p_ex_ss = qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, "dynamics")
 print 'time elapsed = ' + str(time.time() - start_time) 
