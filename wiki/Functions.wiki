@@ -6,7 +6,7 @@ This is a (*not yet*) complete, alphabetical, function list for QuTiP.  Examples
 = A =
 
 ==about()==
-    @brief Displays QuTiP about box.
+    @brief Displays the QuTiP about box.
 
 ----
 
@@ -181,6 +181,11 @@ Qobj data =
 }}}
 ----
 =D=
+
+==demos()==
+    @brief Displays a list of demo scripts built into QuTiP.
+----
+
 ==destroy(N)==
     @brief Bosonic destruction (lowering) operator for Hilbert space with dimension N
     
