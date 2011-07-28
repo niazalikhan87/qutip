@@ -854,7 +854,7 @@ tracedist(x,y)
 
     @param *yvec* list/array of y-coordinates at which to calculate the Wigner function
 
-    @param *g* (optional) scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2)
+    @param *g* (optional) scaling factor for `a = 0.5*g*(x+iy)`, default g=sqrt(2)
 
     @returns *array* returns array of values representing the Wigner function calculated over the specified range
 ----
