@@ -41,3 +41,4 @@
       * [ExamplesCorrFunc]
       * [ExamplesSpectrum]
   * [Contributors Contributors]
+  * [ChangeLog Change log]
