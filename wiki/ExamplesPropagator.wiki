@@ -105,6 +105,30 @@ legend(("sx coeff", "sz coeff"))
 xlabel('Time')
 ylabel('Coefficients in the Hamiltonian')
 show()
+
+#
+# find the steady state as a function of driving amplitude
+#
+A_vec = 2 * pi * arange(0.0, 2.5, 0.005)
+
+p_ex_ss_vec = zeros(len(A_vec))
+idx = 0
+start_time = time.time()
+for A in A_vec:
+    
+    p_ex_ss_vec[idx] = qubit_integrate(delta, eps0, A, omega, gamma1, gamma2, psi0, tlist, "steadystate")
+    idx += 1
+
+print 'time elapsed = ' + str(time.time() - start_time) 
+
+figure(2)
+plot(A_vec/(2*pi), p_ex_ss_vec, 'b.-')
+title("Steady state of repeated LZ transitions")
+xlabel("driving amplitude")
+ylabel("Occupation probability")
+show()
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/examples-propagator-dynamics.png
+
+http://qutip.googlecode.com/svn/wiki/images/examples-propagator-steadystate.png
