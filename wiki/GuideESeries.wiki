@@ -88,3 +88,62 @@ Note the expectation value of the *eseries* object, `expect(rho, es3)`, itself i
 The exponential series formalism can be useful for the time-evolution of quantum systems. One approach to calculating the time evolution of a quantum system is to diagonalize its Hamiltonian (or Liouvillian, for dissipative systems) and to express the propagator (e.g., `exp(-i*H*t)*rho*exp(i*H*t)`) as an exponential series. 
 
 The QuTiP function *es2ode* and *essolve* use this method to evolve quantum systems in time. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be ran independently for each initial state).
+
+As an example, consider a spin-1/2 with a Hamiltonian pointing in the Sigma-Z direction, and that is subject to noise causing relaxation. For a spin originally is in the up state, we can create an *eseries* object describing its dynamics by using the *ode2es* function:
+{{{
+>> psi0 = basis(2,1)
+>> H = sigmaz()
+>> L = liouvillian(H, [sqrt(1.0) * destroy(2)])
+>> es = ode2es(L, psi0)
+}}}
+The *ode2es* function diagonalizes the Liouvillian `L` and creates an exponential series with the correct eigenfrequencies and amplitudes for the initial state `psi0`.
+
+We can examine the resulting *eseries* object by printing a text representation
+{{{
+>> print es
+ESERIES object: 2 terms
+Hilbert space dimensions: [[2], [2]]
+Exponent #0 = 0j
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 1.+0.j  0.+0.j]
+ [ 0.+0.j  0.+0.j]]
+
+Exponent #1 = (-1+0j)
+Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[-1.+0.j  0.+0.j]
+ [ 0.+0.j  1.+0.j]]
+}}}
+or by evaluate it and arbitrary points in time (here at 0.0 and 1.0)
+{{{
+>> print es.value([0.0, 1.0])
+[Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.+0.j  0.+0.j]
+ [ 0.+0.j  1.+0.j]]
+, Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True
+Qobj data = 
+[[ 0.63212056+0.j  0.00000000+0.j]
+ [ 0.00000000+0.j  0.36787944+0.j]]
+]
+}}}
+and the expectation value of the exponential series can be calculated using the *expect* function
+{{{
+>> es_expect = expect(sigmaz(), es)
+}}}
+The result `es_expect` is now an exponential series with C-numbers as amplitudes, which easily can be evaluated at arbitrary times
+{{{
+>> print es_expect.value([0.0, 1.0, 2.0, 3.0])
+[-1.00000000+0.j  0.26424112+0.j  0.72932943+0.j  0.90042586+0.j]
+>> tlist = linspace(0.0, 10.0, 100)
+>> sz_expect = es_expect.value(tlist)
+>>
+>> from pylab import *
+>> plot(tlist, sz_expect)
+>> xlabel("Time")
+>> ylabel("Expectation value of sigma-Z")
+>> show()
+}}}
+
+http://qutip.googlecode.com/svn/wiki/images/guide-eseries-1.png
