@@ -349,9 +349,15 @@ tracedist(x,z)
 }}}
 
 == Qubit (two-level) systems ==
-Having spent of time on basis states that represent harmonic oscillator states, we now move on to qubit, or two-level systems.  To create a state vector corresponding to a two-level, system, we use the same basis, or fock, function with only two levels:
+Having spent of time on basis states that represent harmonic oscillator states, we now move on to qubit, or two-level spin systems.  To create a state vector corresponding to a qubit system, we use the same basis, or fock, function with only two levels:
 {{{
 spin=basis(2,0)
 }}}
+Now at this point one may ask how this state is different than that of a harmonic oscillator in the vacuum state truncated to two energy levels?
+{{{
+vec=basis(2,0)
+}}}
+At this stage, there is no difference.  This should not be surprising as we called the exact same function twice.  The difference between the two comes from the action of the spin operators *[Functions#sigmax() sigmax]*, *[Functions#sigmay() sigmay]*, *[Functions#sigmaz() sigmaz]*, *[Functions#sigmap() sigmap]*, and *[Functions#sigmam() sigmam]* on these two-level states.
+
 
 = Expectation values = 
