@@ -225,6 +225,10 @@ advantage and the Monte-Carlo is therefore generally recommended for such system
 But for small systems, on the other hand, the added overhead of averaging a large number of stochastic trajectories to obtain the open system dynamics outweigh the benefits of the (small) memory saving, 
 and master equations are therefore generally more efficient.
 
+==Which solver should I use?==
+In general, the choice of solver is determined by the size of your system, as well as your desired output.  
+
+http://qutip.googlecode.com/svn/wiki/images/solver-performance.png
 
 = Time-dependent Hamiltonians (unitary and non-unitary) =
 
