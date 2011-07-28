@@ -16,7 +16,7 @@ time-evolution of an arbitrary state vector *psi0* using the QuTiP function
 *[Functions#odesolve(H,rho0,tlist,c_op_list,expt_op_list,&H_args) odesolve()]*.
 It evolves the state vector and evaluates the expectation values for a set of 
 operators *expt_op_list* at the points in time in the list *tlist*,
-using an ordinary differential equation solver. 
+using an ordinary differential equation solver. Alternatively, we can use the function *essolve*, which use the exponential-series technique to calculate the time evolution of a system. The *odesolve* and *essolve* functions take the same arguments and it is therefore easy switch between the solvers. 
 
 For example, the time evolution of a quantum spin-1/2 system with tunneling
 rate 0.1 that initially is in the up state is calculated, and the 
@@ -305,7 +305,5 @@ These properties are detailed in the following table.  Assuming `opts=Odeoptions
 ||opts.first_step||0|| Size of initial step.  0 = determined automatically by solver.||
 ||opts.min_step||0|| Minimum step size.  0 = determined automatically by solver.||
 ||opts.max_step||0|| Maximum step size.  0 = determined automatically by solver.||
-
-
 
 
