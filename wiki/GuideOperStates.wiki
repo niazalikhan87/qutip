@@ -428,3 +428,65 @@ the non-zero component is the zeroth-element of the underlying matrix (remember 
 *If one wants to create spin operators for higher spin systems, then the [Functions#jmat(j,&s) jmat] function comes in handy.* 
 
 = Expectation values = 
+Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the *[Functions#expect(oper,state) expect]* function.  Further examples of using the `expect` function may be found at *[ExamplesDrivenCavitySS]* and *[ExamplesThermalTrilinear]*.  To begin:
+
+{{{
+vac=basis(5,0)
+one=basis(5,1)
+c=create(5)
+N=num(5)
+
+expect(N,vac)
+0.0
+
+expect(N,one)
+1.0
+
+coh=coherent_dm(5,1.0j)
+expect(N,con)
+0.997055574581 #should be equal to 1, small diff. due to truncated Hilbert space
+
+cat=(basis(5,4)+1.0j*basis(5,3)).unit()
+expect(c,cat)
+1j
+
+}}}
+The *[Functions#expect(oper,state) expect]* function also accepts lists or arrays of state vectors or density matrices for the second input:
+
+{{{
+states=[(c**k*vac).unit() for k in range(5)] #must normalize
+expect(N,states)
+[ 0.  1.  2.  3.  4.]
+
+cat_list=[(basis(5,4)+x*basis(5,3)).unit() for x in [0,1.0j,-1.0,-1.0j]]
+expect(c,cat_list)
+[ 0.+0.j  0.+1.j -1.+0.j  0.-1.j]
+}}}
+Notice how in this last example, all of the return values are complex numbers.  Yet if we calculate just the first expectation value,
+{{{
+expect(c,basis(5,4))
+0.0
+}}}
+we get a real number.  This is because the expect function looks to see whether the operator is Hermitian or not.  If the operator is Hermitian, than the output will always be real.  In the case of non-Hermitian operators, the return values may be complex.  Therefore, the expect function will return a array of complex values for non-Hermitian operators when the input is a list/array of states or density matrices.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
