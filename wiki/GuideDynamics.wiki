@@ -315,3 +315,33 @@ These properties are detailed in the following table.  Assuming `opts=Odeoptions
 ||opts.first_step||0|| Size of initial step.  0 = determined automatically by solver.||
 ||opts.min_step||0|| Minimum step size.  0 = determined automatically by solver.||
 ||opts.max_step||0|| Maximum step size.  0 = determined automatically by solver.||
+
+As an example, let us consider relaxing the conditions on the ODE solver:
+{{{
+opts.atol=1e-8
+opts.rtol=1e-6
+opts.nsteps=500
+print opts
+
+Odeoptions properties:
+----------------------
+atol:        1e-08
+rtol:        1e-06
+method:      adams
+order:       12
+nsteps:      500
+first_step:  0
+min_step:    0
+max_step:    0
+}}}
+
+To use these new settings we can use the keyword argument `options` in either the `odesolve` or `mcsolve` function.  We can modify the last example as:
+{{{
+odesolve(H0, psi0, tlist, c_op_list, [sigmaz()],options=opts)
+odesolve(hamiltonian_t, psi0, tlist, c_op_list, [sigmaz()], H_args,options=opts)
+}}}
+or
+{{{
+mcsolve(H0, psi0, tlist, ntraj,c_op_list, [sigmaz()],options=opts)
+mcsolve(hamiltonian_t, psi0, tlist, ntraj, c_op_list, [sigmaz()], H_args,options=opts)
+}}}
