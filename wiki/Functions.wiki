@@ -542,7 +542,20 @@ Qobj data =
  [ 0.00000000+0.j          0.92387953+0.38268343j]]
 }}}
 ----
+==propagator(H, t, c_op_list, &H_args)==
+Calculate the propagator U(t) for the density matrix or wave function such that 
 
+psi(t) = U(t) psi(0) 
+
+or 
+
+rho_vec(t) = U(t) rho_vec(0)
+
+where rho_vec is the vector representation of the density matrix.
+----
+==ppropagator_steadystate(U)==
+Find the steady state for successive applications of the propagator U.
+----
 ==ptrace(rho,sel)==
     @brief partial trace of composite quantum object formed by *[Functions#tensor(args) tensor]*
     
