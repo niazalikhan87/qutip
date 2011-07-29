@@ -59,6 +59,8 @@ If you do not have any graphics libraries installed, or they are disabled, then 
 
 *[ExamplesDampedParAmp  Master equation vs. Monte-Carlo evolution for a damped parametric amplifier]*
 
+*[ExamplesMCTimesWhich Monte-carlo collapse times and corresponding operators]*
+
 == Steady state calculations ==
 
 *[ExamplesDrivenCavitySS Steady-state solution for a driven-cavity coupled to a qubit]*
