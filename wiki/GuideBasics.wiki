@@ -75,7 +75,7 @@ Now, unless you have lots of free time, specifying the data for each object is i
 || Raising (creation) operator || *[Functions#create(N) create(N)]* || same as above  ||
 || Number operator || *[Functions#num(N) num(N)]* || same as above  ||
 ||Single-mode displacement operator|| *[Functions#displace(N,alpha) displace(N,alpha)]*|| N=number of levels in Hilbert space, alpha = complex displacment amplitude||
-||Single-mode squeezing operator||*[Functions#squeez(N,sp) squeez(N,sp)]*||N=number of levels in Hilbert space, sp = squeezing parameter||
+||Single-mode squeezing operator|| *[Functions#squeez(N,sp) squeez(N,sp)]*||N=number of levels in Hilbert space, sp = squeezing parameter||
 || Sigma-X || *[Functions#sigmax() sigmax()]* || - ||
 || Sigma-Y || *[Functions#sigmay() sigmay()]* || - ||
 || Sigma-Z || *[Functions#sigmaz() sigmaz()]* || - ||
