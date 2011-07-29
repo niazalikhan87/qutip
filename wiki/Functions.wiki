@@ -66,6 +66,20 @@ clebsch(1,0,1,0,1,0) #m3!=m1+m2
 0
 }}}
 ----
+==cnot()==
+    @brief   Quantum object representing the CNOT gate.
+    
+    @returns *Qobj*    CNOT quantum object
+{{{
+cnot()
+Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
+Qobj data = 
+[[ 1.  0.  0.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0.  0.  1.]
+ [ 0.  0.  1.  0.]]
+}}}
+----
 
 ==coherent(N,alpha)==
     @brief Generates a coherent state with eigenvalue alpha in a N-dimensional Hilbert space via displacement operator on vacuum state
@@ -123,25 +137,7 @@ Qobj data =
     
     @param *b_op*          `Qobj` of B operator
 
-    See *[GuideCorrelationFunction]* for details
-----
-
-==correlation_ode(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
-    @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the ode solver, and the quantum regression theorem. 
-    
-    @param *H*              ` Qobj`  system Hamiltonian
-    
-    @param *rho0*          `Qobj`  initial density matrix
-    
-    @param *tlist*           `list`/`array` of times
-    
-    @param *taulist*       `list`/`array` of tau times
-    
-    @param *c_op_list*   `list` of collapse operators
-    
-    @param *a_op*          `Qobj` of A operator
-    
-    @param *b_op*          `Qobj` of B operator
+    @returns array of expectation values
 
     See *[GuideCorrelationFunction]* for details
 ----
@@ -163,22 +159,84 @@ Qobj data =
     
     @param *b_op*          `Qobj` of B operator
 
+    @returns array of expectation values
+
     See *[GuideCorrelationFunction]* for details
 ----
 
-==cnot()==
-    @brief   Quantum object representing the CNOT gate.
+==correlation_ode(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
+    @brief   Calculate a two-time correlation function <A(t+tau)B(t)> using the ode solver, and the quantum regression theorem. 
     
-    @returns *Qobj*    CNOT quantum object
-{{{
-cnot()
-Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True
-Qobj data = 
-[[ 1.  0.  0.  0.]
- [ 0.  1.  0.  0.]
- [ 0.  0.  0.  1.]
- [ 0.  0.  1.  0.]]
-}}}
+    @param *H*              ` Qobj`  system Hamiltonian
+    
+    @param *rho0*          `Qobj`  initial density matrix
+    
+    @param *tlist*           `list`/`array` of times
+    
+    @param *taulist*       `list`/`array` of tau times
+    
+    @param *c_op_list*   `list` of collapse operators
+    
+    @param *a_op*          `Qobj` of A operator
+    
+    @param *b_op*          `Qobj` of B operator
+
+    @returns array of expectation values
+
+    See *[GuideCorrelationFunction]* for details
+----
+
+==correlation_ss_es(H,rho0,tlist,c_op_list,a_op,b_op)==
+     @brief  Calculate a two-time correlation function <A(tau)B(0)> using the quantum
+             regression theorem, and exponential series.
+     
+    @param *H*              ` Qobj`  system Hamiltonian
+    
+    @param *rho0*          `Qobj`  initial density matrix
+    
+    @param *tlist*           `list`/`array` of times
+    
+    @param *c_op_list*   `list` of collapse operators
+    
+    @param *a_op*          `Qobj` of A operator
+    
+    @param *b_op*          `Qobj` of B operator
+
+    See *[GuideCorrelationFunction]* for details
+----
+
+==correlation_ss_mc(H,tlist,c_op_list,a_op,b_op)==
+     @brief  Calculate a two-time correlation function <A(tau)B(0)> using the quantum
+             regression theorem, and the monte-carlo solver
+     
+    @param *H*              ` Qobj`  system Hamiltonian
+    
+    @param *tlist*           `list`/`array` of times
+    
+    @param *c_op_list*   `list` of collapse operators
+    
+    @param *a_op*          `Qobj` of A operator
+    
+    @param *b_op*          `Qobj` of B operator
+
+    See *[GuideCorrelationFunction]* for details
+----
+
+==correlation_ss_ode(H,tlist,c_op_list,a_op,b_op)==
+     @brief  Calculate a two-time correlation function <A(tau)B(0)> using the quantum
+             regression theorem, and and the ode solver.
+     
+    @param *H*              ` Qobj`  system Hamiltonian
+    
+    @param *tlist*           `list`/`array` of times
+    
+    @param *c_op_list*   `list` of collapse operators
+    
+    @param *a_op*          `Qobj` of A operator
+    
+    @param *b_op*          `Qobj` of B operator
+
+    See *[GuideCorrelationFunction]* for details
 ----
 
 ==create(N)==
@@ -759,6 +817,28 @@ Qobj data =
     @returns *eigvecs,eigvals* array of quantum objects corresponding to simultaneous eigenvectors; array of eigenvalues for each operator along rows.
     
     See *[ExamplesGHZ]* example for usage
+----
+
+==spectrum_ss(H,wlist,c_op_list,a_op,b_op)==
+  
+    @brief Calculate the spectrum corresponding to a correlation function <a(t)b(0)>,
+           i.e., the Fourier transform of the correlation funciton,
+
+           S(w) = \int_{-\infty}^{\infty} <a(t)b(0)> \exp{-i\omega t} dt
+
+    @param *H* Hamiltonian
+
+    @param *wlist* list.array or frequencies
+
+    @param *c_op_list* list of collapse operators
+
+    @param *a_op* Qobj for 'A' operator
+
+    @param *b_op* Qobj for 'B' operator
+
+    @returns spectrum array
+
+    See example *[ExamplesSpectrum]*
 ----
 
 ==sphereplot(theta,phi,values,&save)==
