@@ -514,6 +514,8 @@ Qobj data =
 
     @param *options* optional settings for ODE solver given by the [Functions#Odeoptions() Odeoptions] class.
 
+    @return See the guide section*[GuideDynamics#Monte-Carlo_evolution]* 
+
     For examples see: *[ExamplesMonteCarloExpectation]*, *[ExamplesTrilinearMonteCarlo]*, *[ExamplesThermalTrilinear]*, and *[ExamplesDampedParAmp]*
 ----
 =N=
