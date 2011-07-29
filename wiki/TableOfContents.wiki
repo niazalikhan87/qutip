@@ -36,6 +36,7 @@
       * [ExamplesTrilinearMonteCarlo]
       * [ExamplesThermalTrilinear]
       * [ExamplesDampedParAmp]
+      * [ExamplesMCTimesWhich]
     * Steady state calculations
       * [ExamplesDrivenCavitySS]   
       * [ExamplesCorrFunc]
