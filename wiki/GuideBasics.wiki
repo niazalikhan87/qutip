@@ -70,16 +70,18 @@ Now, unless you have lots of free time, specifying the data for each object is i
 
 
 || *Operators* || *Command* (# is optional) || *Inputs* ||
-|| Identity || qeye(N) || N = number of levels in Hilbert space ||
-|| Lowering (destruction) operator || destroy(N) || same as above   ||
-|| Raising (creation) operator || create(N) || same as above  ||
-|| Number operator || num(N) || same as above  ||
-|| Sigma-X || sigmax() || - ||
-|| Sigma-Y || sigmay() || - ||
-|| Sigma-Z || sigmaz() || - ||
-|| Sigma plus || sigmap() || - ||
-|| Sigma minus || sigmam() || - ||
-|| Higher spin operators || jmat(j,d) || j = integer or half-integer representing spin, d = 'x', 'y', 'z', '+', or '-' ||
+|| Identity || *[Functions#qeye(N) qeye(N)]* || N = number of levels in Hilbert space ||
+|| Lowering (destruction) operator || *[Functions#destroy(N) destroy(N)]* || same as above   ||
+|| Raising (creation) operator || *[Functions#create(N) create(N)]* || same as above  ||
+|| Number operator || *[Functions#num(N) num(N)]* || same as above  ||
+||Single-mode displacement operator|| *[Functions#displace(N,alpha) displace(N,alpha)]*|| N=number of levels in Hilbert space, alpha = complex displacment amplitude||
+||Single-mode squeezing operator||*[Functions#squeez(N,sp) squeez(N,sp)]*||N=number of levels in Hilbert space, sp = squeezing parameter||
+|| Sigma-X || *[Functions#sigmax() sigmax()]* || - ||
+|| Sigma-Y || *[Functions#sigmay() sigmay()]* || - ||
+|| Sigma-Z || *[Functions#sigmaz() sigmaz()]* || - ||
+|| Sigma plus || *[Functions#sigmap() sigmap()]* || - ||
+|| Sigma minus || *[Functions#sigmam() sigmam()]* || - ||
+|| Higher spin operators || *[Functions#jmat(j,&s) jmat(j,&s)]* || j = integer or half-integer representing spin, s = 'x', 'y', 'z', '+', or '-' ||
 
 As an example, we give the output for a few of these objects:
 
