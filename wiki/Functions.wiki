@@ -280,6 +280,8 @@ y=thermal_dm(5,1)
 fidelity(x,y)
 0.42968726436823845
 }}}
+
+    See guide section *[GuideOperStates]* or example *[ExamplesFidelity]* for further details.
 ----
 
 ==fock(N,&m)==
@@ -465,7 +467,7 @@ Qobj data =
 
 =M=
 
-==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&options=Odeoptions())==
+==mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&H_args,&options=Odeoptions())==
     @brief Monte-Carlo evolution of a state vector |psi> for a given Hamiltonian and sets of collapse operators and operators for calculating expectation values.  Options for solver are given by the Mcoptions class.
     
     @param *H* quantum object representing system Hamiltonian
@@ -480,7 +482,11 @@ Qobj data =
     
     @param *expect_ops* `list` of operators to calculate expectation values
     
-    @param *options* optional settings for ODE solver given by the Odeoptions class.
+    @param *H_args* optional list of arguments for use in time-dependent Hamiltonian problems
+
+    @param *options* optional settings for ODE solver given by the [Functions#Odeoptions() Odeoptions] class.
+
+    For examples see: *[ExamplesMonteCarloExpectation]*, *[ExamplesTrilinearMonteCarlo]*, *[ExamplesThermalTrilinear]*, and *[ExamplesDampedParAmp]*
 ----
 =N=
 ==num(N)==
@@ -603,6 +609,8 @@ Qobj data =
     @param *g* (optional) scaling factor for `a = 0.5*g*(x+iy)`, default g=sqrt(2)
 
     @returns *array* returns array of values representing the Q function calculated over the specified range
+
+    See the *[ExamplesSqueezed]* and *[ExamplesSchCatDist]* examples
 ----
 
 ==qstate(str)==
@@ -716,7 +724,7 @@ Qobj data =
     
     @returns *eigvecs,eigvals* array of quantum objects corresponding to simultaneous eigenvectors; array of eigenvalues for each operator along rows.
     
-    See GHZ example for usage
+    See *[ExamplesGHZ]* example for usage
 ----
 
 ==sphereplot(theta,phi,values,&save)==
@@ -895,6 +903,8 @@ tracedist(x,y)
     @param *g* (optional) scaling factor for `a = 0.5*g*(x+iy)`, default g=sqrt(2)
 
     @returns *array* returns array of values representing the Wigner function calculated over the specified range
+
+    See the *[ExamplesWigner]*, *[ExamplesSqueezed]*, *[ExamplesSchCatDist]*, and *[ExamplesJCWignerEvolve]* examples.
 ----
 
 =X=
