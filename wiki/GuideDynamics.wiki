@@ -195,7 +195,7 @@ case to case).
 To illustrate the use of the Monte-Carlo evolution of quantum systems in QuTiP,
 let's again consider the case of a two-level atom coupled to a leaky cavity. The 
 only differences to the master-equation treatment is that in this case we 
-invoke the *mcsolve* function instead of *odesolve*, and a new parameter 
+invoke the *[Functions#mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&H_args,&options=Odeoptions()) mcsolve]* function instead of *odesolve*, and a new parameter 
 `ntraj = 250` has been defined.
 {{{
 >> tlist = linspace(0.0, 10.0, 200)
