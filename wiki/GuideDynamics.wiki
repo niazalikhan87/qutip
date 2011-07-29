@@ -237,13 +237,13 @@ then we will also get expectation values for the output.  Now, if we add back in
 {{{
 out=mcsolve(H, psi0, tlist, ntraj, [sqrt(0.1)*a], [])
 }}}
-then the output of `mcsolve` *is not* a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory calculated.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example,
+then the output of `mcsolve` *is not* a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example,
 {{{
 out[0]
 }}}
 will be a list of state vector Qobjs evaluated at the times in `tlist`.
 
-In addition, when collapse operators are specified, the monte-carlo solver will also keep track of when a collapse occurs, and which operator did the collapse.  To obtain this information, the user must specify multiple return values from the `mcsolve` function.  For example, to get the times at which collapse occurred for the trajectories we can do:
+In addition, when collapse operators are specified, the monte-carlo solver will also keep track of when a collapse occurs, and which operator did the collapse.  To obtain this information, the user must specify multiple return values from the `mcsolve` function.  For example, to get the times at which collapses occurred for the trajectories we can do:
 {{{
 expt,times=mcsolve(H, psi0, tlist, ntraj, [sqrt(0.1)*a], [a.dag()*a, sm.dag()*sm])
 }}}
@@ -252,6 +252,16 @@ where we have requested a second output `times`.  Again the first operator corre
 expt,times,which=mcsolve(H, psi0, tlist, ntraj, [sqrt(0.1)*a], [a.dag()*a, sm.dag()*sm])
 }}}
 If no expectation values are specified then the first output will be a list of state vectors.  To summarize, the table below gives the output of the monte-carlo solver for a given set of inout and output conditions:
+
+||Collapse operators||Expectation operators|| Number of requested outputs|| Return value(s)||
+|| NO|| NO|| 1 || List of state vectors ||
+|| NO ||YES||1||List of expectation values||
+|| YES||NO|| 1||List of state vectors for each trajectory||
+|| YES||NO|| 2||List of state vectors for each trajectory + List of collapse times for each trajectory||
+|| YES||NO|| 3||List of state vectors for each trajectory + List of collapse times for each trajectory + List of which operator did collapse for each trajectory||
+|| YES||YES|| 1||List of expectation values for each trajectory||
+|| YES||YES|| 2||List of expectation values for each trajectory + List of collapse times for each trajectory||
+|| YES||YES|| 3||List of expectation values for each trajectory + List of collapse times for each trajectory + List of which operator did collapse for each trajectory||
 
 
 
