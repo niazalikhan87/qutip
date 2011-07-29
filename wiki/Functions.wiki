@@ -55,7 +55,16 @@ Qobj data =
     @param *m2*
     
     @param *m3*
+{{{
+clebsch(1,1,1,1,0,1)
+0.70710678118
 
+clebsch(1,0,1,0,0,0)
+1.0
+
+clebsch(1,0,1,0,1,0) #m3!=m1+m2
+0
+}}}
 ----
 
 ==coherent(N,alpha)==
