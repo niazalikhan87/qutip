@@ -14,7 +14,7 @@ This is a (*not yet*) complete, alphabetical, function list for QuTiP.  Examples
 ==Bloch()==
     @brief Class for plotting vectors and data points on the Bloch sphere.
 
-    See *[GuideBloch Plotting on the Bloch sphere]* for further information
+    See *[GuideBloch Plotting on the Bloch sphere]* for further information and *[ExamplesBlochQubitDecay]* for an example.
 ----
 
 ==basis(N,&m)==
@@ -35,6 +35,8 @@ Qobj data =
  [ 1.]
  [ 0.]]
 }}}
+
+    See guide sections *[GuideBasics]* and *[GuideOperStates]*
 ----
 
 =C=
@@ -236,6 +238,11 @@ Qobj data =
 
     See example: *[ExamplesEntropy]*
 
+----
+==eseries()==
+    @brief Class representation of an exponential-series expansion of time-dependent quantum objects.
+
+    See guide section *[GuideESeries]*
 ----
 
 ==essolve(H,rho0,tlist,c_op_list,expt_op_list)==
@@ -516,6 +523,8 @@ Qobj data =
 
 ==Odeoptions()==
     @brief Class of options for the ODE solvers used by odesolve and mcsolve.
+
+    See guide section *[GuideDynamics#Setting_ODE_solver_options Setting ODE solver options]* for more information.
 ----
 
 ==odesolve(H,rho0,tlist,c_op_list,expt_op_list,&H_args,&opt)==
