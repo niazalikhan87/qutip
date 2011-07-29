@@ -185,7 +185,7 @@ dynamics of the system, and has been shown to give identical results as the
 master equation. 
 
 In QuTiP, Monto-Carlo evolution is implemented with the
-*mcsolve* function. It takes nearly the same arguments as the *odesolve*
+*[Functions#mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&H_args,&options=Odeoptions()) mcsolve]* function. It takes nearly the same arguments as the *odesolve*
 function for master-equation evolution, expect for one additional parameter
 `ntraj` (fourth parameter), which define the number of stochastic trajectories
 that should be averaged. This number should usually be in the range 100 - 500 to
