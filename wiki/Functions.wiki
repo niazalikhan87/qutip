@@ -102,6 +102,8 @@ Qobj data =
  [ 0.00000000+0.38817824j  0.19342609+0.j          0.00000000-0.07300749j]
  [-0.14651550+0.j          0.00000000+0.07300749j  0.02755623+0.j        ]]
 }}}
+
+    See guide section *[GuideBasics]* or *[GuideOperStates]*.
 ----
 
 ==correlation_es(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
@@ -120,6 +122,8 @@ Qobj data =
     @param *a_op*          `Qobj` of A operator
     
     @param *b_op*          `Qobj` of B operator
+
+    See *[GuideCorrelationFunction]* for details
 ----
 
 ==correlation_ode(H, rho0, tlist, taulist, c_op_list, a_op, b_op)==
@@ -139,6 +143,7 @@ Qobj data =
     
     @param *b_op*          `Qobj` of B operator
 
+    See *[GuideCorrelationFunction]* for details
 ----
 
 ==correlation_mc(H, psi0, tlist, taulist, c_op_list, a_op, b_op)==
@@ -158,6 +163,7 @@ Qobj data =
     
     @param *b_op*          `Qobj` of B operator
 
+    See *[GuideCorrelationFunction]* for details
 ----
 
 ==cnot()==
@@ -190,6 +196,8 @@ Qobj data =
  [ 0.          1.41421356  0.          0.        ]
  [ 0.          0.          1.73205081  0.        ]]
 }}}
+
+    See guide section *[GuideOperStates#Harmonic_oscillator_states Harmonic oscillator states]*
 ----
 =D=
 
@@ -214,6 +222,8 @@ Qobj data =
  [ 0.          0.          0.          1.73205081]
  [ 0.          0.          0.          0.        ]]
 }}}
+
+    See guide section *[GuideOperStates#Harmonic_oscillator_states Harmonic oscillator states]*
 ----
 
 ==displace(N,alpha)==
@@ -232,6 +242,8 @@ Qobj data =
  [ 0.00000000+0.24226042j  0.90770572+0.j          0.00000000+0.34260797j]
  [-0.04350794+0.j          0.00000000+0.34260797j  0.93847048+0.j        ]]
 }}}
+
+    See guide section *[GuideOperStates#Harmonic_oscillator_states Harmonic oscillator states]* or *[ExamplesSqueezed]*.
 ----
 
 =E=
@@ -560,6 +572,8 @@ Qobj data =
     @param *state* ket to be converted to angular wavefunction on mesh defined by theta and phi
 
     @returns array of values for wavefunction evaluated at mesh points defined by theta and phi.
+
+    See examples: *[ExamplesAngular]*
 ----
 
 =P=
@@ -757,6 +771,8 @@ Qobj data =
     @param *save* Whether to save the figure or not (Figure can always be saved after being displayed.)
 
     @returns None
+
+    See examples: *[ExamplesAngular]*
 ----
 
 ==spost(A)==
@@ -791,6 +807,8 @@ Qobj data =
  [ 0.00000000+0.j          1.00000000+0.j          0.00000000+0.j        ]
  [ 0.00000000-0.14095042j  0.00000000+0.j          0.99001666+0.j        ]]
 }}}
+
+   See guide section *[GuideOperStates#Harmonic_oscillator_states Harmonic oscillator states]* or *[ExamplesSqueezed]* example.
 ----
 
 ==steady(L,&maxiter=100=,&tol=1e-6)==
@@ -867,6 +885,8 @@ Qobj data =
  [ 0.          0.          0.          0.09876543  0.        ]
  [ 0.          0.          0.          0.          0.06584362]]
 }}}
+
+    See *[ExamplesThermalTrilinear]*
 ----
 
 ==toffoli()==
@@ -902,6 +922,7 @@ y=thermal_dm(5,1)
 tracedist(x,y)
 0.818555240587471
 }}}
+    See *[GuideOperStates]*
 ----
 =U=
 
