@@ -10,7 +10,7 @@ QuTiP aims to provide a convient framework for solving the dynamics of both open
 
   * The numerics underlying QuTiP are time-tested algorithms that run at C-code speeds, thanks to the [http://numpy.scipy.org/ numpy] and [http://www.scipy.org/ scipy] libraries, and are based on many of the same algorithms used in propriety software.
 
-  * QuTiP allows for solving the dynamics of Hamiltonians with arbitrary time-dependence (does not yet include collapse operators).
+  * QuTiP allows for solving the dynamics of Hamiltonians with arbitrary time-dependence (does not yet include time-dependent collapse operators).
 
   * Takes advantage of multiple processors found in essentially all modern computers.
 
