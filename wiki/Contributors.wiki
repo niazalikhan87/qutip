@@ -4,6 +4,8 @@
 
 =Contributors=
 
+Markus Baden - QuTiP member, Examples and documentation
+
 Hwajung Kang  - Suggestions for improving Bloch class
 
 Jonas Neergaard-Nielsen - Bug hunter
