@@ -40,6 +40,8 @@ If you do not have any graphics libraries installed, or they are disabled, then 
 
 *[ExamplesSingleAtomLasing Single-atom lasing in a Jaynes-Cumming-like system, with an additional incoherent pump]*
 
+*[ExamplesSinglePhotonSource Single photon source based on a three level atom strongly coupled to a cavity]*
+
 *[ExamplesHeisenbergSpinChain Heisenberg spin-chain example]*
 
 *[ExamplesBlochQubitDecay Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere.]*
