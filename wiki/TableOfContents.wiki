@@ -25,6 +25,7 @@
       * [ExamplesJaynesCummingsModel]
       * [ExamplesJCWignerEvolve]
       * [ExamplesSingleAtomLasing]
+      * [ExamplesSinglePhotonSource]
       * [ExamplesHeisenbergSpinChain]
       * [ExamplesBlochQubitDecay]
       * [ExamplesTimeDependence]
