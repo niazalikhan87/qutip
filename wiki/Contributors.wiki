@@ -4,7 +4,7 @@
 
 =Contributors=
 
-Markus Baden - QuTiP member. Examples and documentation
+Markus Baden - *QuTiP member*. Examples and documentation
 
 Hwajung Kang  - Suggestions for improving Bloch class
 
