@@ -52,7 +52,7 @@ If you do not have any graphics libraries installed, or they are disabled, then 
 
 *[ExamplesTimeDependence Rabi oscillation in a two-level system subject to a time-dependent classical driving field.]*
 
-*[ExamplesLandauZener Landau-Zener transitions in a quantum two-level system]*
+*[ExamplesLandauZener Landau-Zener transitions in a quantum two-level system]* *(QuTiP paper figures #10 & 11)*
 
 *[ExamplesFidelity  Measuring the distance between density matrices via the fidelity]*
 
