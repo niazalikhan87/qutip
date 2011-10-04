@@ -441,6 +441,11 @@ Qobj data =
  [ 0.70710678 -0.70710678]]
 }}}
 ----
+==hinton(rho)==
+    @brief Draws a Hinton diagram for visualizing a density matrix. 
+    
+    @param rho *Qobj* Input density matrix
+----
 
 =I=
 ==isbra(Q)==
@@ -969,6 +974,44 @@ Qobj data =
 }}}
 
     See *[ExamplesThermalTrilinear]*
+----
+==tidyup(op,Atol=1e-8)==
+    @brief Removes small elements from a Qobj
+    
+    @param op *Qobj* input quantum object
+    @param Atol *float* absolute tolerance
+    
+    @returns *Qobj* with small elements removed
+{{{
+a=coherent_dm(5,0.05)
+print a
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[  9.97503122e-01+0.j   4.98751561e-02+0.j   1.76335306e-03+0.j
+    5.09036105e-05+0.j   1.27312077e-06+0.j]
+ [  4.98751561e-02+0.j   2.49375781e-03+0.j   8.81676528e-05+0.j
+    2.54518052e-06+0.j   6.36560384e-08+0.j]
+ [  1.76335306e-03+0.j   8.81676528e-05+0.j   3.11719726e-06+0.j
+    8.99857204e-08+0.j   2.25058082e-09+0.j]
+ [  5.09036105e-05+0.j   2.54518052e-06+0.j   8.99857204e-08+0.j
+    2.59766361e-09+0.j   6.49686625e-11+0.j]
+ [  1.27312077e-06+0.j   6.36560384e-08+0.j   2.25058082e-09+0.j
+    6.49686625e-11+0.j   1.62489365e-12+0.j]]
+
+tidyup(a)
+Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
+Qobj data = 
+[[  9.97503122e-01+0.j   4.98751561e-02+0.j   1.76335306e-03+0.j
+    5.09036105e-05+0.j   1.27312077e-06+0.j]
+ [  4.98751561e-02+0.j   2.49375781e-03+0.j   8.81676528e-05+0.j
+    2.54518052e-06+0.j   6.36560384e-08+0.j]
+ [  1.76335306e-03+0.j   8.81676528e-05+0.j   3.11719726e-06+0.j
+    8.99857204e-08+0.j   0.00000000e+00+0.j]
+ [  5.09036105e-05+0.j   2.54518052e-06+0.j   8.99857204e-08+0.j
+    0.00000000e+00+0.j   0.00000000e+00+0.j]
+ [  1.27312077e-06+0.j   6.36560384e-08+0.j   0.00000000e+00+0.j
+    0.00000000e+00+0.j   0.00000000e+00+0.j]]
+}}}    
 ----
 
 ==toffoli()==
