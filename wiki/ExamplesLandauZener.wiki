@@ -78,6 +78,9 @@ ylabel('Occupation probability')
 title('Landau-Zener transition')
 legend(("Excited state", "Ground state", "Landau-Zener formula"), loc=0)
 show()
+#
+# Plot LZ transition dynamics on Bloch sphere with time labeled by color
+#
 step=1
 b=Bloch()
 nrm=mpl.colors.Normalize(-2,10)
@@ -91,7 +94,9 @@ b.zlpos=[1.05,-1.2]
 b.zlabel=['$\left|0\\right>$','$\left|1\\right>$']
 b.sphere_alpha=0.1
 b.show()
-
+#
+# Create colorbar corresponding to Bloch colors
+#
 fig = figure(figsize=(7,3))
 ax1 = fig.add_axes([0.05, 0.5, 0.7, 0.05])
 cb1 = mpl.colorbar.ColorbarBase(ax1, cmap=cm.jet,norm=nrm,orientation='horizontal')
