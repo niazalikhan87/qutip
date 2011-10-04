@@ -979,6 +979,7 @@ Qobj data =
     @brief Removes small elements from a Qobj
     
     @param op *Qobj* input quantum object
+    
     @param Atol *float* absolute tolerance
     
     @returns *Qobj* with small elements removed
