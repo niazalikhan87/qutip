@@ -9,12 +9,12 @@ QuTiP requires the following packages to run:
 || Numpy || 1.5.1+ || Not tested on lower versions. ||
 || Scipy || 0.8+ || Not tested on lower versions (use 0.9+ if possible). ||
 || Matplotlib || 1.0.1+ || Some plotting routines do not work on lower versions. ||
-|| Qt libraries || 4.7.3+|| Not tested on lower versions.||
+|| Qt libraries || 4.7.3+|| Optional.  For GUI elements only.  Not tested on lower versions.||
 || PyQt4 || 4.8+ || Optional, required only for GUI elements. Can be substituted with PySide (recommended). ||
 || PySide || 1.0.2+ || Optional, required only for GUI elements. PyQt4 may be used instead. ||
-|| PyObjC || 2.2+ || *MAC ONLY.* Very optional.  Needed only for a GUI Monte-Carlo progress bar on the mac. ||
+|| PyObjC || 2.2+ || *MAC ONLY.* Very optional.  Needed only for a GUI Monte-Carlo progress bar on the mac.  Other GUI elements will work without this package. ||
 || GCC Compiler || 4.2+ || Needed for compiling Cython files. || 
-Other GUI elements will work without this package.||
+
 
 *On all platforms (Linux, Mac, Windows), QuTiP works "out-of-the-box" using the [http://www.enthought.com/products/epd.php Enthought Python Distribution] version 7.1 or higher.  This distribution is created by the developers of Numpy and Scipy, and is free for academic use.*
 
