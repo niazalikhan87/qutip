@@ -77,10 +77,10 @@ close(fig)
 # calculate wigner function of cavity mode at final coupling strength g=2.5.
 #
 rho_cavity = ptrace(rhoss_final, 0)
+xvec = linspace(-7.5,7.5,150)
 X,Y = meshgrid(xvec, xvec)
 W = wigner(rho_cavity, xvec, xvec)
 fig = plt.figure(figsize=(7,5))
-xvec = linspace(-7.5,7.5,150)
 #
 # plot the cavity wigner function.
 #
@@ -108,3 +108,7 @@ for t in cb1.ax.get_yticklabels():
      t.set_fontsize(16)
 show()
 }}}
+
+http://qutip.googlecode.com/svn/wiki/images/examples-ultrastrong1.png
+
+http://qutip.googlecode.com/svn/wiki/images/examples-ultrastrong2.png
