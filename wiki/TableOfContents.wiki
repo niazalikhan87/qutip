@@ -17,6 +17,7 @@
       * [ExamplesWigner]
       * [ExamplesSqueezed] 
       * [ExamplesSchCatDist]
+      * [ExamplesEnergySpectrum]
       * [ExamplesEntropy]      
       * [ExamplesBar3D] 
       * [ExamplesAngular]
