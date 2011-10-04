@@ -18,6 +18,7 @@
       * [ExamplesSqueezed] 
       * [ExamplesSchCatDist]
       * [ExamplesEnergySpectrum]
+      * [ExamplesUltrastrong]
       * [ExamplesEntropy]      
       * [ExamplesBar3D] 
       * [ExamplesAngular]
