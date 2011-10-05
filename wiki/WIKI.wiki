@@ -34,9 +34,9 @@ QuTiP aims to provide a convient framework for solving the dynamics of both open
 = Citing QuTiP =
 QuTiP is the culmination of more than a years worth of work by two people.  Although QuTiP may be used and/or modified freely, we ask for users who find this framework useful to cite this project as
 {{{ 
-P.D. Nation and J. R. Johansson, QuTiP: The Quantum Toolbox in Python, http://code.google.com/p/qutip
+J. R. Johansson, P.D. Nation, and F. Nori, "QuTiP: An open-source Python framework for the dynamics of open quantum systems", arXiv:1110.0573 (2011)
 }}}
-until a formal publication is finished.  We have no direct funding for working on QuTiP, and any citations will be beneficial in helping to secure future funding focused on improving QuTiP.
+We have no direct funding for working on QuTiP, and any citations will be beneficial in helping to secure future funding focused on improving QuTiP.
 
 =Contributing to QuTiP=
 Because QuTiP can be used and modified by anyone, we welcome user contributions to the code base.  If you are interested in helping, let us know.  Or even better, find a function that we are missing and program it yourself!  Of course, your contribution will be properly credited.  If you are really serious about helping out then we can also add you to the repository. 
