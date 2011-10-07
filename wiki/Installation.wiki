@@ -42,7 +42,8 @@ sudo python setup.py install
 }}}
 
 = Installation on Mac OS X (10.6+) =
-
+If you have not done so already, install the Apple XCode developer tools from the Apple App Store.
+ 
 On the Mac, it is recommended that you install the required libraries via *[http://www.macports.org/ MacPorts]*.  Otherwise, one can use the *[http://www.enthought.com/products/epd.php Enthought Python Distribution]* version 7.1 or higher to satisfy the QuTiP dependencies.  
 
 A further possibility is to use the *[http://stronginference.com/scipy-superpack/ Scipy Superpack installer script]*.  In order to have GUI elements using this method, you need to further install the Qt4 and PySide packages at:
