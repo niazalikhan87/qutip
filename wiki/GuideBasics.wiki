@@ -2,6 +2,8 @@
 *<wiki:toc max_depth="2" />*
 
 = First things first =
+*<font color="FF0033">DO NOT RUN QUTIP FROM THE INSTALLATION DIRECTORY</font>*
+
 
 To load the qutip modules, we must first call the import statement:
 {{{
