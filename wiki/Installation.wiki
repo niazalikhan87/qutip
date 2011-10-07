@@ -63,7 +63,7 @@ The developers of QuTiP have not touched Windows in several years, and will be c
 
 = Does it work? =
 
-<FONT COLOR="FF0033">DO NOT RUN QUTIP FROM THE INSTALLATION DIRECTORY</FONT>
+*<font color="FF0033">DO NOT RUN QUTIP FROM THE INSTALLATION DIRECTORY</font>*
 
 
 To verify that everything is installed properly, from the python command line call:
