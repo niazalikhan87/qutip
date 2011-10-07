@@ -62,7 +62,11 @@ The developers of QuTiP have not touched Windows in several years, and will be c
 *[http://www.pythonxy.com Python(x,y)]*.
 
 = Does it work? =
-To verify that everything is installed properly, from the python command line:
+
+<FONT COLOR="FF0033">DO NOT RUN QUTIP FROM THE INSTALLATION DIRECTORY</FONT>
+
+
+To verify that everything is installed properly, from the python command line call:
 {{{
 from qutip import *
 }}}
