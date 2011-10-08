@@ -23,7 +23,7 @@ QuTiP requires the following packages to run:
  * Requirements. 
 {{{
 sudo apt-get install python-scipy
-sudo apt-get install python-pyside or sudo apt-get install python-pyqt4
+sudo apt-get install python-pyside or sudo apt-get install python-qt4
 sudo apt-get install python-setuptools
 }}}
 At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository
