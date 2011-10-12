@@ -74,3 +74,6 @@ If you do not have any graphics libraries installed, or they are disabled, then 
 *[ExamplesCorrFunc  Two-time correlation functions]*
 
 *[ExamplesSpectrum Spectrum of a cavity coupled to a two-level atom]*
+
+=QuTiP Manuscript Figure Scripts=
+Additional examples corresponding to figures 2, 4, 6, 7, 8, 10, and 11 from the QuTiP paper: [http://arxiv.org/abs/1110.0573 QuTiP paper] may be found in the [http://code.google.com/p/qutip/downloads/list downloads section].
