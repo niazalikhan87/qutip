@@ -14,6 +14,7 @@ QuTiP requires the following packages to run:
 || PySide || 1.0.2+ || Optional, required only for GUI elements. PyQt4 may be used instead. ||
 || PyObjC || 2.2+ || *MAC ONLY.* Very optional.  Needed only for a GUI Monte-Carlo progress bar on the mac.  Other GUI elements will work without this package. ||
 || GCC Compiler || 4.2+ || Needed for compiling Cython files. || 
+|| Python headers || 2.6+ || Needed for compiling Cython files. || 
 
 
 *On all platforms (Linux, Mac, Windows), QuTiP works "out-of-the-box" using the [http://www.enthought.com/products/epd.php Enthought Python Distribution] version 7.1 or higher.  This distribution is created by the developers of Numpy and Scipy, and is free for academic use.*
@@ -25,8 +26,9 @@ QuTiP requires the following packages to run:
 sudo apt-get install python-scipy
 sudo apt-get install python-pyside or sudo apt-get install python-qt4
 sudo apt-get install python-setuptools
+sudo apt-get install python-dev
 }}}
-At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository
+At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository (in Ubuntu 11.11, skip this step)
 {{{
 sudo add-apt-repository ppa:bgamari/matplotlib-unofficial
 sudo apt-get update
