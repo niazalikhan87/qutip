@@ -28,7 +28,7 @@ sudo apt-get install python-pyside or sudo apt-get install python-qt4
 sudo apt-get install python-setuptools
 sudo apt-get install python-dev
 }}}
-At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository (in Ubuntu 11.11, skip this step)
+At present, Ubuntu 11.04 and lower do not have Matplotlib>=1.0 therefore we need to add the unofficial repository (in Ubuntu 11.10, skip this step)
 {{{
 sudo add-apt-repository ppa:bgamari/matplotlib-unofficial
 sudo apt-get update
