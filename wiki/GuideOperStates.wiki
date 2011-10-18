@@ -443,7 +443,7 @@ expect(N,one)
 1.0
 
 coh=coherent_dm(5,1.0j)
-expect(N,con)
+expect(N,coh)
 0.997055574581 #should be equal to 1, small diff. due to truncated Hilbert space
 
 cat=(basis(5,4)+1.0j*basis(5,3)).unit()
@@ -498,8 +498,6 @@ expect(sz1,two_spins)
 expect(sz2,two_spins)
 -1.0
 }}}
-
-
 
 
 
