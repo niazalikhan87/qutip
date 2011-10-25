@@ -20,7 +20,7 @@ SVN-1183: Qobj trace operation uses only sparse matrices.
 
 SVN-1168: Fixed issue where GUI windows do not raise to front.
 
-
+----
 ==Version 1.1.0 `[svn-1097]` (October 04, 2011):==
 
 ** THIS RELEASE NOW REQUIRES THE GCC COMPILER TO BE INSTALLED **
