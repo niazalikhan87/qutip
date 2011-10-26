@@ -305,6 +305,14 @@ Qobj data =
 ----
 
 =E=
+==entropy_linear(rho)==
+    @brief Calculates the linear entropy of a given density matrix.
+
+    @param *rho* Quantum object representing density matrix
+
+    @returns *float*
+
+----
 
 ==entropy_vn(rho,&base)==
     @brief Calculates the Von-Neumann entropy of a given density matrix.
