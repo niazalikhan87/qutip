@@ -4,10 +4,12 @@
 
 =Contributors=
 
-Markus Baden - *QuTiP member*. Examples and documentation
+Markus Baden (Centre for Quantum Technologies, Singapore) - *QuTiP member*. Examples and documentation
 
-Hwajung Kang  - Suggestions for improving Bloch class
+James Clemens (Miami University Ohio) - Bug hunter
 
-Jonas Neergaard-Nielsen - Bug hunter
+Hwajung Kang (Systems Biology Institute, Tokyo)  - Suggestions for improving Bloch class
 
-Per Kaer Nielsen - Testing the ODE solver
+Jonas Neergaard-Nielsen (Technical University of Denmark) - Bug hunter
+
+Per Kaer Nielsen (Technical University of Denmark) - Testing the ODE solver
