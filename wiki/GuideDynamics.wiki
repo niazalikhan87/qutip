@@ -387,3 +387,11 @@ or
 mcsolve(H0, psi0, tlist, ntraj,c_op_list, [sigmaz()],options=opts)
 mcsolve(hamiltonian_t, psi0, tlist, ntraj, c_op_list, [sigmaz()], H_args,options=opts)
 }}}
+----
+= Performance =
+Here we compare the performance of the master-equation and monte-Carlo solvers to their quantum optics toolbox counterparts.
+
+http://qutip.googlecode.com/svn/wiki/images/ode_performance.png 
+
+
+http://qutip.googlecode.com/svn/wiki/images/mc_performance.png 
