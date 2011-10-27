@@ -1,5 +1,12 @@
 #list of changes in each released version
 
+==Version 1.1.2 `[svn-1218]` (October 27, 2011):==
+
+*Bug Fixes: *
+
+SVN-1218: Fixed issue where Monte-Carlo states were not output properly.
+
+----
 ==Version 1.1.1 `[svn-1210]` (October 25, 2011):==
 
 ** THIS POINT-RELEASE INCLUDES VASTLY IMPROVED TIME-INDEPENDENT MCSOLVE AND ODESOLVE PERFORMANCE **
