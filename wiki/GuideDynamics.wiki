@@ -99,7 +99,7 @@ Qobj data =
  [ 0.00000000-0.95105684j]]
 ]
 }}}
-
+----
 
 = Non-unitary evolution =
 
@@ -273,7 +273,7 @@ If your system is intermediate in size (you are not bound by memory) then it is 
 http://qutip.googlecode.com/svn/wiki/images/solver-performance.png
 
 Here, the number of trajectories used in `mcsolve` is `250` and the number of processors (which determines the slope of the monte-carlo line) is `4`.  Here we see that the monte-carlo solver begins to be more efficient than the corresponding master-equation method at a Hilbert space size of `N~40`.  Therefore, if your system size is greater than `N~40` and you do not need the full density matrix, then it is recommended to try the `mcsolve` function. 
-
+----
 
 = Time-dependent Hamiltonians (unitary and non-unitary) =
 
@@ -324,7 +324,7 @@ in the absence and in the presence of the time-dependent driving signal:
 }}}
 
 http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png
-
+----
 
 =Setting ODE solver options=
 Occasionally it is necessary to change the built in parameters of the ODE solvers used by both the odesolve and mcsolve functions.  The ODE options for either of these functions may be changed by calling the Odeoptions class:
