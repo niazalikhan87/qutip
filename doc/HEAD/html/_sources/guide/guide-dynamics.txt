@@ -3,8 +3,7 @@
 
 .. _guide-dynamics:
 
-Basic Operations
-******************************
+An Overview of the Quantum Dynamics Solvers in QuTiP
+****************************************************
 
-Hello
 
