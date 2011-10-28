@@ -72,6 +72,12 @@ sudo python setup.py install
 The developers of QuTiP have not touched Windows in several years, and will be continuing this trend for the foreseeable future.  Therefore we recommend the *[http://www.enthought.com/products/epd.php Enthought Python Distribution]* version 7.1 or higher to satisfy the QuTiP dependencies. QuTiP has also been reported to work out-of-the-box with
 *[http://www.pythonxy.com Python(x,y)]*.
 
+To build and install the QuTiP package on Windows, using the MinGW compiler, use the following command:
+{{{
+python setup.py install build --compiler=mingw32
+}}}
+(See the comment below).
+
 = Does it work? =
 
 *<font color="FF0033">DO NOT RUN QUTIP FROM THE INSTALLATION DIRECTORY</font>*
