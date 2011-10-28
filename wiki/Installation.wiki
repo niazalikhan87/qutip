@@ -76,7 +76,7 @@ To build and install the QuTiP package on Windows, using the MinGW compiler, use
 {{{
 python setup.py install build --compiler=mingw32
 }}}
-(See the comment below).
+(See the comment below). The C compiler is needed to compile the Cython code in recent version of QuTiP (version 1.1.0 and up).
 
 = Does it work? =
 
