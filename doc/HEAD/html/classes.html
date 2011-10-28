@@ -29,7 +29,7 @@
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="QuTiP 1.1.2 documentation" href="index.html" />
     <link rel="next" title="QuTiP functions" href="functions.html" />
-    <link rel="prev" title="QuTiP Users Guide" href="guide/guide.html" /> 
+    <link rel="prev" title="Basic Operations" href="guide/guide-eseries.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="index.html">
@@ -39,7 +39,7 @@
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="guide/guide.html">QuTiP Users Guide</a>
+        «&#160;&#160;<a href="guide/guide-eseries.html">Basic Operations</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
@@ -61,39 +61,46 @@
 <dl class="class">
 <dt id="qutip.Qobj">
 <em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Qobj</tt><big>(</big><em>inpt=array([[0]])</em>, <em>dims=</em><span class="optional">[</span><span class="optional">[</span><span class="optional">]</span><span class="optional">[</span><span class="optional">]</span><span class="optional">]</span>, <em>shape=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.Qobj" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>&#64;brief A constructor class for the quantum object (Qobj) base object.</dt>
-<dd>Defines quantum operators and states.  
-Includes class dependent math operations.</dd>
-</dl>
+<dd><p>A class for representing quantum objects (<strong>Qobj</strong>), such as quantum operators
+and states. The <strong>Qobj</strong> class implements math operations +,-,* between <strong>Qobj</strong>
+isntances (and / by a C-number).</p>
+<p>The Qobj constructor optionally takes the dimension array and/or
+shape array as arguments.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><p>inpt (<em>array</em>): Data for vector/matrix representation of the quantum object.</p>
+<p>dims (<em>list</em>):  Dimensions of object used for tensor products.</p>
+<p>shape (<em>list</em>): Shape of underlying data structure (matrix shape).</p>
+</div></blockquote>
+<p>Returns a quantum object <strong>Qobj</strong> instance for the given input data.</p>
 <dl class="method">
 <dt id="qutip.Qobj.conj">
 <tt class="descname">conj</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.conj" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns the conjugate operator of a given quantum object.</p>
+<dd><p>Returns the conjugate operator of a given quantum object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.dag">
 <tt class="descname">dag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.dag" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns the adjont operator (dagger) of a given quantum object.</p>
+<dd><p>Returns the adjont operator (dagger) of a given quantum object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.diag">
 <tt class="descname">diag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.diag" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns diagonal elements of object</p>
+<dd><p>Returns diagonal elements of object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.eigenstates">
 <tt class="descname">eigenstates</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.eigenstates" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Find the eigenstates and eigenenergies (defined for operators and superoperators)</p>
+<dd><p>Find the eigenstates and eigenenergies (defined for operators and superoperators)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.expm">
 <tt class="descname">expm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.expm" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns a quantum object corresponding to the matrix exponential of 
+<dd><p>Returns a quantum object corresponding to the matrix exponential of 
 a given square operator.</p>
 </dd></dl>
 
@@ -106,27 +113,27 @@ a given square operator.</p>
 <dl class="method">
 <dt id="qutip.Qobj.norm">
 <tt class="descname">norm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns norm of a quantum object. Norm is L2-norm for kets and 
+<dd><p>Returns norm of a quantum object. Norm is L2-norm for kets and 
 trace-norm for operators.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.sqrtm">
 <tt class="descname">sqrtm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.sqrtm" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns the operator corresponding
+<dd><p>Returns the operator corresponding
 to the sqrt of a given square operator.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.tr">
 <tt class="descname">tr</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.tr" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns the trace of a quantum object</p>
+<dd><p>Returns the trace of a quantum object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Qobj.unit">
 <tt class="descname">unit</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Returns the operator normalized to unity.</p>
+<dd><p>Returns the operator normalized to unity.</p>
 </dd></dl>
 
 </dd></dl>
@@ -137,7 +144,7 @@ to the sqrt of a given square operator.</p>
 <dl class="class">
 <dt id="qutip.eseries">
 <em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">eseries</tt><big>(</big><em>q=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em>, <em>s=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em><big>)</big><a class="headerlink" href="#qutip.eseries" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Class representation of an exponential-series expansion of time-dependent quantum objects.</p>
+<dd><p>Class representation of an exponential-series expansion of time-dependent quantum objects.</p>
 <dl class="method">
 <dt id="qutip.eseries.spec">
 <tt class="descname">spec</tt><big>(</big><em>es</em>, <em>wlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.spec" title="Permalink to this definition">¶</a></dt>
@@ -164,62 +171,137 @@ to the sqrt of a given square operator.</p>
 <dl class="class">
 <dt id="qutip.Bloch">
 <em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Bloch</tt><a class="headerlink" href="#qutip.Bloch" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Class for plotting data on the Bloch sphere.</p>
+<dd><p>Class for plotting data on the Bloch sphere.</p>
 <dl class="method">
 <dt id="qutip.Bloch.add_points">
 <tt class="descname">add_points</tt><big>(</big><em>points</em>, <em>meth='s'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a list of data points to bloch sphere</p>
+<dd><p>Add a list of data points to bloch sphere.</p>
+<p>points <em>array</em> of data points</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.add_states">
 <tt class="descname">add_states</tt><big>(</big><em>state</em>, <em>kind='vector'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_states" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a state vector to plot</p>
+<dd><p>Add a state vector to plot.</p>
+<p>state <em>Qobj</em> state vector</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.add_vectors">
 <tt class="descname">add_vectors</tt><big>(</big><em>vectors</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_vectors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a list of vectors to Bloch sphere</p>
+<dd><p>Add a list of vectors to Bloch sphere.</p>
+<p>vectors <em>array</em> of 3D vectors of unit length or smaller.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.clear">
 <tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets Bloch sphere data sets to empty</p>
+<dd><p>Resets Bloch sphere data sets to empty.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.font_color">
+<tt class="descname">font_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.font_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of fonts, default = black</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.font_size">
+<tt class="descname">font_size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.font_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of fonts, default = 20</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_alpha">
+<tt class="descname">frame_alpha</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transparency of wireframe, default = 0.2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_color">
+<tt class="descname">frame_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of wireframe, default = gray</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_width">
+<tt class="descname">frame_width</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Width of wireframe, default = 1</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.make_sphere">
 <tt class="descname">make_sphere</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.make_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots Bloch sphere and data sets</p>
+<dd><p>Plots Bloch sphere and data sets.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="qutip.Bloch.plot_points">
-<tt class="descname">plot_points</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.plot_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots point markers on Bloch sphere</p>
+<dl class="attribute">
+<dt id="qutip.Bloch.point_color">
+<tt class="descname">point_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of colors for Bloch point markers, default = [&#8216;b&#8217;,&#8217;g&#8217;,&#8217;r&#8217;,&#8217;y&#8217;]</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="qutip.Bloch.plot_vectors">
-<tt class="descname">plot_vectors</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.plot_vectors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots Bloch vectors on sphere</p>
+<dl class="attribute">
+<dt id="qutip.Bloch.point_marker">
+<tt class="descname">point_marker</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of point markers, default = [&#8216;o&#8217;,&#8217;^&#8217;,&#8217;d&#8217;,&#8217;s&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.point_size">
+<tt class="descname">point_size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of point markers, default = 25</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.save">
-<tt class="descname">save</tt><big>(</big><em>format='png'</em>, <em>dirc='/Users/paul/Desktop/qutip/doc'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Saves Bloch sphere to file of type <cite>format</cite></p>
-<p>&#64;param format <em>str</em> giving format of output image
-&#64;param dirc <em>str</em> representing directory of output</p>
-<p>&#64;returns plot of Bloch sphere</p>
+<tt class="descname">save</tt><big>(</big><em>format='png'</em>, <em>dirc='/Users/paul/Desktop/QuTiP SVN/doc'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves Bloch sphere to file of type <cite>format</cite></p>
+<p>format <em>str</em> giving format of output image
+dirc <em>str</em> representing directory of output. Defaults to current working directory.</p>
+<p>Returns file containing plot of Bloch sphere.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.show">
 <tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.show" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display Bloch sphere and corresponding data sets</p>
+<dd><p>Display Bloch sphere and corresponding data sets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.size">
+<tt class="descname">size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the figure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.sphere_alpha">
+<tt class="descname">sphere_alpha</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transparency of sphere, default = 0.2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.sphere_color">
+<tt class="descname">sphere_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sphere_color: color of Bloch sphere, default = #FFDDDD</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.vector_color">
+<tt class="descname">vector_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vector_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of colors for Bloch vectors, default = [&#8216;b&#8217;,&#8217;g&#8217;,&#8217;r&#8217;,&#8217;y&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.vector_width">
+<tt class="descname">vector_width</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vector_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Width of Bloch vectors, default = 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.view">
+<tt class="descname">view</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Azimuthal and Elvation viewing angles, default = [-60,30]</p>
 </dd></dl>
 
 </dd></dl>
@@ -230,7 +312,61 @@ to the sqrt of a given square operator.</p>
 <dl class="class">
 <dt id="qutip.Odeoptions">
 <em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Odeoptions</tt><a class="headerlink" href="#qutip.Odeoptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>&#64;brief Class of options for ODE solver used by &#8216;odesolve&#8217; and &#8216;mcsolve&#8217;</p>
+<dd><p>Class of options for ODE solver used by &#8216;odesolve&#8217; and &#8216;mcsolve&#8217;</p>
+<dl class="attribute">
+<dt id="qutip.Odeoptions.atol">
+<tt class="descname">atol</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.atol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute tolerance (default = 1e-8)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.first_step">
+<tt class="descname">first_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.first_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of initial step (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.max_step">
+<tt class="descname">max_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.max_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max step size (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.method">
+<tt class="descname">method</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integration method (default = &#8216;adams&#8217;, for stiff &#8216;bdf&#8217;)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.min_step">
+<tt class="descname">min_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.min_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimal step size (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.nsteps">
+<tt class="descname">nsteps</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max. number of internal steps/call</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.order">
+<tt class="descname">order</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum order used by integrator (&lt;=12 for &#8216;adams&#8217;, &lt;=5 for &#8216;bdf&#8217;)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.rtol">
+<tt class="descname">rtol</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rtol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative tolerance (default = 1e-6)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.tidy">
+<tt class="descname">tidy</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.tidy" title="Permalink to this definition">¶</a></dt>
+<dd><p>tidyup Hamiltonian before calculation (default = True)</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -241,7 +377,7 @@ to the sqrt of a given square operator.</p>
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="guide/guide.html">QuTiP Users Guide</a>
+        «&#160;&#160;<a href="guide/guide-eseries.html">Basic Operations</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
