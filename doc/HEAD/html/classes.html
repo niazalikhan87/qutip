@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QuTiP classes &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="index.html" />
+    <link rel="next" title="QuTiP functions" href="functions.html" />
+    <link rel="prev" title="QuTiP Users Guide" href="guide/guide.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>QuTiP classes</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="guide/guide.html">QuTiP Users Guide</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="functions.html">QuTiP functions</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="qutip-classes">
+<h1>QuTiP classes<a class="headerlink" href="#qutip-classes" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="the-qobj-class">
+<h2>The Qobj class<a class="headerlink" href="#the-qobj-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Qobj">
+<em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Qobj</tt><big>(</big><em>inpt=array([[0]])</em>, <em>dims=</em><span class="optional">[</span><span class="optional">[</span><span class="optional">]</span><span class="optional">[</span><span class="optional">]</span><span class="optional">]</span>, <em>shape=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.Qobj" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>&#64;brief A constructor class for the quantum object (Qobj) base object.</dt>
+<dd>Defines quantum operators and states.  
+Includes class dependent math operations.</dd>
+</dl>
+<dl class="method">
+<dt id="qutip.Qobj.conj">
+<tt class="descname">conj</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.conj" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns the conjugate operator of a given quantum object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.dag">
+<tt class="descname">dag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns the adjont operator (dagger) of a given quantum object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.diag">
+<tt class="descname">diag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns diagonal elements of object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.eigenstates">
+<tt class="descname">eigenstates</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.eigenstates" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Find the eigenstates and eigenenergies (defined for operators and superoperators)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.expm">
+<tt class="descname">expm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.expm" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns a quantum object corresponding to the matrix exponential of 
+a given square operator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.full">
+<tt class="descname">full</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dense array from quantum object data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.norm">
+<tt class="descname">norm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns norm of a quantum object. Norm is L2-norm for kets and 
+trace-norm for operators.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.sqrtm">
+<tt class="descname">sqrtm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.sqrtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns the operator corresponding
+to the sqrt of a given square operator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.tr">
+<tt class="descname">tr</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.tr" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns the trace of a quantum object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.unit">
+<tt class="descname">unit</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Returns the operator normalized to unity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-eseries-class">
+<h2>The eseries class<a class="headerlink" href="#the-eseries-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.eseries">
+<em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">eseries</tt><big>(</big><em>q=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em>, <em>s=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em><big>)</big><a class="headerlink" href="#qutip.eseries" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Class representation of an exponential-series expansion of time-dependent quantum objects.</p>
+<dl class="method">
+<dt id="qutip.eseries.spec">
+<tt class="descname">spec</tt><big>(</big><em>es</em>, <em>wlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the spectrum of an exponential series at frequencies in wlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.eseries.tidy">
+<tt class="descname">tidy</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.eseries.tidy" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a tidier version of self</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.eseries.value">
+<tt class="descname">value</tt><big>(</big><em>tlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate an exponential series at the times listed in tlist.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-bloch-class">
+<h2>The Bloch class<a class="headerlink" href="#the-bloch-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Bloch">
+<em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Bloch</tt><a class="headerlink" href="#qutip.Bloch" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Class for plotting data on the Bloch sphere.</p>
+<dl class="method">
+<dt id="qutip.Bloch.add_points">
+<tt class="descname">add_points</tt><big>(</big><em>points</em>, <em>meth='s'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of data points to bloch sphere</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.add_states">
+<tt class="descname">add_states</tt><big>(</big><em>state</em>, <em>kind='vector'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a state vector to plot</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.add_vectors">
+<tt class="descname">add_vectors</tt><big>(</big><em>vectors</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of vectors to Bloch sphere</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.clear">
+<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets Bloch sphere data sets to empty</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.make_sphere">
+<tt class="descname">make_sphere</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.make_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots Bloch sphere and data sets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.plot_points">
+<tt class="descname">plot_points</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.plot_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots point markers on Bloch sphere</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.plot_vectors">
+<tt class="descname">plot_vectors</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.plot_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots Bloch vectors on sphere</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.save">
+<tt class="descname">save</tt><big>(</big><em>format='png'</em>, <em>dirc='/Users/paul/Desktop/qutip/doc'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Saves Bloch sphere to file of type <cite>format</cite></p>
+<p>&#64;param format <em>str</em> giving format of output image
+&#64;param dirc <em>str</em> representing directory of output</p>
+<p>&#64;returns plot of Bloch sphere</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display Bloch sphere and corresponding data sets</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-odeoptions-class">
+<h2>The Odeoptions class<a class="headerlink" href="#the-odeoptions-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Odeoptions">
+<em class="property">class </em><tt class="descclassname">qutip.</tt><tt class="descname">Odeoptions</tt><a class="headerlink" href="#qutip.Odeoptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;brief Class of options for ODE solver used by &#8216;odesolve&#8217; and &#8216;mcsolve&#8217;</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="guide/guide.html">QuTiP Users Guide</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="functions.html">QuTiP functions</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>
