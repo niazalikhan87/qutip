@@ -102,40 +102,136 @@
 </pre></div>
 </div>
 <p>Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.  (If you are running QuTiP from a python script you must use the &#8216;print&#8217; function to view the Qobj properties.)</p>
-<p>== States and operators ==
-Now, unless you have lots of free time, specifying the data for each object is inefficient.  Even more so when most objects correspond to commonly used types such as the ladder operators of a harmonic oscillator,the Pauli spin operators for a two-level system, or state vectors such as Fock states.  Therefore, QuTiP includes predefined objects for a variety of states and operators.</p>
-<p>|| <em>States</em> || <em>Command</em> (# means optional) || <a href="#id1"><span class="problematic" id="id2">*</span></a>Inputs*||
-|| Fock state ket vector || basis(N,#m) / fock(N,#m) || N = number of levels in Hilbert space, m = level containing excitation (0 if no m given)  ||
-|| Fock density matrix (outer product of basis) ||fock_dm(N,#p) || same as basis(N,m) / fock(N,m) ||
-|| Coherent state || coherent(N,alpha) || alpha = complex number (eigenvalue) for requested coherent state ||
-|| Coherent density matrix (outer product of coherent) || coherent_dm(N,alpha) || same as coherent(N,alpha) ||
-|| Thermal density matrix (for n particles) || thermal_dm(N,n) || n = expectation value for number of particles ||</p>
-<p>|| <em>Operators</em> || <em>Command</em> (# is optional) || <em>Inputs</em> ||
-|| Identity || <em>[Functions#qeye(N) qeye(N)]</em> || N = number of levels in Hilbert space ||
-|| Lowering (destruction) operator || <em>[Functions#destroy(N) destroy(N)]</em> || same as above   ||
-|| Raising (creation) operator || <em>[Functions#create(N) create(N)]</em> || same as above  ||
-|| Number operator || <em>[Functions#num(N) num(N)]</em> || same as above  ||
-||Single-mode displacement operator|| <em>[Functions#displace(N,alpha) displace(N,alpha)]*|| N=number of levels in Hilbert space, alpha = complex displacment amplitude||
-||Single-mode squeezing operator|| *[Functions#squeez(N,sp) squeez(N,sp)]*||N=number of levels in Hilbert space, sp = squeezing parameter||
-|| Sigma-X || *[Functions#sigmax() sigmax()]</em> || - ||
-|| Sigma-Y || <em>[Functions#sigmay() sigmay()]</em> || - ||
-|| Sigma-Z || <em>[Functions#sigmaz() sigmaz()]</em> || - ||
-|| Sigma plus || <em>[Functions#sigmap() sigmap()]</em> || - ||
-|| Sigma minus || <em>[Functions#sigmam() sigmam()]</em> || - ||
-|| Higher spin operators || <em>[Functions#jmat(j,&amp;s) jmat(j,&amp;s)]</em> || j = integer or half-integer representing spin, s = &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217;, &#8216;+&#8217;, or &#8216;-&#8216; ||</p>
+</div>
+<div class="section" id="states-and-operators">
+<h3>States and operators<a class="headerlink" href="#states-and-operators" title="Permalink to this headline">¶</a></h3>
+<p>Now, unless you have lots of free time, specifying the data for each object is inefficient.  Even more so when most objects correspond to commonly used types such as the ladder operators of a harmonic oscillator,the Pauli spin operators for a two-level system, or state vectors such as Fock states.  Therefore, QuTiP includes predefined objects for a variety of states:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="30%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">States</th>
+<th class="head">Command (# means optional)</th>
+<th class="head">Inputs</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Fock state ket vector</td>
+<td>basis(N,#m) / fock(N,#m)</td>
+<td>N = number of levels in Hilbert space,
+m = level containing excitation
+(0 if no m given)</td>
+</tr>
+<tr class="row-odd"><td>Fock density matrix
+(outer product of basis)</td>
+<td>fock_dm(N,#p)</td>
+<td>same as basis(N,m) / fock(N,m)</td>
+</tr>
+<tr class="row-even"><td>Coherent state</td>
+<td>coherent(N,alpha)</td>
+<td>alpha = complex number (eigenvalue)
+for requested coherent state</td>
+</tr>
+<tr class="row-odd"><td>Coherent density matrix
+(outer product)</td>
+<td>coherent_dm(N,alpha)</td>
+<td>same as coherent(N,alpha)</td>
+</tr>
+<tr class="row-even"><td>Thermal density matrix
+(for n particles)</td>
+<td>thermal_dm(N,n)</td>
+<td>n = particle number expectation value</td>
+</tr>
+</tbody>
+</table>
+<p>and operators:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="30%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operators</th>
+<th class="head">Command (# means optional)</th>
+<th class="head">Inputs</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Identity</td>
+<td>qeye(N)</td>
+<td>N = number of levels in Hilbert space.</td>
+</tr>
+<tr class="row-odd"><td>Lowering (destruction)
+operator</td>
+<td>destroy(N)</td>
+<td>same as above</td>
+</tr>
+<tr class="row-even"><td>Raising (creation)
+operator</td>
+<td>create(N)</td>
+<td>same as above</td>
+</tr>
+<tr class="row-odd"><td>Number operator</td>
+<td>num(N)</td>
+<td>same as above</td>
+</tr>
+<tr class="row-even"><td>Single-mode
+displacement operator</td>
+<td>displace(N,alpha)</td>
+<td>N=number of levels in Hilbert space,
+alpha = complex displacement amplitude.</td>
+</tr>
+<tr class="row-odd"><td>Single-mode
+squeezing operator</td>
+<td>squeez(N,sp)</td>
+<td>N=number of levels in Hilbert space,
+sp = squeezing parameter.</td>
+</tr>
+<tr class="row-even"><td>Sigma-X</td>
+<td>sigmax()</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Sigma-Y</td>
+<td>sigmay()</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Sigma-Z</td>
+<td>sigmaz()</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Sigma plus</td>
+<td>sigmap()</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Sigma minus</td>
+<td>sigmam()</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Higher spin operators</td>
+<td>jmat(j,#s)</td>
+<td>j = integer or half-integer
+representing spin, s = &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217;,
+&#8216;+&#8217;, or &#8216;-&#8216;</td>
+</tr>
+</tbody>
+</table>
 <p>As an example, we give the output for a few of these objects:</p>
-<p>{{{
-print basis(5,3)</p>
-<p>Quantum object: dims = [[5], [1]], shape = [5, 1]
-Qobj data =
-[[ 0.]</p>
-<blockquote>
-<div>[ 0.]
-[ 0.]
-[ 1.]
-[ 0.]]</div></blockquote>
-<p>print coherent(5,0.5-0.5j)</p>
-<p>Quantum object: dims = [[5], [1]], shape = [5, 1]
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.]</span>
+<span class="go"> [ 0.]</span>
+<span class="go"> [ 0.]</span>
+<span class="go"> [ 1.]</span>
+<span class="go"> [ 0.]]</span>
+</pre></div>
+</div>
+<p>&gt;&gt;&gt;print coherent(5,0.5-0.5j)
+Quantum object: dims = [[5], [1]], shape = [5, 1]
 Qobj data =
 [[  7.78801702e-01 -5.63234865e-20j]</p>
 <blockquote>
@@ -143,179 +239,281 @@ Qobj data =
 [  7.59246032e-19 -2.75458952e-01j]
 [ -7.89861710e-02 -7.89861710e-02j]
 [ -4.31427083e-02 +3.46944695e-18j]]</div></blockquote>
-<p>print destroy(4)</p>
-<p>Quantum object: dims = [[4], [4]], shape = [4, 4]
-Qobj data =
-[[ 0.          1.          0.          0.        ]</p>
-<blockquote>
-<div>[ 0.          0.          1.41421356  0.        ]
-[ 0.          0.          0.          1.73205081]
-[ 0.          0.          0.          0.        ]]</div></blockquote>
-<p>print sigmaz()</p>
-<p>Quantum object: dims = [[2], [2]], shape = [2, 2]
-Qobj data =
-[[ 1.  0.]</p>
-<blockquote>
-<div>[ 0. -1.]]</div></blockquote>
-<p>print jmat(5/2.0,&#8217;+&#8217;)</p>
-<p>Quantum object: dims = [[6], [6]], shape = [6, 6]
-Qobj data =
-[[ 0.          2.23606798  0.          0.          0.          0.        ]</p>
-<blockquote>
-<div>[ 0.          0.          2.82842712  0.          0.          0.        ]
-[ 0.          0.          0.          3.          0.          0.        ]
-[ 0.          0.          0.          0.          2.82842712  0.        ]
-[ 0.          0.          0.          0.          0.          2.23606798]
-[ 0.          0.          0.          0.          0.          0.        ]]</div></blockquote>
-<p>}}}</p>
-<p>== Qobj properties ==
-We have seen that a quantum object has three internal attributes, the data, dims, and shape properties.  These can be accessed in the following way:
-{{{
-q=destroy(4)
-print q.dims
-[[4], [4]]</p>
-<p>print q.shape
-[4, 4]
-}}}
-In general, the properties of a Qobj object (or any Python class) can be retrieved using the <cite>Q.prop</cite> notation.  In addition to the properties shown with the <cite>print</cite> function, the Qobj class also has the following:</p>
-<p>|| <em>Property</em> || <em>Command</em> || <em>Description</em> ||
-|| Data || Q.data || Matrix representing state or operator ||
-|| Dimensions || Q.dims || List keeping track of shapes for individual components of a multipartite system (for tensor products and partial traces) ||
-|| Shape || Q.shape || Dimensions of underlying data matrix ||
-|| is Hermitian? || Q.isherm || Is the operator Hermitian or not ||
-|| Type || Q.type || Is object of type &#8216;ket, &#8216;bra&#8217;, &#8216;oper&#8217;, or &#8216;super&#8217; ||</p>
-<p><a class="reference external" href="http://qutip.googlecode.com/svn/wiki/images/qobj_box.png">http://qutip.googlecode.com/svn/wiki/images/qobj_box.png</a></p>
-<p>For the destruction operator above:
-{{{
-q.type
-&#8216;oper&#8217;</p>
-<p>q.isherm
-False</p>
-<p>q.data
-&lt;4x4 sparse matrix of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</p>
-<blockquote>
-<div>with 3 stored elements in Compressed Sparse Row format&gt;</div></blockquote>
-<p>}}}
-The data property returns a message stating that the data is a sparse matrix.  All Qobj&#8217;s store their data as a sparse matrix to save memory.  To access the underlying matrix one needs to use the <cite>full()</cite> function as described in the functions section.</p>
-<p>== Qobj math ==
-The rules for mathematical operations on Qobj&#8217;s is similar to standard matrix arithmetic:
-{{{
-q=destroy(4)
-x=sigmax()</p>
-<p>print q+5
-Quantum object: dims = [[4], [4]], shape = [4, 4]
-Qobj data =
-[[ 5.          6.          5.          5.        ]</p>
-<blockquote>
-<div>[ 5.          5.          6.41421356  5.        ]
-[ 5.          5.          5.          6.73205081]
-[ 5.          5.          5.          5.        ]]</div></blockquote>
-<p>print x*x
-Quantum object: dims = [[2], [2]], shape = [2, 2]
-Qobj data =
-[[ 1.  0.]</p>
-<blockquote>
-<div>[ 0.  1.]]</div></blockquote>
-<p>print q**3
-Quantum object: dims = [[4], [4]], shape = [4, 4]
-Qobj data =
-[[ 0.          0.          0.          2.44948974]</p>
-<blockquote>
-<div>[ 0.          0.          0.          0.        ]
-[ 0.          0.          0.          0.        ]
-[ 0.          0.          0.          0.        ]]</div></blockquote>
-<p>print x/sqrt(2)
-Quantum object: dims = [[2], [2]], shape = [2, 2]
-Qobj data =
-[[ 0.          0.70710678]</p>
-<blockquote>
-<div>[ 0.70710678  0.        ]]</div></blockquote>
-<p>}}}
-of course, like matrices, multiplying two objects of incompatible shape throws an error:
-{{{
-q*x
-TypeError: Incompatible Qobj shapes
-}}}
-In addition, the logic operators is equal <cite>==</cite> and is not equal <cite>!=</cite> are also supported.</p>
-<p>== Functions operating on Qobj class ==
-Like properties, the quantum object class has defined functions which operate only on members of the Qobj class.  For a general quantum object <cite>Q</cite>:</p>
-<p>|| <em>Function</em> || <em>Command</em> || <em>Description</em> ||
-|| Dagger (adjoint) || Q.dag() || Returns adjoint (dagger) of object ||
-|| Diagonal || Q.diag() || Returns the diagonal elements of  Qobj ||
-|| Exponential || Q.expm() || Returns matrix exponential of operator ||
-|| Full || Q.full() || Returns full (not sparse) array of Q&#8217;s data property||
-|| Norm || Q.norm() || Returns L2 norm for states, trace norm for operators ||
-|| Sqrt || Q.sqrtm() || Returns matrix sqrt of operator ||
-|| Trace || Q.tr() || Returns trace of quantum object ||
-|| Unit || Q.unit() || Returns normalised (unit) vector Q/Q.norm()||</p>
-<p>{{{
-basis(5,3)
-Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
-Qobj data =
-[[ 0.]</p>
-<blockquote>
-<div>[ 0.]
-[ 0.]
-[ 1.]
-[ 0.]]</div></blockquote>
-<p>basis(5,3).dag()
-Quantum object: dims = [[1], [5]], shape = [1, 5], type = bra
-Qobj data =
-[[ 0.  0.  0.  1.  0.]]</p>
-<p>coherent_dm(5,1)
-Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True
-Qobj data =
-[[ 0.36791117  0.36774407  0.26105441  0.14620658  0.08826704]</p>
-<blockquote>
-<div>[ 0.36774407  0.36757705  0.26093584  0.14614018  0.08822695]
-[ 0.26105441  0.26093584  0.18523331  0.10374209  0.06263061]
-[ 0.14620658  0.14614018  0.10374209  0.05810197  0.035077  ]
-[ 0.08826704  0.08822695  0.06263061  0.035077    0.0211765 ]]</div></blockquote>
-<p>coherent_dm(5,1).diag()
-array([ 0.36791117,  0.36757705,  0.18523331,  0.05810197,  0.0211765 ])</p>
-<p>coherent_dm(5,1).full()
-array([[ 0.36791117,  0.36774407,  0.26105441,  0.14620658,  0.08826704],</p>
-<blockquote>
-<div>[ 0.36774407,  0.36757705,  0.26093584,  0.14614018,  0.08822695],
-[ 0.26105441,  0.26093584,  0.18523331,  0.10374209,  0.06263061],
-[ 0.14620658,  0.14614018,  0.10374209,  0.05810197,  0.035077  ],
-[ 0.08826704,  0.08822695,  0.06263061,  0.035077  ,  0.0211765 ]])</div></blockquote>
-<p>coherent_dm(5,1).norm()
-1.0</p>
-<p>coherent_dm(5,1).sqrtm()
-Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = False
-Qobj data =
-[[ 0.36791117 +6.66013801e-09j  0.36774407 -2.87612199e-09j</p>
-<blockquote>
-<div><blockquote>
-<div>0.26105441 -4.24323387e-09j  0.14620658 -1.21628628e-09j
-0.08826704 -1.21357197e-09j]</div></blockquote>
-<dl class="docutils">
-<dt>[ 0.36774407 -3.87481342e-09j  0.36757705 +1.66576107e-09j</dt>
-<dd>0.26093584 +2.50548614e-09j  0.14614018 +7.07508704e-10j
-0.08822695 +6.28805009e-10j]</dd>
-<dt>[ 0.26105441 -2.75065517e-09j  0.26093584 +1.15201146e-09j</dt>
-<dd>0.18523331 +1.92733313e-09j  0.10374209 +5.01775972e-10j
-0.06263061 +1.34247407e-10j]</dd>
-<dt>[ 0.14620658 -1.54053667e-09j  0.14614017 +6.89127552e-10j</dt>
-<dd>0.10374209 +8.65055761e-10j  0.05810198 +2.81704042e-10j
-0.03507700 +5.25048476e-10j]</dd>
-<dt>[ 0.08826704 -9.30044364e-10j  0.08822695 +4.99516749e-10j</dt>
-<dd>0.06263061 +1.14878928e-10j  0.03507700 +1.71358232e-10j
-0.02117650 +1.17185351e-09j]]</dd>
-</dl>
-</div></blockquote>
-<p>coherent_dm(5,1).tr()
-1.0</p>
-<p>(basis(4,2)+basis(4,1)).unit()
-Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket
-Qobj data =
-[[ 0.        ]</p>
-<blockquote>
-<div>[ 0.70710678]
-[ 0.70710678]
-[ 0.        ]]</div></blockquote>
-<p>}}}</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.          1.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          1.41421356  0.        ]</span>
+<span class="go"> [ 0.          0.          0.          1.73205081]</span>
+<span class="go"> [ 0.          0.          0.          0.        ]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmaz</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 1.  0.]</span>
+<span class="go"> [ 0. -1.]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jmat</span><span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[6], [6]], shape = [6, 6]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.          2.23606798  0.          0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          2.82842712  0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.          3.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.          2.82842712  0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.          0.          2.23606798]</span>
+<span class="go"> [ 0.          0.          0.          0.          0.          0.        ]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="qobj-properties">
+<h3>Qobj properties<a class="headerlink" href="#qobj-properties" title="Permalink to this headline">¶</a></h3>
+<p>We have seen that a quantum object has three internal attributes, the data, dims, and shape properties.  These can be accessed in the following way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">.</span><span class="n">dims</span>
+<span class="go">[[4], [4]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">[4, 4]</span>
+</pre></div>
+</div>
+<p>In general, the properties of a Qobj object (or any Python class) can be retrieved using the <cite>Q.prop</cite> notation.  In addition to the properties shown with the <cite>print</cite> function, the Qobj class also has the following:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="21%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Data</td>
+<td>Q.data</td>
+<td>Matrix representing state or operator</td>
+</tr>
+<tr class="row-odd"><td>Dimensions</td>
+<td>Q.dims</td>
+<td>List keeping track of shapes for
+individual components of a
+multipartite system (for tensor
+products and partial traces).</td>
+</tr>
+<tr class="row-even"><td>Shape</td>
+<td>Q.shape</td>
+<td>Dimensions of underlying data matrix.</td>
+</tr>
+<tr class="row-odd"><td>is Hermitian?</td>
+<td>Q.isherm</td>
+<td>Is the operator Hermitian or not?</td>
+</tr>
+<tr class="row-even"><td>Type</td>
+<td>Q.type</td>
+<td>Is object of type &#8216;ket, &#8216;bra&#8217;,
+&#8216;oper&#8217;, or &#8216;super&#8217;?</td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center" id="about">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/qobj_box.png" src="http://qutip.googlecode.com/svn/wiki/images/qobj_box.png" />
+</div>
+<p>For the destruction operator above:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">type</span>
+<span class="go">&#39;oper&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">isherm</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">data</span>
+<span class="go">&lt;4x4 sparse matrix of type &#39;&lt;type &#39;numpy.complex128&#39;&gt;&#39;</span>
+<span class="go">        with 3 stored elements in Compressed Sparse Row format&gt;</span>
+</pre></div>
+</div>
+<p>The data property returns a message stating that the data is a sparse matrix.  All Qobj&#8217;s store their data as a sparse matrix to save memory.  To access the underlying matrix one needs to use the full() function as described in the functions section.</p>
+</div>
+<div class="section" id="qobj-math">
+<h3>Qobj Math<a class="headerlink" href="#qobj-math" title="Permalink to this headline">¶</a></h3>
+<p>The rules for mathematical operations on Qobj&#8217;s is similar to standard matrix arithmetic:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">sigmax</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">+</span><span class="mi">5</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 5.          6.          5.          5.        ]</span>
+<span class="go"> [ 5.          5.          6.41421356  5.        ]</span>
+<span class="go"> [ 5.          5.          5.          6.73205081]</span>
+<span class="go"> [ 5.          5.          5.          5.        ]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 1.  0.]</span>
+<span class="go"> [ 0.  1.]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">**</span><span class="mi">3</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.          0.          0.          2.44948974]</span>
+<span class="go"> [ 0.          0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.        ]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.          0.70710678]</span>
+<span class="go"> [ 0.70710678  0.        ]]</span>
+</pre></div>
+</div>
+<p>of course, like matrices, multiplying two objects of incompatible shape throws an error:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">*</span><span class="n">x</span>
+<span class="go">TypeError: Incompatible Qobj shapes</span>
+</pre></div>
+</div>
+<p>In addition, the logic operators is equal <cite>==</cite> and is not equal <cite>!=</cite> are also supported.</p>
+</div>
+</div>
+<div class="section" id="functions-operating-on-qobj-class">
+<h2>Functions operating on Qobj class<a class="headerlink" href="#functions-operating-on-qobj-class" title="Permalink to this headline">¶</a></h2>
+<p>Like properties, the quantum object class has defined functions which operate only on members of the Qobj class.  For a general quantum object <cite>Q</cite>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="23%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Dagger (adjoint)</td>
+<td>Q.dag()</td>
+<td>Returns adjoint (dagger) of object.</td>
+</tr>
+<tr class="row-odd"><td>Diagonal</td>
+<td>Q.diag()</td>
+<td>Returns the diagonal elements.</td>
+</tr>
+<tr class="row-even"><td>Eigenstates</td>
+<td>Q.eigenstates()</td>
+<td>Returns eigenstates and eigenvectors.</td>
+</tr>
+<tr class="row-odd"><td>Exponential</td>
+<td>Q.expm()</td>
+<td>Matrix exponential of operator.</td>
+</tr>
+<tr class="row-even"><td>Full</td>
+<td>Q.full()</td>
+<td>Returns full (not sparse) array of
+Q&#8217;s data property.</td>
+</tr>
+<tr class="row-odd"><td>Norm</td>
+<td>Q.norm()</td>
+<td>Returns L2 norm for states,
+trace norm for operators.</td>
+</tr>
+<tr class="row-even"><td>Sqrt</td>
+<td>Q.sqrtm()</td>
+<td>Matrix sqrt of operator.</td>
+</tr>
+<tr class="row-odd"><td>Trace</td>
+<td>Q.tr()</td>
+<td>Returns trace of quantum object.</td>
+</tr>
+<tr class="row-even"><td>Unit</td>
+<td>Q.unit()</td>
+<td>Returns normalized (unit)
+vector Q/Q.norm().</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.]</span>
+<span class="go"> [ 0.]</span>
+<span class="go"> [ 0.]</span>
+<span class="go"> [ 1.]</span>
+<span class="go"> [ 0.]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[1], [5]], shape = [1, 5], type = bra</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.  0.  0.  1.  0.]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.36791117  0.36774407  0.26105441  0.14620658  0.08826704]</span>
+<span class="go"> [ 0.36774407  0.36757705  0.26093584  0.14614018  0.08822695]</span>
+<span class="go"> [ 0.26105441  0.26093584  0.18523331  0.10374209  0.06263061]</span>
+<span class="go"> [ 0.14620658  0.14614018  0.10374209  0.05810197  0.035077  ]</span>
+<span class="go"> [ 0.08826704  0.08822695  0.06263061  0.035077    0.0211765 ]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span>
+<span class="go">array([ 0.36791117,  0.36757705,  0.18523331,  0.05810197,  0.0211765 ])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">full</span><span class="p">()</span>
+<span class="go">array([[ 0.36791117,  0.36774407,  0.26105441,  0.14620658,  0.08826704],</span>
+<span class="go">       [ 0.36774407,  0.36757705,  0.26093584,  0.14614018,  0.08822695],</span>
+<span class="go">       [ 0.26105441,  0.26093584,  0.18523331,  0.10374209,  0.06263061],</span>
+<span class="go">       [ 0.14620658,  0.14614018,  0.10374209,  0.05810197,  0.035077  ],</span>
+<span class="go">       [ 0.08826704,  0.08822695,  0.06263061,  0.035077  ,  0.0211765 ]])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sqrtm</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = False</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.36791117 +6.66013801e-09j  0.36774407 -2.87612199e-09j</span>
+<span class="go">   0.26105441 -4.24323387e-09j  0.14620658 -1.21628628e-09j</span>
+<span class="go">   0.08826704 -1.21357197e-09j]</span>
+<span class="go"> [ 0.36774407 -3.87481342e-09j  0.36757705 +1.66576107e-09j</span>
+<span class="go">   0.26093584 +2.50548614e-09j  0.14614018 +7.07508704e-10j</span>
+<span class="go">   0.08822695 +6.28805009e-10j]</span>
+<span class="go"> [ 0.26105441 -2.75065517e-09j  0.26093584 +1.15201146e-09j</span>
+<span class="go">   0.18523331 +1.92733313e-09j  0.10374209 +5.01775972e-10j</span>
+<span class="go">   0.06263061 +1.34247407e-10j]</span>
+<span class="go"> [ 0.14620658 -1.54053667e-09j  0.14614017 +6.89127552e-10j</span>
+<span class="go">   0.10374209 +8.65055761e-10j  0.05810198 +2.81704042e-10j</span>
+<span class="go">   0.03507700 +5.25048476e-10j]</span>
+<span class="go"> [ 0.08826704 -9.30044364e-10j  0.08822695 +4.99516749e-10j</span>
+<span class="go">   0.06263061 +1.14878928e-10j  0.03507700 +1.71358232e-10j</span>
+<span class="go">   0.02117650 +1.17185351e-09j]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tr</span><span class="p">()</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.        ]</span>
+<span class="go"> [ 0.70710678]</span>
+<span class="go"> [ 0.70710678]</span>
+<span class="go"> [ 0.        ]]</span>
+</pre></div>
 </div>
 </div>
 </div>
