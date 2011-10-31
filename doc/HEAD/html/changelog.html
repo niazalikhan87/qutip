@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Change Log &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="index.html" />
+    <link rel="next" title="Contributors" href="contributors.html" />
+    <link rel="prev" title="QuTiP functions" href="functions.html" /> 
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">QuTiP 1.1.2 documentation</a></div>
+        <div class="rel">
+          <a href="functions.html" title="QuTiP functions"
+             accesskey="P">previous</a> |
+          <a href="contributors.html" title="Contributors"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="change-log">
+<h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-1-1-2-svn-1218-october-27-2011">
+<h2>Version 1.1.2 [svn-1218] (October 27, 2011)<a class="headerlink" href="#version-1-1-2-svn-1218-october-27-2011" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<p>SVN-1218: Fixed issue where Monte-Carlo states were not output properly.</p>
+</div>
+</div>
+<div class="section" id="version-1-1-1-svn-1210-october-25-2011">
+<h2>Version 1.1.1 [svn-1210] (October 25, 2011)<a class="headerlink" href="#version-1-1-1-svn-1210-october-25-2011" title="Permalink to this headline">¶</a></h2>
+<p><strong>THIS POINT-RELEASE INCLUDES VASTLY IMPROVED TIME-INDEPENDENT MCSOLVE AND ODESOLVE PERFORMANCE</strong></p>
+<div class="section" id="new-functions">
+<h3>New Functions<a class="headerlink" href="#new-functions" title="Permalink to this headline">¶</a></h3>
+<p>SVN-1183: Added linear entropy function.</p>
+<p>SVN-1179: Number of CPU&#8217;s can now be changed.</p>
+</div>
+<div class="section" id="id1">
+<h3>Bug Fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>SVN-1184: Metrics no longer use dense matrices.</p>
+<p>SVN-1184: Fixed Bloch sphere grid issue with matplotlib 1.1.</p>
+<p>SVN-1183: Qobj trace operation uses only sparse matrices.</p>
+<p>SVN-1168: Fixed issue where GUI windows do not raise to front.</p>
+</div>
+</div>
+<div class="section" id="version-1-1-0-svn-1097-october-04-2011">
+<h2>Version 1.1.0 [svn-1097] (October 04, 2011)<a class="headerlink" href="#version-1-1-0-svn-1097-october-04-2011" title="Permalink to this headline">¶</a></h2>
+<p><strong>THIS RELEASE NOW REQUIRES THE GCC COMPILER TO BE INSTALLED</strong></p>
+<div class="section" id="id2">
+<h3>New Functions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>SVN-1054: tidyup function to remove small elements from a Qobj.</p>
+<p>SVN-1051: Added concurrence function.</p>
+<p>SVN-1036: Added simdiag for simultaneous diagonalization of operators.</p>
+<p>SVN-1032: Added eigenstates method returning eigenstates and eigenvalues to Qobj class.</p>
+<p>SVN-1030: Added fileio for saving and loading data sets and/or Qobj&#8217;s.</p>
+<p>SVN-1029: Added hinton function for visualizing density matrices.</p>
+</div>
+<div class="section" id="id3">
+<h3>Bug Fixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>SVN-1091: Switched Examples to new Signals method used in PySide 1.0.6+.</p>
+<p>SVN-1090: Switched ProgressBar to new Signals method.</p>
+<p>SVN-1075: Fixed memory issue in expm functions.</p>
+<p>SVN-1069: Fixed memory bug in isherm.</p>
+<p>SVN-1059: Made all Qobj data complex by default.</p>
+<p>SVN-1053: Reduced ODE tolerance levels in Odeoptions.</p>
+<p>SVN-1050: Fixed bug in ptrace where dense matrix was used instead of sparse.</p>
+<p>SVN-1047: Fixed issue where PyQt4 version would not be displayed in about box.</p>
+<p>SVN-1041: Fixed issue in Wigner where xvec was used twice (in place of yvec).</p>
+</div>
+</div>
+<div class="section" id="version-1-0-0-svn-1021-july-29-2011">
+<h2>Version 1.0.0 [svn-1021] (July 29, 2011)<a class="headerlink" href="#version-1-0-0-svn-1021-july-29-2011" title="Permalink to this headline">¶</a></h2>
+<p>Initial release.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide.html">QuTiP Users Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html">QuTiP Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">QuTiP classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">QuTiP functions</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="functions.html" title="QuTiP functions"
+             >previous</a> |
+          <a href="contributors.html" title="Contributors"
+             >next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+            <br/>
+            <a href="_sources/changelog.txt"
+               rel="nofollow">Show Source</a>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
