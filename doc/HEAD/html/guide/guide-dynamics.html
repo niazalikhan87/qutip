@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/theme_extras.js"></script>
     <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
     <link rel="up" title="QuTiP Users Guide" href="guide.html" />
@@ -55,72 +56,76 @@
 <span id="guide-dynamics"></span><h1>An Overview of the Quantum Dynamics Solvers in QuTiP<a class="headerlink" href="#an-overview-of-the-quantum-dynamics-solvers-in-qutip" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="unitary-evolution">
 <h2>Unitary evolution<a class="headerlink" href="#unitary-evolution" title="Permalink to this headline">¶</a></h2>
-<p>The Schrödinger equation, which governs the time-evolution of closed quantum systems, is defined by its Hamiltonian and state vector. In the previous section, [GuideComposite Creating and manipulating composite objects with tensor and ptrace], we showed how Hamiltonians and state vectors are constructed in QuTiP. Given a Hamiltonian, we can calculate the unitary (non-dissipative) time-evolution of an arbitrary state vector <em>psi0</em> using the QuTiP function :func:<a href="#id1"><span class="problematic" id="id2">`</span></a>qutip.odesolve`(H,rho0,tlist,c_op_list,expt_op_list,&amp;H_args,&amp;opt). It evolves the state vector and evaluates the expectation values for a set of operators <em>expt_op_list</em> at the points in time in the list <em>tlist</em>, using an ordinary differential equation solver. Alternatively, we can use the function :func:<a href="#id3"><span class="problematic" id="id4">`</span></a>essolve`(H,rho0,tlist,c_op_list,expt_op_list), which uses the exponential-series technique to calculate the time evolution of a system. The <em>odesolve</em> and <em>essolve</em> functions take the same arguments and it is therefore easy switch between the two solvers.</p>
-<p>For example, the time evolution of a quantum spin-1/2 system with tunneling rate 0.1 that initially is in the up state is calculated, and the  expectation values of the sigma-Z operator evaluated, with the following code:</p>
-<div class="highlight-python"><pre>&gt;&gt; H = 2 * pi * 0.1 * sigmax()
-&gt;&gt; psi0 = basis(2, 0)
-&gt;&gt; tlist = linspace(0.0, 10.0, 20.0)
-&gt;&gt; odesolve(H, psi0, tlist, [], [sigmaz()])
-array([[ 1.00000000+0.j,  0.78914229+0.j,  0.24548596+0.j, -0.40169696+0.j,
-        -0.87947669+0.j, -0.98636356+0.j, -0.67728166+0.j, -0.08257676+0.j,
-         0.54695235+0.j,  0.94582040+0.j,  0.94581706+0.j,  0.54694422+0.j,
-        -0.08258520+0.j, -0.67728673+0.j, -0.98636329+0.j, -0.87947111+0.j,
-        -0.40168898+0.j,  0.24549302+0.j,  0.78914528+0.j,  0.99999927+0.j]])</pre>
+<p>The Schrödinger equation, which governs the time-evolution of closed quantum systems, is defined by its Hamiltonian and state vector. In the previous section, [GuideComposite Creating and manipulating composite objects with tensor and ptrace], we showed how Hamiltonians and state vectors are constructed in QuTiP. Given a Hamiltonian, we can calculate the unitary (non-dissipative) time-evolution of an arbitrary state vector <em>psi0</em> using the QuTiP function <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>. It evolves the state vector and evaluates the expectation values for a set of operators <em>expt_op_list</em> at the points in time in the list <em>tlist</em>, using an ordinary differential equation solver. Alternatively, we can use the function <a class="reference internal" href="../functions.html#qutip.essolve" title="qutip.essolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.essolve()</span></tt></a>, which uses the exponential-series technique to calculate the time evolution of a system. The <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> and <a class="reference internal" href="../functions.html#qutip.essolve" title="qutip.essolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.essolve()</span></tt></a> functions take the same arguments and it is therefore easy switch between the two solvers.</p>
+<p>For example, the time evolution of a quantum spin-1/2 system with tunneling rate 0.1 that initially is in the up state is calculated, and the  expectation values of the <span class="math">\(\sigma_z\)</span> operator evaluated, with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">H</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">sigmax</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">()])</span>
+<span class="go">array([[ 1.00000000+0.j,  0.78914229+0.j,  0.24548596+0.j, -0.40169696+0.j,</span>
+<span class="go">        -0.87947669+0.j, -0.98636356+0.j, -0.67728166+0.j, -0.08257676+0.j,</span>
+<span class="go">         0.54695235+0.j,  0.94582040+0.j,  0.94581706+0.j,  0.54694422+0.j,</span>
+<span class="go">        -0.08258520+0.j, -0.67728673+0.j, -0.98636329+0.j, -0.87947111+0.j,</span>
+<span class="go">        -0.40168898+0.j,  0.24549302+0.j,  0.78914528+0.j,  0.99999927+0.j]])</span>
+</pre></div>
 </div>
 <p>The brackets in the fourth argument is an empty list of collapse operators,  since we consider unitary evolution in this example. See the next section for examples on how dissipation is included by defining a list of collapse operators.</p>
 <p>The function returns an array of expectation values for the operators that are included in the list in the fifth argument. Adding operators to this list results in a larger output array returned by the function (one list of numbers, corresponding to the times in tlist, for each operator):</p>
-<div class="highlight-python"><pre>&gt;&gt; odesolve(H, psi0, tlist, [], [sigmaz(), sigmay()])
-array([[  1.00000000e+00+0.j,   7.89142292e-01+0.j,   2.45485961e-01+0.j,
-         -4.01696962e-01+0.j,  -8.79476686e-01+0.j,  -9.86363558e-01+0.j,
-         -6.77281655e-01+0.j,  -8.25767574e-02+0.j,   5.46952346e-01+0.j,
-          9.45820404e-01+0.j,   9.45817056e-01+0.j,   5.46944216e-01+0.j,
-         -8.25852032e-02+0.j,  -6.77286734e-01+0.j,  -9.86363287e-01+0.j,
-         -8.79471112e-01+0.j,  -4.01688979e-01+0.j,   2.45493023e-01+0.j,
-          7.89145284e-01+0.j,   9.99999271e-01+0.j],
-       [  0.00000000e+00+0.j,  -6.14214010e-01+0.j,  -9.69403055e-01+0.j,
-         -9.15775807e-01+0.j,  -4.75947716e-01+0.j,   1.64596791e-01+0.j,
-          7.35726839e-01+0.j,   9.96586861e-01+0.j,   8.37166184e-01+0.j,
-          3.24695883e-01+0.j,  -3.24704840e-01+0.j,  -8.37170685e-01+0.j,
-         -9.96585195e-01+0.j,  -7.35720619e-01+0.j,  -1.64588257e-01+0.j,
-          4.75953748e-01+0.j,   9.15776736e-01+0.j,   9.69398541e-01+0.j,
-          6.14206262e-01+0.j,  -8.13905967e-06+0.j]])</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">(),</span> <span class="n">sigmay</span><span class="p">()])</span>
+<span class="go">array([[  1.00000000e+00+0.j,   7.89142292e-01+0.j,   2.45485961e-01+0.j,</span>
+<span class="go">         -4.01696962e-01+0.j,  -8.79476686e-01+0.j,  -9.86363558e-01+0.j,</span>
+<span class="go">         -6.77281655e-01+0.j,  -8.25767574e-02+0.j,   5.46952346e-01+0.j,</span>
+<span class="go">          9.45820404e-01+0.j,   9.45817056e-01+0.j,   5.46944216e-01+0.j,</span>
+<span class="go">         -8.25852032e-02+0.j,  -6.77286734e-01+0.j,  -9.86363287e-01+0.j,</span>
+<span class="go">         -8.79471112e-01+0.j,  -4.01688979e-01+0.j,   2.45493023e-01+0.j,</span>
+<span class="go">          7.89145284e-01+0.j,   9.99999271e-01+0.j],</span>
+<span class="go">       [  0.00000000e+00+0.j,  -6.14214010e-01+0.j,  -9.69403055e-01+0.j,</span>
+<span class="go">         -9.15775807e-01+0.j,  -4.75947716e-01+0.j,   1.64596791e-01+0.j,</span>
+<span class="go">          7.35726839e-01+0.j,   9.96586861e-01+0.j,   8.37166184e-01+0.j,</span>
+<span class="go">          3.24695883e-01+0.j,  -3.24704840e-01+0.j,  -8.37170685e-01+0.j,</span>
+<span class="go">         -9.96585195e-01+0.j,  -7.35720619e-01+0.j,  -1.64588257e-01+0.j,</span>
+<span class="go">          4.75953748e-01+0.j,   9.15776736e-01+0.j,   9.69398541e-01+0.j,</span>
+<span class="go">          6.14206262e-01+0.j,  -8.13905967e-06+0.j]])</span>
+</pre></div>
 </div>
 <p>The resulting list of expectation values can easily be visualized using matplotlib&#8217;s plotting functions:</p>
-<div class="highlight-python"><pre>&gt;&gt; tlist = linspace(0.0, 10.0, 100)
-&gt;&gt; expt_list = odesolve(H, psi0, tlist, [], [sigmaz(), sigmay()])
-&gt;&gt;
-&gt;&gt; from pylab import *
-&gt;&gt; plot(tlist, real(expt_list[0]))
-&gt;&gt; plot(tlist, real(expt_list[1]))
-&gt;&gt; xlabel('Time')
-&gt;&gt; ylabel('Expectation values')
-&gt;&gt; legend(("Simga-Z", "Sigma-Y"))
-&gt;&gt; show()</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_list</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">(),</span> <span class="n">sigmay</span><span class="p">()])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Expectation values&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">legend</span><span class="p">((</span><span class="s">&quot;Simga-Z&quot;</span><span class="p">,</span> <span class="s">&quot;Sigma-Y&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics.png" />
 </div>
-<p>If an empty list of operators is passed as fifth parameter, the <em>odesolve</em> function returns a list of state vectors for the times specified in <em>tlist</em>:</p>
-<div class="highlight-python"><pre>&gt;&gt; tlist = [0.0, 1.0]
-&gt;&gt; odesolve(H, psi0, tlist, [], [])
-[
-Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
-Qobj data =
-[[ 1.+0.j]
- [ 0.+0.j]]
-, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
-Qobj data =
-[[ 0.80901765+0.j        ]
- [ 0.00000000-0.58778584j]]
-, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
-Qobj data =
-[[ 0.3090168+0.j        ]
- [ 0.0000000-0.95105751j]]
-, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket
-Qobj data =
-[[-0.30901806+0.j        ]
- [ 0.00000000-0.95105684j]]
-]</pre>
+<p>If an empty list of operators is passed as fifth parameter, the <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> function returns a list of state vectors for the times specified in <em>tlist</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[])</span>
+<span class="go">[</span>
+<span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 1.+0.j]</span>
+<span class="go"> [ 0.+0.j]]</span>
+<span class="go">, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.80901765+0.j        ]</span>
+<span class="go"> [ 0.00000000-0.58778584j]]</span>
+<span class="go">, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.3090168+0.j        ]</span>
+<span class="go"> [ 0.0000000-0.95105751j]]</span>
+<span class="go">, Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[-0.30901806+0.j        ]</span>
+<span class="go"> [ 0.00000000-0.95105684j]]</span>
+<span class="go">]</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="non-unitary-evolution">
@@ -129,7 +134,7 @@ Qobj data =
 <h3>Master equation<a class="headerlink" href="#master-equation" title="Permalink to this headline">¶</a></h3>
 <p>For non-unitary evolution of a quantum systems, i.e., evolution that includes
 incoherent processes such as relaxation and dephasing, it is common to use
-master equations. In QuTiP, the same function (<em>odesolve</em>) is used for
+master equations. In QuTiP, the same function (<a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>) is used for
 evolution both according to the Schrödinger equation and to the master equation,
 even though these two equations of motion are very different. The <em>odesolve</em>
 function automatically determines if it is sufficient to use the Schrödinger
@@ -153,37 +158,39 @@ the master equation instead of the unitary Schröderinger equation.</p>
 easily add a relaxation process (describing the dissipation of energy from the
 spin to its environment), by adding <cite>sqrt(0.05) * sigmax()</cite> to
 the previously empty list in the fourth parameter to the <em>odesolve</em> function:</p>
-<div class="highlight-python"><pre>&gt;&gt; tlist = linspace(0.0, 10.0, 100)
-&gt;&gt; expt_list = odesolve(H, psi0, tlist, [sqrt(0.05) * sigmax()], [sigmaz(), sigmay()])
-&gt;&gt;
-&gt;&gt; from pylab import *
-&gt;&gt; plot(tlist, real(expt_list[0]))
-&gt;&gt; plot(tlist, real(expt_list[1]))
-&gt;&gt; xlabel('Time')
-&gt;&gt; ylabel('Expectation values')
-&gt;&gt; legend(("Sigma-Z", "Sigma-Y"))
-&gt;&gt; show()</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_list</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmax</span><span class="p">()],</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">(),</span> <span class="n">sigmay</span><span class="p">()])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Expectation values&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">legend</span><span class="p">((</span><span class="s">&quot;Sigma-Z&quot;</span><span class="p">,</span> <span class="s">&quot;Sigma-Y&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
-<p>Here, <cite>0.05</cite> is the rate and the operator <cite>sigmax()</cite> describes the dissipation
+<p>Here, <cite>0.05</cite> is the rate and the operator <span class="math">\(\sigma_x\)</span> (<tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmax()</span></tt>) describes the dissipation
 process.</p>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics-dissip.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-qubit-dynamics-dissip.png" />
 </div>
 <p>Now a slightly more complex example: Consider a two-level atom coupled to a leaky single-mode cavity through a dipole-type interaction, which supports a coherent exchange of quanta between the two systems. If the atom initially is in its groundstate and the cavity in a 5-photon fock state, the dynamics is calculated with the lines following code:</p>
-<div class="highlight-python"><pre>&gt;&gt; tlist = linspace(0.0, 10.0, 200)
-&gt;&gt; psi0 = tensor(fock(2,0), fock(10, 5))
-&gt;&gt; a  = tensor(qeye(2), destroy(10))
-&gt;&gt; sm = tensor(destroy(2), qeye(10))
-&gt;&gt; H = 2*pi * a.dag() * a + 2 * pi * sm.dag() * sm + 2*pi * 0.25 * (sm*a.dag() + sm.dag() * a)
-&gt;&gt; expt_list = odesolve(H, psi0, tlist, ntraj, [sqrt(0.1)*a], [a.dag()*a, sm.dag()*sm])
-&gt;&gt;
-&gt;&gt; from pylab import *
-&gt;&gt; plot(tlist, real(expt_list[0]))
-&gt;&gt; plot(tlist, real(expt_list[1]))
-&gt;&gt; xlabel('Time')
-&gt;&gt; ylabel('Expectation values')
-&gt;&gt; legend(("cavity photon number", "atom excitation probability"))
-&gt;&gt; show()</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">fock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">fock</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>  <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">destroy</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">sm</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">+</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_list</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Expectation values&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">legend</span><span class="p">((</span><span class="s">&quot;cavity photon number&quot;</span><span class="p">,</span> <span class="s">&quot;atom excitation probability&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/guide-jc-dynamics.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-jc-dynamics.png" />
@@ -202,7 +209,7 @@ a large number of such stochastic trajectories describes the dissipative
 dynamics of the system, and has been shown to give identical results as the
 master equation.</p>
 <p>In QuTiP, Monto-Carlo evolution is implemented with the
-<em>[Functions#mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&amp;H_args,&amp;options=Odeoptions()) mcsolve]</em> function. It takes nearly the same arguments as the <em>odesolve</em>
+<a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function. It takes nearly the same arguments as the <em>odesolve</em>
 function for master-equation evolution, expect for one additional parameter
 <cite>ntraj</cite> (fourth parameter), which define the number of stochastic trajectories
 that should be averaged. This number should usually be in the range 100 - 500 to
@@ -211,60 +218,57 @@ case to case).</p>
 <p>To illustrate the use of the Monte-Carlo evolution of quantum systems in QuTiP,
 let&#8217;s again consider the case of a two-level atom coupled to a leaky cavity. The
 only differences to the master-equation treatment is that in this case we
-invoke the <em>[Functions#mcsolve(H,psi0,tlist,ntraj,collapse_ops,expect_ops,&amp;H_args,&amp;options=Odeoptions()) mcsolve]</em> function instead of <em>odesolve</em>, and a new parameter
+invoke the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function instead of <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>, and a new parameter
 <cite>ntraj = 250</cite> has been defined:</p>
-<div class="highlight-python"><pre>&gt;&gt; tlist = linspace(0.0, 10.0, 200)
-&gt;&gt; psi0 = tensor(fock(2,0), fock(10, 5))
-&gt;&gt; a  = tensor(qeye(2), destroy(10))
-&gt;&gt; sm = tensor(destroy(2), qeye(10))
-&gt;&gt; H = 2*pi * a.dag() * a + 2 * pi * sm.dag() * sm + 2*pi * 0.25 * (sm*a.dag() + sm.dag() * a)
-&gt;&gt; ntraj = 250
-&gt;&gt; expt_list = mcsolve(H, psi0, tlist, ntraj, [sqrt(0.1)*a], [a.dag()*a, sm.dag()*sm])
-&gt;&gt;
-&gt;&gt; from pylab import *
-&gt;&gt; plot(tlist, real(expt_list[0]))
-&gt;&gt; plot(tlist, real(expt_list[1]))
-&gt;&gt; title('Monte-Carlo time evolution')
-&gt;&gt; xlabel('Time')
-&gt;&gt; ylabel('Expectation values')
-&gt;&gt; legend(("cavity photon number", "atom excitation probability"))
-&gt;&gt; show()</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">fock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">fock</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>  <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">destroy</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">sm</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">+</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ntraj</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_list</span> <span class="o">=</span> <span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">expt_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Monte-Carlo time evolution&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Expectation values&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">legend</span><span class="p">((</span><span class="s">&quot;cavity photon number&quot;</span><span class="p">,</span> <span class="s">&quot;atom excitation probability&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/guide-mc-dynamics.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-mc-dynamics.png" />
 </div>
-<p>The advantage of the Monte-Carlo method over the master equation approach is that
-only the state vector is required to be kept in the computer memory (as opposed to
-the entire density matrix). For large quantum system this becomes a significant
-advantage and the Monte-Carlo is therefore generally recommended for such systems.
-But for small systems, on the other hand, the added overhead of averaging a large number of stochastic trajectories to obtain the open system dynamics outweigh the benefits of the (small) memory saving,
+<p>The advantage of the Monte-Carlo method over the master equation approach is that only the state vector is required to be kept in the computer memory (as opposed to the entire density matrix). For large quantum system this becomes a significant advantage and the Monte-Carlo is therefore generally recommended for such systems. But for small systems, on the other hand, the added overhead of averaging a large number of stochastic trajectories to obtain the open system dynamics outweigh the benefits of the (small) memory saving,
 and master equations are therefore generally more efficient.</p>
 <p>The return value(s) from the Monte-Carlo solver depend on the presence of collapse and expectation operators in the <cite>mcsolve</cite> function, as well as how many outputs are requested by the user.  The last example had both collapse and expectation value operators:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>and the user requested a single output <cite>out</cite>.  In this case, the monte-carlo solver returns the average over all trajectories for the expectation values generated by the requested operators.  If we remove the collapse operators:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>then we will also get expectation values for the output.  Now, if we add back in the collapse operators, but remove the expectation value operators:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[])</span>
 </pre></div>
 </div>
-<p>then the output of <cite>mcsolve</cite> <em>is not</em> a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example,:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<p>then the output of <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> <em>is not</em> a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example,:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>will be a list of state vector Qobjs evaluated at the times in <cite>tlist</cite>.</p>
 <p>In addition, when collapse operators are specified, the monte-carlo solver will also keep track of when a collapse occurs, and which operator did the collapse.  To obtain this information, the user must specify multiple return values from the <cite>mcsolve</cite> function.  For example, to get the times at which collapses occurred for the trajectories we can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">expt</span><span class="p">,</span><span class="n">times</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">expt</span><span class="p">,</span><span class="n">times</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>where we have requested a second output <cite>times</cite>.  Again the first operator corresponds to the expectation values.  To get the information on which operator did the collapse we add a third return value:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">expt</span><span class="p">,</span><span class="n">times</span><span class="p">,</span><span class="n">which</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">expt</span><span class="p">,</span><span class="n">times</span><span class="p">,</span><span class="n">which</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>If no expectation values are specified then the first output will be a list of state vectors.  A example demonstrating the use of multiple return values may be found at <em>[ExamplesMCTimesWhich]</em>.  To summarize, the table below gives the output of the monte-carlo solver for a given set of inout and output conditions:</p>
+<p>If no expectation values are specified then the first output will be a list of state vectors.  A example demonstrating the use of multiple return values may be found at <em>[ExamplesMCTimesWhich]</em>.  To summarize, the table below gives the output of the monte-carlo solver for a given set of input and output conditions:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="19%" />
@@ -360,37 +364,33 @@ takes two arguments: the time <cite>t</cite> and list additional Hamiltonian arg
 <cite>H_args</cite>. This list of additional arguments is the same object as is passed
 as the sixth parameter to the solver function (only used for time-dependent
 Hamiltonians).</p>
-<p>For example, let&#8217;s consider a two-level system with energy splitting 1.0, and
-subject to a time-dependent field that couples to the Sigma-X operator with
-amplitude 0.1. Furthermore, to make the example a little bit more interesting,
-let&#8217;s also assume that the two-level system is subject to relaxation, with
-relaxation rate 0.01. The following code calculates the dynamics of the system
-in the absence and in the presence of the time-dependent driving signal:</p>
-<div class="highlight-python"><pre>&gt;&gt; def hamiltonian_t(t, args):
-&gt;&gt;     H0 = args[0]
-&gt;&gt;     H1 = args[1]
-&gt;&gt;     w  = args[2]
-&gt;&gt;     return H0 + H1 * sin(w * t)
-&gt;&gt;
-&gt;&gt; H0 = - 2*pi * 0.5  * sigmaz()
-&gt;&gt; H1 = - 2*pi * 0.05 * sigmax()
-&gt;&gt; H_args = (H0, H1, 2*pi*1.0)
-&gt;&gt; psi0 = fock(2, 0)                   # intial state |0&gt;
-&gt;&gt; c_op_list = [sqrt(0.01) * sigmam()] # relaxation
-&gt;&gt; tlist = arange(0.0, 50.0, 0.01)
-&gt;&gt;
-&gt;&gt; expt_sz    = odesolve(H0, psi0, tlist, c_op_list, [sigmaz()])
-&gt;&gt; expt_sz_td = odesolve(hamiltonian_t, psi0, tlist, c_op_list, [sigmaz()], H_args)
-&gt;&gt;
-&gt;&gt; #expt_sz_td = mcsolve(hamiltonian_t, psi0, tlist,250, c_op_list, [sigmaz()], H_args) #monte-carlo
-&gt;&gt;
-&gt;&gt; from pylab import *
-&gt;&gt; plot(tlist, expt_sz[0],    'r')
-&gt;&gt; plot(tlist, expt_sz_td[0], 'b')
-&gt;&gt; ylabel("Expectation value of Sigma-Z")
-&gt;&gt; xlabel("time")
-&gt;&gt; legend(("H = H0", "H = H0 + H1 * sin(w*t)"), loc=4)
-&gt;&gt; show()</pre>
+<p>For example, let&#8217;s consider a two-level system with energy splitting 1.0, and subject to a time-dependent field that couples to the <span class="math">\(\sigma_x\)</span> operator with amplitude 0.1. Furthermore, to make the example a little bit more interesting, let&#8217;s also assume that the two-level system is subject to relaxation, with relaxation rate 0.01. The following code calculates the dynamics of the system in the absence and in the presence of the time-dependent driving signal:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hamiltonian_t</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">H0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">H1</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">w</span>  <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">H0</span> <span class="o">+</span> <span class="n">H1</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H0</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span>  <span class="o">*</span> <span class="n">sigmaz</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H1</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">sigmax</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">fock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                   <span class="c"># intial state |0&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_op_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmam</span><span class="p">()]</span> <span class="c"># relaxation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_sz</span>    <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">()])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expt_sz_td</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">hamiltonian_t</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span> <span class="p">[</span><span class="n">sigmaz</span><span class="p">()],</span> <span class="n">H_args</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#expt_sz_td = mcsolve(hamiltonian_t, psi0, tlist,250, c_op_list, [sigmaz()], H_args) #monte-carlo</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">expt_sz</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>    <span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">expt_sz_td</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Expectation value of Sigma-Z&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">legend</span><span class="p">((</span><span class="s">&quot;H = H0&quot;</span><span class="p">,</span> <span class="s">&quot;H = H0 + H1 * sin(w*t)&quot;</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-td-dynamics.png" />
@@ -416,7 +416,7 @@ first_step:  0
 min_step:    0
 max_step:    0</pre>
 </div>
-<p>These properties are detailed in the following table.  Assuming <a href="#id5"><span class="problematic" id="id6">`</span></a>opts=Odeoptions()&#8217;:</p>
+<p>These properties are detailed in the following table.  Assuming <a href="#id1"><span class="problematic" id="id2">`</span></a>opts=Odeoptions()&#8217;:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="17%" />
