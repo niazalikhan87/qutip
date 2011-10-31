@@ -29,36 +29,35 @@ which will load an instance of the Bloch class.  Before getting into the details
 
 In addition to the show() command, the Bloch class has the following functions:
 
-+--------------------------+---------------------------------------+------------------------------------------+
-| Name                     | Input Parameters (#=optional)         | Description                              |
-+==========================+=======================================+==========================================+
-| add_points(puts,#meth)   | *pnts* list/array of (x,y,z) points,  | Adds a single or set of data points      |  
-|                          | *meth*='m' (default meth='s') will    | to be plotted on the sphere.             |
-|                          | plot a collection of points as        |                                          |
-|                          | multi-colored data points.            |                                          |
-+--------------------------+---------------------------------------+------------------------------------------+
-|add_states(state,#kind)   | *state* Qobj or list/array of Qobj's  | Input multiple states as a list or array |
-|                          | representing state or density matrix  |                                          |
-|                          | of a two-level system,                |                                          |
-|                          | *kind* (optional) string specifying   |                                          |
-|                          | if state should be plotted as point   |                                          |
-|                          | (`'point'`) or vector (default).      |                                          |
-+--------------------------+---------------------------------------+------------------------------------------+
-| add_vectors(vec)         | *vec* list/array of (x,y,z) points    | adds single or multiple vectors to plot. |
-|                          | giving direction and length of        |                                          |
-|                          | state vectors.                        |                                          | 
-+--------------------------+---------------------------------------+------------------------------------------+
-| clear()                  |                                       | Removes all data from Bloch sphere.      |
-|                          |                                       | Keeps customized figure properties.      |
-+--------------------------+---------------------------------------+------------------------------------------+
-| save(#name,#format,#dirc)| *name* user defined name, overrides   | Saves Bloch sphere to a file.            |
-|                          | format, *format* (default='png')      |                                          |
-|                          | of output file, *dirc* (default=cwd)  |                                          |
-|                          | output directory.                     |                                          |
-|                          |                                       |                                          |
-+--------------------------+---------------------------------------+------------------------------------------+
-| show()                   |                                       | Generates Bloch sphere with given data.  |
-+--------------------------+---------------------------------------+------------------------------------------+
++--------------------------+--------------------------------------+------------------------------------------+
+| Name                     | Input Parameters (#=optional)        | Description                              |
++==========================+======================================+==========================================+
+| add_points(puts,#meth)   | *pnts* list/array of (x,y,z) points, | Adds a single or set of data points      |  
+|                          | *meth*='m' (default meth='s') will   | to be plotted on the sphere.             |
+|                          | plot a collection of points as       |                                          |
+|                          | multi-colored data points.           |                                          |
++--------------------------+--------------------------------------+------------------------------------------+
+|add_states(state,#kind)   | *state* Qobj or list/array of Qobj's | Input multiple states as a list or array |
+|                          | representing state or density matrix |                                          |
+|                          | of a two-level system,               |                                          |
+|                          | *kind* (optional) string specifying  |                                          |
+|                          | if state should be plotted as point  |                                          |
+|                          | (`'point'`) or vector (default).     |                                          |
++--------------------------+--------------------------------------+------------------------------------------+
+| add_vectors(vec)         | *vec* list/array of (x,y,z) points   | adds single or multiple vectors to plot. |
+|                          | giving direction and length of       |                                          |
+|                          | state vectors.                       |                                          | 
++--------------------------+--------------------------------------+------------------------------------------+
+| clear()                  |                                      | Removes all data from Bloch sphere.      |
+|                          |                                      | Keeps customized figure properties.      |
++--------------------------+--------------------------------------+------------------------------------------+
+| save(#format,#dirc)      | *format* format (default='png') of   | Saves Bloch sphere to a file.            |
+|                          | output file, *dirc* (default=cwd)    |                                          |
+|                          | output directory                     |                                          |
+|                          |                                      |                                          |
++--------------------------+--------------------------------------+------------------------------------------+
+| show()                   |                                      | Generates Bloch sphere with given data.  |
++--------------------------+--------------------------------------+------------------------------------------+
 
 As an example, we can add a single data point:
 
