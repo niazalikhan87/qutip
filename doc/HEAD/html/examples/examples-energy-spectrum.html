@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Energy spectrum of a coupled three qubit system &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Cavity occupation number and Wigner function in the ultrastrong coupling regime" href="examples-ultrastrong.html" />
+    <link rel="prev" title="Wigner and Q-function distributions for a Schrodinger-Cat state" href="examples-schcatdist.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Energy spectrum of a coupled three qubit system</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-schcatdist.html">Wigner and Q-function distributions for a Schrodinger-Cat state</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-ultrastrong.html">Cavity occupation number and Wigner function in the ultrastrong coupling regime</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="energy-spectrum-of-a-coupled-three-qubit-system">
+<h1>Energy spectrum of a coupled three qubit system<a class="headerlink" href="#energy-spectrum-of-a-coupled-three-qubit-system" title="Permalink to this headline">¶</a></h1>
+<p>Ground state properties of an coupled three qubit system.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="n">w1list</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span><span class="p">,</span> <span class="n">g12</span><span class="p">,</span> <span class="n">g13</span><span class="p">):</span>
+
+    <span class="c"># Pre-compute operators for the hamiltonian</span>
+    <span class="n">sz1</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">sx1</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">sigmax</span><span class="p">(),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">sz2</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">sigmaz</span><span class="p">(),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">sx2</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">sigmax</span><span class="p">(),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">sz3</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">sigmaz</span><span class="p">())</span>
+    <span class="n">sx3</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">sigmax</span><span class="p">())</span>
+  
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">evals_mat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">w1list</span><span class="p">),</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">w1</span> <span class="ow">in</span> <span class="n">w1list</span><span class="p">:</span>
+
+        <span class="c"># evaluate the Hamiltonian</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">sz1</span> <span class="o">+</span> <span class="n">w2</span> <span class="o">*</span> <span class="n">sz2</span> <span class="o">+</span> <span class="n">w3</span> <span class="o">*</span> <span class="n">sz3</span> <span class="o">+</span> <span class="n">g12</span> <span class="o">*</span> <span class="n">sx1</span> <span class="o">*</span> <span class="n">sx2</span> <span class="o">+</span> <span class="n">g13</span> <span class="o">*</span> <span class="n">sx1</span> <span class="o">*</span> <span class="n">sx3</span>
+
+        <span class="c"># find the energy eigenvalues of the composite system</span>
+        <span class="n">ekets</span><span class="p">,</span> <span class="n">evals</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">eigenstates</span><span class="p">()</span>
+
+        <span class="n">evals_mat</span><span class="p">[</span><span class="n">idx</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">evals</span><span class="p">)</span>
+
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">evals_mat</span>
+    
+<span class="c">#</span>
+<span class="c"># set up the calculation</span>
+<span class="c">#</span>
+<span class="n">w1</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>   <span class="c"># atom 1 frequency: sweep this one</span>
+<span class="n">w2</span>  <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>   <span class="c"># atom 2 frequency</span>
+<span class="n">w3</span>  <span class="o">=</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>   <span class="c"># atom 3 frequency</span>
+<span class="n">g12</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>   <span class="c"># atom1-atom2 coupling strength</span>
+<span class="n">g13</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>   <span class="c"># atom1-atom3 coupling strength</span>
+
+<span class="n">w1list</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="c"># atom 1 frequency range</span>
+
+<span class="c"># run the compute function</span>
+<span class="n">evals_mat</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="n">w1list</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span><span class="p">,</span> <span class="n">g12</span><span class="p">,</span> <span class="n">g13</span><span class="p">)</span>
+
+<span class="c">#</span>
+<span class="c"># plot the energy eigenvalues</span>
+<span class="c">#</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span><span class="c"># range(len(evals_mat[0,:])):</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">w1list</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">evals_mat</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">evals_mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Energy splitting of atom 1&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Eigenenergies&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;Energy spectrum of three coupled qubits&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-energy-spectrum.py">Download example</a></p>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/examples-energy-spectrum.png" src="http://qutip.googlecode.com/svn/wiki/images/examples-energy-spectrum.png" />
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-schcatdist.html">Wigner and Q-function distributions for a Schrodinger-Cat state</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-ultrastrong.html">Cavity occupation number and Wigner function in the ultrastrong coupling regime</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

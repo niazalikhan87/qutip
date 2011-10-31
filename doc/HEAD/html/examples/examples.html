@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QuTiP Examples &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="next" title="Simple Wigner distribution of a linear combination of Fock states" href="examples-wigner.html" />
+    <link rel="prev" title="An Overview of the Eseries Class" href="../guide/guide-eseries.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>QuTiP Examples</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="../guide/guide-eseries.html">An Overview of the Eseries Class</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-wigner.html">Simple Wigner distribution of a linear combination of Fock states</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="qutip-examples">
+<h1>QuTiP Examples<a class="headerlink" href="#qutip-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-qutip-demos">
+<h2>Running QuTiP demos<a class="headerlink" href="#running-qutip-demos" title="Permalink to this headline">¶</a></h2>
+<p>QuTip includes 20 built in demos from the examples below that demonstrate the usage of the built in functions for solving a variety of problems.  To run the demos, load the QuTiP package:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>and run the demos function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">demos</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will generate the examples GUI, or a command line list of demos, depending on the availability of the graphics libraries:</p>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/demos.png" src="http://qutip.googlecode.com/svn/wiki/images/demos.png" />
+</div>
+<p>If you do not have any graphics libraries installed, or they are disabled, then the demos function <em>must</em> be run from the terminal.</p>
+</div>
+<div class="section" id="basic-examples">
+<h2>Basic examples<a class="headerlink" href="#basic-examples" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples-wigner.html">Simple Wigner distribution of a linear combination of Fock states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-squeezed.html">Wigner and Q-functions of a squeezed state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-schcatdist.html">Wigner and Q-function distributions for a Schrodinger-Cat state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-energy-spectrum.html">Energy spectrum of a coupled three qubit system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-ultrastrong.html">Cavity occupation number and Wigner function in the ultrastrong coupling regime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-entropy.html">Von-Neumann entropy of a binary mixture of <span class="math">\(\left|\uparrow\right&gt;\)</span> and <span class="math">\(\left|\downarrow\right&gt;\)</span> states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-3d-histogram.html">Visualizing a density matrix as a 3D histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-angular.html">Plotting an angular wave function and direction eigen-ket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-GHZ.html">Simultaneous diagonalization of operators using simdiag to generate GHZ states</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="master-equation">
+<h2>Master equation<a class="headerlink" href="#master-equation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples-jc-model.html">Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-jc-model-wigner.html">Wigner distributions from the evolution of the Jaynes-Cummings model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-lasing.html">Single-atom lasing in a Jaynes-Cumming-like system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-single-photon-source.html">Single photon source based on a three level atom strongly coupled to a cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-spinchain.html">The dynamics of a Heisenberg spin chain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-bloch-qubit-decay.html">Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples-bloch-qubit-decay.html#basic-example">Basic example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples-bloch-qubit-decay.html#slightly-more-advanced">Slightly More Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples-time-dependence.html">Rabi oscillations of an atom subject to a time-dependent classical driving field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-landau-zener.html">Landau-Zener transitions in a quantum two-level system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-propagator.html">Using the propagator to find the steady state of a driven system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-fidelity.html">Measuring the distance between density matrices via the fidelity</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="monte-carlo">
+<h2>Monte-Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-trilinearmonte.html">Monte-Carlo evolution of the trilinear Hamiltonian subject to damping.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-thermalmonte.html">Trilinear Hamiltonian: Deviation from a thermal spectrum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-parampmonte.html">Master equation vs. Monte-Carlo evolution for a unequally damped parametric amplifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-collapsetimesmonte.html">Simple example demonstrating the use of multiple return values from mcsolve</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="steady-state-calculations">
+<h2>Steady state calculations<a class="headerlink" href="#steady-state-calculations" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples-corrfunc.html">Example on how to calculate two-time correlation functions in QuTiP.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-drivencavitysteady.html">Finds steady-state solution to driven system of cavity + qubit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-spectrumsteady.html">The spectrum of a cavity coupled to a two-level atom</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="qutip-manuscript-figure-scripts">
+<h2>QuTiP Manuscript Figure Scripts<a class="headerlink" href="#qutip-manuscript-figure-scripts" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig2.html">Figure 2 from the QuTiP manuscript.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig4.html">Figure 4 from the QuTiP manuscript.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig6.html">Figure 6 from the QuTiP manuscript.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig7.html">Figure 7 from the QuTiP manuscript.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig8.html">Figure 8 from the QuTiP manuscript.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-paperfig10_11.html">Figures 10 &amp; 11 from the QuTiP manuscript.</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="../guide/guide-eseries.html">An Overview of the Eseries Class</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-wigner.html">Simple Wigner distribution of a linear combination of Fock states</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

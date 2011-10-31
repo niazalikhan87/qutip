@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Simultaneous diagonalization of operators using simdiag to generate GHZ states &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Calculation of Expectation Values via Monte-Carlo Method" href="examples-expectmonte.html" />
+    <link rel="prev" title="Plotting an angular wave function and direction eigen-ket" href="examples-angular.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Simultaneous diagonalization of operators using simdiag to generate GHZ states</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-angular.html">Plotting an angular wave function and direction eigen-ket</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="simultaneous-diagonalization-of-operators-using-simdiag-to-generate-ghz-states">
+<h1>Simultaneous diagonalization of operators using simdiag to generate GHZ states<a class="headerlink" href="#simultaneous-diagonalization-of-operators-using-simdiag-to-generate-ghz-states" title="Permalink to this headline">¶</a></h1>
+<p>Simultaneous diagonalization of operators using <a class="reference internal" href="../functions.html#qutip.simdiag" title="qutip.simdiag"><tt class="xref py py-func docutils literal"><span class="pre">qutip.simdiag()</span></tt></a> to generate GHZ states. This example is adapted from the quantum optics toolbox by Sze M. Tan.</p>
+<div class="highlight-python"><pre>from qutip import *
+
+# create composite operators
+sx1=tensor(sigmax(),qeye(2),qeye(2))
+sy1=tensor(sigmay(),qeye(2),qeye(2))
+
+sx2=tensor(qeye(2),sigmax(),qeye(2))
+sy2=tensor(qeye(2),sigmay(),qeye(2))
+
+sx3=tensor(qeye(2),qeye(2),sigmax())
+sy3=tensor(qeye(2),qeye(2),sigmay())
+
+op1=sx1*sy2*sy3
+op2=sy1*sx2*sy3
+op3=sy1*sy2*sx3
+opghz=sx1*sx2*sx3
+
+# need simultaneous eigenkets of op1,op2,op3 and opghz
+states,evalues=simdiag([op1,op2,op3,opghz])
+
+# eigenvalues show contradiction with classical prediction
+print evalues[:,0]
+[ 1.  1.  1. -1.]
+
+# Eigenstate is entangled superposition of up-up-up and dn-dn-dn
+print states[0]
+Quantum object: dims = [[2, 2, 2], [1]], shape = [8, 1], type = ket
+Qobj data = 
+[[-0.70710678+0.j]
+ [ 0.00000000+0.j]
+ [ 0.00000000+0.j]
+ [ 0.00000000+0.j]
+ [ 0.00000000+0.j]
+ [ 0.00000000+0.j]
+ [ 0.00000000+0.j]
+ [ 0.70710678+0.j]]
+</pre>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-GHZ.py">Download example</a></p>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-angular.html">Plotting an angular wave function and direction eigen-ket</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

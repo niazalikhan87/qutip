@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Simple example demonstrating the use of multiple return values from mcsolve &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Example on how to calculate two-time correlation functions in QuTiP." href="examples-corrfunc.html" />
+    <link rel="prev" title="Master equation vs. Monte-Carlo evolution for a unequally damped parametric amplifier" href="examples-parampmonte.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Simple example demonstrating the use of multiple return values from mcsolve</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-parampmonte.html">Master equation vs. Monte-Carlo evolution for a unequally damped parametric amplifier</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-corrfunc.html">Example on how to calculate two-time correlation functions in QuTiP.</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="simple-example-demonstrating-the-use-of-multiple-return-values-from-mcsolve">
+<h1>Simple example demonstrating the use of multiple return values from mcsolve<a class="headerlink" href="#simple-example-demonstrating-the-use-of-multiple-return-values-from-mcsolve" title="Permalink to this headline">¶</a></h1>
+<p>Here we show how to get the collapse times and which operator values from the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function.  In the figure we plot the times at which a collapse occurred for each Monte-Carlo trajectory.  Which operator did the collapse is given by the color of the point.:</p>
+<div class="highlight-python"><pre>.. include:: examples-collapsetimesmonte.py</pre>
+</div>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">literal:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-collapsetimesmonte.py">Download example</a></p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="http://qutip.googlecode.com/svn/wiki/images/mc_collapses.png"><img alt="http://qutip.googlecode.com/svn/wiki/images/mc_collapses.png" src="http://qutip.googlecode.com/svn/wiki/images/mc_collapses.png" /></a>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-parampmonte.html">Master equation vs. Monte-Carlo evolution for a unequally damped parametric amplifier</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-corrfunc.html">Example on how to calculate two-time correlation functions in QuTiP.</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>
