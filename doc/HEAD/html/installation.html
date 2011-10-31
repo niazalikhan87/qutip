@@ -126,7 +126,7 @@ Headers</td>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
-<p>At present, Ubuntu 11.04 and lower do not have Matplotlib&gt;=1.0 therefore we need to add the unofficial repository (in Ubuntu 11.10, skip this step)</p>
+<p>Ubuntu 11.04 and lower do not have Matplotlib&gt;=1.0, and we therefore need to add the unofficial repository (in Ubuntu 11.10, skip this step)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">bgamari</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">-</span><span class="n">unofficial</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
 </pre></div>
@@ -138,6 +138,10 @@ Headers</td>
 <p>QuTiP installation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On some versions of Ubuntu you might have to configure Matplotlib to use the GTKAgg or Qt4Agg backends instead of the default TkAgg backend. To do this, edit /etc/matplotlibrc, and change <tt class="docutils literal"><span class="pre">backend:</span> <span class="pre">TkAgg</span></tt> to <tt class="docutils literal"><span class="pre">backend:</span> <span class="pre">GTKAgg</span></tt> or <tt class="docutils literal"><span class="pre">backend:</span> <span class="pre">Qt4Agg</span></tt>.</p>
 </div>
 </div>
 <div class="section" id="installation-on-mac-os-x-10-6">
@@ -205,6 +209,7 @@ Headers</td>
 
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>
