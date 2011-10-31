@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Figures 10 &amp; 11 from the QuTiP manuscript. &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="QuTiP classes" href="../classes.html" />
+    <link rel="prev" title="Figure 8 from the QuTiP manuscript." href="examples-paperfig8.html" /> 
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">QuTiP 1.1.2 documentation</a></div>
+        <div class="rel">
+          <a href="examples-paperfig8.html" title="Figure 8 from the QuTiP manuscript."
+             accesskey="P">previous</a> |
+          <a href="../classes.html" title="QuTiP classes"
+             accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="figures-10-11-from-the-qutip-manuscript">
+<h1>Figures 10 &amp; 11 from the QuTiP manuscript.<a class="headerlink" href="#figures-10-11-from-the-qutip-manuscript" title="Permalink to this headline">¶</a></h1>
+<p>Here we calculate the occupation of a qubit after going through an avoided level crossing and compare to the Landau-Zener formula.
+The Bloch sphere representation is also given, where the data point color indicates the amount of elapsed time.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#This file is part of QuTIP.</span>
+<span class="c">#</span>
+<span class="c">#    QuTIP is free software: you can redistribute it and/or modify</span>
+<span class="c">#    it under the terms of the GNU General Public License as published by</span>
+<span class="c">#    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c">#   (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c">#    QuTIP is distributed in the hope that it will be useful,</span>
+<span class="c">#    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c">#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c">#    GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c">#    You should have received a copy of the GNU General Public License</span>
+<span class="c">#    along with QuTIP.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2011, Paul D. Nation &amp; Robert J. Johansson</span>
+<span class="c">#</span>
+<span class="c">###########################################################################</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Python script for generating Figure 2 from the </span>
+<span class="sd">QuTiP manuscript.</span>
+
+<span class="sd">Here we calculate the ground state occupation probability for a coupled </span>
+<span class="sd">cavity-qubit system in the ultra-strong coupling regime as a function</span>
+<span class="sd">of the coupling strength g.  In set figure shows the Wigner function for</span>
+<span class="sd">the cavity mode at the largest coupling strength g=2.5, which is well</span>
+<span class="sd">approximated by Eq.4 from the paper.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c">## set up the calculation ## </span>
+<span class="n">wc</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="c"># cavity frequency</span>
+<span class="n">wa</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="c"># atom frequency</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>            <span class="c"># number of cavity states</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span> <span class="c"># coupling strength vector</span>
+<span class="c">## create operators ## </span>
+<span class="n">a</span>  <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">destroy</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sm</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span>
+<span class="n">na</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span>
+<span class="c">## initialize output arrays ##</span>
+<span class="n">na_expt</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+<span class="n">nc_expt</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+<span class="c">## run calculation ## </span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)):</span>
+    <span class="c">## recalculate the hamiltonian for each value of g ## </span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">wc</span><span class="o">*</span><span class="n">nc</span><span class="o">+</span><span class="n">wa</span><span class="o">*</span><span class="n">na</span><span class="o">+</span><span class="n">g</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">+</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">sm</span><span class="o">+</span><span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+    <span class="c">## find the groundstate ## </span>
+    <span class="n">ekets</span><span class="p">,</span> <span class="n">evals</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">eigenstates</span><span class="p">()</span>
+    <span class="n">psi_gnd</span> <span class="o">=</span> <span class="n">ekets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c">## expectation values ## </span>
+    <span class="n">na_expt</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">expect</span><span class="p">(</span><span class="n">na</span><span class="p">,</span> <span class="n">psi_gnd</span><span class="p">)</span> <span class="c"># qubit occupation</span>
+    <span class="n">nc_expt</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">expect</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">psi_gnd</span><span class="p">)</span> <span class="c"># cavity occupation </span>
+<span class="c">## Calculate Wigner function for coupling g=2.5 ## </span>
+<span class="n">rho_cavity</span> <span class="o">=</span> <span class="n">ptrace</span><span class="p">(</span><span class="n">psi_gnd</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c"># trace out qubit</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span><span class="mf">7.5</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="c">## Wigner function ## </span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">wigner</span><span class="p">(</span><span class="n">rho_cavity</span><span class="p">,</span> <span class="n">xvec</span><span class="p">,</span> <span class="n">xvec</span><span class="p">)</span>
+
+
+<span class="c"># ------------------------------------------------------------------------------</span>
+<span class="c"># Plot the results (omitted from the code listing in the appendix in the paper)</span>
+<span class="c">#</span>
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span><span class="p">,</span> <span class="n">mpl</span><span class="p">,</span><span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span>
+
+<span class="c">#</span>
+<span class="c"># plot the cavity and atom occupation numbers as a function of </span>
+<span class="c">#</span>
+<span class="n">fig1</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">na_expt</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">nc_expt</span><span class="p">,</span> <span class="s">&#39;r--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">r&#39;Coupling strength $g/\omega_{0}$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">r&#39;Occupation number&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_ticklines</span><span class="p">()</span><span class="o">+</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_ticklabels</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_ticks</span><span class="p">():</span>
+    <span class="n">tick</span><span class="o">.</span><span class="n">label1</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_ticklabels</span><span class="p">():</span>
+    <span class="n">tick</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-paperfig2_1.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig1</span><span class="p">)</span>
+
+<span class="c">#</span>
+<span class="c"># calculate wigner function of cavity mode at final coupling strength g=2.5.</span>
+<span class="c">#</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">xvec</span><span class="p">,</span> <span class="n">xvec</span><span class="p">)</span>
+
+<span class="c">#</span>
+<span class="c"># plot the cavity wigner function.</span>
+<span class="c">#</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig2</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">61</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="mi">43</span><span class="p">)</span>
+<span class="n">surf</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">r&#39;position&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim3d</span><span class="p">(</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">r&#39;momentum&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">w_xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">w_yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">w_zaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">w_xaxis</span><span class="o">.</span><span class="n">get_major_ticks</span><span class="p">():</span>
+    <span class="n">tick</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">w_yaxis</span><span class="o">.</span><span class="n">get_major_ticks</span><span class="p">():</span>
+    <span class="n">tick</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">w_zaxis</span><span class="o">.</span><span class="n">get_ticklines</span><span class="p">()</span><span class="o">+</span><span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">w_zaxis</span><span class="o">.</span><span class="n">get_ticklabels</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">cax</span><span class="p">,</span><span class="n">kw</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">make_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">shrink</span><span class="o">=.</span><span class="mi">66</span><span class="p">,</span><span class="n">pad</span><span class="o">=-.</span><span class="mo">075</span><span class="p">)</span>
+<span class="n">nrm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">W</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">cb1</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span><span class="n">norm</span><span class="o">=</span><span class="n">nrm</span><span class="p">)</span>
+<span class="n">cb1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s">&#39;Probability&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cb1</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="mi">1</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="mi">1</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">cb1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+     <span class="n">t</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-paperfig2_2.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-paperfig2.py">Download example</a></p>
+<div class="figure align-center">
+<img alt="../_images/examples-paperfig10_11_1.png" src="../_images/examples-paperfig10_11_1.png" />
+</div>
+<div class="figure align-center">
+<img alt="../_images/examples-paperfig10_11_2.png" src="../_images/examples-paperfig10_11_2.png" />
+</div>
+<div class="figure align-center">
+<img alt="../_images/examples-paperfig10_11_3.png" src="../_images/examples-paperfig10_11_3.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/guide.html">QuTiP Users Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">QuTiP Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">QuTiP classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">QuTiP functions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="../search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="examples-paperfig8.html" title="Figure 8 from the QuTiP manuscript."
+             >previous</a> |
+          <a href="../classes.html" title="QuTiP classes"
+             >next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             >index</a>
+            <br/>
+            <a href="../_sources/examples/examples-paperfig10_11.txt"
+               rel="nofollow">Show Source</a>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
