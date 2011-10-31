@@ -55,43 +55,32 @@
   <div class="section" id="simultaneous-diagonalization-of-operators-using-simdiag-to-generate-ghz-states">
 <h1>Simultaneous diagonalization of operators using simdiag to generate GHZ states<a class="headerlink" href="#simultaneous-diagonalization-of-operators-using-simdiag-to-generate-ghz-states" title="Permalink to this headline">¶</a></h1>
 <p>Simultaneous diagonalization of operators using <a class="reference internal" href="../functions.html#qutip.simdiag" title="qutip.simdiag"><tt class="xref py py-func docutils literal"><span class="pre">qutip.simdiag()</span></tt></a> to generate GHZ states. This example is adapted from the quantum optics toolbox by Sze M. Tan.</p>
-<div class="highlight-python"><pre>from qutip import *
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
 
-# create composite operators
-sx1=tensor(sigmax(),qeye(2),qeye(2))
-sy1=tensor(sigmay(),qeye(2),qeye(2))
+<span class="c"># create composite operators</span>
+<span class="n">sx1</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">sigmax</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sy1</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">sigmay</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
-sx2=tensor(qeye(2),sigmax(),qeye(2))
-sy2=tensor(qeye(2),sigmay(),qeye(2))
+<span class="n">sx2</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmax</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sy2</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmay</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
-sx3=tensor(qeye(2),qeye(2),sigmax())
-sy3=tensor(qeye(2),qeye(2),sigmay())
+<span class="n">sx3</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmax</span><span class="p">())</span>
+<span class="n">sy3</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmay</span><span class="p">())</span>
 
-op1=sx1*sy2*sy3
-op2=sy1*sx2*sy3
-op3=sy1*sy2*sx3
-opghz=sx1*sx2*sx3
+<span class="n">op1</span><span class="o">=</span><span class="n">sx1</span><span class="o">*</span><span class="n">sy2</span><span class="o">*</span><span class="n">sy3</span>
+<span class="n">op2</span><span class="o">=</span><span class="n">sy1</span><span class="o">*</span><span class="n">sx2</span><span class="o">*</span><span class="n">sy3</span>
+<span class="n">op3</span><span class="o">=</span><span class="n">sy1</span><span class="o">*</span><span class="n">sy2</span><span class="o">*</span><span class="n">sx3</span>
+<span class="n">opghz</span><span class="o">=</span><span class="n">sx1</span><span class="o">*</span><span class="n">sx2</span><span class="o">*</span><span class="n">sx3</span>
 
-# need simultaneous eigenkets of op1,op2,op3 and opghz
-states,evalues=simdiag([op1,op2,op3,opghz])
+<span class="c"># need simultaneous eigenkets of op1,op2,op3 and opghz</span>
+<span class="n">states</span><span class="p">,</span><span class="n">evalues</span><span class="o">=</span><span class="n">simdiag</span><span class="p">([</span><span class="n">op1</span><span class="p">,</span><span class="n">op2</span><span class="p">,</span><span class="n">op3</span><span class="p">,</span><span class="n">opghz</span><span class="p">])</span>
 
-# eigenvalues show contradiction with classical prediction
-print evalues[:,0]
-[ 1.  1.  1. -1.]
+<span class="c"># eigenvalues show contradiction with classical prediction</span>
+<span class="k">print</span> <span class="n">evalues</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 
-# Eigenstate is entangled superposition of up-up-up and dn-dn-dn
-print states[0]
-Quantum object: dims = [[2, 2, 2], [1]], shape = [8, 1], type = ket
-Qobj data = 
-[[-0.70710678+0.j]
- [ 0.00000000+0.j]
- [ 0.00000000+0.j]
- [ 0.00000000+0.j]
- [ 0.00000000+0.j]
- [ 0.00000000+0.j]
- [ 0.00000000+0.j]
- [ 0.70710678+0.j]]
-</pre>
+<span class="c"># Eigenstate is entangled superposition of up-up-up and dn-dn-dn</span>
+<span class="k">print</span> <span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-GHZ.py">Download example</a></p>
 </div>

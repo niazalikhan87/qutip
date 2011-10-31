@@ -68,29 +68,31 @@
 <span class="c">#</span>
 <span class="c"># First plot the wigner function:</span>
 <span class="c">#</span>
-<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig2</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
 <span class="n">surf</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">fig2</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">show</span><span class="p">()</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-schcatdist-w.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 <span class="c">#</span>
 <span class="c"># Now plot the Q-function:</span>
 <span class="c">#</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">qfunc</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span><span class="n">xvec</span><span class="p">,</span><span class="n">xvec</span><span class="p">)</span>
-<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig2</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
 <span class="n">surf</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">fig2</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">show</span><span class="p">()</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-schcatdist-q.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-schcatdist.py">Download example</a></p>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png" src="http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png" />
+<img alt="../_images/examples-schcatdist-w.png" src="../_images/examples-schcatdist-w.png" />
 <p class="caption">The Wigner function of the Schrödinger cat state.</p>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/qcat.png" src="http://qutip.googlecode.com/svn/wiki/images/qcat.png" />
+<img alt="../_images/examples-schcatdist-q.png" src="../_images/examples-schcatdist-q.png" />
 <p class="caption">The Q-function of the Schrödinger cat state.</p>
 </div>
 </div>

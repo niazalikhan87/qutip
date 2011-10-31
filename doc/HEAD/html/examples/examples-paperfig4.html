@@ -88,9 +88,6 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;QUTIP_GRAPHICS&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;NO&quot;</span>
-
 <span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">5</span>             <span class="c"># number of basis states to consider</span>
 <span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>    <span class="c"># cavity destruction operator</span>
@@ -121,9 +118,7 @@
 <span class="c"># ------------------------------------------------------------------------------</span>
 <span class="c"># Plot the results (omitted from the code listing in the appendix in the paper)</span>
 <span class="c">#</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;serif&#39;</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;font.serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Times New Roman&#39;</span>
+
 <span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -163,7 +158,8 @@
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time (sec)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">show</span><span class="p">()</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-paperfig4.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-paperfig4.py">Download example</a></p>
