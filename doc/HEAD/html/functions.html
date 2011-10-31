@@ -495,33 +495,6 @@ Theory of Coherent Atomic excitation&#8221; by B. W. Shore.</p>
 <div class="section" id="module-qutip">
 <span id="dynamics-and-time-evolution"></span><h2>Dynamics and time-evolution<a class="headerlink" href="#module-qutip" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="qutip.essolve">
-<tt class="descclassname">qutip.</tt><tt class="descname">essolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_op_list</em><big>)</big><a class="headerlink" href="#qutip.essolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evolution of a state vector or density matrix (rho0) for a given
-Hamiltonian (H) and set of collapse operators (c_op_list), by expressing
-the ODE as an exponential series.</p>
-<p>The output is either the state vector at arbitrary points in time (tlist),
-or the expectation values of the supplied operators (expt_op_list).</p>
-<p>This solver does not support time-dependent Hamiltonians.</p>
-<dl class="docutils">
-<dt>Evolution of a state vector or density matrix (rho0) for a given</dt>
-<dd>Hamiltonian (H) and set of collapse operators (c_op_list), by expressing
-the ODE as an exponential series.</dd>
-</dl>
-<p>Parameter H <em>Qobj</em> Hamiltonian
-Parameter rho0 <em>Qobj</em> state vector or density matrix
-Parameter tlist <em>list/array</em> of times
-Parameter c_op_list <em>list/array</em> of collapse operators
-Parameter expt_op_list <em>list/array</em> of expectation operators</p>
-<p>Returns <em>array</em> of expectation values for expt_ops</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.mcsolve">
-<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1052be4d0&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="qutip.odesolve">
 <tt class="descclassname">qutip.</tt><tt class="descname">odesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_op_list</em>, <em>H_args=None</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#qutip.odesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evolution of a state vector or density matrix (rho0) for a given
@@ -552,9 +525,148 @@ will be passed on to the integrator to scipy who will raise an
 NotImplemented exception.</p>
 </dd></dl>
 
+<span class="target" id="module-qutip.correlation"></span><dl class="function">
+<dt id="qutip.correlation.correlation_es">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_es</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_es" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; </dt>
+<dd>using exponential series and the quantum regression theorem.</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter rho0 <em>Qobj</em> initial density matrix
+Parameter taulist <em>list/array</em> of times
+Parameter taulist <em>list/array</em> of tau times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
 <dl class="function">
-<dt id="qutip.propagator">
-<tt class="descclassname">qutip.</tt><tt class="descname">propagator</tt><big>(</big><em>H</em>, <em>t</em>, <em>c_op_list</em>, <em>H_args=None</em><big>)</big><a class="headerlink" href="#qutip.propagator" title="Permalink to this definition">¶</a></dt>
+<dt id="qutip.correlation.correlation_ode">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ode</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; using the ode solver, and the quantum regression theorem.</p>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter taulist <em>list/array</em> of times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.correlation_mc">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_mc</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_mc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; </dt>
+<dd>using the Monte-Carle solver, and the quantum regression theorem.</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter taulist <em>list/array</em> of times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.correlation_ss_es">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_es</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_es" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum</dt>
+<dd>regression theorem, and exponential series.</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter rho0 <em>Qobj</em> initial density matrix
+Parameter tlist <em>list/array</em> of times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.correlation_ss_ode">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_ode</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_ode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum
+regression theorem, and and the ode solver.</p>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter tlist <em>list/array</em> of times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.correlation_ss_mc">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_mc</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_mc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum</dt>
+<dd>regression theorem, and the monte-carlo solver</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> system Hamiltonian
+Parameter tlist <em>list/array</em> of times
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> of A operator
+Parameter b_op <em>Qobj</em> of B operator</p>
+<p>Returns <em>array</em> of expectation values</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.spectrum_ss">
+<tt class="descclassname">qutip.correlation.</tt><tt class="descname">spectrum_ss</tt><big>(</big><em>H</em>, <em>wlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.spectrum_ss" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate the spectrum corresponding to a correlation function &lt;a(t)b(0)&gt;,</dt>
+<dd>i.e., the Fourier transform of the correlation funciton,
+S(w) = int{-infty}^{infty} &lt;a(t)b(0)&gt; exp{-iomega t} dt</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> Hamiltonian
+Parameter wlist <em>list/array</em> or frequencies
+Parameter c_op_list <em>list</em> of collapse operators
+Parameter a_op <em>Qobj</em> for &#8216;A&#8217; operator
+Parameter b_op <em>Qobj</em> for &#8216;B&#8217; operator</p>
+<p>Returns <em>array</em> spectrum array</p>
+</dd></dl>
+
+<span class="target" id="module-qutip.essolve"></span><dl class="function">
+<dt id="qutip.essolve.essolve">
+<tt class="descclassname">qutip.essolve.</tt><tt class="descname">essolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_op_list</em><big>)</big><a class="headerlink" href="#qutip.essolve.essolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evolution of a state vector or density matrix (rho0) for a given
+Hamiltonian (H) and set of collapse operators (c_op_list), by expressing
+the ODE as an exponential series.</p>
+<p>The output is either the state vector at arbitrary points in time (tlist),
+or the expectation values of the supplied operators (expt_op_list).</p>
+<p>This solver does not support time-dependent Hamiltonians.</p>
+<dl class="docutils">
+<dt>Evolution of a state vector or density matrix (rho0) for a given</dt>
+<dd>Hamiltonian (H) and set of collapse operators (c_op_list), by expressing
+the ODE as an exponential series.</dd>
+</dl>
+<p>Parameter H <em>Qobj</em> Hamiltonian
+Parameter rho0 <em>Qobj</em> state vector or density matrix
+Parameter tlist <em>list/array</em> of times
+Parameter c_op_list <em>list/array</em> of collapse operators
+Parameter expt_op_list <em>list/array</em> of expectation operators</p>
+<p>Returns <em>array</em> of expectation values for expt_ops</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.essolve.ode2es">
+<tt class="descclassname">qutip.essolve.</tt><tt class="descname">ode2es</tt><big>(</big><em>L</em>, <em>rho0</em><big>)</big><a class="headerlink" href="#qutip.essolve.ode2es" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Create an exponential series that describes the time evolution for the</dt>
+<dd>initial density matrix (or state vector) rho0, given the Liouvillian 
+(or Hamiltonian) L.</dd>
+</dl>
+<p>Parameter L <em>Qobj</em> Liouvillian 
+Parameter rho0 <em>Qobj</em> state vector or density matrix</p>
+<p>Returns <em>eseries</em></p>
+</dd></dl>
+
+<span class="target" id="module-qutip.propagator"></span><dl class="function">
+<dt id="qutip.propagator.propagator">
+<tt class="descclassname">qutip.propagator.</tt><tt class="descname">propagator</tt><big>(</big><em>H</em>, <em>t</em>, <em>c_op_list</em>, <em>H_args=None</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Calculate the propagator U(t) for the density matrix or wave function</dt>
 <dd>such that psi(t) = U(t) psi(0) or rho_vec(t) = U(t) rho_vec(0) 
@@ -568,8 +680,16 @@ Parameter H_args (optional) <em>list/array</em> of functions for time-dependent 
 </dd></dl>
 
 <dl class="function">
-<dt id="qutip.steady">
-<tt class="descclassname">qutip.</tt><tt class="descname">steady</tt><big>(</big><em>L</em>, <em>maxiter=100</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#qutip.steady" title="Permalink to this definition">¶</a></dt>
+<dt id="qutip.propagator.propagator_steadystate">
+<tt class="descclassname">qutip.propagator.</tt><tt class="descname">propagator_steadystate</tt><big>(</big><em>U</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator_steadystate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the steady state for successive applications of the propagator U.</p>
+<p>Parameter U <em>Qobj</em> representing propagator</p>
+<p>Returns <em>Qobj</em> for steady-state state vector</p>
+</dd></dl>
+
+<span class="target" id="module-qutip.steady"></span><dl class="function">
+<dt id="qutip.steady.steady">
+<tt class="descclassname">qutip.steady.</tt><tt class="descname">steady</tt><big>(</big><em>L</em>, <em>maxiter=100</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#qutip.steady.steady" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Calculate the steady state for the evolution subject to the </dt>
 <dd>supplied Louvillian using the inverse power method. 
@@ -581,9 +701,133 @@ Parameter tol Tolerance, default = 1e-6</p>
 <p>Returns Qobj State vector corresponding to steady state of system.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="qutip.steady.steadystate">
+<tt class="descclassname">qutip.steady.</tt><tt class="descname">steadystate</tt><big>(</big><em>H</em>, <em>c_op_list</em>, <em>maxiter=100</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#qutip.steady.steadystate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculate the steady state for the evolution subject to the </dt>
+<dd>supplied Hamiltonian and lsit of collapse operators. 
+Does nothing more than form the Louvillian for you and call steady.</dd>
+</dl>
+<p>Parameter H Hamiltonian operator
+Parameter c_op_list List of collapse operators
+Parameter maxiter Max number of iterations to perform, default = 100
+Parameter tol Tolerance, default = 1e-6</p>
+<p>Returns Qobj State vector corresponding to steady state of system.</p>
+</dd></dl>
+
 </div>
-<div class="section" id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-qutip.entropy">
+<span id="other"></span><h2>Other<a class="headerlink" href="#module-qutip.entropy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="qutip.entropy.entropy_linear">
+<tt class="descclassname">qutip.entropy.</tt><tt class="descname">entropy_linear</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.entropy.entropy_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear entropy of density matrix</p>
+<p>Parameter rho <em>Qobj</em> density matrix or ket/bra</p>
+<p>Returns <em>float</em> if rho is Hermitian, <em>complex</em> otherwise</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.entropy.entropy_vn">
+<tt class="descclassname">qutip.entropy.</tt><tt class="descname">entropy_vn</tt><big>(</big><em>rho</em>, <em>base='2'</em><big>)</big><a class="headerlink" href="#qutip.entropy.entropy_vn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Von-Neumann entropy of density matrix</p>
+<p>Parameter rho <em>Qobj</em> density matrix</p>
+<p>Returns <em>float</em> entropy</p>
+</dd></dl>
+
+<span class="target" id="module-qutip.gates"></span><dl class="function">
+<dt id="qutip.gates.cnot">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">cnot</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.cnot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the CNOT gate.
+CNOT gate</p>
+<p>Return <em>Qobj</em> quantum object representation of CNOT gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.fredkin">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">fredkin</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.fredkin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the Fredkin gate.
+Freidkin gate</p>
+<p>Return <em>Qobj</em> quantum object representation of Fredkin gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.hadamard">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">hadamard</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.hadamard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the Hadamard gate.
+Hadamard gate</p>
+<p>Return <em>Qobj</em> quantum object representation of Hadamard gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.phasegate">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">phasegate</tt><big>(</big><em>theta</em><big>)</big><a class="headerlink" href="#qutip.gates.phasegate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the phase shift gate.
+phase shift gate</p>
+<blockquote>
+<div>param theta Phase rotation angle</div></blockquote>
+<p>Return <em>Qobj</em> quantum object representation of phase shift gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.snot">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">snot</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.snot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the SNOT (Hadamard) gate.
+SNOT (Hadamard) gate</p>
+<p>Return <em>Qobj</em> quantum object representation of SNOT (Hadamard) gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.swap">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">swap</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the SWAP gate.
+SWAP gate</p>
+<p>Return <em>Qobj</em> quantum object representation of SWAP gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.toffoli">
+<tt class="descclassname">qutip.gates.</tt><tt class="descname">toffoli</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.toffoli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the Toffoli gate.
+Toffoli gate</p>
+<p>Return <em>Qobj</em> quantum object representation of Toffoli gate</p>
+</dd></dl>
+
+<span class="target" id="module-qutip.metrics"></span><p>Collection of metrics (distance measures) between density matricies</p>
+<dl class="function">
+<dt id="qutip.metrics.fidelity">
+<tt class="descclassname">qutip.metrics.</tt><tt class="descname">fidelity</tt><big>(</big><em>A</em>, <em>B</em><big>)</big><a class="headerlink" href="#qutip.metrics.fidelity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculates the fidelity (pseudo-metric) between two density matricies.</dt>
+<dd>See: Nielsen &amp; Chuang, &#8220;Quantum Computation and Quantum Information&#8221;</dd>
+</dl>
+<p>Parameter  A <em>Qobj</em> density matrix
+Parameter  B <em>Qobj</em> density matrix with same dimensions as A</p>
+<p>Return  <em>float</em>  fidelity</p>
+</dd></dl>
+
+<span class="target" id="module-qutip.wigner"></span><dl class="function">
+<dt id="qutip.wigner.qfunc">
+<tt class="descclassname">qutip.wigner.</tt><tt class="descname">qfunc</tt><big>(</big><em>state</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em><big>)</big><a class="headerlink" href="#qutip.wigner.qfunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Q function of a given state vector or density matrix at points xvec+i*yvec</p>
+<p>Parameter state <em>Qobj</em> representing a state vector or density matrix
+Parameter xvec <em>list/array</em> of x-coordinates at which to calculate the Q function
+Parameter yvec <em>list/array</em> of y-coordinates at which to calculate the Q function
+Parameter g (optional) <em>float</em> scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2)</p>
+<p>Returns array returns array of values representing the Q function calculated over the specified range</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.wigner.wigner">
+<tt class="descclassname">qutip.wigner.</tt><tt class="descname">wigner</tt><big>(</big><em>psi</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em><big>)</big><a class="headerlink" href="#qutip.wigner.wigner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Wigner function of a given state vector or density matrix at points xvec+i*yvec</p>
+<p>Parameter state <em>Qobj</em> representing a state vector or density matrix
+Parameter xvec <em>list/array</em> of x-coordinates at which to calculate the Wigner function
+Parameter yvec <em>list/array</em> of y-coordinates at which to calculate the Wigner function
+Parameter g (optional) <em>float</em> scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2)</p>
+<p>Returns <em>array</em> of values representing the Wigner function calculated over the specified range</p>
+</dd></dl>
+
 <span class="target" id="module-qutip"></span><dl class="function">
 <dt id="qutip.about">
 <tt class="descclassname">qutip.</tt><tt class="descname">about</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.about" title="Permalink to this definition">¶</a></dt>
@@ -616,6 +860,13 @@ Parameter m3 <em>float</em> z-component of angular momentum 3</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="qutip.hinton">
+<tt class="descclassname">qutip.</tt><tt class="descname">hinton</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.hinton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a Hinton diagram for visualizing a density matrix.</p>
+<p>Parameter rho <em>Qobj</em> Input density matrix</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.orbital">
 <tt class="descclassname">qutip.</tt><tt class="descname">orbital</tt><big>(</big><em>theta</em>, <em>phi</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.orbital" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates an angular wave function on a sphere
@@ -641,6 +892,17 @@ components for some integer l.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="qutip.qfunc">
+<tt class="descclassname">qutip.</tt><tt class="descname">qfunc</tt><big>(</big><em>state</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em><big>)</big><a class="headerlink" href="#qutip.qfunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Q function of a given state vector or density matrix at points xvec+i*yvec</p>
+<p>Parameter state <em>Qobj</em> representing a state vector or density matrix
+Parameter xvec <em>list/array</em> of x-coordinates at which to calculate the Q function
+Parameter yvec <em>list/array</em> of y-coordinates at which to calculate the Q function
+Parameter g (optional) <em>float</em> scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2)</p>
+<p>Returns array returns array of values representing the Q function calculated over the specified range</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.simdiag">
 <tt class="descclassname">qutip.</tt><tt class="descname">simdiag</tt><big>(</big><em>ops</em><big>)</big><a class="headerlink" href="#qutip.simdiag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulateous diagonalization of communting Hermitian matricies</p>
@@ -662,17 +924,6 @@ Parameter save Whether to save the figure or not</p>
 <p>Return None Plots figure, but returns nothing</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="qutip.wigner">
-<tt class="descclassname">qutip.</tt><tt class="descname">wigner</tt><big>(</big><em>psi</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em><big>)</big><a class="headerlink" href="#qutip.wigner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the Wigner function of a given state vector or density matrix at points xvec+i*yvec</p>
-<p>Parameter state <em>Qobj</em> representing a state vector or density matrix
-Parameter xvec <em>list/array</em> of x-coordinates at which to calculate the Wigner function
-Parameter yvec <em>list/array</em> of y-coordinates at which to calculate the Wigner function
-Parameter g (optional) <em>float</em> scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2)</p>
-<p>Returns <em>array</em> of values representing the Wigner function calculated over the specified range</p>
-</dd></dl>
-
 </div>
 </div>
 
@@ -692,6 +943,7 @@ Parameter g (optional) <em>float</em> scaling factor for a = 0.5*g*(x+iy), defau
 
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>
