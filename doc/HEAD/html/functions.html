@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="QuTiP 1.1.2 documentation" href="index.html" />
     <link rel="next" title="Change Log" href="changelog.html" />
@@ -74,6 +75,14 @@ args integer corresponding to desired number state</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="qutip.states.qutrit_basis">
+<tt class="descclassname">qutip.states.</tt><tt class="descname">qutrit_basis</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.states.qutrit_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the basis states for a three level system (qutrit)</p>
+<p>Parameters None</p>
+<p>Returns <em>array</em> of qutrit basis vectors</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.states.coherent">
 <tt class="descclassname">qutip.states.</tt><tt class="descname">coherent</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.states.coherent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a coherent state with eigenvalue alpha in a 
@@ -94,29 +103,13 @@ alpha eigenvalue for coherent state</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="qutip.states.coherent_dm_fast">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">coherent_dm_fast</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.states.coherent_dm_fast" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a coherent state</p>
-<p>N the number of states
-alpha the coherent state amplitude (complex)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.states.coherent_fast">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">coherent_fast</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.states.coherent_fast" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a coherent state</p>
-<p>N the number of states
-alpha the coherent state amplitude (complex)</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="qutip.states.fock">
 <tt class="descclassname">qutip.states.</tt><tt class="descname">fock</tt><big>(</big><em>N</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.states.fock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the vector representation of a bosonic Fock (number) state. 
 Same as <a href="#id1"><span class="problematic" id="id2">`</span></a>basis&#8217; function.</p>
 <p>N the number of states in the Hilbert space
 m int corresponding to desired number state, defaults to 0 if omitted</p>
-<p>Returns Qobj quantum object representing the requested number state <tt class="docutils literal"><span class="pre">|args&gt;</span></tt></p>
+<p>Returns Qobj quantum object representing the requested number state <a href="#id3"><span class="problematic" id="id4">|</span></a>args&gt;</p>
 </dd></dl>
 
 <dl class="function">
@@ -129,95 +122,20 @@ m int corresponding to desired number state, defaults to 0 if omitted</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="qutip.states.thermal_dm">
+<tt class="descclassname">qutip.states.</tt><tt class="descname">thermal_dm</tt><big>(</big><em>N</em>, <em>n</em><big>)</big><a class="headerlink" href="#qutip.states.thermal_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the density matrix for a thermal state of n particles</p>
+<p>N: the number of states
+n: expectational value for number of particles in thermal state</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.states.ket2dm">
 <tt class="descclassname">qutip.states.</tt><tt class="descname">ket2dm</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.states.ket2dm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes input ket or bra vector and returns density matrix 
 formed by outer product.</p>
 <p>Q Ket or bra vector</p>
 <p>Returns Qobj Density matrix formed by outer product</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.states.qutrit_basis">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">qutrit_basis</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.states.qutrit_basis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the basis states for a three level system (qutrit)</p>
-<p>Parameters None</p>
-<p>Returns <em>array</em> of qutrit basis vectors</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.states.rand">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.states.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.states.randn">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.states.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.states.thermal_dm">
-<tt class="descclassname">qutip.states.</tt><tt class="descname">thermal_dm</tt><big>(</big><em>N</em>, <em>n</em><big>)</big><a class="headerlink" href="#qutip.states.thermal_dm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates the density matrix for a thermal state of n particles</p>
-<p>N: the number of states
-n: expectational value for number of particles in thermal state</p>
 </dd></dl>
 
 <span class="target" id="module-qutip.qstate"></span><dl class="function">
@@ -245,99 +163,7 @@ n: expectational value for number of particles in thermal state</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="qutip.qstate.rand">
-<tt class="descclassname">qutip.qstate.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.qstate.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.qstate.randn">
-<tt class="descclassname">qutip.qstate.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.qstate.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <span class="target" id="module-qutip.operators"></span><dl class="function">
-<dt id="qutip.operators.create">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">create</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creation (raising) operator</p>
-<p>Parameter N <em>int</em> dimension of hilbert space</p>
-<p>Returns <em>Qobj</em></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.destroy">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">destroy</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.destroy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destruction (lowering) operator</p>
-<p>Parameter N <em>int</em> dimension of hilbert space</p>
-<p>Returns <em>Qobj</em></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.displace">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">displace</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.operators.displace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Single-mode displacement operator</p>
-<p>Parameter N <em>int</em> dimension of hilbert space
-Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
-<p>Returns <em>Qobj</em></p>
-</dd></dl>
-
-<dl class="function">
 <dt id="qutip.operators.jmat">
 <tt class="descclassname">qutip.operators.</tt><tt class="descname">jmat</tt><big>(</big><em>j</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.operators.jmat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Higher-order spin operators</p>
@@ -347,113 +173,15 @@ Parameter args <em>str</em> which operator to return &#8216;x&#8217;,&#8217;y&#8
 </dd></dl>
 
 <dl class="function">
-<dt id="qutip.operators.num">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">num</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.num" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a quantum object instance representing the number operator.</p>
-<p>Argument:</p>
-<blockquote>
-<div>N (<em>int</em>): The dimension of Hilbert space.</div></blockquote>
-<p>Returns a quantum objecty <em>Qobj</em></p>
+<dt id="qutip.operators.sigmap">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">sigmap</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation operator for Pauli spins.</p>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmam</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
 <span class="go">Qobj data = </span>
-<span class="go">[[0 0 0 0]</span>
-<span class="go"> [0 1 0 0]</span>
-<span class="go"> [0 0 2 0]</span>
-<span class="go"> [0 0 0 3]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.qeye">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">qeye</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.qeye" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identity operator</p>
-<p>Parameter N <em>int</em> dimension of hilbert space</p>
-<p>Returns <em>Qobj</em></p>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qeye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
-<span class="go">Qobj data = </span>
-<span class="go">[[ 1.  0.  0.]</span>
-<span class="go"> [ 0.  1.  0.]</span>
-<span class="go"> [ 0.  0.  1.]]  </span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.qutrit_ops">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">qutrit_ops</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.qutrit_ops" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the operators for a three level system (qutrit)</p>
-<p>Parameters None</p>
-<p>Returns <em>array</em> of qutrit operators</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.rand">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.operators.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.randn">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.operators.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
+<span class="go">[[ 0.  1.]</span>
+<span class="go"> [ 0.  0.]]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -468,20 +196,6 @@ no parameters were supplied.</dd>
 <span class="go">Qobj data = </span>
 <span class="go">[[ 0.  0.]</span>
 <span class="go"> [ 1.  0.]]    </span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.operators.sigmap">
-<tt class="descclassname">qutip.operators.</tt><tt class="descname">sigmap</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creation operator for Pauli spins.</p>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmam</span><span class="p">()</span>
-<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
-<span class="go">Qobj data = </span>
-<span class="go">[[ 0.  1.]</span>
-<span class="go"> [ 0.  0.]]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -529,6 +243,59 @@ no parameters were supplied.</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="qutip.operators.destroy">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">destroy</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destruction (lowering) operator</p>
+<p>Parameter N <em>int</em> dimension of hilbert space</p>
+<p>Returns <em>Qobj</em></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.create">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">create</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation (raising) operator</p>
+<p>Parameter N <em>int</em> dimension of hilbert space</p>
+<p>Returns <em>Qobj</em></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.qeye">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">qeye</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.qeye" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity operator</p>
+<p>Parameter N <em>int</em> dimension of hilbert space</p>
+<p>Returns <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qeye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.  0.  0.]</span>
+<span class="go"> [ 0.  1.  0.]</span>
+<span class="go"> [ 0.  0.  1.]]  </span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.num">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">num</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a quantum object instance representing the number operator.</p>
+<p>Argument:</p>
+<blockquote>
+<div>N (<em>int</em>): The dimension of Hilbert space.</div></blockquote>
+<p>Returns a quantum objecty <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[0 0 0 0]</span>
+<span class="go"> [0 1 0 0]</span>
+<span class="go"> [0 0 2 0]</span>
+<span class="go"> [0 0 0 3]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.operators.squeez">
 <tt class="descclassname">qutip.operators.</tt><tt class="descname">squeez</tt><big>(</big><em>N</em>, <em>sp</em><big>)</big><a class="headerlink" href="#qutip.operators.squeez" title="Permalink to this definition">¶</a></dt>
 <dd><p>single-mode Squeezing operator</p>
@@ -537,10 +304,51 @@ Parameter sp <em>real</em> or <em>complex</em> squeezing parameter</p>
 <p>Returns <em>Qobj</em></p>
 </dd></dl>
 
+<dl class="function">
+<dt id="qutip.operators.displace">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">displace</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.operators.displace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single-mode displacement operator</p>
+<p>Parameter N <em>int</em> dimension of hilbert space
+Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
+<p>Returns <em>Qobj</em></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.qutrit_ops">
+<tt class="descclassname">qutip.operators.</tt><tt class="descname">qutrit_ops</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.qutrit_ops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the operators for a three level system (qutrit)</p>
+<p>Parameters None</p>
+<p>Returns <em>array</em> of qutrit operators</p>
+</dd></dl>
+
 <span class="target" id="module-qutip.istests"></span><dl class="function">
+<dt id="qutip.istests.isket">
+<tt class="descclassname">qutip.istests.</tt><tt class="descname">isket</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a ket-vector</p>
+<p>Parameter Q <em>Qobj</em> quantum object</p>
+<p>Return <em>bool</em> True or False</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.istests.isbra">
 <tt class="descclassname">qutip.istests.</tt><tt class="descname">isbra</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isbra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if given quantum object is a bra-vector</p>
+<p>Parameter Q <em>Qobj</em> quantum object</p>
+<p>Returns <em>bool</em> True or False</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.isoper">
+<tt class="descclassname">qutip.istests.</tt><tt class="descname">isoper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isoper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a operator</p>
+<p>Parameter Q <em>Qobj</em> quantum object</p>
+<p>Returns <em>bool</em> True or False</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.issuper">
+<tt class="descclassname">qutip.istests.</tt><tt class="descname">issuper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.issuper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a super-operator</p>
 <p>Parameter Q <em>Qobj</em> quantum object</p>
 <p>Returns <em>bool</em> True or False</p>
 </dd></dl>
@@ -564,30 +372,6 @@ Parameter atol <em>float</em> absolute tolerence</p>
 <p>Returns <em>bool</em> True if operator is Hermitian, False otherwise</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="qutip.istests.isket">
-<tt class="descclassname">qutip.istests.</tt><tt class="descname">isket</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isket" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines if given quantum object is a ket-vector</p>
-<p>Parameter Q <em>Qobj</em> quantum object</p>
-<p>Return <em>bool</em> True or False</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.istests.isoper">
-<tt class="descclassname">qutip.istests.</tt><tt class="descname">isoper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isoper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines if given quantum object is a operator</p>
-<p>Parameter Q <em>Qobj</em> quantum object</p>
-<p>Returns <em>bool</em> True or False</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.istests.issuper">
-<tt class="descclassname">qutip.istests.</tt><tt class="descname">issuper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.issuper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines if given quantum object is a super-operator</p>
-<p>Parameter Q <em>Qobj</em> quantum object</p>
-<p>Returns <em>bool</em> True or False</p>
-</dd></dl>
-
 <span class="target" id="module-qutip.superoperator"></span><dl class="function">
 <dt id="qutip.superoperator.liouvillian">
 <tt class="descclassname">qutip.superoperator.</tt><tt class="descname">liouvillian</tt><big>(</big><em>H</em>, <em>c_op_list</em><big>)</big><a class="headerlink" href="#qutip.superoperator.liouvillian" title="Permalink to this definition">¶</a></dt>
@@ -598,79 +382,6 @@ Parameter atol <em>float</em> absolute tolerence</p>
 <p>Parameter H <em>Qobj</em> Hamiltonian
 Parameter c_op_list <em>list/array</em> of collpase operators</p>
 <p>Returns <em>Qobj</em> quantum object for Louvillian superoperator</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.superoperator.mat2vec">
-<tt class="descclassname">qutip.superoperator.</tt><tt class="descname">mat2vec</tt><big>(</big><em>mat</em><big>)</big><a class="headerlink" href="#qutip.superoperator.mat2vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Private function reshaping matrix to vector</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.superoperator.rand">
-<tt class="descclassname">qutip.superoperator.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.superoperator.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.superoperator.randn">
-<tt class="descclassname">qutip.superoperator.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.superoperator.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="function">
@@ -689,80 +400,7 @@ no parameters were supplied.</dd>
 <p>Returns <em>Qobj</em> superoperator formed from input qauntum object</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="qutip.superoperator.vec2mat">
-<tt class="descclassname">qutip.superoperator.</tt><tt class="descname">vec2mat</tt><big>(</big><em>vec</em><big>)</big><a class="headerlink" href="#qutip.superoperator.vec2mat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Private function reshaping vector to matrix</p>
-</dd></dl>
-
 <span class="target" id="module-qutip.tensor"></span><dl class="function">
-<dt id="qutip.tensor.rand">
-<tt class="descclassname">qutip.tensor.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.tensor.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.tensor.randn">
-<tt class="descclassname">qutip.tensor.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.tensor.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="qutip.tensor.tensor">
 <tt class="descclassname">qutip.tensor.</tt><tt class="descname">tensor</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.tensor.tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the tensor product of input operators.</p>
@@ -783,13 +421,6 @@ no parameters were supplied.</dd>
 </dd></dl>
 
 <span class="target" id="module-qutip.ptrace"></span><dl class="function">
-<dt id="qutip.ptrace.list2ind">
-<tt class="descclassname">qutip.ptrace.</tt><tt class="descname">list2ind</tt><big>(</big><em>ilist</em>, <em>dims</em><big>)</big><a class="headerlink" href="#qutip.ptrace.list2ind" title="Permalink to this definition">¶</a></dt>
-<dd><p>!
-Private function returning indicies</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="qutip.ptrace.ptrace">
 <tt class="descclassname">qutip.ptrace.</tt><tt class="descname">ptrace</tt><big>(</big><em>rho</em>, <em>sel</em><big>)</big><a class="headerlink" href="#qutip.ptrace.ptrace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute partial trace of composite quantum object formed by <a class="reference internal" href="#module-qutip.tensor" title="qutip.tensor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.tensor()</span></tt></a></p>
@@ -799,79 +430,6 @@ Private function returning indicies</p>
 <p>sel (<em>int</em> or <em>list/array</em>): index or indices for components to keep.</p>
 </div></blockquote>
 <p>Returns the density matrix of components from sel as a <em>Qobj</em></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.ptrace.rand">
-<tt class="descclassname">qutip.ptrace.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.ptrace.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.ptrace.randn">
-<tt class="descclassname">qutip.ptrace.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.ptrace.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.ptrace.selct">
-<tt class="descclassname">qutip.ptrace.</tt><tt class="descname">selct</tt><big>(</big><em>sel</em>, <em>dims</em><big>)</big><a class="headerlink" href="#qutip.ptrace.selct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Private function finding selected components</p>
 </dd></dl>
 
 <span class="target" id="module-qutip.expect"></span><dl class="function">
@@ -890,79 +448,6 @@ no parameters were supplied.</dd>
 </pre></div>
 </div>
 <p>See <tt class="xref py py-func docutils literal"><span class="pre">qutip.num()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.basis()</span></tt>.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.expect.rand">
-<tt class="descclassname">qutip.expect.</tt><tt class="descname">rand</tt><big>(</big><em>d0</em>, <em>d1</em>, <em>...</em>, <em>dn</em><big>)</big><a class="headerlink" href="#qutip.expect.rand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random values in a given shape.</p>
-<p>Create an array of the given shape and propagate it with
-random samples from a uniform distribution
-over <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1)</span></tt>.</p>
-<dl class="docutils">
-<dt>d0, d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd>Shape of the output.</dd>
-</dl>
-<dl class="docutils">
-<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, shape <tt class="docutils literal"><span class="pre">(d0,</span> <span class="pre">d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt></span></dt>
-<dd>Random values.</dd>
-</dl>
-<p>random</p>
-<p>This is a convenience function. If you want an interface that
-takes a shape-tuple as the first argument, refer to
-<cite>random</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">array([[ 0.14022471,  0.96360618],  #random</span>
-<span class="go">       [ 0.37601032,  0.25528411],  #random</span>
-<span class="go">       [ 0.49313049,  0.94909878]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.expect.randn">
-<tt class="descclassname">qutip.expect.</tt><tt class="descname">randn</tt><big>(</big><span class="optional">[</span><em>d1</em>, <em>...</em>, <em>dn</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#qutip.expect.randn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a sample (or samples) from the &#8220;standard normal&#8221; distribution.</p>
-<p>If positive, int_like or int-convertible arguments are provided,
-<cite>randn</cite> generates an array of shape <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>, filled
-with random floats sampled from a univariate &#8220;normal&#8221; (Gaussian)
-distribution of mean 0 and variance 1 (if any of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>d</mi><mi>i</mi></msub></mrow></math> are
-floats, they are first converted to integers by truncation). A single
-float randomly sampled from the distribution is returned if no
-argument is provided.</p>
-<p>This is a convenience function.  If you want an interface that takes a
-tuple as the first argument, use <cite>numpy.random.standard_normal</cite> instead.</p>
-<dl class="docutils">
-<dt>d1, ..., dn <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n</cite> ints, optional</span></dt>
-<dd>The dimensions of the returned array, should be all positive.</dd>
-</dl>
-<dl class="docutils">
-<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier">ndarray or float</span></dt>
-<dd>A <tt class="docutils literal"><span class="pre">(d1,</span> <span class="pre">...,</span> <span class="pre">dn)</span></tt>-shaped array of floating-point samples from
-the standard normal distribution, or a single such float if
-no parameters were supplied.</dd>
-</dl>
-<p>random.standard_normal : Similar, but takes a tuple as its argument.</p>
-<p>For random samples from <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>)</mo></mrow></math>, use:</p>
-<p><tt class="docutils literal"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
-<span class="go">2.1923875335537315 #random</span>
-</pre></div>
-</div>
-<p>Two-by-four array of samples from N(3, 6.25):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],  #random</span>
-<span class="go">       [ 0.39924804,  4.68456316,  4.99394529,  4.84057254]]) #random</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.expect.single_expect">
-<tt class="descclassname">qutip.expect.</tt><tt class="descname">single_expect</tt><big>(</big><em>oper</em>, <em>state</em><big>)</big><a class="headerlink" href="#qutip.expect.single_expect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Private function used by expect</p>
 </dd></dl>
 
 <div class="section" id="module-qutip.three_level_atom">
@@ -1033,7 +518,7 @@ Parameter expt_op_list <em>list/array</em> of expectation operators</p>
 
 <dl class="function">
 <dt id="qutip.mcsolve">
-<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10c30dfc8&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1052be4d0&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">

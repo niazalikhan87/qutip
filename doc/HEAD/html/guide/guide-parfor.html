@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/theme_extras.js"></script>
     <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
     <link rel="up" title="QuTiP Users Guide" href="guide.html" />
@@ -53,7 +54,7 @@
         
   <div class="section" id="using-qutip-s-built-in-parallel-for-loop">
 <span id="guide-parfor"></span><h1>Using QuTiP&#8217;s Built-in Parallel for-loop<a class="headerlink" href="#using-qutip-s-built-in-parallel-for-loop" title="Permalink to this headline">¶</a></h1>
-<p>Often one is interested in the output of a given function as a single-parameter is varied.  For instance, in the Driven steady-state cavity example, we calculate the steady-state response as the driving frequency is varied.  In cases such as this, where each iteration is independent of the others, we may speedup the calculations by performing the iterations in parallel.  In QuTiP, parallel computations may be performed using the parfor (parallel-for-loop) function.</p>
+<p>Often one is interested in the output of a given function as a single-parameter is varied.  For instance, in the Driven steady-state cavity example, we calculate the steady-state response as the driving frequency is varied.  In cases such as this, where each iteration is independent of the others, we may speedup the calculations by performing the iterations in parallel.  In QuTiP, parallel computations may be performed using the <a class="reference internal" href="../functions.html#qutip.parfor" title="qutip.parfor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.parfor()</span></tt></a> (parallel-for-loop) function.</p>
 <p>To use the parfor function we need to define a function of a single-variable, and the range over which this variable is to be iterated.  For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span>
@@ -78,7 +79,7 @@
 <span class="go">[  0   1   8  27  64 125 216 343 512 729]</span>
 </pre></div>
 </div>
-<p>The parfor function is not limited to just numbers, but also works for a variety of outputs:</p>
+<p>The <a class="reference internal" href="../functions.html#qutip.parfor" title="qutip.parfor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.parfor()</span></tt></a> function is not limited to just numbers, but also works for a variety of outputs:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">Qobj</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s">&#39;a&#39;</span><span class="o">*</span><span class="n">x</span>
 </pre></div>
@@ -106,7 +107,7 @@
 <span class="go">[&#39;&#39; &#39;a&#39; &#39;aa&#39; &#39;aaa&#39; &#39;aaaa&#39;]</span>
 </pre></div>
 </div>
-<p>Although parfor allows functions with only one input, we can in fact pass more an a single variable by using a list of lists. Sounds confusing, but it is quite easy.</p>
+<p>Although <a class="reference internal" href="../functions.html#qutip.parfor" title="qutip.parfor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.parfor()</span></tt></a> allows functions with only one input, we can in fact pass more an a single variable by using a list of lists. Sounds confusing, but it is quite easy.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">index</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">args</span> <span class="c">#&lt;--sets the index variable to args[0], and x to args[1]</span>
 <span class="gp">... </span>    <span class="k">print</span> <span class="n">index</span> <span class="c">#&lt;-- print which element in sequence is being calculated</span>
