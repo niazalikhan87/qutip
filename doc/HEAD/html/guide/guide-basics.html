@@ -234,15 +234,16 @@ representing spin, s = &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217;,
 <span class="go"> [ 0.]]</span>
 </pre></div>
 </div>
-<p>&gt;&gt;&gt;print coherent(5,0.5-0.5j)
-Quantum object: dims = [[5], [1]], shape = [5, 1]
-Qobj data =
-[[  7.78801702e-01 -5.63234865e-20j]</p>
-<blockquote>
-<div>[  3.89391417e-01 -3.89391417e-01j]
-[  7.59246032e-19 -2.75458952e-01j]
-[ -7.89861710e-02 -7.89861710e-02j]
-[ -4.31427083e-02 +3.46944695e-18j]]</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">coherent</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="o">-</span><span class="mf">0.5</span><span class="n">j</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1]</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[  7.78801702e-01 -5.63234865e-20j]</span>
+<span class="go"> [  3.89391417e-01 -3.89391417e-01j]</span>
+<span class="go"> [  7.59246032e-19 -2.75458952e-01j]</span>
+<span class="go"> [ -7.89861710e-02 -7.89861710e-02j]</span>
+<span class="go"> [ -4.31427083e-02 +3.46944695e-18j]]</span>
+</pre></div>
+</div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
 <span class="go">Qobj data =</span>
@@ -538,6 +539,7 @@ vector Q/Q.norm().</td>
 
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>

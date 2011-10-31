@@ -30,7 +30,7 @@
     <script type="text/javascript" src="../_static/theme_extras.js"></script>
     <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
     <link rel="up" title="QuTiP Users Guide" href="guide.html" />
-    <link rel="next" title="QuTiP classes" href="../classes.html" />
+    <link rel="next" title="QuTiP Examples" href="../examples/examples.html" />
     <link rel="prev" title="Using QuTiP’s Built-in Parallel for-loop" href="guide-parfor.html" /> 
   </head>
   <body>
@@ -45,7 +45,7 @@
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="../classes.html">QuTiP classes</a>&#160;&#160;»
+        <a href="../examples/examples.html">QuTiP Examples</a>&#160;&#160;»
         </p>
 
       </div>
@@ -135,7 +135,7 @@
 <div class="section" id="applications-of-exponential-series">
 <h2>Applications of exponential series<a class="headerlink" href="#applications-of-exponential-series" title="Permalink to this headline">¶</a></h2>
 <p>The exponential series formalism can be useful for the time-evolution of quantum systems. One approach to calculating the time evolution of a quantum system is to diagonalize its Hamiltonian (or Liouvillian, for dissipative systems) and to express the propagator (e.g., <span class="math">\(\exp(-iHt) \rho \exp(iHt)\)</span>) as an exponential series.</p>
-<p>The QuTiP function <tt class="xref py py-func docutils literal"><span class="pre">qutip.es2ode()</span></tt> and <a class="reference internal" href="../functions.html#qutip.essolve" title="qutip.essolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.essolve()</span></tt></a> use this method to evolve quantum systems in time. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be ran independently for each initial state).</p>
+<p>The QuTiP function <tt class="xref py py-func docutils literal"><span class="pre">qutip.es2ode()</span></tt> and <a class="reference internal" href="../functions.html#module-qutip.essolve" title="qutip.essolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.essolve()</span></tt></a> use this method to evolve quantum systems in time. The exponential series approach is particularly suitable for cases when the same system is to be evolved for many different initial states, since the diagonalization only needs to be performed once (as opposed to e.g. the ode solver that would need to be ran independently for each initial state).</p>
 <p>As an example, consider a spin-1/2 with a Hamiltonian pointing in the <span class="math">\(\sigma_z\)</span> direction, and that is subject to noise causing relaxation. For a spin originally is in the up state, we can create an <a class="reference internal" href="../classes.html#qutip.eseries" title="qutip.eseries"><tt class="xref py py-class docutils literal"><span class="pre">qutip.eseries</span></tt></a> object describing its dynamics by using the <tt class="xref py py-func docutils literal"><span class="pre">qutip.es2ode()</span></tt> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">H</span> <span class="o">=</span> <span class="n">sigmaz</span><span class="p">()</span>
@@ -207,13 +207,14 @@
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="../classes.html">QuTiP classes</a>&#160;&#160;»
+        <a href="../examples/examples.html">QuTiP Examples</a>&#160;&#160;»
         </p>
 
       </div>
 
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>

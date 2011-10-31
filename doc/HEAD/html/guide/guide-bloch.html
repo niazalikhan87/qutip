@@ -137,61 +137,61 @@ output directory</td>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_1pnt.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_1pnt.png" />
 </div>
-<p>and then a single vector:
-{{{
-vec=[0,1,0]
-b.add_vectors(vec)
-b.show()
-}}}</p>
+<p>and then a single vector:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png" />
 </div>
-<p>and then add another vector corresponding to the <a href="#id3"><span class="problematic" id="id4">|</span></a>up&gt; state:
-{{{
-up=basis(2,0)
-b.add_states(up)
-b.show()
-}}}</p>
+<p>and then add another vector corresponding to the <a href="#id3"><span class="problematic" id="id4">|</span></a>up&gt; state:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">up</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_states</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png" />
 </div>
-<p>Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).  In total, the code for constructing our Bloch sphere with one vector, one state, and a single data point is:
-{{{
-b=Bloch()
-pnt=[1/sqrt(3),1/sqrt(3),1/sqrt(3)]
-b.add_points(pnt)
-#b.show()
-vec=[0,1,0]
-b.add_vectors(vec)
-#b.show()
-up=basis(2,0)
-b.add_states(up)
-b.show()
-}}}
-where we have commented out the extra <cite>show()</cite> commands.  We can also plot multiple points, vectors, and states at the same time by passing list or arrays instead of individual elements.  Before giving an example, we can use the <cite>clear()</cite> command to remove the current data from our Bloch sphere instead of creating a new instance:
-{{{
-b.clear()
-b.show()
-}}}</p>
+<p>Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).  In total, the code for constructing our Bloch sphere with one vector, one state, and a single data point is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">=</span><span class="n">Bloch</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pnt</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_points</span><span class="p">(</span><span class="n">pnt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#b.show()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c">#b.show()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">up</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_states</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>where we have commented out the extra <cite>show()</cite> commands.  We can also plot multiple points, vectors, and states at the same time by passing list or arrays instead of individual elements.  Before giving an example, we can use the <cite>clear()</cite> command to remove the current data from our Bloch sphere instead of creating a new instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" />
 </div>
-<p>Now on the same Bloch sphere, we can plot the three states associated with the x, y, and z directions:
-{{{
-x=(basis(2,0)+(1+0j)*basis(2,1)).unit()
-y=(basis(2,0)+(0+1j)*basis(2,1)).unit()
-z=(basis(2,0)+(0+0j)*basis(2,1)).unit()
-b.add_states([x,y,z])
-b.show()
-}}}</p>
+<p>Now on the same Bloch sphere, we can plot the three states associated with the x, y, and z directions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_states</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_xyz_states.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_xyz_states.png" />
 </div>
-<p>a similar method works for adding vectors:
-{{{
-vec=[[1,0,0],[0,1,0],[0,0,1]]
-b.add_vectors(vec)
-}}}</p>
+<p>a similar method works for adding vectors:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Adding multiple points to the Bloch sphere works slightly differently than adding multiple states or vectors.  For example, lets add a set of 20 points around the equator (after calling <cite>clear()</cite>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yp</span><span class="o">=</span><span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
@@ -242,14 +242,14 @@ b.add_vectors(vec)
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png" />
 </div>
-<p>Now, the data points cycle through a variety of predefined colors.  Now lets add another set of points, but this time we want the set to be a single color, representing say a qubit going from the <a href="#id5"><span class="problematic" id="id6">|</span></a>up&gt; state to the <a href="#id7"><span class="problematic" id="id8">|</span></a>down&gt; state in the y-z plane:
-{{{
-xz=zeros(20)
-yz=[sin(th) for th in linspace(0,pi,20)]
-zz=[cos(th) for th in linspace(0,pi,20)]
-b.add_points([xz,yz,zz]) # no &#8216;m&#8217;
-b.show()
-}}}</p>
+<p>Now, the data points cycle through a variety of predefined colors.  Now lets add another set of points, but this time we want the set to be a single color, representing say a qubit going from the <a href="#id5"><span class="problematic" id="id6">|</span></a>up&gt; state to the <a href="#id7"><span class="problematic" id="id8">|</span></a>down&gt; state in the y-z plane:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xz</span><span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yz</span><span class="o">=</span><span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zz</span><span class="o">=</span><span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">add_points</span><span class="p">([</span><span class="n">xz</span><span class="p">,</span><span class="n">yz</span><span class="p">,</span><span class="n">zz</span><span class="p">])</span> <span class="c"># no &#39;m&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png" />
 </div>
@@ -259,27 +259,103 @@ b.show()
 <div class="section" id="configuring-the-bloch-sphere">
 <h2>Configuring the Bloch sphere<a class="headerlink" href="#configuring-the-bloch-sphere" title="Permalink to this headline">¶</a></h2>
 <p>At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming <a href="#id9"><span class="problematic" id="id10">`</span></a>b=Bloch()&#8217;:</p>
-<p>||Attribute||Function||Default Setting||
-||b.font_color||Color of fonts|| <cite>&#8216;black&#8217;`||
-||b.font_size||Size of fonts||20||
-||b.frame_alpha||Transparency of wireframe||0.1||
-||b.frame_color||Color of wireframe||</cite>&#8216;gray&#8217;<cite>||
-||b.frame_width||Width of wireframe||1||
-||b.point_color||List of colors for Bloch point markers to cycle through||`[&#8216;b&#8217;,&#8217;r&#8217;,&#8217;g&#8217;,&#8217;#CC6600&#8217;]`||
-||b.point_marker||List of point marker shapes to cycle through||`[&#8216;o&#8217;,&#8217;s&#8217;,&#8217;d&#8217;,&#8217;^&#8217;]`||
-||b.point_size||List of point marker sizes (not all markers look the same size when plotted)||`[25,32,35,45]`||
-||b.sphere_alpha||Transparency of Bloch sphere|| 0.2||
-||b.sphere_color||Color of Bloch sphere|| `&#8217;#FFDDDD&#8217;`||
-||b.size||Sets size of figure window||`[7,7]</cite> (700x700 pixels)||
-||b.vector_color||List of colors for Bloch vectors to cycle through|| <cite>[&#8216;g&#8217;,&#8217;#CC6600&#8217;,&#8217;b&#8217;,&#8217;r&#8217;]`||
-||b.vector_width||Width of Bloch vectors||3||
-||b.view||Azimuthal and Elvation viewing angles|| `[-60,30]`||
-||b.xlabel||Labels for x-axis||`[&#8216;$x$&#8217;,&#8217;&#8216;]</cite> +x and -x (labels use LaTeX)||
-||b.xlpos||Position of x-axis labels||`[1.1,-1.1]`||
-||b.ylabel||Labels for y-axis||`[&#8216;$y$&#8217;,&#8217;&#8216;]` +y and -y (labels use LaTeX)||
-||b.ylpos||Position of y-axis labels||`[1.2,-1.2]`||
-||b.zlabel||Labels for z-axis||`[&#8216;$left|0\right&gt;$&#8217;,&#8217;$left|1\right&gt;$&#8217;]` +z and -z (labels use LaTeX)||
-||b.zlpos||Position of z-axis labels||`[1.2,-1.2]`||</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="49%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Function</th>
+<th class="head">Default Setting</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>b.font_color</td>
+<td>Color of fonts</td>
+<td><cite>&#8216;black&#8217;</cite></td>
+</tr>
+<tr class="row-odd"><td>b.font_size</td>
+<td>Size of fonts</td>
+<td>20</td>
+</tr>
+<tr class="row-even"><td>b.frame_alpha</td>
+<td>Transparency of wireframe</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td>b.frame_color</td>
+<td>Color of wireframe</td>
+<td><cite>&#8216;gray&#8217;</cite></td>
+</tr>
+<tr class="row-even"><td>b.frame_width</td>
+<td>Width of wireframe</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>b.point_color</td>
+<td>List of colors for Bloch point markers to cycle through</td>
+<td><cite>[&#8216;b&#8217;,&#8217;r&#8217;,&#8217;g&#8217;,&#8217;#CC6600&#8217;]</cite></td>
+</tr>
+<tr class="row-even"><td>b.point_marker</td>
+<td>List of point marker shapes to cycle through</td>
+<td><cite>[&#8216;o&#8217;,&#8217;s&#8217;,&#8217;d&#8217;,&#8217;^&#8217;]</cite></td>
+</tr>
+<tr class="row-odd"><td>b.point_size</td>
+<td>List of point marker sizes (not all markers look the
+same size when plotted)</td>
+<td><cite>[25,32,35,45]</cite></td>
+</tr>
+<tr class="row-even"><td>b.sphere_alpha</td>
+<td>Transparency of Bloch sphere</td>
+<td>0.2</td>
+</tr>
+<tr class="row-odd"><td>b.sphere_color</td>
+<td>Color of Bloch sphere</td>
+<td><cite>&#8216;#FFDDDD&#8217;</cite></td>
+</tr>
+<tr class="row-even"><td>b.size</td>
+<td>Sets size of figure window</td>
+<td><cite>[7,7]</cite> (700x700 pixels)</td>
+</tr>
+<tr class="row-odd"><td>b.vector_color</td>
+<td>List of colors for Bloch vectors to cycle through</td>
+<td><cite>[&#8216;g&#8217;,&#8217;#CC6600&#8217;,&#8217;b&#8217;,&#8217;r&#8217;]</cite></td>
+</tr>
+<tr class="row-even"><td>b.vector_width</td>
+<td>Width of Bloch vectors</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>b.view</td>
+<td>Azimuthal and Elvation viewing angles</td>
+<td><cite>[-60,30]</cite></td>
+</tr>
+<tr class="row-even"><td>b.xlabel</td>
+<td>Labels for x-axis</td>
+<td><cite>[&#8216;$x$&#8217;,&#8217;&#8216;]</cite> +x and -x (labels use LaTeX)</td>
+</tr>
+<tr class="row-odd"><td>b.xlpos</td>
+<td>Position of x-axis labels</td>
+<td><cite>[1.1,-1.1]</cite></td>
+</tr>
+<tr class="row-even"><td>b.ylabel</td>
+<td>Labels for y-axis</td>
+<td><cite>[&#8216;$y$&#8217;,&#8217;&#8216;]</cite> +y and -y (labels use LaTeX)</td>
+</tr>
+<tr class="row-odd"><td>b.ylpos</td>
+<td>Position of y-axis labels</td>
+<td><cite>[1.2,-1.2]</cite></td>
+</tr>
+<tr class="row-even"><td>b.zlabel</td>
+<td>Labels for z-axis</td>
+<td><cite>[&#8216;$left|0\right&gt;$&#8217;,&#8217;$left|1\right&gt;$&#8217;]</cite>
++z and -z (labels use LaTeX)</td>
+</tr>
+<tr class="row-odd"><td>b.zlpos</td>
+<td>Position of z-axis labels</td>
+<td><cite>[1.2,-1.2]</cite></td>
+</tr>
+</tbody>
+</table>
 <p>These properties can also be accessed via the print command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">=</span><span class="n">Bloch</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">b</span>
@@ -343,6 +419,7 @@ b.show()
 
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>
