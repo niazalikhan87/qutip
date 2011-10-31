@@ -31,7 +31,7 @@
     <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
     <link rel="up" title="QuTiP Examples" href="examples.html" />
     <link rel="next" title="Master equation vs. Monte-Carlo evolution for a unequally damped parametric amplifier" href="examples-parampmonte.html" />
-    <link rel="prev" title="Monte-Carlo evolution of the trilinear Hamiltonian subject to damping." href="examples-trilinearmonte.html" /> 
+    <link rel="prev" title="Monte-Carlo evolution of the trilinear Hamiltonian subject to damping" href="examples-trilinearmonte.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="../index.html">
@@ -41,7 +41,7 @@
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="examples-trilinearmonte.html">Monte-Carlo evolution of the trilinear Hamiltonian subject to damping.</a>
+        «&#160;&#160;<a href="examples-trilinearmonte.html">Monte-Carlo evolution of the trilinear Hamiltonian subject to damping</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
@@ -99,7 +99,7 @@
 <span class="c">#set plotting parameters</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span><span class="s">&#39;text.fontsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span><span class="s">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span><span class="s">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span><span class="s">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">}</span>
 <span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">diags1</span><span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">tlist</span><span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="n">j</span><span class="p">],</span> <span class="n">zdir</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">)</span>
@@ -108,12 +108,13 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">r&#39;Number State&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">r&#39;Time&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">show</span><span class="p">()</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-thermalmonte.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-thermalmonte.py">Download example</a></p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="http://qutip.googlecode.com/svn/wiki/images/trilinear_deviations.png"><img alt="http://qutip.googlecode.com/svn/wiki/images/trilinear_deviations.png" src="http://qutip.googlecode.com/svn/wiki/images/trilinear_deviations.png" /></a>
+<img alt="../_images/examples-thermalmonte.png" src="../_images/examples-thermalmonte.png" />
 </div>
 </div>
 
@@ -122,7 +123,7 @@
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="examples-trilinearmonte.html">Monte-Carlo evolution of the trilinear Hamiltonian subject to damping.</a>
+        «&#160;&#160;<a href="examples-trilinearmonte.html">Monte-Carlo evolution of the trilinear Hamiltonian subject to damping</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;

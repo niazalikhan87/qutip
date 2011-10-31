@@ -60,6 +60,7 @@
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span><span class="p">,</span> <span class="n">mpl</span><span class="p">,</span><span class="n">cm</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">Q</span><span class="o">=</span><span class="n">Qobj</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)))</span> <span class="c">#density matrix with random entries</span>
 
@@ -77,7 +78,7 @@
 <span class="n">colors</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">(</span><span class="n">nrm</span><span class="p">(</span><span class="n">dz</span><span class="p">))</span> <span class="c">#list of colors for each bar</span>
 
 <span class="c">#plot figure</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">bar3d</span><span class="p">(</span><span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span><span class="p">,</span> <span class="n">zpos</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">w_xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">IndexLocator</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">))</span> <span class="c">#set x-ticks to integers</span>
@@ -88,12 +89,13 @@
 <span class="n">cax</span><span class="p">,</span><span class="n">kw</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">make_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">shrink</span><span class="o">=.</span><span class="mi">75</span><span class="p">,</span><span class="n">pad</span><span class="o">=.</span><span class="mo">02</span><span class="p">)</span> <span class="c">#add colorbar with normalized range</span>
 <span class="n">cb1</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span><span class="n">norm</span><span class="o">=</span><span class="n">nrm</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-3d-histogram.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-3d-histogram.py">Download example</a></p>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bar3d.png" src="http://qutip.googlecode.com/svn/wiki/images/bar3d.png" />
+<img alt="../_images/examples-3d-histogram.png" src="../_images/examples-3d-histogram.png" />
 </div>
 </div>
 

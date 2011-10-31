@@ -101,19 +101,20 @@
 <span class="c">#</span>
 <span class="c"># plot the energy eigenvalues</span>
 <span class="c">#</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span><span class="c"># range(len(evals_mat[0,:])):</span>
     <span class="n">plot</span><span class="p">(</span><span class="n">w1list</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="p">(</span><span class="n">evals_mat</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">evals_mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Energy splitting of atom 1&#39;</span><span class="p">)</span>
 <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Eigenenergies&#39;</span><span class="p">)</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;Energy spectrum of three coupled qubits&#39;</span><span class="p">)</span>
-<span class="n">show</span><span class="p">()</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-energy-spectrum.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-energy-spectrum.py">Download example</a></p>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/examples-energy-spectrum.png" src="http://qutip.googlecode.com/svn/wiki/images/examples-energy-spectrum.png" />
+<img alt="../_images/examples-energy-spectrum.png" src="../_images/examples-energy-spectrum.png" />
 </div>
 </div>
 
