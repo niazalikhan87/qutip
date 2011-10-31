@@ -64,6 +64,16 @@ physics applications. QuTiP is freely available for use and/or
 modification on all major platforms. Being free of any licensing
 fees, QuTiP is ideal for exploring quantum mechanics and
 dynamics in the classroom.</p>
+<p>The focus of QuTiP is on systems where the Hamiltonian is composed of harmonic oscillator modes, and multi-level (typically two-levels) atoms, where the Hilbert space may be constructed using the Fock basis.  This large class of Hamiltonians appears in a wide variety of physical problems, including those in quantum optics, trapped ions, superconducting circuit devices, and mechanical systems in the quantum regime.  Although similar software options are already available, QuTiP differs from these alternatives by combining the following benefits:</p>
+<ul class="simple">
+<li>QuTiP relies on completely open-source software.  You are free to modify and use it as you wish with no licensing fees.</li>
+<li>QuTiP is based on the Python scripting language, providing easy to read, fast code generation without the need to compile after modification.</li>
+<li>The numerics underlying QuTiP are time-tested algorithms that run at C-code speeds, thanks to the <a class="reference external" href="http://numpy.scipy.org/">Numpy</a> and <a class="reference external" href="http://www.scipy.org/scipy">Scipy</a> libraries, and are based on many of the same algorithms used in propriety software.</li>
+<li>QuTiP allows for solving the dynamics of Hamiltonians with arbitrary time-dependence (does not yet include time-dependent collapse operators).</li>
+<li>Takes advantage of multiple processors found in essentially all modern computers.</li>
+<li>QuTiP was designed from the start to require a minimal learning curve for those users who have experience using the popular quantum optics toolbox by Sze M. Tan.</li>
+<li>Includes the ability to create high-quality plots, and animations, using the excellent <a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> package.</li>
+</ul>
 <p>These pages contains automatically generated API documentation for QuTiP.</p>
 <p>For more information see the <a class="reference external" href="http://code.google.com/p/qutip">QuTiP project web page</a>.</p>
 <div class="toctree-wrapper compound">
