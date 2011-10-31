@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The dynamics of a Heisenberg spin chain &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere" href="examples-bloch-qubit-decay.html" />
+    <link rel="prev" title="Using the fidelity to measure the distance between two density matrices" href="examples-fidelity.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>The dynamics of a Heisenberg spin chain</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-fidelity.html">Using the fidelity to measure the distance between two density matrices</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-bloch-qubit-decay.html">Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="the-dynamics-of-a-heisenberg-spin-chain">
+<h1>The dynamics of a Heisenberg spin chain<a class="headerlink" href="#the-dynamics-of-a-heisenberg-spin-chain" title="Permalink to this headline">¶</a></h1>
+<p>Example that calculates the dynamics of a Heisenberg spin chain.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#</span>
+<span class="c"># Heisenberg spin 1/2 chain</span>
+<span class="c">#</span>
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">Jx</span><span class="p">,</span> <span class="n">Jy</span><span class="p">,</span> <span class="n">Jz</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">solver</span><span class="p">):</span>
+    <span class="c"># Hamiltonian</span>
+    <span class="c">#</span>
+    <span class="c"># H = - 0.5 sum_n^N h_n sigma_z(n)  </span>
+    <span class="c">#     - 0.5 sum_n^(N-1) [ Jx_n sigma_x(n) sigma_x(n+1) + Jy_n sigma_y(n) sigma_y(n+1) + Jz_n sigma_z(n) sigma_z(n+1)]</span>
+    <span class="c">#</span>
+    <span class="n">si</span> <span class="o">=</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sx</span> <span class="o">=</span> <span class="n">sigmax</span><span class="p">()</span>
+    <span class="n">sy</span> <span class="o">=</span> <span class="n">sigmay</span><span class="p">()</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="n">sigmaz</span><span class="p">()</span>
+
+    <span class="n">sx_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sy_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sz_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">op_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">si</span><span class="p">)</span>
+        <span class="n">op_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">sx</span>
+        <span class="n">sx_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor</span><span class="p">(</span><span class="n">op_list</span><span class="p">))</span>
+        <span class="n">op_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">sy</span>
+        <span class="n">sy_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor</span><span class="p">(</span><span class="n">op_list</span><span class="p">))</span>
+        <span class="n">op_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">sz</span>
+        <span class="n">sz_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tensor</span><span class="p">(</span><span class="n">op_list</span><span class="p">))</span>
+    <span class="c"># construct the hamiltonian</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="mi">0</span>    
+    <span class="c"># energy splitting terms</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">H</span> <span class="o">+=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">h</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sz_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="c"># interaction terms</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">H</span> <span class="o">+=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Jx</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sx_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sx_list</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">H</span> <span class="o">+=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Jy</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sy_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sy_list</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">H</span> <span class="o">+=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Jz</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sz_list</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">sz_list</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> 
+    <span class="c"># collapse operators</span>
+    <span class="n">c_op_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># spin dephasing</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gamma</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">*</span> <span class="n">sz_list</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="c"># evolve and calculate expectation values</span>
+    <span class="k">if</span> <span class="n">solver</span> <span class="o">==</span> <span class="s">&quot;ode&quot;</span><span class="p">:</span>
+        <span class="n">expt_list</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span> <span class="n">sz_list</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">solver</span> <span class="o">==</span> <span class="s">&quot;mc&quot;</span><span class="p">:</span>
+        <span class="n">ntraj</span> <span class="o">=</span> <span class="mi">250</span> 
+        <span class="n">expt_list</span> <span class="o">=</span> <span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span> <span class="n">sz_list</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">expt_list</span>
+<span class="c">#</span>
+<span class="c"># set up the calculation</span>
+<span class="c">#</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="s">&quot;ode&quot;</span>   <span class="c"># use the ode solver</span>
+<span class="c">#solver = &quot;mc&quot;   # use the monte-carlo solver</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span> <span class="c"># number of spins</span>
+<span class="c"># array of spin energy splittings and coupling strengths. here we use</span>
+<span class="c"># uniform parameters, but in general we don&#39;t have too</span>
+<span class="n">h</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> 
+<span class="n">Jz</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Jx</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Jy</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="c"># dephasing rate</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="c"># intial state, first spin in state |1&gt;, the rest in state |0&gt;</span>
+<span class="n">psi_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">psi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">psi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">psi_list</span><span class="p">)</span>
+<span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">sz_expt</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">Jx</span><span class="p">,</span> <span class="n">Jy</span><span class="p">,</span> <span class="n">Jz</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">solver</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;time elapsed = &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> 
+<span class="c">#</span>
+<span class="c"># plot</span>
+<span class="c">#</span>
+<span class="n">rc</span><span class="p">(</span><span class="s">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s">&#39;serif&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">sz_expt</span><span class="p">[</span><span class="n">n</span><span class="p">,:]),</span> <span class="n">label</span><span class="o">=</span><span class="s">r&#39;$\langle\sigma_z($&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s">r&#39;$)\rangle$&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">r&#39;Time [ns]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">r&#39;\langle\sigma_z\rangle&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">r&#39;Dynamics of a Heisenberg spin chain&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s">&quot;lower right&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-spinchain.py">Download example</a></p>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/spinchain.png" src="http://qutip.googlecode.com/svn/wiki/images/spinchain.png" />
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-fidelity.html">Using the fidelity to measure the distance between two density matrices</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-bloch-qubit-decay.html">Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

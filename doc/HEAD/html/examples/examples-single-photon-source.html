@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Single photon source based on a three level atom strongly coupled to a cavity &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Calculation of Expectation Values via Monte-Carlo Method" href="examples-expectmonte.html" />
+    <link rel="prev" title="Single-atom lasing in a Jaynes-Cumming-like system" href="examples-lasing.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Single photon source based on a three level atom strongly coupled to a cavity</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-lasing.html">Single-atom lasing in a Jaynes-Cumming-like system</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="single-photon-source-based-on-a-three-level-atom-strongly-coupled-to-a-cavity">
+<h1>Single photon source based on a three level atom strongly coupled to a cavity<a class="headerlink" href="#single-photon-source-based-on-a-three-level-atom-strongly-coupled-to-a-cavity" title="Permalink to this headline">¶</a></h1>
+<p>This example highlights a single photon source based on a three level atom strongly coupled to a cavity.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># We follow the treatment presented in Kuhn et al., </span>
+<span class="c"># Appl. Phys. B 69, 373-377 (1999),</span>
+<span class="c"># http://www.mpq.mpg.de/qdynamics/publications/library/APB69p373_Kuhn.pdf,</span>
+<span class="c"># for more details see M. Hennrich&#39;s thesis,</span>
+<span class="c"># http://mediatum2.ub.tum.de/node?id=602970.</span>
+
+<span class="c"># We study the following lambda system,</span>
+<span class="c">#</span>
+<span class="c">#                |e&gt;</span>
+<span class="c">#             --------</span>
+<span class="c">#             /     \</span>
+<span class="c">#      Omega /       \ g</span>
+<span class="c">#           /         \</span>
+<span class="c">#          /        -------</span>
+<span class="c">#      -------        |g&gt;</span>
+<span class="c">#       |u&gt;</span>
+<span class="c">#</span>
+<span class="c"># where |u&gt; and |g&gt; are the ground states and |e&gt; is the exicted state.</span>
+<span class="c"># |u&gt; and |e&gt; are coupled by a classical laser field with Rabi frequency</span>
+<span class="c"># Omega, and |g&gt; and |e&gt; by a cavity field with 2g being the single-photon</span>
+<span class="c"># Rabi frequency.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># Define atomic states</span>
+<span class="c"># Use ordering from paper</span>
+<span class="n">ustate</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">excited</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ground</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c"># Set where to truncate Fock state for cavity</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c"># Create the atomic operators needed for the Hamiltonian</span>
+<span class="c"># |g&gt;&lt;e|</span>
+<span class="n">sigma_ge</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">ground</span> <span class="o">*</span> <span class="n">excited</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+<span class="c"># |u&gt;&lt;e|</span>
+<span class="n">sigma_ue</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">ustate</span> <span class="o">*</span> <span class="n">excited</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+
+<span class="c"># Create the photon operator</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">destroy</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ada</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c"># Define collapse operators</span>
+<span class="n">c_op_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c"># Cavity decay rate</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">kappa</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c"># Atomic decay rate</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="c"># Use Rb branching ratio of 5/9 e-&gt;u, 4/9 e-&gt;g</span>
+<span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">gamma</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_ue</span><span class="p">)</span>
+<span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">gamma</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_ge</span><span class="p">)</span>
+
+<span class="c"># Define time vector</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c"># Define pump strength as a function of time</span>
+<span class="n">wp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c"># Set up the time varying Hamiltonian</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">H0</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigma_ge</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sigma_ge</span><span class="p">)</span>
+<span class="n">H1</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma_ue</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">+</span> <span class="n">sigma_ue</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Hfunc</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="n">H0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">H1</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">wp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">H0</span> <span class="o">-</span> <span class="n">w</span> <span class="o">*</span> <span class="n">H1</span>
+
+<span class="c"># Define initial state</span>
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">ustate</span><span class="p">)</span>
+
+<span class="c"># Define states onto which to project (same as in paper)</span>
+<span class="n">state_GG</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">ground</span><span class="p">)</span>
+<span class="n">sigma_GG</span> <span class="o">=</span> <span class="n">state_GG</span> <span class="o">*</span> <span class="n">state_GG</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="n">state_UU</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">ustate</span><span class="p">)</span>
+<span class="n">sigma_UU</span> <span class="o">=</span> <span class="n">state_UU</span> <span class="o">*</span> <span class="n">state_UU</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+
+<span class="n">exp_ada</span><span class="p">,</span> <span class="n">exp_uu</span><span class="p">,</span> <span class="n">exp_gg</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">Hfunc</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span>
+                                   <span class="p">[</span><span class="n">ada</span><span class="p">,</span> <span class="n">sigma_UU</span><span class="p">,</span> <span class="n">sigma_GG</span><span class="p">],</span>
+                                   <span class="p">[</span><span class="n">H0</span><span class="p">,</span> <span class="n">H1</span><span class="p">])</span>
+
+<span class="c"># For plotting t has to match the shape of the result vecs,</span>
+<span class="c"># so transpose it</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wp</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Control Field, $\Omega_\mathrm{p}$ [MHz]&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">twinx</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kappa</span><span class="o">*</span><span class="n">exp_ada</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Cavity emission rate, $1/\mu s$&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tl</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+    <span class="n">tl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">axis</span><span class="p">(</span><span class="s">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">exp_uu</span><span class="p">,</span> <span class="s">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;$P{\mathrm{uu}}$&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">exp_gg</span><span class="p">,</span> <span class="s">&#39;k:&#39;</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s">&#39;$P{\mathrm{gg}}$&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Population&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [$\mu s$]&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">()</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-single-photon-source.py">Download example</a></p>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/examples-single-photon.png" src="http://qutip.googlecode.com/svn/wiki/images/examples-single-photon.png" />
+<p class="caption">State Population and Emission from Cavity</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-lasing.html">Single-atom lasing in a Jaynes-Cumming-like system</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

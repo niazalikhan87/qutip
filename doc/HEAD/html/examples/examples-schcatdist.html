@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Wigner and Q-function distributions for a Schrodinger-Cat state &mdash; QuTiP 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Calculation of Expectation Values via Monte-Carlo Method" href="examples-expectmonte.html" />
+    <link rel="prev" title="Wigner and Q-functions of a squeezed state" href="examples-squeezed.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>QuTiP 1.1.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Wigner and Q-function distributions for a Schrodinger-Cat state</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-squeezed.html">Wigner and Q-functions of a squeezed state</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="wigner-and-q-function-distributions-for-a-schrodinger-cat-state">
+<h1>Wigner and Q-function distributions for a Schrodinger-Cat state<a class="headerlink" href="#wigner-and-q-function-distributions-for-a-schrodinger-cat-state" title="Permalink to this headline">¶</a></h1>
+<p>Calculates the Wigner for a Schrodinger Cat-state composed of two coherent states <span class="math">\(\alpha_1=-2-2j\)</span>, and <span class="math">\(\alpha_2=2+2j\)</span>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">psi</span><span class="o">=</span><span class="p">(</span><span class="n">coherent</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="n">coherent</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">yvec</span> <span class="o">=</span> <span class="n">xvec</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">xvec</span><span class="p">,</span> <span class="n">yvec</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">wigner</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span><span class="n">xvec</span><span class="p">,</span><span class="n">xvec</span><span class="p">);</span>
+<span class="c">#</span>
+<span class="c"># First plot the wigner function:</span>
+<span class="c">#</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig2</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+<span class="n">surf</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+<span class="c">#</span>
+<span class="c"># Now plot the Q-function:</span>
+<span class="c">#</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">qfunc</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span><span class="n">xvec</span><span class="p">,</span><span class="n">xvec</span><span class="p">)</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig2</span><span class="p">,</span><span class="n">azim</span><span class="o">=-</span><span class="mi">107</span><span class="p">,</span><span class="n">elev</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span>
+<span class="n">surf</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-schcatdist.py">Download example</a></p>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png" src="http://qutip.googlecode.com/svn/wiki/images/coherent-cat.png" />
+<p class="caption">The Wigner function of the Schrödinger cat state.</p>
+</div>
+<div class="figure align-center">
+<img alt="http://qutip.googlecode.com/svn/wiki/images/qcat.png" src="http://qutip.googlecode.com/svn/wiki/images/qcat.png" />
+<p class="caption">The Q-function of the Schrödinger cat state.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="examples-squeezed.html">Wigner and Q-functions of a squeezed state</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="examples-expectmonte.html">Calculation of Expectation Values via Monte-Carlo Method</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Oct 31, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>
