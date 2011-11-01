@@ -328,6 +328,16 @@ Parameter args <em>str</em> which operator to return &#8216;x&#8217;,&#8217;y&#8
 <dd><p>Destruction (lowering) operator</p>
 <p>Parameter N <em>int</em> dimension of hilbert space</p>
 <p>Returns <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.00000000+0.j  1.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  1.41421356+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  1.73205081+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -336,6 +346,16 @@ Parameter args <em>str</em> which operator to return &#8216;x&#8217;,&#8217;y&#8
 <dd><p>Creation (raising) operator</p>
 <p>Parameter N <em>int</em> dimension of hilbert space</p>
 <p>Returns <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">create</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 1.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  1.41421356+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  1.73205081+0.j  0.00000000+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -382,6 +402,16 @@ Parameter args <em>str</em> which operator to return &#8216;x&#8217;,&#8217;y&#8
 <p>Parameter N <em>int</em> dimension of hilbert space
 Parameter sp <em>real</em> or <em>complex</em> squeezing parameter</p>
 <p>Returns <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">squeez</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.98441565+0.j  0.00000000+0.j  0.17585742+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.95349007+0.j  0.00000000+0.j  0.30142443+0.j]</span>
+<span class="go"> [-0.17585742+0.j  0.00000000+0.j  0.98441565+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j -0.30142443+0.j  0.00000000+0.j  0.95349007+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -391,6 +421,16 @@ Parameter sp <em>real</em> or <em>complex</em> squeezing parameter</p>
 <p>Parameter N <em>int</em> dimension of hilbert space
 Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
 <p>Returns <em>Qobj</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">displace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.96923323+0.j -0.24230859+0.j  0.04282883+0.j -0.00626025+0.j]</span>
+<span class="go"> [ 0.24230859+0.j  0.90866411+0.j -0.33183303+0.j  0.07418172+0.j]</span>
+<span class="go"> [ 0.04282883+0.j  0.33183303+0.j  0.84809499+0.j -0.41083747+0.j]</span>
+<span class="go"> [ 0.00626025+0.j  0.07418172+0.j  0.41083747+0.j  0.90866411+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -635,121 +675,126 @@ NotImplemented exception.</p>
 <span class="target" id="module-qutip.correlation"></span><dl class="function">
 <dt id="qutip.correlation.correlation_es">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_es</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_es" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+\tau)B(t)\right&gt;\)</span>
+using exponential series and the quantum regression theorem.</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using exponential series and the quantum regression theorem.</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter rho0 <em>Qobj</em> initial density matrix
-Parameter taulist <em>list/array</em> of times
-Parameter taulist <em>list/array</em> of tau times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>taulist</cite> (<em>list/array</em>) list of times for <span class="math">\(\tau\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ode">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ode</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+\tau)B(t)\right&gt;\)</span>
+using the ode solver, and the quantum regression theorem.</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using the ode solver, and the quantum regression theorem.</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter taulist <em>list/array</em> of times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>taulist</cite> (<em>list/array</em>) list of times for <span class="math">\(\tau\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_mc">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_mc</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_mc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+\tau)B(t)\right&gt;\)</span>
+using the Monte-Carle solver, and the quantum regression theorem.</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using the Monte-Carle solver, and the quantum regression theorem.</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter taulist <em>list/array</em> of times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>taulist</cite> (<em>list/array</em>) list of times for <span class="math">\(\tau\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_es">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_es</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_es" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(\tau)B(0)\right&gt;\)</span>
+using the quantum regression theorem, and exponential series.</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using the quantum regression theorem, and exponential series/</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter rho0 <em>Qobj</em> initial density matrix
-Parameter tlist <em>list/array</em> of times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_ode">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_ode</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_ode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(\tau)B(0)\right&gt;\)</span>
+using the quantum regression theorem, and and the ode solver.</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using the quantum regression theorem, and and the ode solver.</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter tlist <em>list/array</em> of times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
+<p>Returns <em>array</em> of expectation values</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_mc">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_mc</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_mc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
-ight&gt;\)</span></p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+\tau)B(t)\right&gt;\)</span>
+using the quantum regression theorem, and the monte-carlo solver</p>
+<p>Arguments:</p>
 <blockquote>
-<div><p>using the quantum regression theorem, and the monte-carlo solver</p>
-<p>Parameter H <em>Qobj</em> system Hamiltonian
-Parameter tlist <em>list/array</em> of times
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> of A operator
-Parameter b_op <em>Qobj</em> of B operator</p>
-<p>Returns <em>array</em> of expectation values</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>rho0</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) initial density matrix.</p>
+<p><cite>tlist</cite> (<em>list/array</em>) list of times for <span class="math">\(t\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> of expectation values.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.spectrum_ss">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">spectrum_ss</tt><big>(</big><em>H</em>, <em>wlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.spectrum_ss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Calculate the spectrum corresponding to a correlation function</dt>
-<dd>:math:<a href="#id5"><span class="problematic" id="id6">`</span></a>left&lt;A(     au)B(t)</dd>
-<dt>ight&gt;`, i.e., the Fourier transform of the</dt>
-<dd>correlation funciton,
-:math:<a href="#id7"><span class="problematic" id="id8">`</span></a>S(omega) = int{-infty}^{infty} left&lt;a(t)b(0)</dd>
-</dl>
-<p>ight&gt; exp{-iomega t} dt`.</p>
+<dd><p>Calculate the spectrum corresponding to a correlation function
+<span class="math">\(\left&lt;A(\tau)B(t)\right&gt;\)</span>, i.e., the Fourier transform of the
+correlation funciton:</p>
+<div class="math">
+\[\begin{split}S(\omega) = \int_{-\infty}^{\infty} \left&lt;A(t)B(0)\right&gt; e^{-i\omega t} dt.\end{split}\]</div>
+<p>Arguments:</p>
 <blockquote>
-<div><p>Parameter H <em>Qobj</em> Hamiltonian
-Parameter wlist <em>list/array</em> or frequencies
-Parameter c_op_list <em>list</em> of collapse operators
-Parameter a_op <em>Qobj</em> for &#8216;A&#8217; operator
-Parameter b_op <em>Qobj</em> for &#8216;B&#8217; operator</p>
-<p>Returns <em>array</em> spectrum array</p>
+<div><p><cite>H</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) system Hamiltonian.</p>
+<p><cite>wlist</cite> (<em>list/array</em>) list of times for <span class="math">\(\omega\)</span>.</p>
+<p><cite>c_op_list</cite> (list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) list of collapse operators.</p>
+<p><cite>a_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for A operator.</p>
+<p><cite>b_op</cite> (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) for B operator.</p>
 </div></blockquote>
+<p>Returns <em>array</em> with spectrum <span class="math">\(S(\omega)\)</span> for the frequencies specified in <cite>wlist</cite>.</p>
 </dd></dl>
 
 <span class="target" id="module-qutip.essolve"></span><dl class="function">
@@ -996,6 +1041,32 @@ SWAP gate</p>
 <p>Parameter  A <em>Qobj</em> density matrix
 Parameter  B <em>Qobj</em> density matrix with same dimensions as A</p>
 <p>Return  <em>float</em>  fidelity</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="go">0.24104350624628332</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.metrics.tracedist">
+<tt class="descclassname">qutip.metrics.</tt><tt class="descname">tracedist</tt><big>(</big><em>A</em>, <em>B</em><big>)</big><a class="headerlink" href="#qutip.metrics.tracedist" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calculates the trace distance between two density matricies.</dt>
+<dd>See: Nielsen &amp; Chuang, &#8220;Quantum Computation and Quantum Information&#8221;</dd>
+</dl>
+<p>Parameter   A  <em>Qobj</em> density matrix
+Parameter   B  <em>Qobj</em> density matrix with same dimensions as A</p>
+<p>Return  <em>float</em>  trace distance</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tracedist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="go">0.9705143161472971</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="module-qutip.wigner"></span><dl class="function">
