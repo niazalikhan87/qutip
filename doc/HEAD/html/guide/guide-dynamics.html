@@ -397,18 +397,19 @@ trajectory.</td>
 </pre></div>
 </div>
 <p>the properties and default values of this class can be view via the <cite>print</cite> command:</p>
-<div class="highlight-python"><pre>print opts
-
-Odeoptions properties:
-----------------------
-atol:        1e-10
-rtol:        1e-08
-method:      adams
-order:       12
-nsteps:      1000
-first_step:  0
-min_step:    0
-max_step:    0</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">opts</span>
+<span class="go">Odeoptions properties:</span>
+<span class="go">----------------------</span>
+<span class="go">atol:        1e-08</span>
+<span class="go">rtol:        1e-06</span>
+<span class="go">method:      adams</span>
+<span class="go">order:       12</span>
+<span class="go">nsteps:      1000</span>
+<span class="go">first_step:  0</span>
+<span class="go">min_step:    0</span>
+<span class="go">max_step:    0</span>
+<span class="go">tidy:        True</span>
+</pre></div>
 </div>
 <p>These properties are detailed in the following table.  Assuming <tt class="docutils literal"><span class="pre">opts=Odeoptions()</span></tt>:</p>
 <table border="1" class="docutils">
@@ -425,11 +426,11 @@ max_step:    0</pre>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>opts.atol</td>
-<td>1e-10</td>
+<td>1e-8</td>
 <td>Absolute tolerance</td>
 </tr>
 <tr class="row-odd"><td>opts.rtol</td>
-<td>1e-08</td>
+<td>1e-6</td>
 <td>Relative tolerance</td>
 </tr>
 <tr class="row-even"><td>opts.method</td>
@@ -456,24 +457,29 @@ max_step:    0</pre>
 <td>0</td>
 <td>Maximum step size.  0 = determined automatically by solver.</td>
 </tr>
+<tr class="row-even"><td>opts.tidy</td>
+<td>True</td>
+<td>Whether to run tidyup function on time-independent Hamiltonian.</td>
+</tr>
 </tbody>
 </table>
 <p>As an example, let us consider relaxing the conditions on the ODE solver:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">opts</span><span class="o">.</span><span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">opts</span><span class="o">.</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1e-6</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">opts</span><span class="o">.</span><span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">opts</span><span class="o">.</span><span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">opts</span><span class="o">.</span><span class="n">nsteps</span><span class="o">=</span><span class="mi">500</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">opts</span>
 
 <span class="go">Odeoptions properties:</span>
 <span class="go">----------------------</span>
-<span class="go">atol:        1e-08</span>
-<span class="go">rtol:        1e-06</span>
+<span class="go">atol:        1e-10</span>
+<span class="go">rtol:        1e-08</span>
 <span class="go">method:      adams</span>
 <span class="go">order:       12</span>
 <span class="go">nsteps:      500</span>
 <span class="go">first_step:  0</span>
 <span class="go">min_step:    0</span>
 <span class="go">max_step:    0</span>
+<span class="go">tidy:        True</span>
 </pre></div>
 </div>
 <p>To use these new settings we can use the keyword argument <cite>options</cite> in either the <cite>odesolve</cite> or <cite>mcsolve</cite> function.  We can modify the last example as:</p>
@@ -494,7 +500,7 @@ max_step:    0</pre>
 <div class="figure align-center">
 <img alt="../_images/guide-dynamics-odesolve-performance.png" src="../_images/guide-dynamics-odesolve-performance.png" />
 </div>
-<p>To test the monte-carlo solvers, here we simulate a trilinear Hamiltonian over a range of Hilbert space sizes.  Since QuTiP uses multiprocessing, we can measure the performance gain when using several CPU&#8217;s.  In contrast, the qotoolbox is limited to a single-processor only.  In the legend, we show the speed-up factor in the parenthesis, which should ideally be equal to the number of processors.  Finally, we have included the results using hyperthreading, written here as 4+(x) where x is the number of hyperthreads, found in some newer Intel processors.  We see however that the performance benefit is marginal at best.</p>
+<p>To test the Monte-Carlo solvers, here we simulate a trilinear Hamiltonian over a range of Hilbert space sizes.  Since QuTiP uses multiprocessing, we can measure the performance gain when using several CPU&#8217;s.  In contrast, the qotoolbox is limited to a single-processor only.  In the legend, we show the speed-up factor in the parenthesis, which should ideally be equal to the number of processors.  Finally, we have included the results using hyperthreading, written here as 4+(x) where x is the number of hyperthreads, found in some newer Intel processors.  We see however that the performance benefit is marginal at best.</p>
 <div class="figure align-center">
 <img alt="../_images/guide-dynamics-mcsolve-performance.png" src="../_images/guide-dynamics-mcsolve-performance.png" />
 </div>
