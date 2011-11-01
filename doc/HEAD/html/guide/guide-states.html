@@ -61,7 +61,7 @@
 <span id="guide-states"></span><h1>Manipulating States and Operators<a class="headerlink" href="#manipulating-states-and-operators" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>In the previous guide section <a class="reference internal" href="guide-basics.html#guide-basics"><em>Performing Basic operations on Quantum Objects</em></a>, we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the <em>[Examples Examples]</em> section of the WIKI.</p>
+<p>In the previous guide section <a class="reference internal" href="guide-basics.html#guide-basics"><em>Performing Basic operations on Quantum Objects</em></a>, we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the <a class="reference internal" href="../examples/examples.html#examples"><em>QuTiP Examples</em></a> chapter.</p>
 </div>
 <div class="section" id="state-vectors">
 <h2>State vectors<a class="headerlink" href="#state-vectors" title="Permalink to this headline">¶</a></h2>
@@ -100,7 +100,7 @@
 <span class="go"> [ 0.]]</span>
 </pre></div>
 </div>
-<p>We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator <span class="math">\(\left(\hat{a}^{+}\right)\)</span>:</p>
+<p>We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator <span class="math">\(\hat{a}^\dagger\)</span>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">vec</span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
@@ -134,7 +134,7 @@
 <span class="go"> [ 0.        ]]</span>
 </pre></div>
 </div>
-<p>or just taking the square of the raising operator <span class="math">\(\left(\hat{a}^{+}\right)^{2}\)</span>:</p>
+<p>or just taking the square of the raising operator <span class="math">\(\left(\hat{a}^\dagger\right)^{2}\)</span>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
@@ -442,7 +442,7 @@
 <span class="go"> [-1.]]</span>
 </pre></div>
 </div>
-<p>The answer is now apparent.  Since the QuTiP <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmaz()</span></tt> function uses the standard z-basis representation of the sigma-z spin operator, the <tt class="docutils literal"><span class="pre">spin</span></tt> state corresponds to the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state of a two-level spin system while <tt class="docutils literal"><span class="pre">spin2</span></tt> gives the <cite>:math:</cite>left|mathrm{down}right&gt;` state.  Therefore, in our previous example <tt class="docutils literal"><span class="pre">sigmap()*spin</span></tt>, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.</p>
+<p>The answer is now apparent.  Since the QuTiP <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmaz()</span></tt> function uses the standard z-basis representation of the sigma-z spin operator, the <tt class="docutils literal"><span class="pre">spin</span></tt> state corresponds to the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state of a two-level spin system while <tt class="docutils literal"><span class="pre">spin2</span></tt> gives the <span class="math">\(\left|\mathrm{down}\right&gt;\)</span> state.  Therefore, in our previous example <tt class="docutils literal"><span class="pre">sigmap()*spin</span></tt>, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.</p>
 <p>While at first glance this convention might seem somewhat odd, it is in fact quite handy.  For one, the spin operators remain in the conventional form.  Second, when the spin system is in the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
@@ -451,12 +451,12 @@
 <span class="go"> [ 0.]]</span>
 </pre></div>
 </div>
-<p>the non-zero component is the zeroth-element of the underlying matrix (remember that python uses c-indexing, and matrices start with the zeroth element).  The <cite>|down&gt;</cite> state therefore has a non-zero entry in the first index position.  This corresponds nicely with the quantum information definitions of qubit states, where the excited <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state is label as <span class="math">\(\left|0\right&gt;\)</span>, and the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state by <span class="math">\(\left|1\right&gt;\)</span>.</p>
-<p>If one wants to create spin operators for higher spin systems, then the <tt class="xref py py-func docutils literal"><span class="pre">qutip.jmat()</span></tt> function comes in handy.</p>
+<p>the non-zero component is the zeroth-element of the underlying matrix (remember that python uses c-indexing, and matrices start with the zeroth element).  The <span class="math">\(\left|\mathrm{down}\right&gt;\)</span> state therefore has a non-zero entry in the first index position.  This corresponds nicely with the quantum information definitions of qubit states, where the excited <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state is label as <span class="math">\(\left|0\right&gt;\)</span>, and the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state by <span class="math">\(\left|1\right&gt;\)</span>.</p>
+<p>If one wants to create spin operators for higher spin systems, then the <a class="reference internal" href="../functions.html#qutip.operators.jmat" title="qutip.operators.jmat"><tt class="xref py py-func docutils literal"><span class="pre">qutip.operators.jmat()</span></tt></a> function comes in handy.</p>
 </div>
 <div class="section" id="expectation-values">
 <h2>Expectation values<a class="headerlink" href="#expectation-values" title="Permalink to this headline">¶</a></h2>
-<p>Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the <a class="reference internal" href="../functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect()</span></tt></a> function.  Further examples of using the <cite>expect</cite> function may be found at <em>[ExamplesDrivenCavitySS]</em> and <em>[ExamplesThermalTrilinear]</em>.  To begin:</p>
+<p>Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the <a class="reference internal" href="../functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect()</span></tt></a> function.  Further examples of using the <a class="reference internal" href="../functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect()</span></tt></a> function may be found at <a class="reference internal" href="../examples/examples-drivencavitysteady.html#examples-drivencavitysteady"><em>Finds steady-state solution to driven system of cavity + qubit</em></a> and <a class="reference internal" href="../examples/examples-thermalmonte.html#examples-thermalmonte"><em>Trilinear Hamiltonian: Deviation from a thermal spectrum</em></a>.  To begin:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vac</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">one</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -505,7 +505,7 @@
 <span class="go">-1.0</span>
 </pre></div>
 </div>
-<p>as well as the composite objects discussed in the next section <em>[GuideComposite]</em>:</p>
+<p>as well as the composite objects discussed in the next section <a class="reference internal" href="guide-tensor.html#guide-tensor"><em>Creating and Decomposing Composite Systems Using Tensor Products and Partial Traces</em></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spin1</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spin2</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">&gt;&gt;&gt;two_spins=tensor(spin1,spin2)</span>

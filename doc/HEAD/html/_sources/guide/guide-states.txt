@@ -9,7 +9,7 @@ Manipulating States and Operators
 Introduction
 ============
 
-In the previous guide section :ref:`guide-basics`, we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the *[Examples Examples]* section of the WIKI.
+In the previous guide section :ref:`guide-basics`, we saw how to create operators and states, using the functions built into QuTiP.  In this portion of the guide, we will look at performing basic operations with states and operators.  For more detailed demonstrations on how to use and manipulate these objects, see the :ref:`examples` chapter.
 
 State vectors
 ============
@@ -51,7 +51,7 @@ Qobj data =
  [ 0.]]
 
 
-We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator :math:`\left(\hat{a}^{+}\right)`:
+We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator :math:`\hat{a}^\dagger`:
 
 >>> a.dag()*vec
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
@@ -85,7 +85,7 @@ Qobj data =
  [ 0.        ]
  [ 0.        ]]
 
-or just taking the square of the raising operator :math:`\left(\hat{a}^{+}\right)^{2}`:
+or just taking the square of the raising operator :math:`\left(\hat{a}^\dagger\right)^{2}`:
 
 >>> c**2*vec
 Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket
@@ -385,7 +385,7 @@ Qobj data =
 [[ 0.]
  [-1.]]
 
-The answer is now apparent.  Since the QuTiP :func:`qutip.sigmaz` function uses the standard z-basis representation of the sigma-z spin operator, the ``spin`` state corresponds to the :math:`\left|\mathrm{up}\right>` state of a two-level spin system while ``spin2`` gives the `:math:`\left|\mathrm{down}\right>` state.  Therefore, in our previous example ``sigmap()*spin``, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.  
+The answer is now apparent.  Since the QuTiP :func:`qutip.sigmaz` function uses the standard z-basis representation of the sigma-z spin operator, the ``spin`` state corresponds to the :math:`\left|\mathrm{up}\right>` state of a two-level spin system while ``spin2`` gives the :math:`\left|\mathrm{down}\right>` state.  Therefore, in our previous example ``sigmap()*spin``, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.  
 
 While at first glance this convention might seem somewhat odd, it is in fact quite handy.  For one, the spin operators remain in the conventional form.  Second, when the spin system is in the :math:`\left|\mathrm{up}\right>` state:
 
@@ -395,14 +395,14 @@ Qobj data =
 [[ 1.] #<--- zeroth element of matrix
  [ 0.]]
 
-the non-zero component is the zeroth-element of the underlying matrix (remember that python uses c-indexing, and matrices start with the zeroth element).  The `|down>` state therefore has a non-zero entry in the first index position.  This corresponds nicely with the quantum information definitions of qubit states, where the excited :math:`\left|\mathrm{up}\right>` state is label as :math:`\left|0\right>`, and the :math:`\left|\mathrm{up}\right>` state by :math:`\left|1\right>`.
+the non-zero component is the zeroth-element of the underlying matrix (remember that python uses c-indexing, and matrices start with the zeroth element).  The :math:`\left|\mathrm{down}\right>` state therefore has a non-zero entry in the first index position.  This corresponds nicely with the quantum information definitions of qubit states, where the excited :math:`\left|\mathrm{up}\right>` state is label as :math:`\left|0\right>`, and the :math:`\left|\mathrm{up}\right>` state by :math:`\left|1\right>`.
 
-If one wants to create spin operators for higher spin systems, then the :func:`qutip.jmat` function comes in handy. 
+If one wants to create spin operators for higher spin systems, then the :func:`qutip.operators.jmat` function comes in handy. 
 
 Expectation values
 ===================
 
-Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the :func:`qutip.expect` function.  Further examples of using the `expect` function may be found at *[ExamplesDrivenCavitySS]* and *[ExamplesThermalTrilinear]*.  To begin:
+Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the :func:`qutip.expect` function.  Further examples of using the :func:`qutip.expect` function may be found at :ref:`examples_drivencavitysteady` and :ref:`examples_thermalmonte`.  To begin:
 
 >>> vac=basis(5,0)
 >>> one=basis(5,1)
@@ -448,7 +448,7 @@ Of course, the expect function works for spin states and operators:
 >>>expect(sigmaz(),down)
 -1.0
 
-as well as the composite objects discussed in the next section *[GuideComposite]*:
+as well as the composite objects discussed in the next section :ref:`guide-tensor`:
 
 >>> spin1=basis(2,0)
 >>> spin2=basis(2,1)

@@ -77,6 +77,17 @@
 <p>N the number of states
 args integer corresponding to desired number state</p>
 <p>Returns quantum object representing the requested number state <tt class="docutils literal"><span class="pre">|args&gt;</span></tt></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 1.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -95,6 +106,17 @@ N-dimensional Hilbert space via displacement operator on vacuum state</p>
 <p>N number of levels in truncated Hilbert space
 alpha eigenvalue for coherent state</p>
 <p>Returns Qobj quantum object for coherent state</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[  9.69233235e-01+0.j        ]</span>
+<span class="go"> [  0.00000000e+00+0.24230831j]</span>
+<span class="go"> [ -4.28344935e-02+0.j        ]</span>
+<span class="go"> [  0.00000000e+00-0.00618204j]</span>
+<span class="go"> [  7.80904967e-04+0.j        ]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -105,6 +127,15 @@ state via outer product</p>
 <p>N number of levels in truncated Hilbert space
 alpha eigenvalue for coherent state</p>
 <p>Returns Qobj density matrix representation of coherent state</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.93941695+0.j          0.00000000-0.23480733j -0.04216943+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.23480733j  0.05869011+0.j          0.00000000-0.01054025j]</span>
+<span class="go"> [-0.04216943+0.j          0.00000000+0.01054025j  0.00189294+0.j        ]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -114,7 +145,17 @@ alpha eigenvalue for coherent state</p>
 Same as <a href="#id1"><span class="problematic" id="id2">`</span></a>basis&#8217; function.</p>
 <p>N the number of states in the Hilbert space
 m int corresponding to desired number state, defaults to 0 if omitted</p>
-<p>Returns Qobj quantum object representing the requested number state <tt class="docutils literal"><span class="pre">|args&gt;</span></tt></p>
+<p>Returns Qobj quantum object representing the requested number state <a href="#id3"><span class="problematic" id="id4">|</span></a>args&gt;</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fock</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 1.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -124,6 +165,15 @@ m int corresponding to desired number state, defaults to 0 if omitted</p>
 <p>N number of levels in truncated Hilbert space
 m int corresponding to desired number state, defaults to 0 if omitted</p>
 <p>Returns Qobj density matrix representation of Fock state</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -132,6 +182,21 @@ m int corresponding to desired number state, defaults to 0 if omitted</p>
 <dd><p>Generates the density matrix for a thermal state of n particles</p>
 <p>N: the number of states
 n: expectational value for number of particles in thermal state</p>
+<p>Returns <em>Qobj</em> for thermal state</p>
+<dl class="docutils">
+<dt>Example::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.50000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.25000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.12500+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.06250+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.03125+0.j]]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -141,6 +206,16 @@ n: expectational value for number of particles in thermal state</p>
 formed by outer product.</p>
 <p>Q Ket or bra vector</p>
 <p>Returns Qobj Density matrix formed by outer product</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ket2dm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="module-qutip.qstate"></span><dl class="function">
@@ -332,6 +407,15 @@ Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
 <dd><p>Determines if given quantum object is a ket-vector</p>
 <p>Parameter Q <em>Qobj</em> quantum object</p>
 <p>Return <em>bool</em> True or False</p>
+<dl class="docutils">
+<dt>Example::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">psi</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">isket</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -340,6 +424,12 @@ Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
 <dd><p>Determines if given quantum object is a bra-vector</p>
 <p>Parameter Q <em>Qobj</em> quantum object</p>
 <p>Returns <em>bool</em> True or False</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">psi</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">isket</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -348,6 +438,12 @@ Parameter alpha <em>real</em> or <em>complex</em> displacment amplitude</p>
 <dd><p>Determines if given quantum object is a operator</p>
 <p>Parameter Q <em>Qobj</em> quantum object</p>
 <p>Returns <em>bool</em> True or False</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isoper</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -375,6 +471,12 @@ Parameter atol <em>float</em> absolute tolerence</p>
 <dd><p>Determines whether a given operator is Hermitian</p>
 <p>Parameter oper <em>Qobj</em> input quantum object</p>
 <p>Returns <em>bool</em> True if operator is Hermitian, False otherwise</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isherm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="module-qutip.superoperator"></span><dl class="function">
@@ -533,10 +635,10 @@ NotImplemented exception.</p>
 <span class="target" id="module-qutip.correlation"></span><dl class="function">
 <dt id="qutip.correlation.correlation_es">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_es</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_es" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; </dt>
-<dd>using exponential series and the quantum regression theorem.</dd>
-</dl>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using exponential series and the quantum regression theorem.</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter rho0 <em>Qobj</em> initial density matrix
 Parameter taulist <em>list/array</em> of times
@@ -545,42 +647,48 @@ Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ode">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ode</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; using the ode solver, and the quantum regression theorem.</p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using the ode solver, and the quantum regression theorem.</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter taulist <em>list/array</em> of times
 Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_mc">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_mc</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_mc" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Calculate a two-time correlation function &lt;A(t+tau)B(t)&gt; </dt>
-<dd>using the Monte-Carle solver, and the quantum regression theorem.</dd>
-</dl>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using the Monte-Carle solver, and the quantum regression theorem.</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter taulist <em>list/array</em> of times
 Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_es">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_es</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_es" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum</dt>
-<dd>regression theorem, and exponential series.</dd>
-</dl>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using the quantum regression theorem, and exponential series/</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter rho0 <em>Qobj</em> initial density matrix
 Parameter tlist <em>list/array</em> of times
@@ -588,50 +696,60 @@ Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_ode">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_ode</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_ode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum
-regression theorem, and and the ode solver.</p>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(   au)B(0)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using the quantum regression theorem, and and the ode solver.</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter tlist <em>list/array</em> of times
 Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.correlation_ss_mc">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">correlation_ss_mc</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss_mc" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Calculate a two-time correlation function &lt;A(tau)B(0)&gt; using the quantum</dt>
-<dd>regression theorem, and the monte-carlo solver</dd>
-</dl>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+ au)B(t)
+ight&gt;\)</span></p>
+<blockquote>
+<div><p>using the quantum regression theorem, and the monte-carlo solver</p>
 <p>Parameter H <em>Qobj</em> system Hamiltonian
 Parameter tlist <em>list/array</em> of times
 Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> of A operator
 Parameter b_op <em>Qobj</em> of B operator</p>
 <p>Returns <em>array</em> of expectation values</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.correlation.spectrum_ss">
 <tt class="descclassname">qutip.correlation.</tt><tt class="descname">spectrum_ss</tt><big>(</big><em>H</em>, <em>wlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.spectrum_ss" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Calculate the spectrum corresponding to a correlation function &lt;a(t)b(0)&gt;,</dt>
-<dd>i.e., the Fourier transform of the correlation funciton,
-S(w) = int{-infty}^{infty} &lt;a(t)b(0)&gt; exp{-iomega t} dt</dd>
+<dt>Calculate the spectrum corresponding to a correlation function</dt>
+<dd>:math:<a href="#id5"><span class="problematic" id="id6">`</span></a>left&lt;A(     au)B(t)</dd>
+<dt>ight&gt;`, i.e., the Fourier transform of the</dt>
+<dd>correlation funciton,
+:math:<a href="#id7"><span class="problematic" id="id8">`</span></a>S(omega) = int{-infty}^{infty} left&lt;a(t)b(0)</dd>
 </dl>
-<p>Parameter H <em>Qobj</em> Hamiltonian
+<p>ight&gt; exp{-iomega t} dt`.</p>
+<blockquote>
+<div><p>Parameter H <em>Qobj</em> Hamiltonian
 Parameter wlist <em>list/array</em> or frequencies
 Parameter c_op_list <em>list</em> of collapse operators
 Parameter a_op <em>Qobj</em> for &#8216;A&#8217; operator
 Parameter b_op <em>Qobj</em> for &#8216;B&#8217; operator</p>
 <p>Returns <em>array</em> spectrum array</p>
+</div></blockquote>
 </dd></dl>
 
 <span class="target" id="module-qutip.essolve"></span><dl class="function">
@@ -729,7 +847,13 @@ Parameter tol Tolerance, default = 1e-6</p>
 <tt class="descclassname">qutip.entropy.</tt><tt class="descname">entropy_linear</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.entropy.entropy_linear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear entropy of density matrix</p>
 <p>Parameter rho <em>Qobj</em> density matrix or ket/bra</p>
-<p>Returns <em>float</em> if rho is Hermitian, <em>complex</em> otherwise</p>
+<p>Returns <em>float</em></p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy_linear</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -738,6 +862,12 @@ Parameter tol Tolerance, default = 1e-6</p>
 <dd><p>Von-Neumann entropy of density matrix</p>
 <p>Parameter rho <em>Qobj</em> density matrix</p>
 <p>Returns <em>float</em> entropy</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy_vn</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="module-qutip.gates"></span><dl class="function">
@@ -746,6 +876,16 @@ Parameter tol Tolerance, default = 1e-6</p>
 <dd><p>Returns quantum object representing the CNOT gate.
 CNOT gate</p>
 <p>Return <em>Qobj</em> quantum object representation of CNOT gate</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cnot</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -754,24 +894,40 @@ CNOT gate</p>
 <dd><p>Returns quantum object representing the Fredkin gate.
 Freidkin gate</p>
 <p>Return <em>Qobj</em> quantum object representation of Fredkin gate</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="qutip.gates.hadamard">
-<tt class="descclassname">qutip.gates.</tt><tt class="descname">hadamard</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.hadamard" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns quantum object representing the Hadamard gate.
-Hadamard gate</p>
-<p>Return <em>Qobj</em> quantum object representation of Hadamard gate</p>
+<dl class="docutils">
+<dt>Example::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fredkin</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.gates.phasegate">
 <tt class="descclassname">qutip.gates.</tt><tt class="descname">phasegate</tt><big>(</big><em>theta</em><big>)</big><a class="headerlink" href="#qutip.gates.phasegate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns quantum object representing the phase shift gate.
-phase shift gate</p>
-<blockquote>
-<div>param theta Phase rotation angle</div></blockquote>
+phase shift gate.</p>
+<p>Parameter <em>theta</em> Phase rotation angle</p>
 <p>Return <em>Qobj</em> quantum object representation of phase shift gate</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phasegate</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.00000000+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.j          0.70710678+0.70710678j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -780,6 +936,14 @@ phase shift gate</p>
 <dd><p>Returns quantum object representing the SNOT (Hadamard) gate.
 SNOT (Hadamard) gate</p>
 <p>Return <em>Qobj</em> quantum object representation of SNOT (Hadamard) gate</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">snot</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.70710678+0.j  0.70710678+0.j]</span>
+<span class="go"> [ 0.70710678+0.j -0.70710678+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -788,14 +952,37 @@ SNOT (Hadamard) gate</p>
 <dd><p>Returns quantum object representing the SWAP gate.
 SWAP gate</p>
 <p>Return <em>Qobj</em> quantum object representation of SWAP gate</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">swap</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.gates.toffoli">
 <tt class="descclassname">qutip.gates.</tt><tt class="descname">toffoli</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.toffoli" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns quantum object representing the Toffoli gate.
-Toffoli gate</p>
+<dd><p>Quantum object representing the Toffoli gate.</p>
 <p>Return <em>Qobj</em> quantum object representation of Toffoli gate</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">toffoli</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="module-qutip.metrics"></span><p>Collection of metrics (distance measures) between density matricies</p>
@@ -893,7 +1080,7 @@ components for some integer l.</p>
 <dt>Parallel execution of a for-loop over function &#8216;func()&#8217; </dt>
 <dd>for a single variable &#8216;frange&#8217;.</dd>
 </dl>
-<p>Returns <em>array</em> with length equal to number of input parameters</p>
+<p>Returns <em>list</em> with length equal to number of input parameters</p>
 </dd></dl>
 
 <dl class="function">

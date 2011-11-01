@@ -77,7 +77,7 @@
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" />
+<img alt="../_images/guide-bloch-empty.png" src="../_images/guide-bloch-empty.png" />
 </div>
 <p>In addition to the show() command, the Bloch class has the following functions:</p>
 <table border="1" class="docutils">
@@ -140,7 +140,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_1pnt.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_1pnt.png" />
+<img alt="../_images/guide-bloch-1pnt.png" src="../_images/guide-bloch-1pnt.png" />
 </div>
 <p>and then a single vector:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
@@ -149,7 +149,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec.png" />
+<img alt="../_images/guide-bloch-pnt+vec.png" src="../_images/guide-bloch-pnt+vec.png" />
 </div>
 <p>and then add another vector corresponding to the <a href="#id3"><span class="problematic" id="id4">|</span></a>up&gt; state:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">up</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -158,7 +158,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnt+vec+state.png" />
+<img alt="../_images/guide-bloch-pnt+vec+state.png" src="../_images/guide-bloch-pnt+vec+state.png" />
 </div>
 <p>Notice that when we add more than a single vector (or data point), a different color will automatically be applied to the later data set (mod 4).  In total, the code for constructing our Bloch sphere with one vector, one state, and a single data point is:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">=</span><span class="n">Bloch</span><span class="p">()</span>
@@ -179,7 +179,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_empty.png" />
+<img alt="../_images/guide-bloch-empty.png" src="../_images/guide-bloch-empty.png" />
 </div>
 <p>Now on the same Bloch sphere, we can plot the three states associated with the x, y, and z directions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
@@ -190,7 +190,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_xyz_states.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_xyz_states.png" />
+<img alt="../_images/guide-bloch-xyz-states.png" src="../_images/guide-bloch-xyz-states.png" />
 </div>
 <p>a similar method works for adding vectors:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
@@ -207,9 +207,9 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_equ_pnts.png" />
+<img alt="../_images/guide-bloch-equ-pnts.png" src="../_images/guide-bloch-equ-pnts.png" />
 </div>
-<p>Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because adding multiple data points using the add_points function is interpreted, by default, to correspond to a single data point (single qubit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in the <em>[ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere]</em> example.  If we want to plot additional qubit states we can call additional <cite>add_points</cite> functions:</p>
+<p>Notice that, in contrast to states or vectors, each point remains the same color as the initial point.  This is because adding multiple data points using the add_points function is interpreted, by default, to correspond to a single data point (single qubit state) plotted at different times.  This is very useful when visualizing the dynamics of a qubit.  An example of this is given in the example <a class="reference internal" href="../examples/examples-bloch-qubit-decay.html#examples-bloch-qubit-decay"><em>Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere</em></a>.  If we want to plot additional qubit states we can call additional <cite>add_points</cite> functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xz</span><span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yz</span><span class="o">=</span><span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zz</span><span class="o">=</span><span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
@@ -218,7 +218,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_2pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_2pnts.png" />
+<img alt="../_images/guide-bloch-2pnts.png" src="../_images/guide-bloch-2pnts.png" />
 </div>
 <p>Notice how the color and point markers change for each set of data.</p>
 <p>The entire code for this final sphere is thus:</p>
@@ -234,8 +234,8 @@ output directory</td>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Again, we have had to call <cite>add_points</cite> twice because adding more than one set of multiple data points is <em>not</em> supported by the <cite>add_points</cite> function.</p>
-<p>What if we want to vary the color of our points.  We can tell the <cite>Bloch class</cite> to vary the color of each point according to the colors listed in the b.point_color list (see <em>[GuideBloch#Configuring_the_Bloch_sphere Configuring the Bloch sphere]</em> below).  Again after <cite>clear()</cite>:</p>
+<p>Again, we have had to call <tt class="docutils literal"><span class="pre">add_points</span></tt> twice because adding more than one set of multiple data points is <em>not</em> supported by the <tt class="docutils literal"><span class="pre">add_points</span></tt> function.</p>
+<p>What if we want to vary the color of our points.  We can tell the <a class="reference internal" href="../classes.html#qutip.Bloch" title="qutip.Bloch"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Bloch</span></tt></a> class to vary the color of each point according to the colors listed in the <tt class="docutils literal"><span class="pre">b.point_color</span></tt> list (see <a class="reference internal" href="#guide-configuring-the-bloch-sphere"><em>Configuring the Bloch sphere</em></a> below).  Again after <tt class="docutils literal"><span class="pre">clear()</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yp</span><span class="o">=</span><span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">th</span><span class="p">)</span> <span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zp</span><span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -245,7 +245,7 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_multi_pnts.png" />
+<img alt="../_images/guide-bloch-multi-pnts.png" src="../_images/guide-bloch-multi-pnts.png" />
 </div>
 <p>Now, the data points cycle through a variety of predefined colors.  Now lets add another set of points, but this time we want the set to be a single color, representing say a qubit going from the <a href="#id5"><span class="problematic" id="id6">|</span></a>up&gt; state to the <a href="#id7"><span class="problematic" id="id8">|</span></a>down&gt; state in the y-z plane:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xz</span><span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -256,14 +256,14 @@ output directory</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png" src="http://qutip.googlecode.com/svn/wiki/images/bloch_pnts+pnts.png" />
+<img alt="../_images/guide-bloch-pnts+pnts.png" src="../_images/guide-bloch-pnts+pnts.png" />
 </div>
-<p>A more slick way of using this &#8216;multi&#8217; color feature is also given in the <em>[ExamplesBlochQubitDecay Qubit Decay on the Bloch Sphere]</em> example, where we set the color of the markers as a function of time.</p>
+<p>A more slick way of using this &#8216;multi&#8217; color feature is also given in the <a class="reference internal" href="../examples/examples-bloch-qubit-decay.html#examples-bloch-qubit-decay"><em>Decay of a qubit state coupled to a zero-temp. bath shown on a Bloch sphere</em></a> example, where we set the color of the markers as a function of time.</p>
 </div>
 </div>
 <div class="section" id="configuring-the-bloch-sphere">
-<h2>Configuring the Bloch sphere<a class="headerlink" href="#configuring-the-bloch-sphere" title="Permalink to this headline">¶</a></h2>
-<p>At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming <a href="#id9"><span class="problematic" id="id10">`</span></a>b=Bloch()&#8217;:</p>
+<span id="guide-configuring-the-bloch-sphere"></span><h2>Configuring the Bloch sphere<a class="headerlink" href="#configuring-the-bloch-sphere" title="Permalink to this headline">¶</a></h2>
+<p>At the end of the last section we saw that the colors and marker shapes of the data plotted on the Bloch sphere are automatically varied according to the number of points and vectors added.  But what if you want a different choice of color, or you want your sphere to be purple with different axes labels? Well then you are in luck as the Bloch class has 20 attributes which one can control.  Assuming <tt class="docutils literal"><span class="pre">b=Bloch()</span></tt>:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -403,7 +403,7 @@ same size when plotted)</td>
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/bloch_movie.gif" src="http://qutip.googlecode.com/svn/wiki/images/bloch_movie.gif" />
+<img alt="../_images/guide-bloch-movie.gif" src="../_images/guide-bloch-movie.gif" />
 </div>
 </div>
 </div>
@@ -473,7 +473,7 @@ same size when plotted)</td>
           
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
-      Last updated on Oct 31, 2011.
+      Last updated on Nov 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
         </div>
