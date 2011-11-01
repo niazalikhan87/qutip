@@ -148,7 +148,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">es</span> <span class="o">=</span> <span class="n">ode2es</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">psi0</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <tt class="xref py py-func docutils literal"><span class="pre">qutip.es2ode()</span></tt> function diagonalizes the Liouvillian <span class="math">\(L\)</span> and creates an exponential series with the correct eigenfrequencies and amplitudes for the initial state <span class="math">\(\psi_0\)</span> (<cite>psi0</cite>).</p>
+<p>The <tt class="xref py py-func docutils literal"><span class="pre">qutip.eseries.ode2es()</span></tt> function diagonalizes the Liouvillian <span class="math">\(L\)</span> and creates an exponential series with the correct eigenfrequencies and amplitudes for the initial state <span class="math">\(\psi_0\)</span> (<cite>psi0</cite>).</p>
 <p>We can examine the resulting <a class="reference internal" href="../classes.html#qutip.eseries" title="qutip.eseries"><tt class="xref py py-class docutils literal"><span class="pre">qutip.eseries</span></tt></a> object by printing a text representation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">es</span>
 <span class="go">ESERIES object: 2 terms</span>
@@ -197,7 +197,7 @@
 </pre></div>
 </div>
 <div class="figure align-center">
-<img alt="http://qutip.googlecode.com/svn/wiki/images/guide-eseries-1.png" src="http://qutip.googlecode.com/svn/wiki/images/guide-eseries-1.png" />
+<img alt="../_images/guide-eseries-1.png" src="../_images/guide-eseries-1.png" />
 <p class="caption">The expectation value of the <span class="math">\(\sigma_z\)</span> operator, calculated using the exponential-series expansion of the Liouvillian.</p>
 </div>
 </div>
@@ -268,7 +268,7 @@
           
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
-      Last updated on Oct 31, 2011.
+      Last updated on Nov 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
         </div>
