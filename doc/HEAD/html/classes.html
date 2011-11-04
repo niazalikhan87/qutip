@@ -182,21 +182,34 @@ to the sqrt of a given square operator.</p>
 <dt id="qutip.Bloch.add_points">
 <tt class="descname">add_points</tt><big>(</big><em>points</em>, <em>meth='s'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of data points to bloch sphere.</p>
-<p>points <em>array</em> of data points</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">points (array): data points</p>
+<p class="last">meth (string): type of points to plot, use &#8216;m&#8217; for multicolored.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.add_states">
 <tt class="descname">add_states</tt><big>(</big><em>state</em>, <em>kind='vector'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_states" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a state vector to plot.</p>
-<p>state <em>Qobj</em> state vector</p>
+<dd><p>Add a state vector Qobj to plot.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">state (Qobj): Input state vector.</p>
+<p class="last">kind (string): Type of object to plot, &#8216;vector&#8217; or &#8216;point&#8217;.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.add_vectors">
 <tt class="descname">add_vectors</tt><big>(</big><em>vectors</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_vectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of vectors to Bloch sphere.</p>
-<p>vectors <em>array</em> of 3D vectors of unit length or smaller.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>vectors (array): Array of vectors of unit length or smaller.</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -208,13 +221,7 @@ to the sqrt of a given square operator.</p>
 <dl class="attribute">
 <dt id="qutip.Bloch.font_color">
 <tt class="descname">font_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.font_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>Color of fonts, default = black</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="qutip.Bloch.font_size">
-<tt class="descname">font_size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.font_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of fonts, default = 20</p>
+<dd><p>Color of fonts, default = &#8216;black&#8217;</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -226,7 +233,7 @@ to the sqrt of a given square operator.</p>
 <dl class="attribute">
 <dt id="qutip.Bloch.frame_color">
 <tt class="descname">frame_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>Color of wireframe, default = gray</p>
+<dd><p>Color of wireframe, default = &#8216;gray&#8217;</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -242,6 +249,18 @@ to the sqrt of a given square operator.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="qutip.Bloch.num_points">
+<tt class="descname">num_points</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.num_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of point markers to plot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.num_vectors">
+<tt class="descname">num_vectors</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.num_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Bloch vectors to plot</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="qutip.Bloch.point_color">
 <tt class="descname">point_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of colors for Bloch point markers, default = [&#8216;b&#8217;,&#8217;g&#8217;,&#8217;r&#8217;,&#8217;y&#8217;]</p>
@@ -254,18 +273,44 @@ to the sqrt of a given square operator.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="qutip.Bloch.point_size">
-<tt class="descname">point_size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of point markers, default = 25</p>
+<dt id="qutip.Bloch.point_style">
+<tt class="descname">point_style</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Style of points, &#8216;m&#8217; for multiple colors, &#8216;s&#8217; for single color</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.points">
+<tt class="descname">points</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for point markers</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.Bloch.save">
 <tt class="descname">save</tt><big>(</big><em>name=None</em>, <em>format='png'</em>, <em>dirc='/Users/paul/Desktop/QuTiP DOCS'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves Bloch sphere to file of type <cite>format</cite></p>
-<p>format <em>str</em> giving format of output image
-dirc <em>str</em> representing directory of output. Defaults to current working directory.</p>
-<p>Returns file containing plot of Bloch sphere.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>name (string): String for saving image. Must include path and format as well.</dt>
+<dd><p class="first">i.e. &#8216;/Users/Paul/Desktop/bloch.png&#8217;</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This overrides the &#8216;format&#8217; and &#8216;dirc&#8217; arguments.</p>
+</div>
+</dd>
+</dl>
+<p>format (string): Format of output image.</p>
+<p class="last">dirc (string): Directory of output. Defaults to current working directory.</p>
+</dd>
+<dt>Returns: </dt>
+<dd>File containing plot of Bloch sphere.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.savenum">
+<tt class="descname">savenum</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.savenum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of times sphere has been saved</p>
 </dd></dl>
 
 <dl class="method">
@@ -277,19 +322,19 @@ dirc <em>str</em> representing directory of output. Defaults to current working 
 <dl class="attribute">
 <dt id="qutip.Bloch.size">
 <tt class="descname">size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>The size of the figure</p>
+<dd><p>The size of the figure in inches, default = [7,7].</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="qutip.Bloch.sphere_alpha">
 <tt class="descname">sphere_alpha</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_alpha" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transparency of sphere, default = 0.2</p>
+<dd><p>Transparency of Bloch sphere, default = 0.2</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="qutip.Bloch.sphere_color">
 <tt class="descname">sphere_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sphere_color: color of Bloch sphere, default = #FFDDDD</p>
+<dd><p>Color of Bloch sphere, default = #FFDDDD</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -305,9 +350,51 @@ dirc <em>str</em> representing directory of output. Defaults to current working 
 </dd></dl>
 
 <dl class="attribute">
+<dt id="qutip.Bloch.vectors">
+<tt class="descname">vectors</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for Bloch vectors</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="qutip.Bloch.view">
 <tt class="descname">view</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.view" title="Permalink to this definition">¶</a></dt>
-<dd><p>Azimuthal and Elvation viewing angles, default = [-60,30]</p>
+<dd><p>Azimuthal and Elvation viewing angles, default = [-60,30].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.xlabel">
+<tt class="descname">xlabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.xlabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for x-axis (in LaTex), default = [&#8216;$x$&#8217;,&#8217;&#8216;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.xlpos">
+<tt class="descname">xlpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.xlpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of x-axis labels, default = [1.2,-1.2]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.ylabel">
+<tt class="descname">ylabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.ylabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for y-axis (in LaTex), default = [&#8216;$y$&#8217;,&#8217;&#8216;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.ylpos">
+<tt class="descname">ylpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.ylpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of y-axis labels, default = [1.1,-1.1]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.zlabel">
+<tt class="descname">zlabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.zlabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for z-axis (in LaTex), default = [&#8216;$left|0\right&gt;$&#8217;,&#8217;$left|1\right&gt;$&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.zlpos">
+<tt class="descname">zlpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.zlpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of z-axis labels, default = [1.2,-1.2]</p>
 </dd></dl>
 
 </dd></dl>
@@ -400,7 +487,7 @@ dirc <em>str</em> representing directory of output. Defaults to current working 
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
 </ul>
 
           <h3 style="margin-top: 1.5em;">Search</h3>
@@ -438,7 +525,7 @@ dirc <em>str</em> representing directory of output. Defaults to current working 
           
     <div class="footer">
         &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
-      Last updated on Nov 01, 2011.
+      Last updated on Nov 04, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
         </div>
