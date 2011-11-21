@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Figure 4 from the QuTiP manuscript. &mdash; QuTiP 1.1.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="QuTiP 1.1.3 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Examples" href="examples.html" />
+    <link rel="next" title="Figure 6 from the QuTiP manuscript." href="examples-paperfig6.html" />
+    <link rel="prev" title="Figure 2 from the QuTiP manuscript." href="examples-paperfig2.html" /> 
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">QuTiP 1.1.3 documentation</a></div>
+        <div class="rel">
+          <a href="examples-paperfig2.html" title="Figure 2 from the QuTiP manuscript."
+             accesskey="P">previous</a> |
+          <a href="examples-paperfig6.html" title="Figure 6 from the QuTiP manuscript."
+             accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="figure-4-from-the-qutip-manuscript">
+<h1>Figure 4 from the QuTiP manuscript.<a class="headerlink" href="#figure-4-from-the-qutip-manuscript" title="Permalink to this headline">¶</a></h1>
+<p>This is a Monte-Carlo simulation showing the decay of a cavity Fock state <span class="math">\(\left|0\right&gt;\)</span> in a thermal environment with an average occupation number of <span class="math">\(n=0.063\)</span>.  Here, the coupling strength is given by the inverse of the cavity ring-down time <span class="math">\(T_{c}=0.129\)</span>.</p>
+<p>The parameters chosen here correspond to those from S. Gleyzes, et al., Nature 446, 297 (2007).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#This file is part of QuTIP.</span>
+<span class="c">#</span>
+<span class="c">#    QuTIP is free software: you can redistribute it and/or modify</span>
+<span class="c">#    it under the terms of the GNU General Public License as published by</span>
+<span class="c">#    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c">#   (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c">#    QuTIP is distributed in the hope that it will be useful,</span>
+<span class="c">#    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c">#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c">#    GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c">#    You should have received a copy of the GNU General Public License</span>
+<span class="c">#    along with QuTIP.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2011, Paul D. Nation &amp; Robert J. Johansson</span>
+<span class="c">#</span>
+<span class="c">###########################################################################</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Python script for generating Figure 4 from the </span>
+<span class="sd">QuTiP manuscript.</span>
+
+<span class="sd">This is a Monte-Carlo simulation showing the decay of a cavity</span>
+<span class="sd">Fock state |0&gt; in a thermal environment with an average</span>
+<span class="sd">occupation number of n=0.063.  Here, the coupling strength is given</span>
+<span class="sd">by the inverse of the cavity ring-down time Tc=0.129.</span>
+
+<span class="sd">The parameters chosen here correspond to those from</span>
+<span class="sd">S. Gleyzes, et al., Nature 446, 297 (2007). </span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">5</span>             <span class="c"># number of basis states to consider</span>
+<span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>    <span class="c"># cavity destruction operator</span>
+<span class="n">H</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span>     <span class="c"># harmonic oscillator Hamiltonian</span>
+<span class="n">psi0</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c"># initial Fock state with one photon</span>
+<span class="n">kappa</span><span class="o">=</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">0.129</span> <span class="c"># coupling to heat bath</span>
+<span class="n">nth</span><span class="o">=</span> <span class="mf">0.063</span>      <span class="c"># temperature with &lt;n&gt;=0.063</span>
+<span class="c">## collapse operators ## </span>
+<span class="n">c_op_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c">## decay operator ## </span>
+<span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">nth</span><span class="p">))</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="c">## excitation operator ## </span>
+<span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="n">nth</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+<span class="c">## run simulation ## </span>
+<span class="n">ntraj</span><span class="o">=</span><span class="mi">904</span> <span class="c"># number of MC trajectories</span>
+<span class="n">tlist</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">mc</span> <span class="o">=</span> <span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">psi0</span><span class="p">,</span><span class="n">tlist</span><span class="p">,</span><span class="n">ntraj</span><span class="p">,</span><span class="n">c_op_list</span><span class="p">,</span> <span class="p">[])</span>
+<span class="n">me</span> <span class="o">=</span> <span class="n">odesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">psi0</span><span class="p">,</span><span class="n">tlist</span><span class="p">,</span><span class="n">c_op_list</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">])</span>
+<span class="c">## expectation values ## </span>
+<span class="n">ex1</span><span class="o">=</span><span class="n">expect</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="n">mc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ex5</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">expect</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="n">mc</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)],</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">ex15</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">expect</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="n">mc</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)],</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mi">15</span>
+<span class="n">ex904</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">expect</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="n">mc</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">904</span><span class="p">)],</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mi">904</span>
+
+<span class="n">final_state</span><span class="o">=</span><span class="n">steadystate</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">c_op_list</span><span class="p">)</span> <span class="c"># find steady-state</span>
+<span class="n">fexpt</span><span class="o">=</span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="n">final_state</span><span class="p">)</span>  <span class="c"># find expectation value for particle number</span>
+
+<span class="c"># ------------------------------------------------------------------------------</span>
+<span class="c"># Plot the results (omitted from the code listing in the appendix in the paper)</span>
+<span class="c">#</span>
+
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">ex1</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fexpt</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">yticks</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;$\left&lt; N </span><span class="se">\\</span><span class="s">right&gt;$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">ex5</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fexpt</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">yticks</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;$\left&lt; N </span><span class="se">\\</span><span class="s">right&gt;$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax3</span><span class="o">=</span><span class="n">subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">ex15</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">me</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;r--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fexpt</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">yticks</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;$\left&lt; N </span><span class="se">\\</span><span class="s">right&gt;$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax4</span><span class="o">=</span><span class="n">subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">ex904</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span><span class="n">me</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s">&#39;r--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fexpt</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">yticks</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;$\left&lt; N </span><span class="se">\\</span><span class="s">right&gt;$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">xticklabels</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span><span class="o">+</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span><span class="o">+</span><span class="n">ax3</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span>
+<span class="n">setp</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time (sec)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">savefig</span><span class="p">(</span><span class="s">&#39;examples-paperfig4.png&#39;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qutip.googlecode.com/svn/doc/examples/examples-paperfig4.py">Download example</a></p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="http://qutip.googlecode.com/svn/wiki/images/paper_fig4.png"><img alt="../_images/examples-paperfig4.png" src="../_images/examples-paperfig4.png" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/guide.html">QuTiP Users Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">QuTiP Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes.html">QuTiP classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">QuTiP functions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="../search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="examples-paperfig2.html" title="Figure 2 from the QuTiP manuscript."
+             >previous</a> |
+          <a href="examples-paperfig6.html" title="Figure 6 from the QuTiP manuscript."
+             >next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             >index</a>
+            <br/>
+            <a href="../_sources/examples/examples-paperfig4.txt"
+               rel="nofollow">Show Source</a>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
+      Last updated on Nov 22, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
