@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>An Overview of the Quantum Dynamics Solvers in QuTiP &mdash; QuTiP 1.1.2 documentation</title>
+    <title>An Overview of the Quantum Dynamics Solvers in QuTiP &mdash; QuTiP 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1.2',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="QuTiP 1.1.2 documentation" href="../index.html" />
+    <link rel="top" title="QuTiP 1.2 documentation" href="../index.html" />
     <link rel="up" title="QuTiP Users Guide" href="guide.html" />
     <link rel="next" title="Solving Two-Time Correlation Functions" href="guide-correlation.html" />
     <link rel="prev" title="Creating and Decomposing Composite Systems Using Tensor Products and Partial Traces" href="guide-tensor.html" /> 
@@ -35,7 +35,7 @@
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="../index.html">QuTiP 1.1.2 documentation</a></div>
+          href="../index.html">QuTiP 1.2 documentation</a></div>
         <div class="rel">
           <a href="guide-tensor.html" title="Creating and Decomposing Composite Systems Using Tensor Products and Partial Traces"
              accesskey="P">previous</a> |
@@ -214,7 +214,7 @@ a large number of such stochastic trajectories describes the dissipative
 dynamics of the system, and has been shown to give identical results as the
 master equation.</p>
 <p>In QuTiP, Monto-Carlo evolution is implemented with the
-<tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> function. It takes nearly the same arguments as the <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>
+<a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function. It takes nearly the same arguments as the <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>
 function for master-equation evolution, expect for one additional parameter
 <tt class="docutils literal"><span class="pre">ntraj</span></tt> (fourth parameter), which define the number of stochastic trajectories
 that should be averaged. This number should usually be in the range 100 - 500 to
@@ -223,7 +223,7 @@ case to case).</p>
 <p>To illustrate the use of the Monte-Carlo evolution of quantum systems in QuTiP,
 let&#8217;s again consider the case of a two-level atom coupled to a leaky cavity. The
 only differences to the master-equation treatment is that in this case we
-invoke the <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> function instead of <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>, and a new parameter
+invoke the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function instead of <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>, and a new parameter
 <tt class="docutils literal"><span class="pre">ntraj</span> <span class="pre">=</span> <span class="pre">250</span></tt> has been defined:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">fock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">fock</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -247,7 +247,7 @@ invoke the <tt class="xref py py-func docutils literal"><span class="pre">qutip.
 <img alt="../_images/guide-dynamics-mc.png" src="../_images/guide-dynamics-mc.png" />
 </div>
 <p>The advantage of the Monte-Carlo method over the master equation approach is that only the state vector is required to be kept in the computer memory (as opposed to the entire density matrix). For large quantum system this becomes a significant advantage and the Monte-Carlo is therefore generally recommended for such systems. But for small systems, on the other hand, the added overhead of averaging a large number of stochastic trajectories to obtain the open system dynamics outweigh the benefits of the (small) memory saving, and master equations are therefore generally more efficient.</p>
-<p>The return value(s) from the Monte-Carlo solver depend on the presence of collapse and expectation operators in the <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> function, as well as how many outputs are requested by the user.  The last example had both collapse and expectation value operators:</p>
+<p>The return value(s) from the Monte-Carlo solver depend on the presence of collapse and expectation operators in the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function, as well as how many outputs are requested by the user.  The last example had both collapse and expectation value operators:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -259,12 +259,12 @@ invoke the <tt class="xref py py-func docutils literal"><span class="pre">qutip.
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[])</span>
 </pre></div>
 </div>
-<p>then the output of <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> <em>is not</em> a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example:</p>
+<p>then the output of <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> <em>is not</em> a list of expectation values but rather a list of state vector Qobjs calculated for each time, and trajectory.  This a huge output and should be avoided unless you want to see the jumps associated with the collapse operators for individual trajectories.  For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>will be a list of state vector Qobjs evaluated at the times in <tt class="docutils literal"><span class="pre">tlist</span></tt>.</p>
-<p>In addition, when collapse operators are specified, the monte-carlo solver will also keep track of when a collapse occurs, and which operator did the collapse.  To obtain this information, the user must specify multiple return values from the <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> function.  For example, to get the times at which collapses occurred for the trajectories we can do:</p>
+<p>In addition, when collapse operators are specified, the monte-carlo solver will also keep track of when a collapse occurs, and which operator did the collapse.  To obtain this information, the user must specify multiple return values from the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function.  For example, to get the times at which collapses occurred for the trajectories we can do:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">expt</span><span class="p">,</span><span class="n">times</span><span class="o">=</span><span class="n">mcsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">ntraj</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">sm</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -348,16 +348,16 @@ trajectory.</td>
 </div>
 <div class="section" id="which-solver-should-i-use">
 <h2>Which solver should I use?<a class="headerlink" href="#which-solver-should-i-use" title="Permalink to this headline">¶</a></h2>
-<p>In general, the choice of solver is determined by the size of your system, as well as your desired output.  The computational resources required by the master equation solver scales as <span class="math">\(N^2\)</span>, where <span class="math">\(N\)</span> is the dimensionality of the Hilbert space.  For small systems, the master equation method is very efficient. In contrast, the monte-carlo solver scales as <span class="math">\(N\)</span>, but requires running multiple trajectories to average over to get the desired expectation values.  Therefore, if your system is too large, and you run out of memory using <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>, then the only option available will be <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt>.  On the other hand, the monte-carlo method cannot return the full density matrix as a function of time and you need to use <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> if this is required.</p>
+<p>In general, the choice of solver is determined by the size of your system, as well as your desired output.  The computational resources required by the master equation solver scales as <span class="math">\(N^2\)</span>, where <span class="math">\(N\)</span> is the dimensionality of the Hilbert space.  For small systems, the master equation method is very efficient. In contrast, the monte-carlo solver scales as <span class="math">\(N\)</span>, but requires running multiple trajectories to average over to get the desired expectation values.  Therefore, if your system is too large, and you run out of memory using <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a>, then the only option available will be <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a>.  On the other hand, the monte-carlo method cannot return the full density matrix as a function of time and you need to use <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> if this is required.</p>
 <p>If your system is intermediate in size (you are not bound by memory) then it is interesting to calculate the crossover point where the monte-carlo solver begins to perform better than the master equation method.  The exact point at which one solver is better than the other will depend on the system of interest and number of processors. However as a guideline, below we have plotted the time required to solve for the evolution of coupled dissipative harmonic oscillators as a function of Hilbert space size.</p>
 <div class="figure align-center">
 <img alt="../_images/guide-dynamics-solver-performance.png" src="../_images/guide-dynamics-solver-performance.png" />
 </div>
-<p>Here, the number of trajectories used in <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> is <tt class="docutils literal"><span class="pre">250</span></tt> and the number of processors (which determines the slope of the monte-carlo line) is <tt class="docutils literal"><span class="pre">4</span></tt>.  Here we see that the monte-carlo solver begins to be more efficient than the corresponding master-equation method at a Hilbert space size of <span class="math">\(N\sim40\)</span>.  Therefore, if your system size is greater than <span class="math">\(N\sim40\)</span> and you do not need the full density matrix, then it is recommended to try the <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt> function.</p>
+<p>Here, the number of trajectories used in <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> is <tt class="docutils literal"><span class="pre">250</span></tt> and the number of processors (which determines the slope of the monte-carlo line) is <tt class="docutils literal"><span class="pre">4</span></tt>.  Here we see that the monte-carlo solver begins to be more efficient than the corresponding master-equation method at a Hilbert space size of <span class="math">\(N\sim40\)</span>.  Therefore, if your system size is greater than <span class="math">\(N\sim40\)</span> and you do not need the full density matrix, then it is recommended to try the <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a> function.</p>
 </div>
 <div class="section" id="time-dependent-hamiltonians-unitary-and-non-unitary">
 <h2>Time-dependent Hamiltonians (unitary and non-unitary)<a class="headerlink" href="#time-dependent-hamiltonians-unitary-and-non-unitary" title="Permalink to this headline">¶</a></h2>
-<p>In the previous examples of quantum system evolution, we assumed that the systems under consideration were described by a time-independent Hamiltonian. The two main evolution solvers in QuTiP, <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt>, can also handle time-dependent Hamiltonians. If a callback function is passed as first parameter to the solver function (instead of <a class="reference internal" href="../classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> Hamiltonian), then this function is called at each time step and is expected to return the <a class="reference internal" href="../classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> Hamiltonian for that point in time. The callback function takes two arguments: the time <cite>t</cite> and list additional Hamiltonian arguments <tt class="docutils literal"><span class="pre">H_args</span></tt>. This list of additional arguments is the same object as is passed as the sixth parameter to the solver function (only used for time-dependent Hamiltonians).</p>
+<p>In the previous examples of quantum system evolution, we assumed that the systems under consideration were described by a time-independent Hamiltonian. The two main evolution solvers in QuTiP, <a class="reference internal" href="../functions.html#qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve()</span></tt></a> and <a class="reference internal" href="../functions.html#qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve()</span></tt></a>, can also handle time-dependent Hamiltonians. If a callback function is passed as first parameter to the solver function (instead of <a class="reference internal" href="../classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> Hamiltonian), then this function is called at each time step and is expected to return the <a class="reference internal" href="../classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> Hamiltonian for that point in time. The callback function takes two arguments: the time <cite>t</cite> and list additional Hamiltonian arguments <tt class="docutils literal"><span class="pre">H_args</span></tt>. This list of additional arguments is the same object as is passed as the sixth parameter to the solver function (only used for time-dependent Hamiltonians).</p>
 <p>For example, let&#8217;s consider a two-level system with energy splitting 1.0, and subject to a time-dependent field that couples to the <span class="math">\(\sigma_x\)</span> operator with amplitude 0.1. Furthermore, to make the example a little bit more interesting, let&#8217;s also assume that the two-level system is subject to relaxation, with relaxation rate 0.01. The following code calculates the dynamics of the system in the absence and in the presence of the time-dependent driving signal:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hamiltonian_t</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">H0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -409,6 +409,8 @@ trajectory.</td>
 <span class="go">min_step:    0</span>
 <span class="go">max_step:    0</span>
 <span class="go">tidy:        True</span>
+<span class="go">num_cpus:    8</span>
+<span class="go">parallel:    False</span>
 </pre></div>
 </div>
 <p>These properties are detailed in the following table.  Assuming <tt class="docutils literal"><span class="pre">opts=Odeoptions()</span></tt>:</p>
@@ -461,6 +463,14 @@ trajectory.</td>
 <td>True</td>
 <td>Whether to run tidyup function on time-independent Hamiltonian.</td>
 </tr>
+<tr class="row-odd"><td>opts.num_cpus</td>
+<td># of processors</td>
+<td>Number of cpu&#8217;s used by mcsolve.</td>
+</tr>
+<tr class="row-even"><td>opts.parallel</td>
+<td>False</td>
+<td>Whether to use parallel sparse matrix-vector multiplication.</td>
+</tr>
 </tbody>
 </table>
 <p>As an example, let us consider relaxing the conditions on the ODE solver:</p>
@@ -480,6 +490,8 @@ trajectory.</td>
 <span class="go">min_step:    0</span>
 <span class="go">max_step:    0</span>
 <span class="go">tidy:        True</span>
+<span class="go">num_cpus:    8</span>
+<span class="go">parallel:    False</span>
 </pre></div>
 </div>
 <p>To use these new settings we can use the keyword argument <cite>options</cite> in either the <cite>odesolve</cite> or <cite>mcsolve</cite> function.  We can modify the last example as:</p>
@@ -534,7 +546,7 @@ trajectory.</td>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Change Log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Developers</a></li>
 </ul>
 
           <h3 style="margin-top: 1.5em;">Search</h3>
@@ -571,9 +583,9 @@ trajectory.</td>
         <div class="right">
           
     <div class="footer">
-        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
-      Last updated on Nov 01, 2011.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Dec 06, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
         </div>
         <div class="clearer"></div>

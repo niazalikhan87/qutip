@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QuTiP functions &mdash; QuTiP 1.1.2 documentation</title>
+    <title>QuTiP functions &mdash; QuTiP 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="QuTiP 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="QuTiP 1.2 documentation" href="index.html" />
     <link rel="next" title="Change Log" href="changelog.html" />
     <link rel="prev" title="QuTiP classes" href="classes.html" /> 
   </head>
@@ -34,7 +34,7 @@
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">QuTiP 1.1.2 documentation</a></div>
+          href="index.html">QuTiP 1.2 documentation</a></div>
         <div class="rel">
           <a href="classes.html" title="QuTiP classes"
              accesskey="P">previous</a> |
@@ -765,6 +765,33 @@ Theory of Coherent Atomic excitation&#8221; by B. W. Shore.</p>
 <div class="section" id="module-qutip">
 <span id="dynamics-and-time-evolution"></span><h2>Dynamics and time-evolution<a class="headerlink" href="#module-qutip" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
+<dt id="qutip.mcsolve">
+<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x110e9fab8&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monte-Carlo evolution of a state vector <a href="#id1"><span class="problematic" id="id2">|</span></a>psi&gt; for a given
+Hamiltonian and sets of collapse operators and operators
+for calculating expectation values. Options for solver are 
+given by the Odeoptions class.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The number of outputs varies.  See below for details!</p>
+</div>
+<p>Args:</p>
+<blockquote>
+<div><p>H (Qobj): Hamiltonian.</p>
+<p>psi0 (Qobj): Initial state vector.</p>
+<p>tlist (list/array): Times at which results are recorded.</p>
+<p>ntraj (integer): Number of trajectories to run.</p>
+<p>collapse_ops (list/array of Qobj&#8217;s): Collapse operators.</p>
+<p>expect_ops (list/array of Qobj&#8217;s) Operators for calculating expectation values.</p>
+<p>H_args (list/array of Qobj&#8217;s): Arguments for time-dependent Hamiltonians.</p>
+<p>options (Odeoptions): Instance of ODE solver options.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div>Mcdata object storing all results from simulation.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
 <dt id="qutip.odesolve">
 <tt class="descclassname">qutip.</tt><tt class="descname">odesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_op_list</em>, <em>H_args=None</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#qutip.odesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Master equation evolution of a density matrix for a given Hamiltonian.</p>
@@ -1330,16 +1357,12 @@ interface is given in the terminal.</p>
 <tt class="descclassname">qutip.</tt><tt class="descname">orbital</tt><big>(</big><em>theta</em>, <em>phi</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.orbital" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Calculates an angular wave function on a sphere</dt>
-<dd><p class="first"><tt class="docutils literal"><span class="pre">psi</span> <span class="pre">=</span> <span class="pre">orbital(theta,phi,ket1,ket2,...)</span></tt> calculates the angular wave function 
-on a sphere at the mesh of points defined by theta and phi which is</p>
-<p class="last">:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>sum_{lm} C_{lm} Y_{lm} left(   heta,phi</p>
-</dd>
+<dd><tt class="docutils literal"><span class="pre">psi</span> <span class="pre">=</span> <span class="pre">orbital(theta,phi,ket1,ket2,...)</span></tt> calculates the angular wave function 
+on a sphere at the mesh of points defined by theta and phi which is 
+<span class="math">\(\sum_{lm} c_{lm} Y_{lm}(theta,phi)\)</span>
+where <span class="math">\(C_{lm}\)</span> are the coefficients specified by the list of kets. Each ket has 2l+1 
+components for some integer l.</dd>
 </dl>
-<p>ight)`</p>
-<blockquote>
-<div><blockquote>
-<div>where <span class="math">\(c_{lm}\)</span> are the coefficients specified by the list of kets. Each ket has 2l+1 
-components for some integer l.</div></blockquote>
 <p>Args:</p>
 <blockquote>
 <div><p>theta (list/array): Polar angles.</p>
@@ -1349,7 +1372,6 @@ components for some integer l.</div></blockquote>
 <p>Returns:</p>
 <blockquote>
 <div>array for angular wave function</div></blockquote>
-</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -1398,11 +1420,16 @@ and eigenvalues for each operator.</div></blockquote>
 <dt id="qutip.sphereplot">
 <tt class="descclassname">qutip.</tt><tt class="descname">sphereplot</tt><big>(</big><em>theta</em>, <em>phi</em>, <em>values</em>, <em>save=False</em><big>)</big><a class="headerlink" href="#qutip.sphereplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots a matrix of values on a sphere</p>
-<p>Parameter theta Angle with respect to z-axis
-Parameter phi Angle in x-y plane 
-Parameter values data set to be plotted
-Parameter save Whether to save the figure or not</p>
-<p>Return None Plots figure, but returns nothing</p>
+<p>Args:</p>
+<blockquote>
+<div><p>theta (float): Angle with respect to z-axis</p>
+<p>phi (float): Angle in x-y plane</p>
+<p>values (array): data set to be plotted</p>
+<p>save (bool): Whether to save the figure or not</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div>Plots figure, returns nonthing.</div></blockquote>
 </dd></dl>
 
 </div>
@@ -1466,9 +1493,9 @@ Parameter save Whether to save the figure or not</p>
         <div class="right">
           
     <div class="footer">
-        &copy; Copyright 2011, P.D. Nation, J.R. Johansson.
-      Last updated on Nov 04, 2011.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Dec 06, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
         </div>
         <div class="clearer"></div>
