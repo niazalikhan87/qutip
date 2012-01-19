@@ -1,6 +1,12 @@
 http://qutip.googlecode.com/svn/wiki/images/guide_logo.png
 *<wiki:toc max_depth="2" />*
 
+*This DOCUMENTATION HAS BEEN LEFT HERE FOR PEOPLE USING EARLIER VERSIONS OF THE QUTIP CODE AND IS LONG OUT OF DATE*
+
+* [http://code.google.com/p/qutip/ SEE THE NEW DOCUMENTATION]
+
+
+
 = Overview =
 QuTiP aims to provide a convient framework for solving the dynamics of both open and closed quantum systems.  The focus of QuTiP is on systems who's Hamiltonian is composed of harmonic oscillator modes, and multi-level (typically two-levels) atoms, where the Hilbert space may be constructed using the Fock basis.  This large class of Hamiltonians appears in a wide variety of physical problems, including those in quantum optics, trapped ions, superconducting circuit devices, and mechanical systems in the quantum regime.  Although similar software options are already available, QuTiP differs from these alternatives by combining the following benefits:
 
