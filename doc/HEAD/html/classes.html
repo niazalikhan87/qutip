@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QuTiP classes &mdash; QuTiP 1.2 documentation</title>
+    <title>QuTiP classes &mdash; QuTiP 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.2',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="QuTiP 1.2 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="QuTiP 2.0 documentation" href="index.html" />
     <link rel="next" title="QuTiP functions" href="functions.html" />
     <link rel="prev" title="Figures 10 &amp; 11 from the QuTiP manuscript." href="examples/examples-paperfig10_11.html" /> 
   </head>
@@ -34,7 +35,7 @@
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">QuTiP 1.2 documentation</a></div>
+          href="index.html">QuTiP 2.0 documentation</a></div>
         <div class="rel">
           <a href="examples/examples-paperfig10_11.html" title="Figures 10 &amp; 11 from the QuTiP manuscript."
              accesskey="P">previous</a> |
@@ -414,6 +415,12 @@ to the sqrt of a given square operator.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="qutip.Odeoptions.expect_avg">
+<tt class="descname">expect_avg</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.expect_avg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average expectation values over trajectories (default = True)</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="qutip.Odeoptions.first_step">
 <tt class="descname">first_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.first_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Size of initial step (0 = determined by solver)</p>
@@ -456,9 +463,15 @@ to the sqrt of a given square operator.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="qutip.Odeoptions.parallel">
-<tt class="descname">parallel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.parallel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use parallel spmv (odesolver &amp; mcsolver with no collapse operators only)</p>
+<dt id="qutip.Odeoptions.rhs_filename">
+<tt class="descname">rhs_filename</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rhs_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use filename for preexisting RHS function (will default to last compiled function if None &amp; rhs_exists=True)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.rhs_reuse">
+<tt class="descname">rhs_reuse</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rhs_reuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use preexisting RHS function for time-dependent solvers</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -486,6 +499,7 @@ to the sqrt of a given square operator.</p>
         <div class="sidebar">
           <h3>Table Of Contents</h3>
           <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/guide.html">QuTiP Users Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">QuTiP Examples</a></li>
@@ -538,7 +552,7 @@ to the sqrt of a given square operator.</p>
           
     <div class="footer">
         &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
-      Last updated on Dec 06, 2011.
+      Last updated on Jan 24, 2012.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
         </div>
