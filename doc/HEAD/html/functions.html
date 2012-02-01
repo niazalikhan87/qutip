@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>QuTiP functions &mdash; QuTiP 2.0 documentation</title>
+    <title>QuTiP functions &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,19 +27,19 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="QuTiP 2.0 documentation" href="index.html" />
-    <link rel="next" title="Change Log" href="changelog.html" />
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="index.html" />
+    <link rel="next" title="Developers" href="contributors.html" />
     <link rel="prev" title="QuTiP classes" href="classes.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">QuTiP 2.0 documentation</a></div>
+          href="index.html">QuTiP: The Quantum Toolbox in Python 2.0 documentation</a></div>
         <div class="rel">
           <a href="classes.html" title="QuTiP classes"
              accesskey="P">previous</a> |
-          <a href="changelog.html" title="Change Log"
+          <a href="contributors.html" title="Developers"
              accesskey="N">next</a> |
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -58,7 +58,7 @@
           <div class="body">
             
   <div class="section" id="qutip-functions">
-<h1>QuTiP functions<a class="headerlink" href="#qutip-functions" title="Permalink to this headline">¶</a></h1>
+<span id="functions"></span><h1>QuTiP functions<a class="headerlink" href="#qutip-functions" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -767,7 +767,7 @@ Theory of Coherent Atomic excitation&#8221; by B. W. Shore.</p>
 <span id="dynamics-and-time-evolution"></span><h2>Dynamics and time-evolution<a class="headerlink" href="#module-qutip" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="qutip.mcsolve">
-<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10f1f0680&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">qutip.</tt><tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>ntraj</em>, <em>collapse_ops</em>, <em>expect_ops</em>, <em>H_args=None</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1044858c0&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo evolution of a state vector <a href="#id1"><span class="problematic" id="id2">|</span></a>psi&gt; for a given
 Hamiltonian and sets of collapse operators and operators
 for calculating expectation values. Options for solver are 
@@ -1443,11 +1443,36 @@ and eigenvalues for each operator.</div></blockquote>
         </div>
         <div class="sidebar">
           <h3>Table Of Contents</h3>
-          <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="frontmatter.html">Frontmatter</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">About QuTiP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide/guide.html">QuTiP Users Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-overview.html">Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-basics.html">Performing Basic operations on Quantum Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-states.html">Manipulating States and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-tensor.html">Creating and Decomposing Composite Systems Using Tensor Products and Partial Traces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-dynamics.html">An Overview of the Quantum Dynamics Solvers in QuTiP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-correlation.html">Solving Two-Time Correlation Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-steady.html">Solving for Steady-State Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-bloch.html">Plotting on the Bloch Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-parfor.html">Using QuTiP&#8217;s Built-in Parallel for-loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-eseries.html">An Overview of the Eseries Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-saving.html">Saving Quantum Objects and Data Sets</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">QuTiP Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#running-qutip-demos">Running QuTiP demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#basic-examples">Basic examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#master-equation">Master equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#monte-carlo">Monte-Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#steady-state-calculations">Steady state calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#qutip-manuscript-figure-scripts">QuTiP Manuscript Figure Scripts</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="classes.html">QuTiP classes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">QuTiP functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-qutip.states">States and operators</a></li>
@@ -1457,8 +1482,8 @@ and eigenvalues for each operator.</div></blockquote>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
 </ul>
 
           <h3 style="margin-top: 1.5em;">Search</h3>
@@ -1481,7 +1506,7 @@ and eigenvalues for each operator.</div></blockquote>
         <div class="left">
           <a href="classes.html" title="QuTiP classes"
              >previous</a> |
-          <a href="changelog.html" title="Change Log"
+          <a href="contributors.html" title="Developers"
              >next</a> |
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -1496,7 +1521,7 @@ and eigenvalues for each operator.</div></blockquote>
           
     <div class="footer">
         &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
-      Last updated on Jan 24, 2012.
+      Last updated on Jan 27, 2012.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
         </div>

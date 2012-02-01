@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; QuTiP 2.0 documentation</title>
+    <title>Installation &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,19 +27,19 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="QuTiP 2.0 documentation" href="index.html" />
-    <link rel="next" title="QuTiP Users Guide" href="guide/guide.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="index.html" />
+    <link rel="next" title="&lt;no title&gt;" href="guide/guide.html" />
+    <link rel="prev" title="About QuTiP" href="introduction.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">QuTiP 2.0 documentation</a></div>
+          href="index.html">QuTiP: The Quantum Toolbox in Python 2.0 documentation</a></div>
         <div class="rel">
-          <a href="introduction.html" title="Introduction"
+          <a href="introduction.html" title="About QuTiP"
              accesskey="P">previous</a> |
-          <a href="guide/guide.html" title="QuTiP Users Guide"
+          <a href="guide/guide.html" title="&lt;no title&gt;"
              accesskey="N">next</a> |
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -86,7 +86,7 @@ At present, Matplotlib does not work for Python 3.</td>
 </tr>
 <tr class="row-even"><td>Scipy</td>
 <td>0.8+</td>
-<td>Not tested on lower versions. Use 0.9+ is possible.</td>
+<td>Not tested on lower versions. Use 0.9+ if possible.</td>
 </tr>
 <tr class="row-odd"><td>Matplotlib</td>
 <td>1.0.1+</td>
@@ -111,12 +111,17 @@ PySide may be used instead (recommended).</td>
 <td>Mac only.  Very optional.  Needed only for a
 GUI Monte-Carlo progress bar.</td>
 </tr>
-<tr class="row-even"><td>GCC
+<tr class="row-even"><td>Cython</td>
+<td>0.15+</td>
+<td>Optional.  Needed for compiling time-dependent
+Hamiltonians.</td>
+</tr>
+<tr class="row-odd"><td>GCC
 Compiler</td>
 <td>4.2+</td>
 <td>Needed for compiling Cython files.</td>
 </tr>
-<tr class="row-odd"><td>Python
+<tr class="row-even"><td>Python
 Headers</td>
 <td>2.6+</td>
 <td>Linux only.  Needed for compiling Cython files.</td>
@@ -124,8 +129,9 @@ Headers</td>
 </tbody>
 </table>
 <p>On all platforms (Linux, Mac, Windows), QuTiP works &#8220;out-of-the-box&#8221; using the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> version 7.1 or higher.  This distribution is created by the developers of Numpy and Scipy, and is free for academic use.</p>
+</div>
 <div class="section" id="installation-on-ubuntu-linux">
-<h3>Installation on Ubuntu Linux<a class="headerlink" href="#installation-on-ubuntu-linux" title="Permalink to this headline">¶</a></h3>
+<h2>Installation on Ubuntu Linux<a class="headerlink" href="#installation-on-ubuntu-linux" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">scipy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pyside</span> <span class="ow">or</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">qt4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
@@ -151,10 +157,23 @@ Headers</td>
 </div>
 </div>
 <div class="section" id="installation-on-mac-os-x-10-6">
-<h3>Installation on Mac OS X (10.6+)<a class="headerlink" href="#installation-on-mac-os-x-10-6" title="Permalink to this headline">¶</a></h3>
+<h2>Installation on Mac OS X (10.6+)<a class="headerlink" href="#installation-on-mac-os-x-10-6" title="Permalink to this headline">¶</a></h2>
 <p>If you have not done so already, install the Apple XCode developer tools from the Apple App Store.</p>
-<p>On the Mac, it is recommended that you install the required libraries via <a class="reference external" href="http://www.macports.org/MacPorts">MacPorts</a>.  After installing with MacPorts, you may need to change your matplotlib backend</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="nb">open</span> <span class="o">-</span><span class="n">a</span> <span class="n">TextEdit</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">2.7</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span>\
+<div class="section" id="macports">
+<h3>Macports <a class="footnote-reference" href="#id6" id="id1">[*]</a><a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h3>
+<p>On the Mac, it is recommended that you install the required libraries via <a class="reference external" href="http://www.macports.org/MacPorts">MacPorts</a>.  After installation, the necessary &#8220;ports&#8221; for QuTiP may be installed via:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">scipy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">matplotlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">cython</span>
+</pre></div>
+</div>
+<p>additional, but optional, ports include:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">pyside</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">ipython</span>
+</pre></div>
+</div>
+<p>After installing the required ports, you may (probably) need to change your matplotlib backend</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">2.7</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span>\
 <span class="go">python2.7/site-packages/matplotlib/mpl-data/matplotlibrc</span>
 </pre></div>
 </div>
@@ -162,41 +181,120 @@ Headers</td>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">backend</span>      <span class="p">:</span> <span class="n">MacOSX</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="enthought-python">
+<h3>Enthought Python<a class="headerlink" href="#enthought-python" title="Permalink to this headline">¶</a></h3>
 <p>One can also use the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> version 7.1 or higher to satisfy the QuTiP dependencies.</p>
-<p>A further possibility is to use the <a class="reference external" href="http://stronginference.com/scipy-superpack/">Scipy Superpack installer script</a>.  In order to have GUI elements using this method, you need to further install the Qt4 and PySide packages at:</p>
-<p><a class="reference external" href="http://qt.nokia.com/downloads/qt-for-open-source-cpp-development-on-mac-os-x">http://qt.nokia.com/downloads/qt-for-open-source-cpp-development-on-mac-os-x</a></p>
-<p><a class="reference external" href="http://developer.qt.nokia.com/wiki/PySide_Binaries_MacOSX">http://developer.qt.nokia.com/wiki/PySide_Binaries_MacOSX</a></p>
-<p>Installing QuTiP is the same as on linux.  From the QuTiP directory:</p>
+</div>
+<div class="section" id="installing">
+<h3>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h3>
+<p>No matter which installation path you choose, installing QuTiP is the same as on linux.  From the QuTiP directory:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="installation-on-microsoft-windows">
-<h3>Installation on Microsoft Windows<a class="headerlink" href="#installation-on-microsoft-windows" title="Permalink to this headline">¶</a></h3>
+<h2>Installation on Microsoft Windows <a class="footnote-reference" href="#id7" id="id4">[†]</a><a class="headerlink" href="#installation-on-microsoft-windows" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We would like to thank Per Kaer Nielsen for help with installation on Windows.</p>
+</div>
 <p>The developers of QuTiP have not touched Windows in several years, and will be continuing this trend for the foreseeable future.  Therefore we recommend the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> version 7.1 or higher to satisfy the QuTiP dependencies. QuTiP has also been reported to work out-of-the-box with <a class="reference external" href="http://www.pythonxy.com">Python(x,y)</a>.  In Python(x,y), QuTiP may be installed using:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="n">build</span> <span class="o">--</span><span class="n">compiler</span><span class="o">=</span><span class="n">mingw32</span>
 </pre></div>
 </div>
+<p>Keep in mind, compiling QuTiP using the mingw32 compiler will limit the amount of memory that you can use for any given calculation to around 4Gb.</p>
+<div class="section" id="installing-qutip-on-64-bit-windows">
+<h3>Installing QuTiP on 64-bit Windows<a class="headerlink" href="#installing-qutip-on-64-bit-windows" title="Permalink to this headline">¶</a></h3>
+<p>Unfortunately, setting up a 64-bit compiler on Windows is a non-trivial task.  Therefore we recommend having at least one bottle of wine within arms reach before proceeding with the setup instructions.  The following instructions may also be used for installing a 32-bit Python installation as well by replacing AMD64 and x64 by win32 and x86, respectively:</p>
+<ol class="arabic">
+<li><p class="first">Grab the latest Python 2.7 AMD64 version from the <a class="reference external" href="http://www.python.org/download/">Python website</a></p>
+</li>
+<li><p class="first">Windows binary executables for both AMD64 and win32, curiosity of Christoph Gohike, may be found at <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs">http://www.lfd.uci.edu/~gohlke/pythonlibs</a>.  Note that you need the Python 2.7 versions of the executables.  It is recommended that you install the latest version of the following (required modules are denoted with a &#8220;*&#8221;):</p>
+<blockquote>
+<div><ul class="simple">
+<li>NumPy-MKL *</li>
+<li>SciPy *</li>
+<li>matplotlib *</li>
+<li>Distribute *</li>
+<li>Cython *</li>
+<li>PyQt</li>
+<li>PySide</li>
+<li>PyReadline</li>
+<li>iPython (Install in Administrator mode to get start menu links.)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">You now need to grab the Microsoft Windows SDK for Windows 7 and .NET Framework 3.5 SP1 found at <a class="reference external" href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=18950">http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=18950</a>.  You want the file named &#8220;GRMSDKX_EN_DVD.iso&#8221;.  This download will need to be burned to a dvd, or extracted, before installation.</p>
+</li>
+<li><p class="first">Next, run the &#8220;CMD Shell&#8221; executable located in the &#8220;Microsoft Windows SDK v7.0&#8221; directory of the start menu:</p>
+<blockquote>
+<div><div class="figure align-center">
+<img alt="_images/windows_install.png" src="_images/windows_install.png" style="width: 3in;" />
+<p class="caption">Figure showing the correct command line executable (CMD Shell) for setting the MS compiler environment flags.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>The text in this shell will initially be yellow (see Fig. <a class="reference internal" href="#winfig"><em>CMD shell before and after inputing compiler flags.</em></a>).  Now we need to set the compiler flags (replace x64 with x86 if using 32-bit Windows):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span> <span class="n">DISTUTILS_USE_SDK</span><span class="o">=</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setenv</span> <span class="o">/</span><span class="n">x64</span> <span class="o">/</span><span class="n">release</span>
+</pre></div>
+</div>
+<p>The shell text should now turn green.</p>
+<blockquote>
+<div><div class="figure align-center" id="winfig">
+<img alt="_images/windows_install_2.png" src="_images/windows_install_2.png" style="width: 4in;" />
+<p class="caption">CMD shell before and after inputing compiler flags.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>In this <strong>same</strong> CMD shell, change directories to the downloaded QuTiP directory     at run the install command:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="does-it-work">
-<h2>Does it work?<a class="headerlink" href="#does-it-work" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="verifying-the-installation">
+<h2>Verifying the Installation<a class="headerlink" href="#verifying-the-installation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Do not run QuTiP from the installation directory.</p>
 </div>
-<p>To verify that everything is installed properly, from the python command line call:</p>
+<p>To verify that everything is installed properly, from the python command line, or iPython, call:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>If nothing but another command prompt appears then you are ready to go.  To see if the GUI components are working, after the import statement type:</p>
+<p>which will attempt to load the QuTiP modules.  If nothing but another command prompt appears, then your system can find all of the necessary QuTiP files.  To further verify that all of the QuTiP components are working, you can try running the examples built into QuTiP as dicussed in the guide section: <a class="reference internal" href="examples/examples.html#examples"><em>QuTiP Examples</em></a></p>
+</div>
+<div class="section" id="checking-version-information-via-the-about-box">
+<h2>Checking Version Information via the About Box<a class="headerlink" href="#checking-version-information-via-the-about-box" title="Permalink to this headline">¶</a></h2>
+<p>QuTiP includes a graphical &#8220;about&#8221; box for viewing information about the important dependencies installed on your system.  To view the about box, type:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">about</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>which will pop-up the about box for QuTiP which gives you information on the installed version of QuTiP and its dependencies.  If instead you get command-line output, then your graphics is not installed properly or unavailable.</p>
+<p>which will pop-up a window similar to the one shown below.  If instead you get command-line output, then your PyQt or PySide graphics are not installed properly or unavailable.  When running the about box, QuTiP will automatically check for a newer version of itself from the QuTiP website.  As shown below, the about box will have an &#8220;update&#8221; link next to the QuTiP version number if your are not running the latest version of QuTiP.</p>
 <div class="figure align-center">
-<img alt="_images/about.png" src="_images/about.png" />
+<img alt="_images/about.png" src="_images/about.png" style="width: 3in;" />
+<p class="caption">QuTiP about box window with link to updated version on the QuTiP website.</p>
 </div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>Installing QuTiP via Macports will take a long time as each of the QuTiP dependencies is build from source code.  The advantage is that everything is more or less guarenteed to work.  However, if you have a hot date waiting for you, then we do not recommend this path.  Or course, if you are reading this guide, this may not be the case.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[†]</a></td><td>QuTiP is developed on Unix based systems such as Linux and OSX.  As such, we do not directly support the Windows operating system.  That being said, we do strive to maintain compatibility with the Windows platform.  Unfortunately, the multiprocessing routines used by Windows differ from those in Unix systems. Therefore we only support multiprocessing on Unix architectures.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -207,21 +305,50 @@ Headers</td>
         </div>
         <div class="sidebar">
           <h3>Table Of Contents</h3>
-          <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="frontmatter.html">Frontmatter</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">About QuTiP</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#general-installation-requirements">General Installation Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#does-it-work">Does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-ubuntu-linux">Installation on Ubuntu Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-mac-os-x-10-6">Installation on Mac OS X (10.6+)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-microsoft-windows">Installation on Microsoft Windows </a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifying-the-installation">Verifying the Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-version-information-via-the-about-box">Checking Version Information via the About Box</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide/guide.html">QuTiP Users Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-overview.html">Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-basics.html">Performing Basic operations on Quantum Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-states.html">Manipulating States and Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-tensor.html">Creating and Decomposing Composite Systems Using Tensor Products and Partial Traces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-dynamics.html">An Overview of the Quantum Dynamics Solvers in QuTiP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-correlation.html">Solving Two-Time Correlation Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-steady.html">Solving for Steady-State Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-bloch.html">Plotting on the Bloch Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-parfor.html">Using QuTiP&#8217;s Built-in Parallel for-loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-eseries.html">An Overview of the Eseries Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/guide-saving.html">Saving Quantum Objects and Data Sets</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">QuTiP Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#running-qutip-demos">Running QuTiP demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#basic-examples">Basic examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#master-equation">Master equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#monte-carlo">Monte-Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#steady-state-calculations">Steady state calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html#qutip-manuscript-figure-scripts">QuTiP Manuscript Figure Scripts</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="classes.html">QuTiP classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">QuTiP functions</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
 </ul>
 
           <h3 style="margin-top: 1.5em;">Search</h3>
@@ -242,9 +369,9 @@ Headers</td>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="introduction.html" title="Introduction"
+          <a href="introduction.html" title="About QuTiP"
              >previous</a> |
-          <a href="guide/guide.html" title="QuTiP Users Guide"
+          <a href="guide/guide.html" title="&lt;no title&gt;"
              >next</a> |
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -259,7 +386,7 @@ Headers</td>
           
     <div class="footer">
         &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
-      Last updated on Jan 24, 2012.
+      Last updated on Feb 01, 2012.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
         </div>
