@@ -6,12 +6,16 @@
 <p><font size="3" face="Verdana">QuTiP is an open source framework designed for solving the dynamics of open quantum systems.  QuTiP may be thought of as an open source alternative to the popular, but aging, <a href="http://www.qo.phy.auckland.ac.nz/qotoolbox.html">Quantum Optics Toolbox</a> (qotoolbox), although we do not aim to be in one-to-one correspondence.*</font><p>
 
 
-<br />
-<p><font size="4" face="Verdana">Who is Using QuTiP?</font></p>
-----
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800>
+<TR>
+<TD><img src="http://qutip.googlecode.com/svn/doc/figures/qutip_org.png"/> </TD>
+<TD width="300"> <p><font size="3" face="Verdana">The QuTiP library consists of over 100 functions for creating state vectors and quantum operators, solving for master equation or Monte-Carlo evolution, and analyzing the generated output. QuTiP also includes a selection of built in example scripts that highlight the key functionality contained in the package.</font></p> </TD>
+</TR> 
+</TABLE>
+
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
-<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/qutip_org.png"/> </TD>
-<TD width="300"> <p><font size="3" face="Verdana">The QuTiP library consists of over 100 functions for creating state vectors and quantum operators, solving for master equation or Monte-Carlo evolution, and analyzing the generated output. QuTiP also includes a selection of built in example scripts that highlight the key functionality contained in the package.</font></p> </TD>
+<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/visitors.png"/> </TD>
+<TD width="300"><p><font size="3" face="Verdana">QuTiP is already being used at a variety of institutions around the globe, and has been downloaded over 500 times in the first six months since its initial release.</font></p> </TD>
 </TR> 
 </TABLE>
