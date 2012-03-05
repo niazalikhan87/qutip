@@ -11,8 +11,7 @@
 ----
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
-<TD><p><font size="4" face="Verdana">QuTiP is already being used at a variety of institutions around the globe.</font></p> </TD>
-<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/visitors.png"/> </TD>
+<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/qutip_org.png"/> </TD>
+<TD width="300"> <p><font size="3" face="Verdana">The QuTiP library consists of over 100 functions for creating state vectors and quantum operators, solving for master equation or Monte-Carlo evolution, and analyzing the generated output. QuTiP also includes a selection of built in example scripts that highlight the key functionality contained in the package.</font></p> </TD>
 </TR> 
-
 </TABLE>
