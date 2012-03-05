@@ -4,9 +4,9 @@
 
 <br>
 <p align="left">
-<font size="4" face="Verdana">Download Latest QuTiP Version:</font>
+<font size="4" face="Verdana"><u>Download Latest QuTiP Version:</u></font>
 </p>
-----
+
 <table border="0" cellspacing="5" cellpadding="0" align="center" width="250">
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/gz.png" /></td>
