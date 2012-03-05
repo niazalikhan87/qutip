@@ -1,1 +1,15 @@
 <p></p><p><table border="0" cellspacing="0" cellpadding="0" align="center"><tr><td colspan="13" align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/qutip_header.png" /></td> </tr><tr><td><a ><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/home.png" /></a></td><td><a><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/downloads/list" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://qutip.googlecode.com/svn/doc/1.1.3/html/index.html" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://groups.google.com/group/qutip" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing_red.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
+
+<br>
+<p>
+<font size="3" face="Verdana">QuTiP is developed by two physicists in their spare time.  As with anyone in academics, their life and death is determined entirely by citations and paper count.  Therefore, if you find QuTiP useful, please consider citing this project as:</font>
+</p><br>
+
+<p align="center">
+<font size="3" face="Verdana">J. R. Johansson, P. D. Nation, and F. Nori: "QuTiP: An open-source Python framework for the dynamics of open quantum systems.", Comp. Phys. Comm. (in press) 2012</font>
+</p>
+
+<br>
+<p>
+<font size="3" face="Verdana">This will also help us secure future funding supporting the development of this software.</font>
+</p>
