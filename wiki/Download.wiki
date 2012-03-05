@@ -21,3 +21,12 @@
 </p></td>
 </tr>
 </table>
+
+<br>
+<p align="left">
+<font size="4" face="Verdana"><u>Obtaining Previous Versions and Source Code:</u></font>
+</p>
+
+<p align="left">
+<font size="3" face="Verdana">In general we do not recommend downloading previous versions of QuTiP.  However if you are interested in depreciated releases, you can download all previous versions of QuTiP from the <a href="http://code.google.com/p/qutip/downloads/list?can=1">main downloads page</a>.</font>
+</p>
