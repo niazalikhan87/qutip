@@ -4,7 +4,7 @@
 
 <br>
 <p align="left">
-<font size="5" face="Verdana"><u><b>Download Latest QuTiP Version:</b></u></font>
+<font size="4" face="Verdana"><u><b>Download Latest QuTiP Version:</b></u></font>
 </p>
 
 <table border="0" cellspacing="5" cellpadding="0" align="center" width="250">
@@ -24,7 +24,7 @@
 
 <br>
 <p align="left">
-<font size="5" face="Verdana"><u><b>Installation:</b></u></font>
+<font size="4" face="Verdana"><u><b>Installation:</b></u></font>
 </p>
 <p align="left">
 <font size="3" face="Verdana">Instructions for installing QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a>, or in the install.txt file included in the downloaded QuTiP source folder.  Note that while QuTiP versions <b>1.x</b> will work on all major operating systems, future versions starting with <u><b>2.x</b> will not officially support the Microsoft Windows operating system</u>.  We have decided to focus on writing new functionality, rather than figuring out work-arounds for Windows' many issues.</font>
@@ -34,7 +34,7 @@
 
 <br>
 <p align="left">
-<font size="5" face="Verdana"><u><b>Obtaining Previous Versions and Source Code:</b></u></font>
+<font size="4" face="Verdana"><u><b>Obtaining Previous Versions and Source Code:</b></u></font>
 </p>
 
 <p align="left">
