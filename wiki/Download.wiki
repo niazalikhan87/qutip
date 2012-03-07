@@ -24,6 +24,16 @@
 
 <br>
 <p align="left">
+<font size="4" face="Verdana"><u>Installation:</u></font>
+</p>
+<p align="left">
+<font size="3" face="Verdana">Instructions for installation of QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a></font>
+</p>
+
+
+
+<br>
+<p align="left">
 <font size="4" face="Verdana"><u>Obtaining Previous Versions and Source Code:</u></font>
 </p>
 
