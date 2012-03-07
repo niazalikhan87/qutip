@@ -3,7 +3,7 @@
 
 <br>
 <p align="left">
-<font size="3" face="Verdana"><u>Latest QuTiP Documentation:</u></font>
+<font size="3" face="Verdana"><u><b>Latest QuTiP Documentation:</b></u></font>
 </p>
 
 <table border="0" cellspacing="5" cellpadding="0" align="center" width="500">
