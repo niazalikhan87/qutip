@@ -5,6 +5,17 @@
 <p><font size="3" face="Verdana">More Coming soon...</font><p>
 
 <br>
+<p><font size="5" face="Verdana"><u><b>Memory Efficient:</b></u></font><p>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
+<TR>
+<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/features/sparse.png"/> </TD>
+<TD width="400"> <p><font size="3" face="Verdana">We have strived to make QuTiP as memory efficient as possible.  Every quantum object is represented internally as a sparse matrix, and every operation on these objects maintains this sparsity when possible.  Thus, QuTiP lets you push your simulation size beyond what is possible in other packages such as the qotoolbox.</font></p> </TD>
+</TR> 
+</TABLE>
+
+
+<br>
 <p><font size="5" face="Verdana"><u><b>Multiprocessing:</b></u></font><p>
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
