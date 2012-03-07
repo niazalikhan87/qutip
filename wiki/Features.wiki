@@ -6,7 +6,7 @@
 ----
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
-<TD width="400"><p><font size="3" face="Verdana">QuTiP can make use of the multiple processing cores found in essentially all modern computers.  The QuTiP Monte-Carlo solver will run trajectories simultaneously over all, or any user defined, number of CPUs.  Furthermore, repetitive tasks such as simulating master equation evolution over a given range of parameters can also be run in parallel using the built-in parfor function</font></p> </TD>
+<TD width="400"><p><font size="3" face="Verdana">QuTiP can make use of the multiple processing cores found in essentially all modern computers.  The QuTiP Monte-Carlo solver will run trajectories simultaneously over all, or any user defined, number of CPUs.  Furthermore, repetitive tasks such as simulating master equation evolution over a given range of parameters can also be run in parallel using the built-in <b>parfor</b> function.</font></p> </TD>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/multiprocessing.png"/> </TD>
 </TR> 
 </TABLE>
