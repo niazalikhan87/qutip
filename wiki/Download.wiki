@@ -27,7 +27,7 @@
 <font size="4" face="Verdana"><u>Installation:</u></font>
 </p>
 <p align="left">
-<font size="3" face="Verdana">Instructions for installing QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a>, or in the install.txt file included in the downloaded QuTiP source folder.  Note that while QuTiP versions 1.x will work on all major operating systems, future versions starting with 2.x will not officially support the Microsoft Windows operating system.  We have decided to focus on writing new functionality, rather than figuring out work-arounds for Windows' many issues.</font>
+<font size="3" face="Verdana">Instructions for installing QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a>, or in the install.txt file included in the downloaded QuTiP source folder.  Note that while QuTiP versions <b>1.x</b> will work on all major operating systems, future versions starting with <b>2.x</b> will not officially support the Microsoft Windows operating system.  We have decided to focus on writing new functionality, rather than figuring out work-arounds for Windows' many issues.</font>
 </p>
 
 
