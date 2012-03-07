@@ -2,4 +2,7 @@
 </td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Support" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Citing" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing.png"/></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
 
 <br>
-<p><font size="3" face="Verdana">Coming soon...</font><p>
+<p><font size="4" face="Verdana">Multiprocessing</font><p>
+----
+
+<p><font size="3" face="Verdana">More Coming soon...</font><p>
