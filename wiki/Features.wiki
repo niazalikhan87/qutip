@@ -4,6 +4,18 @@
 <br />
 <p><font size="3" face="Verdana">More Coming soon...</font><p>
 
+
+<br>
+<p><font size="5" face="Verdana"><u><b>Easy to learn:</b></u></font><p>
+
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800>
+<TR>
+<TD width="350"> <p><font size="3" face="Verdana">QuTiP has a straightforward syntax for constructing, manipulating, and evolving quantum objects.  Moreover, creating complex quantum objects can be accomplished in just a few lines of code; constructing a Schrödinger cat state takes only seven lines.  QuTiP has also been designed to require a minimal learning curve for those users familiar with the Quantum Optics Toolbox (qotoolbox)</font></p> </TD>
+<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/features/schcat.png"/> </TD>
+</TR> 
+</TABLE>
+
+
 <br>
 <p><font size="5" face="Verdana"><u><b>Memory Efficient:</b></u></font><p>
 
