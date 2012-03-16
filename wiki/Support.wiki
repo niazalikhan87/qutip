@@ -41,3 +41,6 @@
 <TD align='center'><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/issues/list" rel="nofollow">Report a Bug</a></font> </TD>
 </TR> 
 </TABLE>
+
+<br>
+<p><font size="5" face="Verdana"><u>Step #4: Contact the Developers</u></font><p>
