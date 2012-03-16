@@ -20,3 +20,10 @@
 
 <br>
 <p><font size="5" face="Verdana"><u>Step #2: Post a Message on the QuTiP Discussion Board</u></font><p>
+
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800>
+<TR>
+<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/discussion.png"/></TD>
+<TD ><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow">Discussion Board</a></font> </TD>
+</TR> 
+</TABLE>
