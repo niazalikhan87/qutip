@@ -26,7 +26,7 @@
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/discussion.png"/></TD>
 </TR> 
 <TR> 
-<TD ><font size="5" face="Verdana"><a href="http://groups.google.com/group/qutip" rel="nofollow">Discussion Board</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="http://groups.google.com/group/qutip" rel="nofollow">Discussion Board</a></font> </TD>
 </TR> 
 </TABLE>
 
@@ -38,6 +38,6 @@
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/issue.png"/></TD>
 </TR> 
 <TR> 
-<TD ><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/issues/list" rel="nofollow">Report a Bug</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/issues/list" rel="nofollow">Report a Bug</a></font> </TD>
 </TR> 
 </TABLE>
