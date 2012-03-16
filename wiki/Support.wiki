@@ -12,5 +12,3 @@
 <TD ><img src="http://qutip.googlecode.com/svn/doc/figures/support/brain.png"/> </TD>
 </TR> 
 </TABLE>
-
-
