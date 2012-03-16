@@ -51,7 +51,7 @@
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/paul.png"/></TD>
 </TR> 
 <TR> 
-<TD align='center'><font size="5" face="Verdana"><a href="http://mailto:robert@riken.jp?Subject=QuTiP">Robert</a></font> </TD>
-<TD align='center'><font size="5" face="Verdana"><a href="mailto:pnation@riken.jp?Subject=QuTiP">Paul</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="http://dml.riken.jp/~rob" rel="nofollow">Robert</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="http://dml.riken.jp/~paul" rel="nofollow">Paul</a></font> </TD>
 </TR> 
 </TABLE>
