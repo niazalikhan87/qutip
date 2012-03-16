@@ -2,7 +2,7 @@
 </td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support_red.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Citing" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing.png"/></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
 
 <br>
-<p><font size="5" face="Verdana"><u>Step #1: Read the documentation</u></font><p>
+<p><font size="4" face="Verdana"><b><u>Step #1: Read the documentation</u></b></font><p>
 
 
 <TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800>
@@ -19,7 +19,7 @@
 </TABLE>
 
 <br>
-<p><font size="5" face="Verdana"><u>Step #2: Post a Message on the QuTiP Discussion Board</u></font><p>
+<p><font size="4" face="Verdana"><b><u>Step #2: Post a Message on the QuTiP Discussion Board</u></b></font><p>
 
 <TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=250>
 <TR>
@@ -31,7 +31,7 @@
 </TABLE>
 
 <br>
-<p><font size="5" face="Verdana"><u>Step #3: Report an Issue</u></font><p>
+<p><font size="4" face="Verdana"><b><u>Step #3: Report an Issue</u></b></font><p>
 
 <TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=200>
 <TR>
@@ -43,7 +43,7 @@
 </TABLE>
 
 <br>
-<p><font size="5" face="Verdana"><u>Step #4: Contact the Developers</u></font><p>
+<p><font size="4" face="Verdana"><b><u>Step #4: Contact the Developers</u></b></font><p>
 
 <TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=450>
 <TR>
