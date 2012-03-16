@@ -10,5 +10,14 @@
 <TD width='240'> <img src="http://qutip.googlecode.com/svn/doc/figures/support/manual.png"/></TD>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/arrow.png"/></TD>
 <TD ><img src="http://qutip.googlecode.com/svn/doc/figures/support/brain.png"/> </TD>
-</TR> 
+</TR>
+ <TR>
+<TD><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow">Documentation</a></font></TD>
+<TD width='250'></TD>
+<TD align='center'><font size="5" face="Verdana">Your Brain</font></TD>
+</TR>
 </TABLE>
+
+
+
+
