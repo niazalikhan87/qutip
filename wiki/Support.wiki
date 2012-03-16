@@ -45,7 +45,7 @@
 <br>
 <p><font size="5" face="Verdana"><u>Step #4: Contact the Developers</u></font><p>
 
-<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=500>
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=450>
 <TR>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/rob.png"/></TD>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/paul.png"/></TD>
