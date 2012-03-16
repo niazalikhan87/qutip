@@ -7,7 +7,7 @@
 
 <TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800>
 <TR>
-<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/manual.png"/></TD>
+<TD width='240'> <img src="http://qutip.googlecode.com/svn/doc/figures/support/manual.png"/></TD>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/arrow.png"/></TD>
 <TD ><img src="http://qutip.googlecode.com/svn/doc/figures/support/brain.png"/> </TD>
 </TR> 
