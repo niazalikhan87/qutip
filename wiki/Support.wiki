@@ -33,7 +33,7 @@
 <br>
 <p><font size="5" face="Verdana"><u>Step #3: Report an Issue</u></font><p>
 
-<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=250>
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=200>
 <TR>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/issue.png"/></TD>
 </TR> 
