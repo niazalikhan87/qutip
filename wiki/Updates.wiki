@@ -22,7 +22,11 @@
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
-<TD width=600> <p><font size="3" face="Verdana">Dereli et. al., "Two-Frequency Jahn-Teller Systems in Circuit QED"</font></p> </TD>
+<TD width=600> <p><font size="3" face="Verdana"><b>Tezak</b> et. al., "Specification of photonic circuits using Quantum Hardware Description Language"</font></p> </TD>
+<TD > <p><font size="3" face="Verdana"><a href="http://arxiv.org/abs/1111.3081">arXiv:1111.3081</a></font></p> </TD>
+</TR>
+<TR>
+<TD width=600> <p><font size="3" face="Verdana"><b>Dereli</b> et. al., "Two-Frequency Jahn-Teller Systems in Circuit QED"</font></p> </TD>
 <TD > <p><font size="3" face="Verdana"><a href="http://arxiv.org/abs/1109.1199">arXiv:1109.1199</a></font></p> </TD>
-</TR> 
+</TR>  
 </TABLE>
