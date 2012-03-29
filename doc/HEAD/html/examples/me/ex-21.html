@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Vacuum Rabi oscillations in the Jaynes-Cummings model &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../../index.html" />
+    <link rel="up" title="Master Equation Examples" href="../ex-master-equation.html" />
+    <link rel="next" title="Single-atom lasing in a Jaynes-Cumming-like system" href="ex-22.html" />
+    <link rel="prev" title="Two-qubit i-SWAP Gate" href="ex-20.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../../index.html"><img src="../../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ex-22.html" title="Single-atom lasing in a Jaynes-Cumming-like system"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ex-20.html" title="Two-qubit i-SWAP Gate"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../examples.html" >QuTiP Example Scripts</a> &raquo;</li>
+          <li><a href="../ex-master-equation.html" accesskey="U">Master Equation Examples</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ex-20.html"
+                        title="previous chapter">Two-qubit i-SWAP Gate</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ex-22.html"
+                        title="next chapter">Single-atom lasing in a Jaynes-Cumming-like system</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/examples/me/ex-21.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vacuum-rabi-oscillations-in-the-jaynes-cummings-model">
+<span id="exme21"></span><h1>Vacuum Rabi oscillations in the Jaynes-Cummings model<a class="headerlink" href="#vacuum-rabi-oscillations-in-the-jaynes-cummings-model" title="Permalink to this headline">¶</a></h1>
+<p>Illustrates the vacuum Rabi oscillations in the Jaynes-Cummings model with
+dissipation.</p>
+<p>This examples introduces the use of bosonic operators (<tt class="xref py py-func docutils literal"><span class="pre">destroy</span></tt>, for the
+annihilation operator) and how to setup the Jaynes-Cummings model.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#</span>
+<span class="c"># Vacuum Rabi oscillations in the Jaynes-Cummings model with dissipation</span>
+<span class="c">#</span>
+<span class="kn">from</span> <span class="nn">qutip.states</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.Qobj</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.tensor</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.ptrace</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.operators</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.expect</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">qutip.correlation</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="c"># Configure parameters</span>
+    <span class="n">wc</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># cavity frequency</span>
+    <span class="n">wa</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># atom frequency</span>
+    <span class="n">g</span>  <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># coupling strength</span>
+    <span class="n">kappa</span> <span class="o">=</span> <span class="mf">0.005</span>       <span class="c"># cavity dissipation rate</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.05</span>        <span class="c"># atom dissipation rate</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>               <span class="c"># number of cavity fock states</span>
+    <span class="n">use_rwa</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="c"># intial state</span>
+    <span class="n">psi0</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>    <span class="c"># start with an excited atom</span>
+
+    <span class="c"># Hamiltonian</span>
+    <span class="n">a</span>  <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">destroy</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">use_rwa</span><span class="p">:</span>
+        <span class="c"># use the rotating wave approxiation</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">wc</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">wa</span> <span class="o">*</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span> <span class="o">+</span> <span class="n">g</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">wc</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">wa</span> <span class="o">*</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span> <span class="o">+</span> <span class="n">g</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sm</span> <span class="o">+</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+
+    <span class="c"># collapse operators</span>
+    <span class="n">c_op_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">n_th_a</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c"># zero temperature</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">kappa</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n_th_a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">n_th_a</span>
+    <span class="k">if</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
+
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">gamma</span>
+    <span class="k">if</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">c_op_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span> <span class="o">*</span> <span class="n">sm</span><span class="p">)</span>
+
+    <span class="c"># evolve and calculate expectation values</span>
+    <span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">nc</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_op_list</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span><span class="p">])</span>
+
+    <span class="c"># plot the results</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">nc</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">na</span><span class="p">)</span>
+    <span class="n">legend</span><span class="p">((</span><span class="s">&quot;Cavity&quot;</span><span class="p">,</span> <span class="s">&quot;Atom excited state&quot;</span><span class="p">))</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Occupation probability&#39;</span><span class="p">)</span>
+    <span class="n">title</span><span class="p">(</span><span class="s">&#39;Vacuum Rabi oscillations&#39;</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../../qutip/qutip/examples/ex_21.py">Source code</a>, <a class="reference external" href="../../../qutip/qutip/examples/ex_21.png">png</a>, <a class="reference external" href="../../../qutip/qutip/examples/ex_21.hires.png">hires.png</a>)</p>
+<div class="figure">
+<img alt="../../_images/ex_21.png" src="../../_images/ex_21.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ex-22.html" title="Single-atom lasing in a Jaynes-Cumming-like system"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ex-20.html" title="Two-qubit i-SWAP Gate"
+             >previous</a> |</li>
+        <li><a href="../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../examples.html" >QuTiP Example Scripts</a> &raquo;</li>
+          <li><a href="../ex-master-equation.html" >Master Equation Examples</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Mar 29, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
