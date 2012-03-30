@@ -1,0 +1,1136 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QuTiP classes &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../index.html" />
+    <link rel="up" title="API documentation" href="apidoc.html" />
+    <link rel="next" title="QuTiP Function List" href="functions.html" />
+    <link rel="prev" title="API documentation" href="apidoc.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../index.html"><img src="../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="QuTiP Function List"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="apidoc.html" title="API documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="apidoc.html" accesskey="U">API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">QuTiP classes</a><ul>
+<li><a class="reference internal" href="#the-qobj-class">The Qobj class</a></li>
+<li><a class="reference internal" href="#the-eseries-class">The eseries class</a></li>
+<li><a class="reference internal" href="#the-bloch-class">The Bloch class</a></li>
+<li><a class="reference internal" href="#the-odeoptions-class">The Odeoptions class</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="apidoc.html"
+                        title="previous chapter">API documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">QuTiP Function List</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apidoc/classes.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="qutip-classes">
+<span id="classes"></span><h1>QuTiP classes<a class="headerlink" href="#qutip-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-qobj-class">
+<span id="classes-qobj"></span><h2>The Qobj class<a class="headerlink" href="#the-qobj-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Qobj">
+<em class="property">class </em><tt class="descname">Qobj</tt><big>(</big><em>inpt=array([[0]])</em>, <em>dims=</em><span class="optional">[</span><span class="optional">[</span><span class="optional">]</span><span class="optional">[</span><span class="optional">]</span><span class="optional">]</span>, <em>shape=</em><span class="optional">[</span><span class="optional">]</span>, <em>fast=False</em><big>)</big><a class="headerlink" href="#qutip.Qobj" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for representing quantum objects, such as quantum operators
+and states.</p>
+<p>The Qobj class is the QuTiP representation of quantum operators and state vectors.
+This class also implements math operations +,-,* between Qobj instances 
+(and / by a C-number), as well as a collection of common operator/state
+operations.  The Qobj constructor optionally takes a dimension <tt class="docutils literal"><span class="pre">list</span></tt> and/or 
+shape <tt class="docutils literal"><span class="pre">list</span></tt> as arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>inpt</strong> : array_like</p>
+<blockquote>
+<div><p>Data for vector/matrix representation of the quantum object.</p>
+</div></blockquote>
+<p><strong>dims</strong> : list</p>
+<blockquote>
+<div><p>Dimensions of object used for tensor products.</p>
+</div></blockquote>
+<p><strong>shape</strong> : list</p>
+<blockquote>
+<div><p>Shape of underlying data structure (matrix shape).</p>
+</div></blockquote>
+<p><strong>fast</strong> : bool</p>
+<blockquote>
+<div><p>Flag for fast qobj creation when running ode solvers.
+This parameter is used internally only.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Attributes :</th><td class="field-body"><p class="first"><strong>data</strong> : array_like</p>
+<blockquote>
+<div><p>Sparse matrix characterizing the quantum object.</p>
+</div></blockquote>
+<p><strong>dims</strong> : list</p>
+<blockquote>
+<div><p>List of dimensions keeping track of the tensor structure.</p>
+</div></blockquote>
+<p><strong>shape</strong> : list</p>
+<blockquote>
+<div><p>Shape of the underlying <cite>data</cite> array.</p>
+</div></blockquote>
+<p><strong>isherm</strong> : bool</p>
+<blockquote>
+<div><p>Indicates if quantum object represents Hermitian operator.</p>
+</div></blockquote>
+<p><strong>type</strong> : str</p>
+<blockquote>
+<div><p>Type of quantum object: &#8216;bra&#8217;, &#8216;ket&#8217;, &#8216;oper&#8217;, or &#8216;super&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Methods :</th><td class="field-body"><p class="first"><strong>conj()</strong> :</p>
+<blockquote>
+<div><p>Conjugate of quantum object.</p>
+</div></blockquote>
+<p><strong>dag()</strong> :</p>
+<blockquote>
+<div><p>Adjoint (dagger) of quantum object.</p>
+</div></blockquote>
+<p><strong>eigenenergies(sparse=False, sort=&#8217;low&#8217;, eigvals=0, tol=0, maxiter=100000)</strong> :</p>
+<blockquote>
+<div><p>Returns eigenenergies (eigenvalues) of a quantum object.</p>
+</div></blockquote>
+<p><strong>eigenstates(sparse=False, sort=&#8217;low&#8217;, eigvals=0, tol=0, maxiter=100000)</strong> :</p>
+<blockquote>
+<div><p>Returns eigenenergies and eigenstates of quantum object.</p>
+</div></blockquote>
+<p><strong>expm()</strong> :</p>
+<blockquote>
+<div><p>Matrix exponential of quantum object.</p>
+</div></blockquote>
+<p><strong>full()</strong> :</p>
+<blockquote>
+<div><p>Returns dense array of quantum object <cite>data</cite> attribute.</p>
+</div></blockquote>
+<p><strong>groundstate(sparse=False,tol=0,maxiter=100000)</strong> :</p>
+<blockquote>
+<div><p>Returns eigenvalue and eigenket for the groundstate of a quantum object.</p>
+</div></blockquote>
+<p><strong>matrix_element(bra,ket)</strong> :</p>
+<blockquote>
+<div><p>Returns the matrix element of operator between <cite>bra</cite> and <cite>ket</cite> vectors.</p>
+</div></blockquote>
+<p><strong>norm(oper_norm=&#8217;tr&#8217;,sparse=False,tol=0,maxiter=100000)</strong> :</p>
+<blockquote>
+<div><p>Returns norm of operator.</p>
+</div></blockquote>
+<p><strong>ptrace(sel)</strong> :</p>
+<blockquote>
+<div><p>Returns quantum object for selected dimensions after performing partial trace.</p>
+</div></blockquote>
+<p><strong>sqrtm()</strong> :</p>
+<blockquote>
+<div><p>Matrix square root of quantum object.</p>
+</div></blockquote>
+<p><strong>tidyup(atol=1e-15)</strong> :</p>
+<blockquote>
+<div><p>Removes small elements from quantum object.</p>
+</div></blockquote>
+<p><strong>tr()</strong> :</p>
+<blockquote>
+<div><p>Trace of quantum object.</p>
+</div></blockquote>
+<p><strong>trans()</strong> :</p>
+<blockquote>
+<div><p>Transpose of quantum object.</p>
+</div></blockquote>
+<p><strong>transform(inpt,inverse=False)</strong> :</p>
+<blockquote>
+<div><p>Performs a basis transformation defined by <cite>inpt</cite> matrix.</p>
+</div></blockquote>
+<p><strong>unit(oper_norm=&#8217;tr&#8217;,sparse=False,tol=0,maxiter=100000)</strong> :</p>
+<blockquote class="last">
+<div><p>Returns normalized quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="qutip.Qobj.conj">
+<tt class="descname">conj</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.conj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the conjugate operator of quantum object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.dag">
+<tt class="descname">dag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the adjont operator of quantum object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.diag">
+<tt class="descname">diag</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diagonal elements of Qobj.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>diags: array</strong> :</p>
+<blockquote class="last">
+<div><p>Returns array of <tt class="docutils literal"><span class="pre">real</span></tt> values if operators is Hermitian, 
+otherwise <tt class="docutils literal"><span class="pre">complex</span></tt> values are returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.eigenenergies">
+<tt class="descname">eigenenergies</tt><big>(</big><em>sparse=False</em>, <em>sort='low'</em>, <em>eigvals=0</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.eigenenergies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the Eigenenergies (Eigenvalues) of a quantum object.</p>
+<p>Eigenenergies are defined for operators or superoperators only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse Eigensolver</p>
+</div></blockquote>
+<p><strong>sort</strong> : str</p>
+<blockquote>
+<div><p>Sort eigenvalues &#8216;low&#8217; to high, or &#8216;high&#8217; to low.</p>
+</div></blockquote>
+<p><strong>eigvals</strong> : int</p>
+<blockquote>
+<div><p>Number of requested eigenvalues. Default is all eigenvalues.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by sparse Eigensolver (0=machine precision). The sparse solver
+may not converge if the tolerance is set too low.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations performed by sparse solver (if used).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>eigvals: array</strong> :</p>
+<blockquote class="last">
+<div><p>Array of eigenvalues for operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The sparse eigensolver is much slower than the dense version.  
+Use sparse only if memory requirements demand it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.eigenstates">
+<tt class="descname">eigenstates</tt><big>(</big><em>sparse=False</em>, <em>sort='low'</em>, <em>eigvals=0</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.eigenstates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the eigenstates and eigenenergies.</p>
+<p>Eigenstates and Eigenvalues are defined for operators and 
+superoperators only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse Eigensolver</p>
+</div></blockquote>
+<p><strong>sort</strong> : str</p>
+<blockquote>
+<div><p>Sort eigenvalues (and vectors) &#8216;low&#8217; to high, or &#8216;high&#8217; to low.</p>
+</div></blockquote>
+<p><strong>eigvals</strong> : int</p>
+<blockquote>
+<div><p>Number of requested eigenvalues. Default is all eigenvalues.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by sparse Eigensolver (0 = machine precision).The sparse solver
+may not converge if the tolerance is set too low.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations performed by sparse solver (if used).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>eigvals</strong> : array</p>
+<blockquote>
+<div><p>Array of eigenvalues for operator.</p>
+</div></blockquote>
+<p><strong>eigvecs</strong> : array</p>
+<blockquote class="last">
+<div><p>Array of quantum operators representing the oprator eigenkets.
+Order of eigenkets is determined by order of eigenvalues.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The sparse eigensolver is much slower than the dense version.  
+Use sparse only if memory requirements demand it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.expm">
+<tt class="descname">expm</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.expm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix exponential of quantum operator.</p>
+<p>Input operator must be square.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote>
+<div><p>Exponentiated quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>TypeError</strong> :</p>
+<blockquote class="last">
+<div><p>Quantum operator is not square.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.full">
+<tt class="descname">full</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dense array from quantum object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>data</strong> : array</p>
+<blockquote class="last">
+<div><p>Array of complex data from quantum objects <cite>data</cite> attribute.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.groundstate">
+<tt class="descname">groundstate</tt><big>(</big><em>sparse=False</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.groundstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the ground state Eigenvalue and Eigenvector.</p>
+<p>Defined for quantum operators or superoperators only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse Eigensolver</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by sparse Eigensolver (0 = machine precision). The sparse solver
+may not converge if the tolerance is set too low.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations performed by sparse solver (if used).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>eigval</strong> : float</p>
+<blockquote>
+<div><p>Eigenvalue for the ground state of quantum operator.</p>
+</div></blockquote>
+<p><strong>eigvec</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Eigenket for the ground state of quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The sparse eigensolver is much slower than the dense version.  
+Use sparse only if memory requirements demand it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.matrix_element">
+<tt class="descname">matrix_element</tt><big>(</big><em>bra</em>, <em>ket</em><big>)</big><a class="headerlink" href="#qutip.Qobj.matrix_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a matrix element.</p>
+<p>Gives matrix for the Qobj sandwiched between a <cite>bra</cite> and <cite>ket</cite>
+vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>bra</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object of type &#8216;bra&#8217;.</p>
+</div></blockquote>
+<p><strong>ket</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object of type &#8216;ket&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>elem</strong> : complex</p>
+<blockquote>
+<div><p>Complex valued matrix element.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>TypeError</strong> :</p>
+<blockquote class="last">
+<div><p>Can only calculate matrix elements between a bra and ket quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.norm">
+<tt class="descname">norm</tt><big>(</big><em>oper_norm='tr'</em>, <em>sparse=False</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the norm of a quantum object.</p>
+<p>Norm is L2-norm for kets and trace-norm (by default) for operators.  
+Other operator norms may be specified using the <cite>oper_norm</cite> argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oper_norm</strong> : str</p>
+<blockquote>
+<div><p>Which norm to use for operators: trace &#8216;tr&#8217;, Frobius &#8216;fro&#8217;,one &#8216;one&#8217;, 
+or max &#8216;max&#8217;. This parameter does not affect the norm of a state vector.</p>
+</div></blockquote>
+<p><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse eigenvalue solver for trace norm.  Other norms are not
+affected by this parameter.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance for sparse solver (if used) for trace norm.  The sparse solver
+may not converge if the tolerance is set too low.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations performed by sparse solver (if used) for
+trace norm.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>norm</strong> : float</p>
+<blockquote class="last">
+<div><p>The requested norm of the operator or state quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The sparse eigensolver is much slower than the dense version.  
+Use sparse only if memory requirements demand it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.ptrace">
+<tt class="descname">ptrace</tt><big>(</big><em>sel</em><big>)</big><a class="headerlink" href="#qutip.Qobj.ptrace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partial trace of the Qobj with selected components remaining.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sel</strong> : int/list</p>
+<blockquote>
+<div><p>An <tt class="docutils literal"><span class="pre">int</span></tt> or <tt class="docutils literal"><span class="pre">list</span></tt> of components to keep after partial trace.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper: qobj</strong> :</p>
+<blockquote class="last">
+<div><p>Quantum object representing partial trace with selected components remaining.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This function is identical to the <a class="reference internal" href="#qutip.Qobj.ptrace" title="qutip.Qobj.ptrace"><tt class="xref py py-func docutils literal"><span class="pre">qutip.Qobj.ptrace</span></tt></a> function that has been
+depreciated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.sqrtm">
+<tt class="descname">sqrtm</tt><big>(</big><em>sparse=False</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.sqrtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sqrt of a quantum operator.</p>
+<p>Operator must be square.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse eigenvalue/vector solver.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by sparse solver (0 = machine precision).</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations used by sparse solver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper: qobj</strong> :</p>
+<blockquote>
+<div><p>Matrix square root of operator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>TypeError</strong> :</p>
+<blockquote class="last">
+<div><p>Quantum object is not square.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The sparse eigensolver is much slower than the dense version.  
+Use sparse only if memory requirements demand it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.tidyup">
+<tt class="descname">tidyup</tt><big>(</big><em>atol=1e-15</em><big>)</big><a class="headerlink" href="#qutip.Qobj.tidyup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes small elements from a quantum object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>atol</strong> : float</p>
+<blockquote>
+<div><p>Absolute tolerance used by tidyup.  Default is set 
+via qutip global settings parameters.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper: qobj</strong> :</p>
+<blockquote class="last">
+<div><p>Quantum object with small elements removed.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.tr">
+<tt class="descname">tr</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.tr" title="Permalink to this definition">¶</a></dt>
+<dd><p>The trace of a quantum object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>trace: float</strong> :</p>
+<blockquote class="last">
+<div><p>Returns <tt class="docutils literal"><span class="pre">real</span></tt> if operator is Hermitian, returns <tt class="docutils literal"><span class="pre">complex</span></tt> otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.trans">
+<tt class="descname">trans</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Qobj.trans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposed operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper: qobj</strong> :</p>
+<blockquote class="last">
+<div><p>Transpose of input operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.transform">
+<tt class="descname">transform</tt><big>(</big><em>inpt</em>, <em>inverse=False</em><big>)</big><a class="headerlink" href="#qutip.Qobj.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a basis transformation defined by an input array.</p>
+<p>Input array can be a <tt class="docutils literal"><span class="pre">matrix</span></tt> defining the transformation,
+or a <tt class="docutils literal"><span class="pre">list</span></tt> of kets that defines the new basis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>inpt</strong> : array_like</p>
+<blockquote>
+<div><p>A <tt class="docutils literal"><span class="pre">matrix</span></tt> or <tt class="docutils literal"><span class="pre">list</span></tt> of kets defining the transformation.</p>
+</div></blockquote>
+<p><strong>inverse</strong> : bool</p>
+<blockquote>
+<div><p>Whether to return inverse transformation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Operator in new basis.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This function is still in development.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Qobj.unit">
+<tt class="descname">unit</tt><big>(</big><em>oper_norm='tr'</em>, <em>sparse=False</em>, <em>tol=0</em>, <em>maxiter=100000</em><big>)</big><a class="headerlink" href="#qutip.Qobj.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the operator or state normalized to unity.</p>
+<p>Uses norm from Qobj.norm().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oper_norm</strong> : str</p>
+<blockquote>
+<div><p>Requested norm for operator. Norm is always L2 for states.</p>
+</div></blockquote>
+<p><strong>sparse</strong> : bool</p>
+<blockquote>
+<div><p>Use sparse eigensolver for trace norm. Does not affect other norms.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by sparse eigensolver.</p>
+</div></blockquote>
+<p><strong>maxiter: int</strong> :</p>
+<blockquote>
+<div><p>Number of maximum iterations performed by sparse eigensolver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Normalized quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-eseries-class">
+<span id="classes-eseries"></span><h2>The eseries class<a class="headerlink" href="#the-eseries-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.eseries">
+<em class="property">class </em><tt class="descname">eseries</tt><big>(</big><em>q=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em>, <em>s=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em><big>)</big><a class="headerlink" href="#qutip.eseries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representation of an exponential-series expansion of time-dependent quantum objects.</p>
+<dl class="method">
+<dt id="qutip.eseries.spec">
+<tt class="descname">spec</tt><big>(</big><em>es</em>, <em>wlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the spectrum of an exponential series at frequencies in wlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.eseries.tidy">
+<tt class="descname">tidy</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.eseries.tidy" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a tidier version of self</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.eseries.value">
+<tt class="descname">value</tt><big>(</big><em>tlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate an exponential series at the times listed in tlist.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-bloch-class">
+<span id="classes-bloch"></span><h2>The Bloch class<a class="headerlink" href="#the-bloch-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Bloch">
+<em class="property">class </em><tt class="descname">Bloch</tt><big>(</big><em>axes=None</em><big>)</big><a class="headerlink" href="#qutip.Bloch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for plotting data on the Bloch sphere.</p>
+<dl class="method">
+<dt id="qutip.Bloch.add_points">
+<tt class="descname">add_points</tt><big>(</big><em>points</em>, <em>meth='s'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of data points to bloch sphere.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">points (array): data points</p>
+<p class="last">meth (string): type of points to plot, use &#8216;m&#8217; for multicolored.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.add_states">
+<tt class="descname">add_states</tt><big>(</big><em>state</em>, <em>kind='vector'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a state vector Qobj to plot.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">state (Qobj): Input state vector.</p>
+<p class="last">kind (string): Type of object to plot, &#8216;vector&#8217; or &#8216;point&#8217;.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.add_vectors">
+<tt class="descname">add_vectors</tt><big>(</big><em>vectors</em><big>)</big><a class="headerlink" href="#qutip.Bloch.add_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of vectors to Bloch sphere.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>vectors (array): Array of vectors of unit length or smaller.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.clear">
+<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets Bloch sphere data sets to empty.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.font_color">
+<tt class="descname">font_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.font_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of fonts, default = &#8216;black&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_alpha">
+<tt class="descname">frame_alpha</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transparency of wireframe, default = 0.2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_color">
+<tt class="descname">frame_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of wireframe, default = &#8216;gray&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.frame_width">
+<tt class="descname">frame_width</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.frame_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Width of wireframe, default = 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.make_sphere">
+<tt class="descname">make_sphere</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.make_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots Bloch sphere and data sets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.num_points">
+<tt class="descname">num_points</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.num_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of point markers to plot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.num_vectors">
+<tt class="descname">num_vectors</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.num_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of Bloch vectors to plot</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.point_color">
+<tt class="descname">point_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of colors for Bloch point markers, default = [&#8216;b&#8217;,&#8217;g&#8217;,&#8217;r&#8217;,&#8217;y&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.point_marker">
+<tt class="descname">point_marker</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of point markers, default = [&#8216;o&#8217;,&#8217;^&#8217;,&#8217;d&#8217;,&#8217;s&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.point_style">
+<tt class="descname">point_style</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.point_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Style of points, &#8216;m&#8217; for multiple colors, &#8216;s&#8217; for single color</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.points">
+<tt class="descname">points</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for point markers</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.save">
+<tt class="descname">save</tt><big>(</big><em>name=None</em>, <em>format='png'</em>, <em>dirc='/Users/paul/Desktop/QuTiP Docs'</em><big>)</big><a class="headerlink" href="#qutip.Bloch.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves Bloch sphere to file of type <cite>format</cite></p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>name (string): String for saving image. Must include path and format as well.</dt>
+<dd><p class="first">i.e. &#8216;/Users/Paul/Desktop/bloch.png&#8217;</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This overrides the &#8216;format&#8217; and &#8216;dirc&#8217; arguments.</p>
+</div>
+</dd>
+</dl>
+<p>format (string): Format of output image.</p>
+<p class="last">dirc (string): Directory of output. Defaults to current working directory.</p>
+</dd>
+<dt>Returns: </dt>
+<dd>File containing plot of Bloch sphere.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.savenum">
+<tt class="descname">savenum</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.savenum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of times sphere has been saved</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qutip.Bloch.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.Bloch.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display Bloch sphere and corresponding data sets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.size">
+<tt class="descname">size</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the figure in inches, default = [7,7].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.sphere_alpha">
+<tt class="descname">sphere_alpha</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transparency of Bloch sphere, default = 0.2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.sphere_color">
+<tt class="descname">sphere_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.sphere_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of Bloch sphere, default = #FFDDDD</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.vector_color">
+<tt class="descname">vector_color</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vector_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of colors for Bloch vectors, default = [&#8216;b&#8217;,&#8217;g&#8217;,&#8217;r&#8217;,&#8217;y&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.vector_width">
+<tt class="descname">vector_width</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vector_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Width of Bloch vectors, default = 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.vectors">
+<tt class="descname">vectors</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for Bloch vectors</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.view">
+<tt class="descname">view</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Azimuthal and Elvation viewing angles, default = [-60,30].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.xlabel">
+<tt class="descname">xlabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.xlabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for x-axis (in LaTex), default = [&#8216;$x$&#8217;,&#8217;&#8216;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.xlpos">
+<tt class="descname">xlpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.xlpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of x-axis labels, default = [1.2,-1.2]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.ylabel">
+<tt class="descname">ylabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.ylabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for y-axis (in LaTex), default = [&#8216;$y$&#8217;,&#8217;&#8216;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.ylpos">
+<tt class="descname">ylpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.ylpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of y-axis labels, default = [1.1,-1.1]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.zlabel">
+<tt class="descname">zlabel</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.zlabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels for z-axis (in LaTex), default = [&#8216;$left|0\right&gt;$&#8217;,&#8217;$left|1\right&gt;$&#8217;]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Bloch.zlpos">
+<tt class="descname">zlpos</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Bloch.zlpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of z-axis labels, default = [1.2,-1.2]</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-odeoptions-class">
+<span id="classes-odeoptions"></span><h2>The Odeoptions class<a class="headerlink" href="#the-odeoptions-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qutip.Odeoptions">
+<em class="property">class </em><tt class="descname">Odeoptions</tt><big>(</big><em>atol=1e-08</em>, <em>rtol=1e-06</em>, <em>method='adams'</em>, <em>order=12</em>, <em>nsteps=2500</em>, <em>first_step=0</em>, <em>max_step=0</em>, <em>min_step=0</em>, <em>mc_avg=True</em>, <em>tidy=True</em>, <em>num_cpus=0</em>, <em>rhs_reuse=False</em>, <em>rhs_filename=None</em>, <em>gui=True</em><big>)</big><a class="headerlink" href="#qutip.Odeoptions" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Updated in version 2.0</p>
+</div>
+<p>Class of options for ODE solver used by <a class="reference internal" href="functions.html#module-qutip.odesolve" title="qutip.odesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve</span></tt></a> and <a class="reference internal" href="functions.html#module-qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve</span></tt></a>.
+Options can be changed either inline:</p>
+<blockquote>
+<div>opts=Odeoptions(gui=False,order=10,.....)</div></blockquote>
+<p>or by changing the class properties after creation:</p>
+<blockquote>
+<div>opts=Odeoptions()
+opts.gui=False
+opts.order=10</div></blockquote>
+<p>Returns options class to be used as options in <tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt> and <a class="reference internal" href="functions.html#module-qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve</span></tt></a>.</p>
+<p>List of properties:</p>
+<blockquote>
+<div>atol (float): Absolute tolerance (default = 1e-8)
+rtol (float): Relative tolerance (default = 1e-6)
+method (str): Integration method (default = &#8216;adams&#8217;, use &#8216;bdf&#8217; for stiff)
+order (int):  Order of Integrator (default = 12, &lt;=12 &#8216;adams&#8217;, &lt;=5 &#8216;bdf&#8217;)
+nsteps (int): Max. number of internal steps/call (default = 2500)
+first_step (float): Size of initial step (default = 0, automatic)
+min_step (float): Minimum step size (default = 0, automatic)
+max_step (float): Maximum step size (default = 0, automatic)
+tidy (bool): Tidyup Hamiltonian by removing small terms (default = True)
+num_cpus (int): Number of cpus used by mcsolver (default = # of cpus)
+gui (bool): Use progress bar GUI for mcsolver (default = True)
+mc_avg (bool): Avg. expect. values or states in mcsolver (default = True)
+rhs_filename (str): Name for compiled Cython file (default = None)
+rhs_reuse (bool): Reuse compiled Cython file (default = False)</div></blockquote>
+<dl class="attribute">
+<dt id="qutip.Odeoptions.atol">
+<tt class="descname">atol</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.atol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute tolerance (default = 1e-8)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.first_step">
+<tt class="descname">first_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.first_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of initial step (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.gui">
+<tt class="descname">gui</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.gui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use Progressbar (mcsolve only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.max_step">
+<tt class="descname">max_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.max_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max step size (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.mc_avg">
+<tt class="descname">mc_avg</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.mc_avg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average expectation values over trajectories (default = True)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.method">
+<tt class="descname">method</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integration method (default = &#8216;adams&#8217;, for stiff &#8216;bdf&#8217;)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.min_step">
+<tt class="descname">min_step</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.min_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimal step size (0 = determined by solver)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.nsteps">
+<tt class="descname">nsteps</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max. number of internal steps/call</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.order">
+<tt class="descname">order</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum order used by integrator (&lt;=12 for &#8216;adams&#8217;, &lt;=5 for &#8216;bdf&#8217;)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.rhs_filename">
+<tt class="descname">rhs_filename</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rhs_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use filename for preexisting RHS function (will default to last compiled function if None &amp; rhs_exists=True)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.rhs_reuse">
+<tt class="descname">rhs_reuse</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rhs_reuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use preexisting RHS function for time-dependent solvers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.rtol">
+<tt class="descname">rtol</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.rtol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative tolerance (default = 1e-6)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="qutip.Odeoptions.tidy">
+<tt class="descname">tidy</tt><em class="property"> = None</em><a class="headerlink" href="#qutip.Odeoptions.tidy" title="Permalink to this definition">¶</a></dt>
+<dd><p>tidyup Hamiltonian before calculation (default = True)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="QuTiP Function List"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="apidoc.html" title="API documentation"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="apidoc.html" >API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Mar 30, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
