@@ -20,3 +20,15 @@
 </p></td>
 </tr>
 </table>
+
+<br>
+<p align="left">
+<font size="3" face="Verdana"><u><b>Developer Documentation:</b></u></font>
+</p>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=500>
+<TR>
+<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/documentation/developer.png"/> </TD>
+<TD width="420"> <p><font size="3" face="Verdana"><a href="http://qutip.googlecode.com/svn/doc/HEAD/html/index.html">Online developers documentation for the testing version of QuTiP.</a></font></p> </TD>
+</TR> 
+</TABLE>
