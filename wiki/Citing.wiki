@@ -1,8 +1,21 @@
-<p></p><p><table border="0" cellspacing="0" cellpadding="0" align="center"><tr><td colspan="15" align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/qutip_header.png" /></td> </tr><tr><td><a ><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/home.png" /></a></td><td><a><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Features" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/features.png" /></a>
-</td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Support" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing_red.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
+<p></p><p>
+
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td colspan="15" align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/qutip_header.png"></img></td>
+</tr>
+<tr width="100%" height="40pt" style="background: #7e8785; padding-left:50px; font-family: Verdana, Arial, Sans; font-size: 15pt;">
+<td style="padding-left: 20px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip" rel="nofollow">Citing</img></a></td>
+<td style="padding-left: 10px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip/wiki/Features" rel="nofollow">Features</a> </td>
+<td style="padding-left: 10px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow">Download</a></td>
+<td style="padding-left: 10px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow">Documentation</a></td>
+<td style="padding-left: 10px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip/wiki/Support" rel="nofollow">Support</img></a></td>
+<td style="padding-left: 10px;padding-right: 10px;"><a style="color: white; text-decoration: none;" href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow">Updates</img></a></td>
+<td style="padding-left: 10px;padding-right: 20px;"><a style="color: red;   text-decoration: none;" rel="nofollow">Citing</img></a></td>
+</tr>
+</table>
 
 <br>
-
 
 <table border="0" cellspacing="0" cellpadding="0" align="center" width="850">
 <tr> <td><img src="http://qutip.googlecode.com/svn/doc/figures/citing/us.png" /></td> <td><p>
