@@ -1,9 +1,6 @@
 <p></p><p><table border="0" cellspacing="0" cellpadding="0" align="center"><tr><td colspan="15" align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/qutip_header.png" /></td> </tr><tr><td><a ><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/home.png" /></a></td><td><a><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/features_red.png" /></a>
 </td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Support" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Updates" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Citing" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing.png"/></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
 
-<br />
-<p><font size="3" face="Verdana">More Coming soon...</font><p>
-
 
 <br>
 <p><font size="5" face="Verdana"><u><b>Easy To Learn:</b></u></font><p>
@@ -44,7 +41,7 @@
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
 <TD  align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/features/ninja.png"/> </TD>
-<TD width="400"> <p><font size="3" face="Verdana">QuTiP allows for arbitrary time-dependent Hamiltonians and collapse operators.</font></p> </TD>
+<TD width="400"> <p><font size="3" face="Verdana">QuTiP allows for arbitrary time-dependent Hamiltonians and collapse operators.  In fact, QuTiP can perform some sneaky ninja tricks behind the scene and automatically compile a wide range of operators into C-code using Cython.</font></p> </TD>
 </TR> 
 </TABLE>
 
