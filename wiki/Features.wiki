@@ -38,6 +38,18 @@
 </TABLE>
 
 <br>
+
+<p><font size="5" face="Verdana"><u><b>Arbitrary Time Dependent Evolution:</b></u></font><p>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
+<TR>
+<TD ><img src="http://qutip.googlecode.com/svn/doc/figures/features/ninja.png"/> </TD>
+<TD width="400"> <p><font size="3" face="Verdana">QuTiP allows for arbitrary time-dependent Hamiltonians and collapse operators.</font></p> </TD>
+</TR> 
+</TABLE>
+
+
+<br>
 <p><font size="5" face="Verdana"><u><b>Performance:</b></u></font><p>
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=740>
