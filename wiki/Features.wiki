@@ -25,7 +25,7 @@
 
 
 <br>
-<p><font size="5" face="Verdana"><u><b>Multiple Dynamical Solvers:</b></u></font><p>
+<p><font size="5" face="Verdana"><u><b>Multiple Dynamics Solvers:</b></u></font><p>
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
