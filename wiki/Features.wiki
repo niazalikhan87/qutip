@@ -41,7 +41,7 @@
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
 <TD  align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/features/ninja.png"/> </TD>
-<TD width="400"> <p><font size="3" face="Verdana">QuTiP 2 allows for arbitrary time-dependent Hamiltonians and collapse operators in both the Lindblad master equation or Monte Carlo solvers.  In fact, QuTiP can perform some sneaky ninja tricks behind the scene, and automatically compile a wide range of operators into C-code using Cython.</font></p> </TD>
+<TD width="400"> <p><font size="3" face="Verdana">QuTiP 2 allows for arbitrary time-dependent Hamiltonians and collapse operators in both the Lindblad master equation and Monte Carlo solvers.  In fact, QuTiP can perform some sneaky ninja tricks behind the scene, and automatically compile a wide range of operators into C-code using Cython.</font></p> </TD>
 </TR> 
 </TABLE>
 
