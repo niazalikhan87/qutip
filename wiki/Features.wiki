@@ -25,6 +25,16 @@
 
 
 <br>
+<p><font size="5" face="Verdana"><u><b>Multiple Dynamical Solvers:</b></u></font><p>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
+<TR>
+<TD width="400"><p><font size="3" face="Verdana">QuTiP includes a variety of builtin solvers for simulating a variety of both open and closed quantum systems.  In addition to the standard Lindblad master equation and Monte Carlo Solvers, QuTiP 2 now includes routines for Bloch-Redfield master equations and periodic systems using the Floquet formalism.  Add to this, direct diagonalization via the eseries solver, as well as steady state analysis, and you have a wide variety of tools from which to explore your systems behavior.</font></p> </TD>
+<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/dynamics.png"/> </TD>
+</TR> 
+</TABLE>
+
+<br>
 
 <p><font size="5" face="Verdana"><u><b>Arbitrary Time Dependent Evolution:</b></u></font><p>
 
