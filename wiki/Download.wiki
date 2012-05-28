@@ -11,13 +11,13 @@
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/gz.png" /></td>
 <td><p align="left">
-<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-1.1.3-4.tar.gz">QuTiP 1.1.3 tar.gz</a></font>
+<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-1.1.4.tar.gz">QuTiP 1.1.4 tar.gz</a></font>
 </p></td>
 </tr>
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/zip.png" /></td>
 <td><p align="left">
-<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-1.1.3-4.zip">QuTiP 1.1.3 zip file</a></font>
+<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-1.1.4.zip">QuTiP 1.1.4 zip file</a></font>
 </p></td>
 </tr>
 </table>
