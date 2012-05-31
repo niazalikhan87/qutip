@@ -4,7 +4,7 @@
 
 
 <br>
-<p><font size="4" face="Verdana" color="#FF2923"><u><b>Latest News:</b></u></font><p>
+<p><font size="5" face="Verdana" color="#FF2923"><u>Latest News:</u></font><p>
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
@@ -24,7 +24,7 @@
 </TABLE>
 
 <br>
-<p><font size="4" face="Verdana" color="#FF2923"><u><b>Top Users (by number of visits as of 15/5/2012):</b></u></font><p>
+<p><font size="5" face="Verdana" color="#FF2923"><u>Top Users (by number of visits as of 15/5/2012):</u></font><p>
 
 <p><font size="4" face="Verdana">1. ETH Zürich</font><p>
 <p><font size="4" face="Verdana">2. Princeton University</font><p>
