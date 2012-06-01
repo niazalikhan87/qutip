@@ -10,6 +10,28 @@
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/documentation/online.png" /></td>
 <td><p align="left">
+<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/svn/doc/2.0.0/html/index.html">QuTiP 2.0.0 Online HTML documentation</a></font>
+</p></td>
+</tr>
+<tr>
+<td><img src="http://qutip.googlecode.com/svn/doc/figures/documentation/pdf.png" /></td>
+<td><p align="left">
+<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-2.0.0-DOC.pdf">QuTiP 2.0.0 auto-generated PDF documentation</a></font>
+</p></td>
+</tr>
+</table>
+
+
+
+<br>
+<p align="left">
+<font size="3" face="Verdana"><u><b>Previous QuTiP 1.x Documentation:</b></u></font>
+</p>
+
+<table border="0" cellspacing="5" cellpadding="0" align="center" width="500">
+<tr>
+<td><img src="http://qutip.googlecode.com/svn/doc/figures/documentation/online.png" /></td>
+<td><p align="left">
 <font size="3" face="Verdana"><a href="http://qutip.googlecode.com/svn/doc/1.1.4/html/index.html">QuTiP 1.1.4 Online HTML documentation</a></font>
 </p></td>
 </tr>
