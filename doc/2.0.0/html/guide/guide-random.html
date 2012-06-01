@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Generating Random Quantum States &amp; Operators &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Users Guide" href="guide.html" />
+    <link rel="next" title="Modifying Internal QuTiP Settings" href="guide-settings.html" />
+    <link rel="prev" title="Saving QuTiP Objects and Data Sets" href="guide-saving.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../index.html"><img src="../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guide-settings.html" title="Modifying Internal QuTiP Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="guide-saving.html" title="Saving QuTiP Objects and Data Sets"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="guide.html" accesskey="U">QuTiP Users Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Generating Random Quantum States &amp; Operators</a><ul>
+<li><a class="reference internal" href="#composite-random-objects">Composite random objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guide-saving.html"
+                        title="previous chapter">Saving QuTiP Objects and Data Sets</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="guide-settings.html"
+                        title="next chapter">Modifying Internal QuTiP Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/guide/guide-random.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="generating-random-quantum-states-operators">
+<span id="random"></span><h1>Generating Random Quantum States &amp; Operators<a class="headerlink" href="#generating-random-quantum-states-operators" title="Permalink to this headline">¶</a></h1>
+<p>QuTiP includes a collection of random state generators for simulations, theorem evaluation, and code testing:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><cite>rand_ket</cite></td>
+<td>Random ket-vector</td>
+</tr>
+<tr class="row-odd"><td><cite>rand_dm</cite></td>
+<td>Random density matrix</td>
+</tr>
+<tr class="row-even"><td><cite>rand_herm</cite></td>
+<td>Random Hermitian matrix</td>
+</tr>
+<tr class="row-odd"><td><cite>rand_unitary</cite></td>
+<td>Random Unitary matrix</td>
+</tr>
+</tbody>
+</table>
+<p>See the API documentation: <a class="reference internal" href="../apidoc/functions.html#functions-rand"><em>Random Operators and States</em></a> for details.</p>
+<p>In all cases, these functions can be called with a single parameter <span class="math">\(N\)</span> that indicates a <span class="math">\(NxN\)</span> matrix (<cite>rand_dm</cite>, <cite>rand_herm</cite>, <cite>rand_unitary</cite>), or a <span class="math">\(Nx1\)</span> vector (<cite>rand_ket</cite>), should be generated.  For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rand_ket</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[-0.69257444+0.07716822j]</span>
+<span class="go"> [-0.48903635+0.00547509j]</span>
+<span class="go"> [-0.04434023-0.04301746j]</span>
+<span class="go"> [-0.27839376+0.00130696j]</span>
+<span class="go"> [-0.35384822+0.26204821j]]</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rand_herm</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.00000000+0.j         -0.06185503-0.20132642j -0.14510832-0.02572751j</span>
+<span class="go">  -0.59958603-0.13581992j -0.11296987-0.19364997j]</span>
+<span class="go"> [-0.06185503+0.20132642j  0.00000000+0.j         -0.67138090+0.38714512j</span>
+<span class="go">  -0.14847184+0.13814627j -0.34759237-0.09025718j]</span>
+<span class="go"> [-0.14510832+0.02572751j -0.67138090-0.38714512j  0.00000000+0.j</span>
+<span class="go">  -0.45128021+0.16790562j  0.00000000+0.j        ]</span>
+<span class="go"> [-0.59958603+0.13581992j -0.14847184-0.13814627j -0.45128021-0.16790562j</span>
+<span class="go">  -0.33788000+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [-0.11296987+0.19364997j -0.34759237+0.09025718j  0.00000000+0.j</span>
+<span class="go">   0.00000000+0.j          0.00000000+0.j        ]]</span>
+</pre></div>
+</div>
+<p>In this previous example, we see that the generated Hermitian operator contains a faction of elements that are identically equal to zero.  The number of nonzero elements is called the <cite>density</cite> and can be controlled by calling any of the random state/operator generators with a second argument between 0 and 1.  By default, the density for the operators is <cite>0.75</cite> where as ket vectors are completely dense (<cite>1</cite>).  For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.21266414+0.j          0.02943826+0.04209834j  0.16825067-0.08486911j</span>
+<span class="go">   0.05243364-0.08772405j  0.00000000+0.j        ]</span>
+<span class="go"> [ 0.02943826-0.04209834j  0.78733586+0.j          0.02000972+0.05611193j</span>
+<span class="go">   0.19337602+0.08780273j  0.00000000+0.j        ]</span>
+<span class="go"> [ 0.16825067+0.08486911j  0.02000972-0.05611193j  0.00000000+0.j</span>
+<span class="go">   0.00000000+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [ 0.05243364+0.08772405j  0.19337602-0.08780273j  0.00000000+0.j</span>
+<span class="go">   0.00000000+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.j          0.00000000+0.j          0.00000000+0.j</span>
+<span class="go">   0.00000000+0.j          0.00000000+0.j        ]]</span>
+</pre></div>
+</div>
+<p>has 12 nonzero elements, or equivilently a density of 0.5.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In the case of a density matrix, setting the density too low will result in not enough diagonal elements to satisfy <span class="math">\(Tr(\rho)=1\)</span>.</p>
+</div>
+<div class="section" id="composite-random-objects">
+<h2>Composite random objects<a class="headerlink" href="#composite-random-objects" title="Permalink to this headline">¶</a></h2>
+<p>In many cases, one is interested in generating random quantum objects that correspond to composite systems generated using the <a class="reference internal" href="../apidoc/functions.html#qutip.tensor.tensor" title="qutip.tensor.tensor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.tensor.tensor</span></tt></a> function.  Specifying the tensor structure of a quantum object is done using the <cite>dims</cite> keyword argument in the same fashion as one would do for a <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rand_unitary</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.63224397+0.03961913j -0.48934943+0.5741797j  -0.11171375+0.12333134j</span>
+<span class="go">  -0.01673677-0.03977414j]</span>
+<span class="go"> [-0.02160731+0.75410763j  0.51216688+0.40252671j -0.06994174-0.0380775j</span>
+<span class="go">   0.00990143-0.00850615j]</span>
+<span class="go"> [ 0.02132803+0.16503241j -0.07581063-0.02438219j  0.77718792+0.3962325j</span>
+<span class="go">  -0.35597928+0.27968763j]</span>
+<span class="go"> [-0.04216640+0.00917044j  0.00197097-0.0129038j  -0.16907045+0.41995429j</span>
+<span class="go">   0.61014364+0.64864923j]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guide-settings.html" title="Modifying Internal QuTiP Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="guide-saving.html" title="Saving QuTiP Objects and Data Sets"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="guide.html" >QuTiP Users Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on May 22, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-16824831-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
