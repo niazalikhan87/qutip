@@ -10,7 +10,7 @@
 
 <TR>
 <TD > <p><font size="3" face="Verdana"><b>June 01, 2012</b></font></p> </TD>
-<TD > <p><font size="3" face="Verdana">QuTiP version 2.0 is finally released!</font></p> </TD>
+<TD > <p><font size="3" face="Verdana"><b>QuTiP version 2.0 is finally released!</b></font></p> </TD>
 </TR>
 
 <TR>
