@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Saving QuTiP Objects and Data Sets &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../index.html" />
+    <link rel="up" title="QuTiP Users Guide" href="guide.html" />
+    <link rel="next" title="Generating Random Quantum States &amp; Operators" href="guide-random.html" />
+    <link rel="prev" title="Using QuTiP’s Built-in Parallel for-loop" href="guide-parfor.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../index.html"><img src="../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guide-random.html" title="Generating Random Quantum States &amp; Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="guide-parfor.html" title="Using QuTiP’s Built-in Parallel for-loop"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="guide.html" accesskey="U">QuTiP Users Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Saving QuTiP Objects and Data Sets</a><ul>
+<li><a class="reference internal" href="#storing-and-loading-qutip-objects">Storing and loading QuTiP objects</a></li>
+<li><a class="reference internal" href="#storing-and-loading-datasets">Storing and loading datasets</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guide-parfor.html"
+                        title="previous chapter">Using QuTiP&#8217;s Built-in Parallel for-loop</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="guide-random.html"
+                        title="next chapter">Generating Random Quantum States &amp; Operators</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/guide/guide-saving.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="saving-qutip-objects-and-data-sets">
+<span id="saving"></span><h1>Saving QuTiP Objects and Data Sets<a class="headerlink" href="#saving-qutip-objects-and-data-sets" title="Permalink to this headline">¶</a></h1>
+<p>With time-consuming calculations it is often necessary to store the results to files on disk, so it can be post-processed and archived. In QuTiP there are two facilities for storing data: Quantum objects can be stored to files and later read back as python pickles, and numerical data (vectors and matrices) can be exported as plain text files in for example CSV (comma-separated values), TSV (tab-separated values), etc. The former method is preferred when further calculations will be performed with the data, and the latter when the calculations are completed and data is to be imported into a post-processing tool (e.g. for generating figures).</p>
+<div class="section" id="storing-and-loading-qutip-objects">
+<h2>Storing and loading QuTiP objects<a class="headerlink" href="#storing-and-loading-qutip-objects" title="Permalink to this headline">¶</a></h2>
+<p>To store and load arbitrary QuTiP related objects (<tt class="xref py py-class docutils literal"><span class="pre">Qobj</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Odedata</span></tt>, etc.) there are two functions: <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt>. The function <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> takes an arbitrary object as first parameter and an optional filename as second parameter (default filename is <cite>qutip_data.qu</cite>). The filename extension is always <cite>.qu</cite>. The function <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt> takes a mandatory filename as first argument and loads and returns the objects in the file.</p>
+<p>To illustrate how these functions can be used, consider a simple calculation of the steadystate of the harmonic oscillator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rho_ss</span> <span class="o">=</span> <span class="n">steadystate</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The steadystate density matrix <cite>rho_ss</cite> is an instance of <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>. It can be stored to a file <cite>steadystate.qu</cite> using</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qsave</span><span class="p">(</span><span class="n">rho_ss</span><span class="p">,</span> <span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ls</span> <span class="o">*.</span><span class="n">qu</span>
+<span class="go">steadystate.qu</span>
+</pre></div>
+</div>
+<p>and it can later be loaded again, and used in further calculations:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho_ss_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
+<span class="go">Loaded Qobj object:</span>
+<span class="go">Quantum object: dims = [[10], [10]], shape = [10, 10], type = oper, isHerm = True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">rho_ss_loaded</span><span class="p">)</span>
+<span class="go">array(0.9902248289344705)</span>
+</pre></div>
+</div>
+<p>The nice thing about the <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt> functions is that almost any object can be stored and load again later on. We can for example store a list of density matrices as returned by <a class="reference internal" href="../apidoc/functions.html#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">rand_ket</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dm_list</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="p">[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qsave</span><span class="p">(</span><span class="n">dm_list</span><span class="p">,</span> <span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And it can then be loaded and used again, for example in an other program:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dm_list_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
+<span class="go">Loaded list object.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># use it in some calculation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([</span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span> <span class="k">for</span> <span class="n">dm</span> <span class="ow">in</span> <span class="n">dm_list_loaded</span><span class="p">])</span>
+<span class="go">array([ 4.30052873,  3.41114025,  2.78257234,  2.32509271,  1.98722684,</span>
+<span class="go">        1.73608258,  1.54875697,  1.4087477 ,  1.30396859,  1.22548884])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storing-and-loading-datasets">
+<h2>Storing and loading datasets<a class="headerlink" href="#storing-and-loading-datasets" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt> are great, but the file format used is only understood by QuTiP (python) programs. When data must be exported to other programs the prefered method is to store the data in the commonly used plain-text file formats. With the QuTiP functions <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_read</span></tt> we can store and load <strong>numpy</strong> arrays and matrices to files on disk using a deliminator-separated value format (for example comma-separated values CSV). Almost any program can handle this file format.</p>
+<p>The <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> takes two mandatory and three optional arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">file_data_store</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">numtype</span><span class="o">=</span><span class="s">&quot;complex&quot;</span><span class="p">,</span> <span class="n">numformat</span><span class="o">=</span><span class="s">&quot;decimal&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <cite>filename</cite> is the name of the file, <cite>data</cite> is the data to be written to the file (must be a <em>numpy</em> array), <cite>numtype</cite> (optional) is a flag indicating numerical type that can take values <cite>complex</cite> or <cite>real</cite>, <cite>numformat</cite> (optional) specifies the numerical format that can take the values <cite>exp</cite> for the format <cite>1.0e1</cite> and <cite>decimal</cite> for the format <cite>10.0</cite>, and <cite>sep</cite> (optional) is an arbitrary single-character field separator (usually a tab, space, comma, semicolon, etc.).</p>
+<p>A common use for the <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> function is to store the expectation values of a set of operators for a sequence of times, e.g., as returned by the <a class="reference internal" href="../apidoc/functions.html#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a> function, which is what the following example does:</p>
+<div class="highlight-python"><pre>&gt;&gt;&gt; a = destroy(10); H = a.dag() * a ; c_ops = [sqrt(0.5) * a, sqrt(0.25) * a.dag()]
+&gt;&gt;&gt; psi0 = rand_ket(10)
+&gt;&gt;&gt; tlist = linspace(0, 100, 100)
+&gt;&gt;&gt; expt_values = mesolve(H, psi0, tlist, c_ops, [a.dag() * a, a+a.dag(), -1j(a-a.dag())])
+&gt;&gt;&gt; shape(expt_values)
+(3, 100)
+&gt;&gt;&gt; shape(tlist)
+(100,1)
+&gt;&gt;&gt; output_data = vstack((tlist, expt_values))   # join time and expt data
+&gt;&gt;&gt; file_data_store('expect.dat', output_data.T) # Note the .T for transpose !
+&gt;&gt;&gt; ls *.dat
+expect.dat
+&gt;&gt;&gt; !head expect.dat
+# Generated by QuTiP: 100x4 complex matrix in decimal format [',' separated values].
+0.0000000000+0.0000000000j,4.2424841416+0.0000000000j,2.3200046262+0.0000000000j,0.1937084248+0.0000000000j
+0.1010101010+0.0000000000j,4.1379975175+0.0000000000j,2.2803919588+0.0000000000j,-0.0289188081+0.0000000000j
+0.2020202020+0.0000000000j,4.0424499915+0.0000000000j,2.2243729051+0.0000000000j,-0.2486713739+0.0000000000j
+0.3030303030+0.0000000000j,3.9527450545+0.0000000000j,2.1495725421+0.0000000000j,-0.4605913338+0.0000000000j
+0.4040404040+0.0000000000j,3.8674018874+0.0000000000j,2.0562127752+0.0000000000j,-0.6616078826+0.0000000000j
+0.5050505051+0.0000000000j,3.7856377679+0.0000000000j,1.9454779063+0.0000000000j,-0.8495893849+0.0000000000j
+0.6060606061+0.0000000000j,3.7069902520+0.0000000000j,1.8189312038+0.0000000000j,-1.0229166838+0.0000000000j
+0.7070707071+0.0000000000j,3.6311546972+0.0000000000j,1.6783060144+0.0000000000j,-1.1802965424+0.0000000000j
+0.8080808081+0.0000000000j,3.5579106202+0.0000000000j,1.5254272690+0.0000000000j,-1.3206823679+0.0000000000j</pre>
+</div>
+<p>In this case we didn&#8217;t really need to store both the real and imaginary parts, so instead we could use the <cite>numtype=&#8221;real&#8221;</cite> option:</p>
+<div class="highlight-python"><pre>&gt;&gt;&gt; file_data_store('expect.dat', output_data.T, numtype="real")
+&gt;&gt;&gt; !head -n5 expect.dat
+# Generated by QuTiP: 100x4 real matrix in decimal format [',' separated values].
+0.0000000000,4.2424841416,2.3200046262,0.1937084248
+0.1010101010,4.1379975175,2.2803919588,-0.0289188081
+0.2020202020,4.0424499915,2.2243729051,-0.2486713739
+0.3030303030,3.9527450545,2.1495725421,-0.4605913338</pre>
+</div>
+<p>and if we prefer scientific notation we can request that using the <cite>numformat=&#8221;exp&#8221;</cite> option</p>
+<div class="highlight-python"><pre>&gt;&gt;&gt; file_data_store('expect.dat', output_data.T, numtype="real", numformat="exp")
+&gt;&gt;&gt; !head -n 5 expect.dat
+# Generated by QuTiP: 100x4 real matrix in exp format [',' separated values].
+0.0000000000e+00,4.2424841416e+00,2.3200046262e+00,1.9370842484e-01
+1.0101010101e-01,4.1379975175e+00,2.2803919588e+00,-2.8918808147e-02
+2.0202020202e-01,4.0424499915e+00,2.2243729051e+00,-2.4867137392e-01
+3.0303030303e-01,3.9527450545e+00,2.1495725421e+00,-4.6059133382e-01</pre>
+</div>
+<p>Loading data previously stored using <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> (or some other software) is a even easier. Regardless of which deliminator was used, if data was stored as complex or real numbers, if it is in decimal or exponential form, the data can be loaded using the <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_read</span></tt>, which only takes the filename as mandatory argument.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">input_data</span> <span class="o">=</span> <span class="n">file_data_read</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shape</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+<span class="go">(100, 4)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># do something with the data, e.g.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(If a particularly obscure choice of deliminator was used it might be necessary to use the optional second argument, for example <cite>sep=&#8221;_&#8221;</cite> if _ is the deliminator).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guide-random.html" title="Generating Random Quantum States &amp; Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="guide-parfor.html" title="Using QuTiP’s Built-in Parallel for-loop"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="guide.html" >QuTiP Users Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Jun 01, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-16824831-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

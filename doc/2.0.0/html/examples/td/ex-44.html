@@ -1,0 +1,204 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Floquet quasienergy levels for a driven two-level system &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../../index.html" />
+    <link rel="up" title="Dynamics of time-dependent systems" href="../ex-time-dependence.html" />
+    <link rel="next" title="Advanced topics and examples" href="../ex-advanced.html" />
+    <link rel="prev" title="Using the propagator to find the steady state of a driven system" href="ex-43.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../../index.html"><img src="../../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../ex-advanced.html" title="Advanced topics and examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ex-43.html" title="Using the propagator to find the steady state of a driven system"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../examples.html" >QuTiP Example Scripts</a> &raquo;</li>
+          <li><a href="../ex-time-dependence.html" accesskey="U">Dynamics of time-dependent systems</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ex-43.html"
+                        title="previous chapter">Using the propagator to find the steady state of a driven system</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ex-advanced.html"
+                        title="next chapter">Advanced topics and examples</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/examples/td/ex-44.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="floquet-quasienergy-levels-for-a-driven-two-level-system">
+<span id="exme44"></span><h1>Floquet quasienergy levels for a driven two-level system<a class="headerlink" href="#floquet-quasienergy-levels-for-a-driven-two-level-system" title="Permalink to this headline">¶</a></h1>
+<p>This example demonstrates how to calculate the Floquet quasienergies for a driven system. The example is taken from Creffield et al., Phys. Rev. B 67, 165301 (2003), see Fig. 1(a) in that paper. The Hamiltonian is</p>
+<div class="math">
+\[H(t) = \frac{\Delta}{2}\sigma_z + \frac{E}{2}\cos(\omega t)\sigma_z,\]</div>
+<p>and we use the QuTiP function <a class="reference internal" href="../../apidoc/functions.html#qutip.floquet.floquet_modes" title="qutip.floquet.floquet_modes"><tt class="xref py py-func docutils literal"><span class="pre">qutip.floquet.floquet_modes</span></tt></a> to obtain the Floquet modes and the quasienergies.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#</span>
+<span class="c"># Calculate the quasienergies for a driven two-level system as a function of</span>
+<span class="c"># driving amplitude. See Creffield et al., Phys. Rev. B 67, 165301 (2003).</span>
+<span class="c">#</span>
+
+<span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">delta</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># bare qubit sigma_z coefficient</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># bare qubit sigma_x coefficient</span>
+    <span class="n">omega</span>   <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c"># driving frequency</span>
+    <span class="n">T</span>       <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">omega</span>  <span class="c"># driving period</span>
+
+    <span class="n">E_vec</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">omega</span>
+
+    <span class="n">sx</span> <span class="o">=</span> <span class="n">sigmax</span><span class="p">()</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="n">sigmaz</span><span class="p">()</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">q_energies</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">E_vec</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">H0</span> <span class="o">=</span> <span class="n">delta</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">sz</span> <span class="o">-</span> <span class="n">epsilon</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">sx</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">A</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">E_vec</span><span class="p">):</span>
+        <span class="n">H1</span> <span class="o">=</span> <span class="n">A</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">sx</span>
+
+        <span class="c"># H = H0 + H1 * sin(w * t) in the &#39;list-string&#39; format</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;w&#39;</span><span class="p">:</span> <span class="n">omega</span><span class="p">}</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="p">[</span><span class="n">H0</span><span class="p">,</span> <span class="p">[</span><span class="n">H1</span><span class="p">,</span> <span class="s">&#39;cos(w * t)&#39;</span><span class="p">]]</span>
+
+        <span class="c"># find the floquet modes</span>
+        <span class="n">f_modes</span><span class="p">,</span><span class="n">f_energies</span> <span class="o">=</span> <span class="n">floquet_modes</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+        <span class="n">q_energies</span><span class="p">[</span><span class="n">idx</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">f_energies</span>
+
+    <span class="c"># plot the results</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">E_vec</span><span class="o">/</span><span class="n">omega</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">q_energies</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">delta</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">E_vec</span><span class="o">/</span><span class="n">omega</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">q_energies</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">delta</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s">r&#39;$E/\omega$&#39;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s">r&#39;Quasienergy / $\Delta$&#39;</span><span class="p">)</span>
+    <span class="n">title</span><span class="p">(</span><span class="s">r&#39;Floquet quasienergies&#39;</span><span class="p">)</span>
+    <span class="n">text</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s">r&#39;$H = \frac{\Delta}{2}\sigma_z + \frac{E}{2}\cos(\omega t)\sigma_x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../../../qutip/qutip/examples/ex_44.py">Source code</a>)</p>
+<div class="figure align-center">
+<img alt="../../_images/ex-44.png" src="../../_images/ex-44.png" style="width: 4in;" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../ex-advanced.html" title="Advanced topics and examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ex-43.html" title="Using the propagator to find the steady state of a driven system"
+             >previous</a> |</li>
+        <li><a href="../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="../examples.html" >QuTiP Example Scripts</a> &raquo;</li>
+          <li><a href="../ex-time-dependence.html" >Dynamics of time-dependent systems</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Jun 01, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-16824831-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
