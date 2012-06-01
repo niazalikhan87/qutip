@@ -7,6 +7,12 @@
 <p><font size="5" face="Verdana" color="#FF2923"><u>Latest News:</u></font><p>
 
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
+
+<TR>
+<TD > <p><font size="3" face="Verdana"><b>June 01, 2012</b></font></p> </TD>
+<TD > <p><font size="3" face="Verdana">QuTiP version 2.0 is finally released!</font></p> </TD>
+</TR>
+
 <TR>
 <TD > <p><font size="3" face="Verdana"><b>May 28, 2012</b></font></p> </TD>
 <TD > <p><font size="3" face="Verdana">QuTiP version 1.1.4, fixing three bugs, is released.</font></p> </TD>
