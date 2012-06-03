@@ -53,7 +53,7 @@
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 <TR>
 <TD width="400"><p><font size="3" face="Verdana">QuTiP can make use of the multiple processing cores found in essentially all modern computers.  The QuTiP Monte-Carlo solver will run trajectories simultaneously over all, or any user defined, number of CPUs.  Furthermore, repetitive tasks such as simulating master equation evolution over a given range of parameters can also be run in parallel using the built-in <b>parfor</b> function.</font></p> </TD>
-<TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/multiprocessing.png"/> </TD>
+<TD align="center"> <img src="http://qutip.googlecode.com/svn/doc/figures/features/multiprocessing.png"/> </TD>
 </TR> 
 </TABLE>
 
@@ -73,3 +73,22 @@
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/mc_performance.png"/> </TD>
 </TR> 
 </TABLE>
+
+
+<br>
+<p><font size="5" face="Verdana"><u><b>Documentation:</b></u></font><p>
+
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
+<TR>
+<TD width="400"><p><font size="3" face="Verdana">No software should be a black box to the user, especially in science.  QuTiP is not only completely open-source, but also includes <b>over 200 pages</b> of documentation that can be accessed online, or download in PDF form.  This includes <b>over 50 examples</b>, and a detailed description of every user accessible function and its parameters.  This is <b>5x</b> more documentation than some other packages (yes, we are talking about you qotoolbox).</font></p> </TD>
+<TD align="center"> <img src="http://qutip.googlecode.com/svn/doc/figures/features/docs.png"/> </TD>
+</TR> 
+</TABLE>
+
+
+
+
+
+
+
+
