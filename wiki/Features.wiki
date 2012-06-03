@@ -65,11 +65,11 @@
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=740>
 
 <TR>
-<TD width="355" align="center"><p><font size="3" face="Verdana">QuTiP vs. qotoolbox Master Equation Simulation Times (lower=better)</font></p> </TD>
+<TD width="360" align="center"><p><font size="3" face="Verdana">QuTiP vs. qotoolbox Master Equation Simulation Times (lower=better)</font></p> </TD>
 <TD align="center"> <p><font size="3" face="Verdana">QuTiP vs. qotoolbox Monte-Carlo Simulation Times (lower=better)</font></p> </TD>
 </TR> 
 <TR>
-<TD width="355"><img src="http://qutip.googlecode.com/svn/doc/figures/features/me_performance.png"/></TD>
+<TD width="350"><img src="http://qutip.googlecode.com/svn/doc/figures/features/me_performance.png"/></TD>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/mc_performance.png"/> </TD>
 </TR> 
 </TABLE>
@@ -84,8 +84,6 @@
 <TD align="center"> <img src="http://qutip.googlecode.com/svn/doc/figures/features/docs.png"/> </TD>
 </TR> 
 </TABLE>
-
-
 
 
 
