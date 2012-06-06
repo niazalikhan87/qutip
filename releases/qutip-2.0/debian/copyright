@@ -1,0 +1,23 @@
+This package was debianized by Robert Johansson <jrjohansson@gmail.com>
+2011-10-07
+
+It was downloaded from: http://code.google.com/p/qutip/
+
+Upstream Authors: P.D. Nation <nonhermitian@gmail.com> and J.R. Johansson <jrjohansson@gmail.com>
+
+Copyright:
+        Copyright (C) 2011 by P.D. Nation and J.R. Johansson
+
+Packaging:
+        Copyright (C) 2011 by P.D. Nation and J.R. Johansson
+
+License: GPL
+   This package is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This package is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.

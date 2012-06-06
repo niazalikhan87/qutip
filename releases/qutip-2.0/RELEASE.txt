@@ -1,0 +1,143 @@
+################################
+# QuTiP RELEASE NOTES
+# P.D. Nation and J.R. Johansson
+################################
+
+
+*********************************************
+Version 2.0.0 [svn-2354] (June 01, 2012):
+*********************************************
+
+- QuTiP now includes solvers for both Floquet and Bloch-Redfield master equations.
+
+- The Lindblad master equation and monte-carlo solvers allow for time-dependent collapse operators.
+
+- It is possible to automatically compile time-dependent problems into c-code using Cython (if installed).
+
+- Python functions can be used to create arbitrary time-dependent Hamiltonians and collapse operators.
+
+- Solvers now return Odedata objects containing all simulation results and parameters, simplifying the saving of simulation results.
+
+- mesolve and mcsolve can reuse Hamiltonian data when only the initial state, or time-dependent arguments, need to be changed.
+
+- QuTiP includes functions for creating random quantum states and operators.
+
+- The generation and manipulation of quantum objects is now more efficient.
+
+- Quantum objects have basis transformation and matrix element calculations as built-in methods.
+
+- The quantum object eigensolver can use sparse solvers.
+
+- The partial-trace (ptrace) function is up to 20x faster.
+
+- The Bloch sphere can now be used with the Matplotlib animation function, and embedded as a subplot in a figure.
+
+- QuTiP has built-in functions for saving quantum objects and data arrays.
+
+- The steady-state solver has been further optimized for sparse matrices, and can handle much larger system Hamiltonians.
+
+- The steady-state solver can use the iterative bi-conjugate gradient method instead of a direct solver.
+
+- There are three new entropy functions for concurrence, mutual information, and conditional entropy.
+
+- Correlation functions have been combined under a single function.
+
+- The operator norm can now be set to trace, Frobius, one, or max norm.
+
+- Global QuTiP settings can now be modified.
+
+- QuTiP includes a collection of unit tests for verifying the installation.
+
+- Demos window now lets you copy and paste code from each example.
+
+
+************************************************************
+Version 1.1.4 [fixes backported to svn-1450] (May 28, 2012):
+************************************************************
+
+Bug Fixes:
+----------
+- Fix factorial import for SciPy 0.10+.
+- Fix error in odesolve for density matrix input.
+- Fix Qobj.tr() returns 0d-array.
+
+
+*********************************************
+Version 1.1.3 [svn-1450] (November 21, 2011):
+*********************************************
+
+New Functions:
+--------------
+[1347] Allow custom naming of Bloch sphere.
+
+Bug Fixes:
+----------
+[1450] Fixed text alignment issues in AboutBox.
+[1448] Added fix for SciPy V>0.10 where factorial was moved to scipy.misc module.
+[1447] Added tidyup function to tensor function output.
+[1442] Removed openmp flags from setup.py as new Mac Xcode compiler does not recognize them.
+[1435] Qobj diag method now returns real array if all imaginary parts are zero.
+[1434] Examples GUI now links to new documentation.
+[1415] Fixed zero-dimensional array output from metrics module.
+
+
+********************************************
+Version 1.1.2 [svn-1218] (October 27, 2011):
+********************************************
+
+Bug Fixes:
+----------
+[1218] Fixed issue where Monte-Carlo states were not output properly.
+
+
+********************************************
+Version 1.1.1 [svn-1210] (October 25, 2011):
+********************************************
+
+** THIS POINT-RELEASE INCLUDES VASTLY IMPROVED MCSOLVE AND ODESOLVE PERFORMANCE **
+
+New functions:
+--------------
+[1183] Added linear entropy function.
+[1179] Number of CPU's can now be changed.
+
+Bug Fixes:
+----------
+[1184] Metrics no longer use dense matrices.
+[1184] Fixed Bloch sphere grid issue with matplotlib 1.1.
+[1183] Qobj trace operation uses only sparse matrices.
+[1168] Fixed issue where GUI windows do not raise to front.
+
+
+********************************************
+Version 1.1.0 [svn-1097] (October 04, 2011):
+********************************************
+
+** THIS RELEASE NOW REQUIRES THE GCC COMPILER TO BE INSTALLED **
+
+New functions:
+--------------
+[1054] tidyup function to remove small elements from a Qobj.
+[1051] Added concurrence function.
+[1036] Added simdiag for simultaneous diagonalization of operators.
+[1032] Added eigenstates method returning eigenstates and eigenvalues to Qobj class.
+[1030] Added fileio for saving and loading data sets and/or Qobj's.
+[1029] Added hinton function for visualizing density matrices.
+
+Bug Fixes:
+----------
+[1091] Switched Examples to new Signals method used in PySide 1.0.6+.
+[1090] Switched ProgressBar to new Signals method.
+[1075] Fixed memory issue in expm functions.
+[1069] Fixed memory bug in isherm.
+[1059] Made all Qobj data complex by default.
+[1053] Reduced ODE tolerance levels in Odeoptions.
+[1050] Fixed bug in ptrace where dense matrix was used instead of sparse.
+[1047] Fixed issue where PyQt4 version would not be displayed in about box.
+[1041] Fixed issue in Wigner where xvec was used twice (in place of yvec).
+
+
+******************************************
+Version 1.0.0 [svn-1021] (July 29, 2011):
+******************************************
+Initial release.
