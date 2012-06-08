@@ -30,7 +30,7 @@ Operating System :: MacOS
 MAJOR               = 2
 MINOR               = 0
 MICRO               = 0
-ISRELEASED          = False
+ISRELEASED          = True 
 VERSION             = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 import os
