@@ -1,44 +1,26 @@
 <p></p><p><table border="0" cellspacing="0" cellpadding="0" align="center"><tr><td colspan="15" align="center"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/qutip2_header.png" /></td> </tr><tr><td><a ><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/home.png" /></a></td><td><a><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Features" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/features.png" /></a>
 </td> <td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Download" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/download.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Documentation" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png" /></a></td><td><a  rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a href="http://code.google.com/p/qutip/wiki/Support" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/support.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/updates_red.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png" /></a></td> <td><a href="http://code.google.com/p/qutip/wiki/Citing" rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/citing.png" /></a></td><td><a rel="nofollow"><img src="http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png" /></a></td></tr></table></p><p>
 
-
-
 <br>
-<p><font size="5" face="Verdana" color="#FF2923"><u>Latest News:</u></font><p>
+<br>
+<br>
 
-<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
-
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=200>
 <TR>
-<TD > <p><font size="3" face="Verdana"><b>June 01, 2012</b></font></p> </TD>
-<TD > <p><font size="3" face="Verdana"><b>QuTiP version 2.0 is finally released!</b></font></p> </TD>
+<TD align="center">
+<a href="http://qutip.blogspot.com"><img src="http://qutip.googlecode.com/svn/doc/figures/updates/blog.png" /></a>
+</TD>
 </TR>
-
 <TR>
-<TD > <p><font size="3" face="Verdana"><b>May 28, 2012</b></font></p> </TD>
-<TD > <p><font size="3" face="Verdana">QuTiP version 1.1.4, fixing three bugs, is released.</font></p> </TD>
-</TR> 
-
-<TR>
-<TD > <p><font size="3" face="Verdana"><b>March 28, 2012</b></font></p> </TD>
-<TD > <p><font size="3" face="Verdana">The QuTiP website is being updated for the new version 2.0.</font></p> </TD>
-</TR> 
-
-<TR>
-<TD > <p><font size="3" face="Verdana"><b>February 12, 2012</b></font></p> </TD>
-<TD > <p><font size="3" face="Verdana">QuTiP has received its 1000th unique visitor from Istanbul Turkey.</font></p> </TD>
-</TR> 
+<TD align="center">
+<p align="center">
+<font size="5" face="Verdana"><a href="http://qutip.blogspot.com">QuTiP Blog</a></font>
+</p>
+</TD>
+</TR>
 </TABLE>
-
 <br>
-<p><font size="5" face="Verdana" color="#FF2923"><u>Top Users (by number of visits as of 15/5/2012):</u></font><p>
+<br>
 
-<p><font size="4" face="Verdana">1. ETH Zürich</font><p>
-<p><font size="4" face="Verdana">2. Princeton University</font><p>
-<p><font size="4" face="Verdana">3. Leibniz Universität Hannover</font><p>
-<p><font size="4" face="Verdana">4. Beijing University of Posts and Telecommunications</font><p>
-<p><font size="4" face="Verdana">5. Stanford University</font><p>
-<p><font size="4" face="Verdana">6. Université de Fribourg</font><p>
-<p><font size="4" face="Verdana">7. University of Innsbruck</font><p>
-<p><font size="4" face="Verdana">8. Miami University</font><p>
-<p><font size="4" face="Verdana">9. University of Waterloo</font><p>
-<p><font size="4" face="Verdana">10. Technische Universität Kaiserslautern</font><p>
+<p align="center">
+<font size="5" face="Verdana">All of the latest QuTiP information can be found on the new blog site.</font>
