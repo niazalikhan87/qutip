@@ -11,7 +11,7 @@
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/gz.png" /></td>
 <td><p align="left">
-<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-2.0.0.tar.gz">QuTiP 2.0.0 tar.gz</a></font>
+<a href="http://qutip.googlecode.com/files/QuTiP-2.0.0.tar.gz" onclick="if (event.button==0) setTimeout(function(){document.body.innerHTML='thanks!'},200)" ><font size="3" face="Verdana">QuTiP 2.0.0 tar.gz</font></a>
 </p></td>
 </tr>
 <tr>
