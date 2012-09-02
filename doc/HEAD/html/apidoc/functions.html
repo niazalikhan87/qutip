@@ -1,0 +1,3057 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>QuTiP Function List &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../index.html" />
+    <link rel="up" title="API documentation" href="apidoc.html" />
+    <link rel="next" title="Change Log" href="../changelog.html" />
+    <link rel="prev" title="QuTiP classes" href="classes.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+<a href="../index.html"><img src="../_static/logo.png" border="0" alt="qutip"/></a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changelog.html" title="Change Log"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="QuTiP classes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="apidoc.html" accesskey="U">API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">QuTiP Function List</a><ul>
+<li><a class="reference internal" href="#manipulation-and-creation-of-states-and-operators">Manipulation and Creation of States and Operators</a><ul>
+<li><a class="reference internal" href="#module-qutip.states">Quantum States</a></li>
+<li><a class="reference internal" href="#module-qutip.operators">Quantum Operators</a></li>
+<li><a class="reference internal" href="#module-qutip.istests">Qobj Check Functions</a></li>
+<li><a class="reference internal" href="#module-qutip.superoperator">Liouvillian</a></li>
+<li><a class="reference internal" href="#module-qutip.tensor">Tensor</a></li>
+<li><a class="reference internal" href="#module-qutip.expect">Expectation Values</a></li>
+<li><a class="reference internal" href="#module-qutip.wigner">Pseudoprobability Functions</a></li>
+<li><a class="reference internal" href="#module-qutip.three_level_atom">Three-level atoms</a><ul>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dynamics-and-time-evolution">Dynamics and time-evolution</a><ul>
+<li><a class="reference internal" href="#module-qutip.mesolve">Master Equation</a></li>
+<li><a class="reference internal" href="#module-qutip.mcsolve">Monte Carlo Evolution</a></li>
+<li><a class="reference internal" href="#module-qutip.bloch_redfield">Bloch-Redfield Master Equation</a></li>
+<li><a class="reference internal" href="#module-qutip.floquet">Floquet States and Floquet-Markov Master Equation</a></li>
+<li><a class="reference internal" href="#module-qutip.correlation">Correlation Functions</a></li>
+<li><a class="reference internal" href="#module-qutip.essolve">Exponential Series</a></li>
+<li><a class="reference internal" href="#module-qutip.steady">Steady-state Solvers</a></li>
+<li><a class="reference internal" href="#module-qutip.propagator">Propagators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-functions">Other Functions</a><ul>
+<li><a class="reference internal" href="#module-qutip.fileio">Fileio Functions</a></li>
+<li><a class="reference internal" href="#module-qutip.entropy">Entropy Functions</a></li>
+<li><a class="reference internal" href="#module-qutip.gates">Quantum Computing Gates</a></li>
+<li><a class="reference internal" href="#module-qutip.metrics">Density Matrix Metrics</a></li>
+<li><a class="reference internal" href="#module-qutip.rand">Random Operators and States</a></li>
+<li><a class="reference internal" href="#module-qutip">Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="classes.html"
+                        title="previous chapter">QuTiP classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../changelog.html"
+                        title="next chapter">Change Log</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/apidoc/functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="qutip-function-list">
+<span id="functions"></span><h1>QuTiP Function List<a class="headerlink" href="#qutip-function-list" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manipulation-and-creation-of-states-and-operators">
+<h2>Manipulation and Creation of States and Operators<a class="headerlink" href="#manipulation-and-creation-of-states-and-operators" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-qutip.states">
+<span id="quantum-states"></span><h3>Quantum States<a class="headerlink" href="#module-qutip.states" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.states.basis">
+<tt class="descname">basis</tt><big>(</big><em>N</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.states.basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the vector representation of a Fock state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of Fock states in Hilbert space.</p>
+</div></blockquote>
+<p><strong>args</strong> : int</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">int</span></tt> corresponding to desired number state, defaults
+to 0 if omitted.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>state</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Qobj representing the requested number state <tt class="docutils literal"><span class="pre">|args&gt;</span></tt>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>A subtle incompability with the quantum optics toolbox: In QuTiP:</p>
+<div class="highlight-python"><pre>basis(N, 0) = ground state</pre>
+</div>
+<p>but in qotoolbox:</p>
+<div class="highlight-python"><pre>basis(N, 1) = ground state</pre>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 1.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.coherent">
+<tt class="descname">coherent</tt><big>(</big><em>N</em>, <em>alpha</em>, <em>method='displacement'</em><big>)</big><a class="headerlink" href="#qutip.states.coherent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a coherent state with eigenvalue alpha.</p>
+<p>Constructed using displacement operator on vacuum state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of Fock states in Hilbert space.</p>
+</div></blockquote>
+<p><strong>alpha</strong> : float/complex</p>
+<blockquote>
+<div><p>Eigenvalue of coherent state.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>state</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Qobj quantum object for coherent state</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[  9.69233235e-01+0.j        ]</span>
+<span class="go"> [  0.00000000e+00+0.24230831j]</span>
+<span class="go"> [ -4.28344935e-02+0.j        ]</span>
+<span class="go"> [  0.00000000e+00-0.00618204j]</span>
+<span class="go"> [  7.80904967e-04+0.j        ]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.coherent_dm">
+<tt class="descname">coherent_dm</tt><big>(</big><em>N</em>, <em>alpha</em>, <em>method='operator'</em><big>)</big><a class="headerlink" href="#qutip.states.coherent_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density matrix representation of a coherent state.</p>
+<p>Constructed via outer product of <a class="reference internal" href="#qutip.states.coherent" title="qutip.states.coherent"><tt class="xref py py-func docutils literal"><span class="pre">qutip.states.coherent</span></tt></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of Fock states in Hilbert space.</p>
+</div></blockquote>
+<p><strong>alpha</strong> : float/complex</p>
+<blockquote>
+<div><p>Eigenvalue for coherent state.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>dm</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Density matrix representation of coherent state.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.93941695+0.j          0.00000000-0.23480733j -0.04216943+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.23480733j  0.05869011+0.j          0.00000000-0.01054025j]</span>
+<span class="go"> [-0.04216943+0.j          0.00000000+0.01054025j  0.00189294+0.j        ]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.fock">
+<tt class="descname">fock</tt><big>(</big><em>N</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.states.fock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bosonic Fock (number) state.</p>
+<p>Same as <a class="reference internal" href="#qutip.states.basis" title="qutip.states.basis"><tt class="xref py py-func docutils literal"><span class="pre">qutip.states.basis</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of states in the Hilbert space.</p>
+</div></blockquote>
+<p><strong>m</strong> : int</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">int</span></tt> for desired number state, defaults to 0 if omitted.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>Requested number state :math:`left|mathrm{args}right&gt;`.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fock</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 0.+0.j]</span>
+<span class="go"> [ 1.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.fock_dm">
+<tt class="descname">fock_dm</tt><big>(</big><em>N</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.states.fock_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density matrix representation of a Fock state</p>
+<p>Constructed via outer product of <a class="reference internal" href="#qutip.states.fock" title="qutip.states.fock"><tt class="xref py py-func docutils literal"><span class="pre">qutip.states.fock</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of Fock states in Hilbert space.</p>
+</div></blockquote>
+<p><strong>m</strong> : int</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">int</span></tt> for desired number state, defaults to 0 if omitted.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>dm</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Density matrix representation of Fock state.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.ket2dm">
+<tt class="descname">ket2dm</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.states.ket2dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes input ket or bra vector and returns density matrix 
+formed by outer product.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Ket or bra type quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>dm</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Density matrix formed by outer product of <cite>Q</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ket2dm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.qutrit_basis">
+<tt class="descname">qutrit_basis</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.states.qutrit_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basis states for a three level system (qutrit)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>qstates</strong> : array</p>
+<blockquote class="last">
+<div><p>Array of qutrit basis vectors</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.states.thermal_dm">
+<tt class="descname">thermal_dm</tt><big>(</big><em>N</em>, <em>n</em>, <em>method='operator'</em><big>)</big><a class="headerlink" href="#qutip.states.thermal_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density matrix for a thermal state of n particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of basis states in Hilbert space.</p>
+</div></blockquote>
+<p><strong>n</strong> : float</p>
+<blockquote>
+<div><p>Expectation value for number of particles in thermal state.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>dm</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Thermal state density matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.50000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.25000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.12500+0.j  0.00000+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.06250+0.j  0.00000+0.j]</span>
+<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.03125+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-qutip.qstate"></span></div>
+<div class="section" id="module-qutip.operators">
+<span id="quantum-operators"></span><h3>Quantum Operators<a class="headerlink" href="#module-qutip.operators" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.operators.create">
+<tt class="descname">create</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation (raising) operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Dimension of Hilbert space.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Qobj for raising operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">create</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 1.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  1.41421356+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  1.73205081+0.j  0.00000000+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.destroy">
+<tt class="descname">destroy</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destruction (lowering) operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Dimension of Hilbert space.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Qobj for lowering operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.00000000+0.j  1.00000000+0.j  0.00000000+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  1.41421356+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  1.73205081+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.00000000+0.j  0.00000000+0.j  0.00000000+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.displace">
+<tt class="descname">displace</tt><big>(</big><em>N</em>, <em>alpha</em><big>)</big><a class="headerlink" href="#qutip.operators.displace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single-mode displacement operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Dimension of Hilbert space.</p>
+</div></blockquote>
+<p><strong>alpha</strong> : float/complex</p>
+<blockquote>
+<div><p>Displacement amplitude.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Displacement operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">displace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.96923323+0.j -0.24230859+0.j  0.04282883+0.j -0.00626025+0.j]</span>
+<span class="go"> [ 0.24230859+0.j  0.90866411+0.j -0.33183303+0.j  0.07418172+0.j]</span>
+<span class="go"> [ 0.04282883+0.j  0.33183303+0.j  0.84809499+0.j -0.41083747+0.j]</span>
+<span class="go"> [ 0.00626025+0.j  0.07418172+0.j  0.41083747+0.j  0.90866411+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.jmat">
+<tt class="descname">jmat</tt><big>(</big><em>j</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.operators.jmat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Higher-order spin operators:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>j</strong> : float</p>
+<blockquote>
+<div><p>Spin of operator</p>
+</div></blockquote>
+<p><strong>args</strong> : str</p>
+<blockquote>
+<div><p>Which operator to return &#8216;x&#8217;,&#8217;y&#8217;,&#8217;z&#8217;,&#8217;+&#8217;,&#8217;-&#8216;.
+If no args given, then output is [&#8216;x&#8217;,&#8217;y&#8217;,&#8217;z&#8217;]</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>jmat</strong> : qobj/list</p>
+<blockquote class="last">
+<div><p><tt class="docutils literal"><span class="pre">qobj</span></tt> for requested spin operator(s).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If no &#8216;args&#8217; input, then returns array of [&#8216;x&#8217;,&#8217;y&#8217;,&#8217;z&#8217;] operators.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jmat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">[ Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.          0.70710678  0.        ]</span>
+<span class="go"> [ 0.70710678  0.          0.70710678]</span>
+<span class="go"> [ 0.          0.70710678  0.        ]]</span>
+<span class="go"> Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.+0.j          0.+0.70710678j  0.+0.j        ]</span>
+<span class="go"> [ 0.-0.70710678j  0.+0.j          0.+0.70710678j]</span>
+<span class="go"> [ 0.+0.j          0.-0.70710678j  0.+0.j        ]]</span>
+<span class="go"> Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 1.  0.  0.]</span>
+<span class="go"> [ 0.  0.  0.]</span>
+<span class="go"> [ 0.  0. -1.]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.num">
+<tt class="descname">num</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object for number operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>The dimension of the Hilbert space.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper: qobj</strong> :</p>
+<blockquote class="last">
+<div><p>Qobj for number operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[0 0 0 0]</span>
+<span class="go"> [0 1 0 0]</span>
+<span class="go"> [0 0 2 0]</span>
+<span class="go"> [0 0 0 3]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.qeye">
+<tt class="descname">qeye</tt><big>(</big><em>N</em><big>)</big><a class="headerlink" href="#qutip.operators.qeye" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity operator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Dimension of Hilbert space.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Identity operator Qobj.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qeye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[3], [3]], shape = [3, 3], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.  0.  0.]</span>
+<span class="go"> [ 0.  1.  0.]</span>
+<span class="go"> [ 0.  0.  1.]]  </span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.qutrit_ops">
+<tt class="descname">qutrit_ops</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.qutrit_ops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operators for a three level system (qutrit).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>opers: array</strong> :</p>
+<blockquote class="last">
+<div><p><cite>array</cite> of qutrit operators.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.sigmam">
+<tt class="descname">sigmam</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annihilation operator for Pauli spins.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmam</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.  0.]</span>
+<span class="go"> [ 1.  0.]]    </span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.sigmap">
+<tt class="descname">sigmap</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation operator for Pauli spins.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmam</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.  1.]</span>
+<span class="go"> [ 0.  0.]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.sigmax">
+<tt class="descname">sigmax</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pauli spin 1/2 sigma-x operator</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmax</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.  1.]</span>
+<span class="go"> [ 1.  0.]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.sigmay">
+<tt class="descname">sigmay</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pauli spin 1/2 sigma-y operator.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmay</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.-1.j]</span>
+<span class="go"> [ 0.+1.j  0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.sigmaz">
+<tt class="descname">sigmaz</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.operators.sigmaz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pauli spin 1/2 sigma-z operator.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmaz</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.  0.]</span>
+<span class="go"> [ 0. -1.]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.operators.squeez">
+<tt class="descname">squeez</tt><big>(</big><em>N</em>, <em>sp</em><big>)</big><a class="headerlink" href="#qutip.operators.squeez" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single-mode Squeezing operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Dimension of hilbert space.</p>
+</div></blockquote>
+<p><strong>sp</strong> : float/complex</p>
+<blockquote>
+<div><p>Squeezing parameter.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Squeezing operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">squeez</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.98441565+0.j  0.00000000+0.j  0.17585742+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j  0.95349007+0.j  0.00000000+0.j  0.30142443+0.j]</span>
+<span class="go"> [-0.17585742+0.j  0.00000000+0.j  0.98441565+0.j  0.00000000+0.j]</span>
+<span class="go"> [ 0.00000000+0.j -0.30142443+0.j  0.00000000+0.j  0.95349007+0.j]]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">There is no ending &#8216;e&#8217; for the squeezing operator!</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.istests">
+<span id="qobj-check-functions"></span><h3>Qobj Check Functions<a class="headerlink" href="#module-qutip.istests" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.istests.isbra">
+<tt class="descname">isbra</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isbra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a bra-vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>isbra</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if Qobj is bra-vector, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">psi</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isket</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.isequal">
+<tt class="descname">isequal</tt><big>(</big><em>A</em>, <em>B</em>, <em>tol=1e-15</em><big>)</big><a class="headerlink" href="#qutip.istests.isequal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if two qobj objects are equal to within given tolerance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>A</strong> : qobj</p>
+<blockquote>
+<div><p>Qobj one</p>
+</div></blockquote>
+<p><strong>B</strong> : qobj</p>
+<blockquote>
+<div><p>Qobj two</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerence for equality to be valid</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>isequal</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if qobjs are equal, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.isherm">
+<tt class="descname">isherm</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isherm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given operator is Hermitian.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>isherm</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if operator is Hermitian, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isherm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.isket">
+<tt class="descname">isket</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a ket-vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>isket</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if qobj is ket-vector, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">psi</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isket</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.isoper">
+<tt class="descname">isoper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.isoper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>isoper</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if Qobj is operator, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isoper</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.istests.issuper">
+<tt class="descname">issuper</tt><big>(</big><em>Q</em><big>)</big><a class="headerlink" href="#qutip.istests.issuper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if given quantum object is a super-operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Q</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum object</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>issuper</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if Qobj is superoperator, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.superoperator">
+<span id="liouvillian"></span><h3>Liouvillian<a class="headerlink" href="#module-qutip.superoperator" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.superoperator.liouvillian">
+<tt class="descname">liouvillian</tt><big>(</big><em>H</em>, <em>c_op_list</em><big>)</big><a class="headerlink" href="#qutip.superoperator.liouvillian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assembles the Liouvillian superoperator from a Hamiltonian 
+and a <tt class="docutils literal"><span class="pre">list</span></tt> of collapse operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<blockquote>
+<div><p>System Hamiltonian.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : array_like</p>
+<blockquote>
+<div><p>A <tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of collpase operators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>L</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Louvillian superoperator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.superoperator.spost">
+<tt class="descname">spost</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#qutip.superoperator.spost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Superoperator formed from post-multiplication by operator A</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>A</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum operator for post multiplication.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>super</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Superoperator formed from input qauntum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.superoperator.spre">
+<tt class="descname">spre</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#qutip.superoperator.spre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Superoperator formed from pre-multiplication by operator A.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>A</strong> : qobj</p>
+<blockquote>
+<div><p>Quantum operator for pre-multiplication.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>super :qobj</strong> :</p>
+<blockquote class="last">
+<div><p>Superoperator formed from input quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.tensor">
+<span id="tensor"></span><h3>Tensor<a class="headerlink" href="#module-qutip.tensor" title="Permalink to this headline">¶</a></h3>
+<p>Module for the creation of composite quantum
+objects via the tensor product.</p>
+<dl class="function">
+<dt id="qutip.tensor.tensor">
+<tt class="descname">tensor</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.tensor.tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the tensor product of input operators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>args</strong> : array_like</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of quantum objects for tensor product.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>obj</strong> : qobj</p>
+<blockquote class="last">
+<div><p>A composite quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span><span class="p">([</span><span class="n">sigmax</span><span class="p">(),</span> <span class="n">sigmax</span><span class="p">()])</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.+0.j  0.+0.j  0.+0.j  1.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.expect">
+<span id="expectation-values"></span><h3>Expectation Values<a class="headerlink" href="#module-qutip.expect" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.expect.expect">
+<tt class="descname">expect</tt><big>(</big><em>oper</em>, <em>state</em><big>)</big><a class="headerlink" href="#qutip.expect.expect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the expectation value for operator and state(s).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote>
+<div><p>Operator for expectation value.</p>
+</div></blockquote>
+<p><strong>state</strong> : qobj/list</p>
+<blockquote>
+<div><p>A single or <cite>list</cite> of quantum states or density matricies.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>expt</strong> : float</p>
+<blockquote class="last">
+<div><p>Expectation value.  <tt class="docutils literal"><span class="pre">real</span></tt> if <cite>oper</cite> is Hermitian, <tt class="docutils literal"><span class="pre">complex</span></tt>
+otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">expect</span><span class="p">(</span><span class="n">num</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.wigner">
+<span id="pseudoprobability-functions"></span><h3>Pseudoprobability Functions<a class="headerlink" href="#module-qutip.wigner" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.wigner.qfunc">
+<tt class="descname">qfunc</tt><big>(</big><em>state</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em><big>)</big><a class="headerlink" href="#qutip.wigner.qfunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Q-function of a given state vector or density matrix 
+at points xvec+i*yvec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>state</strong> : qobj</p>
+<blockquote>
+<div><p>A state vector or density matrix.</p>
+</div></blockquote>
+<p><strong>xvec</strong> : array_like</p>
+<blockquote>
+<div><p>x-coordinates at which to calculate the Wigner function.</p>
+</div></blockquote>
+<p><strong>yvec</strong> : array_like</p>
+<blockquote>
+<div><p>y-coordinates at which to calculate the Wigner function.</p>
+</div></blockquote>
+<p><strong>g</strong> : float</p>
+<blockquote>
+<div><p>Scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>Q</strong> : array</p>
+<blockquote class="last">
+<div><p>Values representing the Q-function calculated over the specified range [xvec,yvec].</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.wigner.wigner">
+<tt class="descname">wigner</tt><big>(</big><em>psi</em>, <em>xvec</em>, <em>yvec</em>, <em>g=1.4142135623730951</em>, <em>method='iterative'</em><big>)</big><a class="headerlink" href="#qutip.wigner.wigner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wigner function for a state vector or density matrix 
+at points xvec+i*yvec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>state</strong> : qobj</p>
+<blockquote>
+<div><p>A state vector or density matrix.</p>
+</div></blockquote>
+<p><strong>xvec</strong> : array_like</p>
+<blockquote>
+<div><p>x-coordinates at which to calculate the Wigner function.</p>
+</div></blockquote>
+<p><strong>yvec</strong> : array_like</p>
+<blockquote>
+<div><p>y-coordinates at which to calculate the Wigner function.</p>
+</div></blockquote>
+<p><strong>g</strong> : float</p>
+<blockquote>
+<div><p>Scaling factor for a = 0.5*g*(x+iy), default g=sqrt(2).</p>
+</div></blockquote>
+<p><strong>method</strong> : string</p>
+<blockquote>
+<div><p>Select method &#8216;iterative&#8217; or &#8216;laguerre&#8217;, where &#8216;iterative&#8217; use a 
+iterative method to evaluate the Wigner functions for density matrices
+<a href="#id3"><span class="problematic" id="id4">|m&gt;&lt;n|</span></a>, while &#8216;laguerre&#8217; uses the Laguerre polynomials in scipy for the
+same task. The &#8216;iterative&#8217; method is default, and in general recommended,
+but the &#8216;laguerre&#8217; method is more efficient for very sparse density
+matrices (e.g., superpositions of Fock states in a large Hilbert space).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>W</strong> : array</p>
+<blockquote class="last">
+<div><p>Values representing the Wigner function calculated over the specified
+range [xvec,yvec].</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.three_level_atom">
+<span id="three-level-atoms"></span><h3>Three-level atoms<a class="headerlink" href="#module-qutip.three_level_atom" title="Permalink to this headline">¶</a></h3>
+<p>This module provides functions that are useful for simulating the
+three level atom with QuTiP.  A three level atom (qutrit) has three states,
+which are linked by dipole transitions so that 1 &lt;-&gt; 2 &lt;-&gt; 3.
+Depending on there relative energies they are in the ladder, lambda or
+vee configuration. The structure of the relevant operators is the same
+for any of the three configurations:</p>
+<div class="highlight-python"><pre>Ladder:          Lambda:                 Vee:
+                            |two&gt;                       |three&gt;
+  -------|three&gt;           -------                      -------
+     |                       / \             |one&gt;         /
+     |                      /   \           -------       /
+     |                     /     \             \         /
+  -------|two&gt;            /       \             \       /
+     |                   /         \             \     /
+     |                  /           \             \   /
+     |                 /        --------           \ /
+  -------|one&gt;      -------      |three&gt;         -------
+                     |one&gt;                       |two&gt;</pre>
+</div>
+<div class="section" id="references">
+<h4>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h4>
+<p>The naming of qutip operators follows the convention in <a class="footnote-reference" href="#id2" id="id1">[1]</a> .</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Shore, B. W., &#8220;The Theory of Coherent Atomic Excitation&#8221;,
+Wiley, 1990.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notes">
+<h4>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<p>Contributed by Markus Baden, Oct. 07, 2011</p>
+<dl class="function">
+<dt id="qutip.three_level_atom.three_level_basis">
+<tt class="descname">three_level_basis</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.three_level_atom.three_level_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basis states for a three level atom.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>states</strong> : array</p>
+<blockquote class="last">
+<div><p><cite>array</cite> of three level atom basis vectors.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.three_level_atom.three_level_ops">
+<tt class="descname">three_level_ops</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.three_level_atom.three_level_ops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operators for a three level system (qutrit)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ops</strong> : array</p>
+<blockquote class="last">
+<div><p><cite>array</cite> of three level operators.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="dynamics-and-time-evolution">
+<h2>Dynamics and time-evolution<a class="headerlink" href="#dynamics-and-time-evolution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-qutip.mesolve">
+<span id="master-equation"></span><h3>Master Equation<a class="headerlink" href="#module-qutip.mesolve" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.mesolve.mesolve">
+<tt class="descname">mesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>expt_ops</em>, <em>args={}</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#qutip.mesolve.mesolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Master equation evolution of a density matrix for a given Hamiltonian.</p>
+<p>Evolve the state vector or density matrix (<cite>rho0</cite>) using a given Hamiltonian
+(<cite>H</cite>) and an [optional] set of collapse operators (<cite>c_op_list</cite>),
+by integrating the set of ordinary differential equations that define the
+system. In the absense of collase operators the system is evolved according
+to the unitary evolution of the Hamiltonian.</p>
+<p>The output is either the state vector at arbitrary points in time (<cite>tlist</cite>),
+or the expectation values of the supplied operators (<cite>expt_ops</cite>). If 
+expt_ops is a callback function, it is invoked for each time in <cite>tlist</cite> 
+with time and the state as arguments, and the function does not use any
+return values.</p>
+<p><strong>Time-dependent operators</strong></p>
+<p>For problems with time-dependent problems <cite>H</cite> and <cite>c_ops</cite> can be callback
+functions that takes two arguments, time and <cite>args</cite>, and returns the 
+Hamiltonian or Liuovillian for the system at that point in time
+(<em>callback format</em>).</p>
+<p>Alternatively, <cite>H</cite> and <cite>c_ops</cite> can be a specified in a nested-list format
+where each element in the list is a list of length 2, containing an
+operator (<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>) at the first element and where the 
+second element is either a string (<em>list string format</em>) or a callback
+function (<em>list callback format</em>) that evaluates to the time-dependent
+coefficient for the corresponding operator.</p>
+<p><em>Examples</em></p>
+<blockquote>
+<div><p>H = [[H0, &#8216;sin(w*t)&#8217;], [H1, &#8216;sin(2*w*t)&#8217;]]</p>
+<p>H = [[H0, f0_t], [H1, f1_t]]</p>
+<p>where f0_t and f1_t are python functions with signature f_t(t, args).</p>
+</div></blockquote>
+<p>In the <em>list string format</em> and <em>list callback format</em>, the string
+expression and the callback function must evaluate to a real or complex
+number (coefficient for the corresponding operator).</p>
+<p>In all cases of time-dependent operators, <cite>args</cite> is a dictionary of
+parameters that is used when evaluating operators. It is passed to the
+callback functions as second argument</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On using callback function: mesolve transforms all <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>
+objects to sparse matrices before handing the problem to the integrator
+function. In order for your callback function to work correctly, pass
+all <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> objects that are used in constructing the
+Hamiltonian via args. odesolve will check for <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> in
+<cite>args</cite> and handle the conversion to sparse matrices. All other
+<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> objects that are not passed via <cite>args</cite> will be
+passed on to the integrator to scipy who will raise an NotImplemented
+exception.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian, or a callback function for time-dependent Hamiltonians.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>initial density matrix or state vector (ket).</p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>expt_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
+<blockquote>
+<div><p>list of operators for which to evaluate expectation values.</p>
+</div></blockquote>
+<p><strong>args</strong> : <em>dictionary</em></p>
+<blockquote>
+<div><p>dictionary of parameters for time-dependent Hamiltonians and collapse operators.</p>
+</div></blockquote>
+<p><strong>options</strong> : <tt class="xref py py-class docutils literal"><span class="pre">qutip.Qdeoptions</span></tt></p>
+<blockquote>
+<div><p>with options for the ODE solver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output: :class:`qutip.Odedata`</strong> :</p>
+<blockquote class="last">
+<div><p>An instance of the class <a class="reference internal" href="classes.html#qutip.Odedata" title="qutip.Odedata"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Odedata</span></tt></a>, which contains either
+an <em>array</em> of expectation values for the times specified by <cite>tlist</cite>, or
+an <em>array</em> or state vectors or density matrices corresponding to the
+times in <cite>tlist</cite> [if <cite>expt_ops</cite> is an empty list], or
+nothing if a callback function was given inplace of operators for
+which to calculate the expectation values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.mesolve.odesolve">
+<tt class="descname">odesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_ops</em>, <em>H_args=None</em>, <em>options=None</em><big>)</big><a class="headerlink" href="#qutip.mesolve.odesolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Master equation evolution of a density matrix for a given Hamiltonian.</p>
+<p>Evolution of a state vector or density matrix (<cite>rho0</cite>) for a given
+Hamiltonian (<cite>H</cite>) and set of collapse operators (<cite>c_op_list</cite>), by integrating
+the set of ordinary differential equations that define the system. The
+output is either the state vector at arbitrary points in time (<cite>tlist</cite>), or
+the expectation values of the supplied operators (<cite>expt_ops</cite>).</p>
+<p>For problems with time-dependent Hamiltonians, <cite>H</cite> can be a callback function
+that takes two arguments, time and <cite>H_args</cite>, and returns the Hamiltonian
+at that point in time. <cite>H_args</cite> is a list of parameters that is
+passed to the callback function <cite>H</cite> (only used for time-dependent Hamiltonians).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian, or a callback function for time-dependent Hamiltonians.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>initial density matrix or state vector (ket).</p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>expt_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
+<blockquote>
+<div><p>list of operators for which to evaluate expectation values.</p>
+</div></blockquote>
+<p><strong>H_args</strong> : <em>dictionary</em></p>
+<blockquote>
+<div><p>dictionary of parameters for time-dependent Hamiltonians and collapse operators.</p>
+</div></blockquote>
+<p><strong>options</strong> : <tt class="xref py py-class docutils literal"><span class="pre">qutip.Qdeoptions</span></tt></p>
+<blockquote>
+<div><p>with options for the ODE solver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output :array</strong> :</p>
+<p><strong>Expectation values of wavefunctions/density matrices</strong> :</p>
+<p class="last"><strong>for the times specified by `tlist`.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>On using callback function: odesolve transforms all <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>
+objects to sparse matrices before handing the problem to the integrator
+function. In order for your callback function to work correctly, pass
+all <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> objects that are used in constructing the
+Hamiltonian via H_args. odesolve will check for <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> in
+<cite>H_args</cite> and handle the conversion to sparse matrices. All other
+<a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> objects that are not passed via <cite>H_args</cite> will be
+passed on to the integrator to scipy who will raise an NotImplemented
+exception.</p>
+<p>Depreciated in QuTiP 2.0.0.  Use <a class="reference internal" href="#qutip.mesolve.mesolve" title="qutip.mesolve.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">mesolve</span></tt></a> instead.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.mcsolve">
+<span id="monte-carlo-evolution"></span><h3>Monte Carlo Evolution<a class="headerlink" href="#module-qutip.mcsolve" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.mcsolve.mcsolve">
+<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1129c43f8&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monte-Carlo evolution of a state vector <span class="math">\(|\psi \rangle\)</span> for a given
+Hamiltonian and sets of collapse operators, and possibly, operators
+for calculating expectation values. Options for the underlying ODE solver are 
+given by the Odeoptions class.</p>
+<p>mcsolve supports time-dependent Hamiltonians and collapse operators using either
+Python functions of strings to represent time-dependent coefficients.  Note that, 
+the system Hamiltonian MUST have at least one constant term.</p>
+<p>As an example of a time-dependent problem, consider a Hamiltonian with two terms <tt class="docutils literal"><span class="pre">H0</span></tt>
+and <tt class="docutils literal"><span class="pre">H1</span></tt>, where <tt class="docutils literal"><span class="pre">H1</span></tt> is time-dependent with coefficient <tt class="docutils literal"><span class="pre">sin(w*t)</span></tt>, and collapse operators
+<tt class="docutils literal"><span class="pre">C0</span></tt> and <tt class="docutils literal"><span class="pre">C1</span></tt>, where <tt class="docutils literal"><span class="pre">C1</span></tt> is time-dependent with coeffcient <tt class="docutils literal"><span class="pre">exp(-a*t)</span></tt>.  Here, w and a are
+constant arguments with values <tt class="docutils literal"><span class="pre">W</span></tt> and <tt class="docutils literal"><span class="pre">A</span></tt>.</p>
+<p>Using the Python function time-dependent format requires two Python functions,
+one for each collapse coefficient. Therefore, this problem could be expressed as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">H1_coeff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s">&#39;w&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">C1_coeff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">args</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">H</span><span class="o">=</span><span class="p">[</span><span class="n">H0</span><span class="p">,[</span><span class="n">H1</span><span class="p">,</span><span class="n">H1_coeff</span><span class="p">]]</span>
+
+<span class="n">c_op_list</span><span class="o">=</span><span class="p">[</span><span class="n">C0</span><span class="p">,[</span><span class="n">C1</span><span class="p">,</span><span class="n">C1_coeff</span><span class="p">]]</span>
+
+<span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span><span class="n">A</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">:</span><span class="n">W</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>or in String (Cython) format we could write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">H</span><span class="o">=</span><span class="p">[</span><span class="n">H0</span><span class="p">,[</span><span class="n">H1</span><span class="p">,</span><span class="s">&#39;sin(w*t)&#39;</span><span class="p">]]</span>
+
+<span class="n">c_op_list</span><span class="o">=</span><span class="p">[</span><span class="n">C0</span><span class="p">,[</span><span class="n">C1</span><span class="p">,</span><span class="s">&#39;exp(-a*t)&#39;</span><span class="p">]]</span>
+
+<span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span><span class="n">A</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">:</span><span class="n">W</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Constant terms are preferably placed first in the Hamiltonian and collapse 
+operator lists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<blockquote>
+<div><p>System Hamiltonian.</p>
+</div></blockquote>
+<p><strong>psi0</strong> : qobj</p>
+<blockquote>
+<div><p>Initial state vector</p>
+</div></blockquote>
+<p><strong>tlist</strong> : array_like</p>
+<blockquote>
+<div><p>Times at which results are recorded.</p>
+</div></blockquote>
+<p><strong>ntraj</strong> : int</p>
+<blockquote>
+<div><p>Number of trajectories to run.</p>
+</div></blockquote>
+<p><strong>c_ops</strong> : array_like</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of collapse operators.</p>
+</div></blockquote>
+<p><strong>e_ops</strong> : array_like</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of operators for calculating expectation values.</p>
+</div></blockquote>
+<p><strong>args</strong> : dict</p>
+<blockquote>
+<div><p>Arguments for time-dependent Hamiltonian and collapse operator terms.</p>
+</div></blockquote>
+<p><strong>options</strong> : Odeoptions</p>
+<blockquote>
+<div><p>Instance of ODE solver options.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>results</strong> : Odedata</p>
+<blockquote class="last">
+<div><p>Object storing all results from simulation.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.bloch_redfield">
+<span id="bloch-redfield-master-equation"></span><h3>Bloch-Redfield Master Equation<a class="headerlink" href="#module-qutip.bloch_redfield" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.bloch_redfield.brmesolve">
+<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x112b8bc20&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the dynamics for the system using the Bloch-Redfeild master equation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This solver does not currently support time-dependent Hamiltonian or
+collapse operators.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian.</p>
+</div></blockquote>
+<p><strong>rho0 / psi0: :class:`qutip.Qobj`</strong> :</p>
+<blockquote>
+<div><p>initial density matrix or state vector (ket).</p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>expt_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
+<blockquote>
+<div><p>list of operators for which to evaluate expectation values.</p>
+</div></blockquote>
+<p><strong>args</strong> : <em>dictionary</em></p>
+<blockquote>
+<div><p>dictionary of parameters for time-dependent Hamiltonians and collapse operators.</p>
+</div></blockquote>
+<p><strong>options</strong> : <tt class="xref py py-class docutils literal"><span class="pre">qutip.Qdeoptions</span></tt></p>
+<blockquote>
+<div><p>with options for the ODE solver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output: :class:`qutip.Odedata`</strong> :</p>
+<blockquote class="last">
+<div><p>An instance of the class <a class="reference internal" href="classes.html#qutip.Odedata" title="qutip.Odedata"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Odedata</span></tt></a>, which contains either
+an <em>array</em> of expectation values for the times specified by <cite>tlist</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.floquet">
+<span id="floquet-states-and-floquet-markov-master-equation"></span><h3>Floquet States and Floquet-Markov Master Equation<a class="headerlink" href="#module-qutip.floquet" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.floquet.fmmesolve">
+<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x112b8bab8&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the dynamics for the system using the Floquet-Markov master equation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This solver currently does not support multiple collapse operators.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian.</p>
+</div></blockquote>
+<p><strong>rho0 / psi0</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>initial density matrix or state vector (ket).</p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>e_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
+<blockquote>
+<div><p>list of operators for which to evaluate expectation values.</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian. The default value
+&#8216;None&#8217; indicates that the &#8216;tlist&#8217; spans a single period of the driving.</p>
+</div></blockquote>
+<p><strong>args</strong> : <em>dictionary</em></p>
+<blockquote>
+<div><p>dictionary of parameters for time-dependent Hamiltonians and collapse operators.</p>
+<p>This dictionary should also contain an entry &#8216;w_th&#8217;, which is the temperature
+of the environment (if finite) in the energy/frequency units of the Hamiltonian.
+For example, if the Hamiltonian written in units of 2pi GHz, and the temperature
+is given in K, use the following conversion</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">temperature</span> <span class="o">=</span> <span class="mf">25e-3</span> <span class="c"># unit K</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="mf">6.626e-34</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kB</span> <span class="o">=</span> <span class="mf">1.38e-23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="p">[</span><span class="s">&#39;w_th&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">*</span> <span class="p">(</span><span class="n">kB</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="mf">1e-9</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>options</strong> : <a class="reference internal" href="classes.html#qutip.Odeoptions" title="qutip.Odeoptions"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Odeoptions</span></tt></a></p>
+<blockquote>
+<div><p>options for the ODE solver.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : <a class="reference internal" href="classes.html#qutip.Odedata" title="qutip.Odedata"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Odedata</span></tt></a></p>
+<blockquote class="last">
+<div><p>An instance of the class <a class="reference internal" href="classes.html#qutip.Odedata" title="qutip.Odedata"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Odedata</span></tt></a>, which contains either
+an <em>array</em> of expectation values for the times specified by <cite>tlist</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_modes">
+<tt class="descname">floquet_modes</tt><big>(</big><em>H</em>, <em>T</em>, <em>args=None</em>, <em>sort=False</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the initial Floquet modes Phi_alpha(0) for a driven system with
+period T.</p>
+<p>Returns a list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> instances representing the Floquet
+modes and a list of corresponding quasienergies, sorted by increasing
+quasienergy in the interval [-pi/T, pi/T]. The optional parameter <cite>sort</cite>
+decides if the output is to be sorted in increasing quasienergies or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian, time-dependent with period <cite>T</cite></p>
+</div></blockquote>
+<p><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>dictionary with variables required to evaluate H</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian. The default value
+&#8216;None&#8217; indicates that the &#8216;tlist&#8217; spans a single period of the driving.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : list of kets, list of quasi energies</p>
+<blockquote class="last">
+<div><p>Two lists: the Floquet modes as kets and the quasi energies.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_modes_t">
+<tt class="descname">floquet_modes_t</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>t</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_modes_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Floquet modes at times tlist Phi_alpha(tlist) propagting the
+initial Floquet modes Phi_alpha(0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_modes_0</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>Floquet modes at <span class="math">\(t\)</span></p>
+</div></blockquote>
+<p><strong>f_energies</strong> : list</p>
+<blockquote>
+<div><p>Floquet energies.</p>
+</div></blockquote>
+<p><strong>t</strong> : float</p>
+<blockquote>
+<div><p>The time at which to evaluate the floquet modes.</p>
+</div></blockquote>
+<p><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian, time-dependent with period <cite>T</cite></p>
+</div></blockquote>
+<p><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>dictionary with variables required to evaluate H</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : list of kets</p>
+<blockquote class="last">
+<div><p>The Floquet modes as kets at time <span class="math">\(t\)</span></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_modes_table">
+<tt class="descname">floquet_modes_table</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>tlist</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_modes_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pre-calculate the Floquet modes for a range of times spanning the floquet
+period. Can later be used as a table to look up the floquet modes for
+any time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_modes_t_lookup">
+<tt class="descname">floquet_modes_t_lookup</tt><big>(</big><em>f_modes_table_t</em>, <em>t</em>, <em>T</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_modes_t_lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup the floquet mode at time t in the pre-calculated table of floquet
+modes in the first period of the time-dependence.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_states_t">
+<tt class="descname">floquet_states_t</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>t</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_states_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the floquet states at time t.</p>
+<p>Returns a list of the wavefunctions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_wavefunction_t">
+<tt class="descname">floquet_wavefunction_t</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>f_coeff</em>, <em>t</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_wavefunction_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the wavefunction for a time t using the Floquet states decompositon.</p>
+<p>Returns the wavefunction.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.floquet.floquet_state_decomposition">
+<tt class="descname">floquet_state_decomposition</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>psi0</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_state_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decompose the wavefunction psi in the Floquet states, return the coefficients
+in the decomposition as an array of complex amplitudes.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.correlation">
+<span id="correlation-functions"></span><h3>Correlation Functions<a class="headerlink" href="#module-qutip.correlation" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.correlation.correlation">
+<tt class="descname">correlation</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>taulist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em>, <em>solver='me'</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(t+\tau)B(t)\right&gt;\)</span>
+using the quantum regression theorem, using the solver indicated by the
+<em>solver</em> parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>initial density matrix <span class="math">\(\rho(t_0)\)</span></p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>taulist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(\tau\)</span>.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>a_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator A.</p>
+</div></blockquote>
+<p><strong>b_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator B.</p>
+</div></blockquote>
+<p><strong>solver</strong> : str</p>
+<blockquote>
+<div><p>choice of solver (<cite>me</cite> for master-equation, 
+<cite>es</cite> for exponential series and <cite>mc</cite> for Monte-carlo)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>corr_mat: *array*</strong> :</p>
+<blockquote class="last">
+<div><p>An 2-dimensional <em>array</em> (matrix) of correlation values for the times
+specified by <cite>tlist</cite> (first index) and <cite>taulist</cite> (second index). If
+<cite>tlist</cite> is <cite>None</cite>, then a 1-dimensional <em>array</em> of correlation values
+is returned instead.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.correlation_ss">
+<tt class="descname">correlation_ss</tt><big>(</big><em>H</em>, <em>tlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em>, <em>rho0=None</em>, <em>solver='me'</em><big>)</big><a class="headerlink" href="#qutip.correlation.correlation_ss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a two-time correlation function <span class="math">\(\left&lt;A(\tau)B(0)\right&gt;\)</span>
+using the quantum regression theorem, using the solver indicated by the
+<em>solver</em> parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian.</p>
+</div></blockquote>
+<p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>a_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator A.</p>
+</div></blockquote>
+<p><strong>b_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator B.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>Optional initial state density matrix (default is the steady state).</p>
+</div></blockquote>
+<p><strong>solver</strong> : str</p>
+<blockquote>
+<div><p>choice of solver (<cite>me</cite> for master-equation, 
+<cite>es</cite> for exponential series and <cite>mc</cite> for Monte-carlo)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>corr_list: *array*</strong> :</p>
+<blockquote class="last">
+<div><p>An <em>array</em> of correlation values for the times specified by <cite>tlist</cite></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.correlation.spectrum_ss">
+<tt class="descname">spectrum_ss</tt><big>(</big><em>H</em>, <em>wlist</em>, <em>c_op_list</em>, <em>a_op</em>, <em>b_op</em><big>)</big><a class="headerlink" href="#qutip.correlation.spectrum_ss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the spectrum corresponding to a correlation function
+<span class="math">\(\left&lt;A(\tau)B(0)\right&gt;\)</span>, i.e., the Fourier transform of the
+correlation function:</p>
+<div class="math">
+\[\begin{split}S(\omega) = \int_{-\infty}^{\infty} \left&lt;A(\tau)B(0)\right&gt; e^{-i\omega\tau} d\tau.\end{split}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian.</p>
+</div></blockquote>
+<p><strong>wlist</strong> : <em>list</em> / <em>array</em></p>
+<blockquote>
+<div><p>list of frequencies for <span class="math">\(\omega\)</span>.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>list of collapse operators.</p>
+</div></blockquote>
+<p><strong>a_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator A.</p>
+</div></blockquote>
+<p><strong>b_op</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>operator B.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>spectrum: *array*</strong> :</p>
+<blockquote class="last">
+<div><p>An <em>array</em> with spectrum <span class="math">\(S(\omega)\)</span> for the frequencies specified
+in <cite>wlist</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.essolve">
+<span id="exponential-series"></span><h3>Exponential Series<a class="headerlink" href="#module-qutip.essolve" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.essolve.essolve">
+<tt class="descname">essolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_op_list</em>, <em>expt_op_list</em><big>)</big><a class="headerlink" href="#qutip.essolve.essolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evolution of a state vector or density matrix (<cite>rho0</cite>) for a given
+Hamiltonian (<cite>H</cite>) and set of collapse operators (<cite>c_op_list</cite>), by expressing
+the ODE as an exponential series. The output is either the state vector at
+arbitrary points in time (<cite>tlist</cite>), or the expectation values of the supplied
+operators (<cite>expt_op_list</cite>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj/function_type</p>
+<blockquote>
+<div><p>System Hamiltonian.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : qobj</p>
+<blockquote>
+<div><p>Initial state density matrix.</p>
+</div></blockquote>
+<p><strong>tlist</strong> : list/array</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> of times for <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> of <tt class="docutils literal"><span class="pre">qobj</span></tt> collapse operators.</p>
+</div></blockquote>
+<p><strong>expt_op_list</strong> : list</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> of <tt class="docutils literal"><span class="pre">qobj</span></tt> operators for which to evaluate expectation values.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>expt_array</strong> : array</p>
+<blockquote>
+<div><p>Expectation values of wavefunctions/density matrices for the times specified in <tt class="docutils literal"><span class="pre">tlist</span></tt>.</p>
+</div></blockquote>
+<p class="last"><strong>.. note:: This solver does not support time-dependent Hamiltonians.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.essolve.ode2es">
+<tt class="descname">ode2es</tt><big>(</big><em>L</em>, <em>rho0</em><big>)</big><a class="headerlink" href="#qutip.essolve.ode2es" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an exponential series that describes the time evolution for the
+initial density matrix (or state vector) <cite>rho0</cite>, given the Liouvillian 
+(or Hamiltonian) <cite>L</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>L</strong> : qobj</p>
+<blockquote>
+<div><p>Liouvillian of the system.</p>
+</div></blockquote>
+<p><strong>rho0</strong> : qobj</p>
+<blockquote>
+<div><p>Initial state vector or density matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ode_series</strong> : eseries</p>
+<blockquote class="last">
+<div><p><tt class="docutils literal"><span class="pre">eseries</span></tt> represention of the system dynamics.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.steady">
+<span id="steady-state-solvers"></span><h3>Steady-state Solvers<a class="headerlink" href="#module-qutip.steady" title="Permalink to this headline">¶</a></h3>
+<p>Module contains functions for iteratively solving for the steady state density matrix
+of an open qunatum system defind by a Louvillian.</p>
+<dl class="function">
+<dt id="qutip.steady.steady">
+<tt class="descname">steady</tt><big>(</big><em>L</em>, <em>maxiter=100</em>, <em>tol=1e-06</em>, <em>method='solve'</em><big>)</big><a class="headerlink" href="#qutip.steady.steady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steady state for the evolution subject to the 
+supplied Louvillian.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>L</strong> : qobj</p>
+<blockquote>
+<div><p>Liouvillian superoperator.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations to perform, default = 100.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by iterative solver, default = 1e-6.</p>
+</div></blockquote>
+<p><strong>method</strong> : str</p>
+<blockquote>
+<div><p>Method for solving linear equations. Direct solver &#8216;solve&#8217; (default) or 
+iterative biconjugate gradient method &#8216;bicg&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ket</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Ket vector for steady state.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Uses the inverse power method. 
+See any Linear Algebra book with an iterative methods section.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.steady.steadystate">
+<tt class="descname">steadystate</tt><big>(</big><em>H</em>, <em>c_op_list</em>, <em>maxiter=100</em>, <em>tol=1e-06</em>, <em>method='solve'</em><big>)</big><a class="headerlink" href="#qutip.steady.steadystate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the steady state for the evolution subject to the 
+supplied Hamiltonian and list of collapse operators.</p>
+<p>This function builds the Louvillian from the Hamiltonaian and
+calls the <a class="reference internal" href="#qutip.steady.steady" title="qutip.steady.steady"><tt class="xref py py-func docutils literal"><span class="pre">qutip.steady.steady</span></tt></a> function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<blockquote>
+<div><p>Hamiltonian operator.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list</p>
+<blockquote>
+<div><p>A <tt class="docutils literal"><span class="pre">list</span></tt> of collapse operators.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : int</p>
+<blockquote>
+<div><p>Maximum number of iterations to perform, default = 100.</p>
+</div></blockquote>
+<p><strong>tol</strong> : float</p>
+<blockquote>
+<div><p>Tolerance used by iterative solver, default = 1e-6.</p>
+</div></blockquote>
+<p><strong>method</strong> : str</p>
+<blockquote>
+<div><p>Method for solving linear equations. Direct solver &#8216;solve&#8217; (default) or 
+iterative biconjugate gradient method &#8216;bicg&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ket</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Ket vector for steady state.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Uses the inverse power method.
+See any Linear Algebra book with an iterative methods section.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.propagator">
+<span id="propagators"></span><h3>Propagators<a class="headerlink" href="#module-qutip.propagator" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.propagator.propagator">
+<tt class="descname">propagator</tt><big>(</big><em>H</em>, <em>t</em>, <em>c_op_list</em>, <em>H_args=None</em>, <em>opt=None</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the propagator U(t) for the density matrix or wave function such that
+<span class="math">\(\psi(t) = U(t)\psi(0)\)</span> or <span class="math">\(\rho_{\mathrm vec}(t) = U(t) \rho_{\mathrm vec}(0)\)</span>
+where <span class="math">\(\rho_{\mathrm vec}\)</span> is the vector representation of the density matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<blockquote>
+<div><p>Hamiltonian</p>
+</div></blockquote>
+<p><strong>t</strong> : float</p>
+<blockquote>
+<div><p>Time.</p>
+</div></blockquote>
+<p><strong>c_op_list</strong> : list</p>
+<blockquote>
+<div><p>List of qobj collapse operators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Instance representing the propagator <span class="math">\(U(t)\)</span>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.propagator.propagator_steadystate">
+<tt class="descname">propagator_steadystate</tt><big>(</big><em>U</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator_steadystate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the steady state for successive applications of the propagator <span class="math">\(U\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>U</strong> : qobj</p>
+<blockquote>
+<div><p>Operator representing the propagator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Instance representing the steady-state vector.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="other-functions">
+<h2>Other Functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-qutip.fileio">
+<span id="fileio-functions"></span><span id="functions-fileio"></span><h3>Fileio Functions<a class="headerlink" href="#module-qutip.fileio" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.fileio.file_data_read">
+<tt class="descname">file_data_read</tt><big>(</big><em>filename</em>, <em>sep=None</em><big>)</big><a class="headerlink" href="#qutip.fileio.file_data_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves an array of data from the requested file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote>
+<div><p>Name of file containing reqested data.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>data</strong> : array_like</p>
+<blockquote class="last">
+<div><p>Data from selected file.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.fileio.file_data_store">
+<tt class="descname">file_data_store</tt><big>(</big><em>filename</em>, <em>data</em>, <em>numtype='complex'</em>, <em>numformat='decimal'</em>, <em>sep='</em>, <em>'</em><big>)</big><a class="headerlink" href="#qutip.fileio.file_data_store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores a matrix of data to a file to be read by an external program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote>
+<div><p>Name of data file to be stored, including extension.</p>
+</div></blockquote>
+<p><strong>data: array_like</strong> :</p>
+<blockquote>
+<div><p>Data to be written to file.</p>
+</div></blockquote>
+<p><strong>numtype</strong> : str {&#8216;complex, &#8216;real&#8217;}</p>
+<blockquote>
+<div><p>Type of numerical data.</p>
+</div></blockquote>
+<p><strong>numformat</strong> : str {&#8216;decimal&#8217;,&#8217;exp&#8217;}</p>
+<blockquote class="last">
+<div><p>Format for written data.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.fileio.qload">
+<tt class="descname">qload</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#qutip.fileio.qload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads data file from file named &#8216;filename.qu&#8217; in current directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name of data file to be loaded.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>qobject</strong> : instance / array_like</p>
+<blockquote class="last">
+<div><p>Object retrieved from requested file.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.fileio.qsave">
+<tt class="descname">qsave</tt><big>(</big><em>data</em>, <em>name='qutip_data'</em><big>)</big><a class="headerlink" href="#qutip.fileio.qsave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves given data to file named &#8216;filename.qu&#8217; in current directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>data</strong> : instance/array_like</p>
+<blockquote>
+<div><p>Input Python object to be stored.</p>
+</div></blockquote>
+<p><strong>filename</strong> : str</p>
+<blockquote class="last">
+<div><p>Name of output data file.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.entropy">
+<span id="entropy-functions"></span><span id="functions-entropy"></span><h3>Entropy Functions<a class="headerlink" href="#module-qutip.entropy" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.entropy.entropy_linear">
+<tt class="descname">entropy_linear</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.entropy.entropy_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear entropy of a density matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>rho</strong> : qobj</p>
+<blockquote>
+<div><p>sensity matrix or ket/bra vector.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>entropy</strong> : float</p>
+<blockquote class="last">
+<div><p>Linear entropy of rho.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy_linear</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.entropy.entropy_vn">
+<tt class="descname">entropy_vn</tt><big>(</big><em>rho</em>, <em>base=2.718281828459045</em>, <em>sparse=False</em><big>)</big><a class="headerlink" href="#qutip.entropy.entropy_vn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Von-Neumann entropy of density matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>rho</strong> : qobj</p>
+<blockquote>
+<div><p>Density matrix.</p>
+</div></blockquote>
+<p><strong>base</strong> : {e,2}</p>
+<blockquote>
+<div><p>Base of logarithm.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>entropy</strong> : float</p>
+<blockquote class="last">
+<div><p>Von-Neumann entropy of <cite>rho</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy_vn</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.gates">
+<span id="quantum-computing-gates"></span><span id="functions-gates"></span><h3>Quantum Computing Gates<a class="headerlink" href="#module-qutip.gates" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.gates.cnot">
+<tt class="descname">cnot</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.cnot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object representing the CNOT gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>cnot_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of CNOT gate</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cnot</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">    [[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.fredkin">
+<tt class="descname">fredkin</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.fredkin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object representing the Fredkin gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>fred_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of Fredkin gate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fredkin</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">    [[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.phasegate">
+<tt class="descname">phasegate</tt><big>(</big><em>theta</em><big>)</big><a class="headerlink" href="#qutip.gates.phasegate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns quantum object representing the phase shift gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>theta</strong> : float</p>
+<blockquote>
+<div><p>Phase rotation angle.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>phase_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of phase shift gate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phasegate</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = False</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.00000000+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.j          0.70710678+0.70710678j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.snot">
+<tt class="descname">snot</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.snot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object representing the SNOT (Hadamard) gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>snot_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of SNOT (Hadamard) gate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">snot</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 0.70710678+0.j  0.70710678+0.j]</span>
+<span class="go"> [ 0.70710678+0.j -0.70710678+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.swap">
+<tt class="descname">swap</tt><big>(</big><em>mask=None</em><big>)</big><a class="headerlink" href="#qutip.gates.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object representing the SWAP gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>swap_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of SWAP gate</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">swap</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">[[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go"> [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.gates.toffoli">
+<tt class="descname">toffoli</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.gates.toffoli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantum object representing the Toffoli gate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>toff_gate</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Quantum object representation of Toffoli gate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">toffoli</span><span class="p">()</span>
+<span class="go">Quantum object: dims = [[2, 2, 2], [2, 2, 2]], shape = [8, 8], type = oper, isHerm = True</span>
+<span class="go">Qobj data = </span>
+<span class="go">    [[ 1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j  0.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j]</span>
+<span class="go">     [ 0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  0.+0.j  1.+0.j  0.+0.j]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.metrics">
+<span id="density-matrix-metrics"></span><span id="functions-metrics"></span><h3>Density Matrix Metrics<a class="headerlink" href="#module-qutip.metrics" title="Permalink to this headline">¶</a></h3>
+<p>A Module containing a collection of metrics 
+(distance measures) between density matricies.</p>
+<dl class="function">
+<dt id="qutip.metrics.fidelity">
+<tt class="descname">fidelity</tt><big>(</big><em>A</em>, <em>B</em><big>)</big><a class="headerlink" href="#qutip.metrics.fidelity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the fidelity (pseudo-metric) between two density matricies.
+See: Nielsen &amp; Chuang, &#8220;Quantum Computation and Quantum Information&#8221;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>A</strong> : qobj</p>
+<blockquote>
+<div><p>Density matrix</p>
+</div></blockquote>
+<p><strong>B</strong> : qobj</p>
+<blockquote>
+<div><p>Density matrix with same dimensions as A.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>fid</strong> : float</p>
+<blockquote class="last">
+<div><p>Fidelity pseudo-metric between A and B.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="go">0.24104350624628332</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.metrics.tracedist">
+<tt class="descname">tracedist</tt><big>(</big><em>A</em>, <em>B</em>, <em>sparse=False</em>, <em>tol=0</em><big>)</big><a class="headerlink" href="#qutip.metrics.tracedist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the trace distance between two density matricies.
+See: Nielsen &amp; Chuang, &#8220;Quantum Computation and Quantum Information&#8221;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>A</strong> : qobj</p>
+<blockquote>
+<div><p>Density matrix.</p>
+</div></blockquote>
+<p><strong>B</strong> : qobj:</p>
+<blockquote>
+<div><p>Density matrix with same dimensions as A.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>tracedist</strong> : float</p>
+<blockquote class="last">
+<div><p>Trace distance between A and B.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tracedist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="go">0.9705143161472971</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.rand">
+<span id="random-operators-and-states"></span><span id="functions-rand"></span><h3>Random Operators and States<a class="headerlink" href="#module-qutip.rand" title="Permalink to this headline">¶</a></h3>
+<p>This module is a collection of random state and operator generators.
+The sparsity of the ouput Qobj&#8217;s is controlled by varing the  
+<cite>density</cite> parameter.</p>
+<dl class="function">
+<dt id="qutip.rand.rand_dm">
+<tt class="descname">rand_dm</tt><big>(</big><em>N</em>, <em>density=0.75</em>, <em>pure=False</em>, <em>dims=None</em><big>)</big><a class="headerlink" href="#qutip.rand.rand_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a random NxN density matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Shape of output density matrix.</p>
+</div></blockquote>
+<p><strong>density</strong> : float</p>
+<blockquote>
+<div><p>Density etween [0,1] of output density matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>NxN density matrix quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>For small density matricies, choosing a low density will result in an error
+as no diagonal elements will be generated such that <span class="math">\(Tr(\rho)=1\)</span>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.rand.rand_herm">
+<tt class="descname">rand_herm</tt><big>(</big><em>N</em>, <em>density=0.75</em>, <em>dims=None</em><big>)</big><a class="headerlink" href="#qutip.rand.rand_herm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a random NxN sparse Hermitian quantum object.</p>
+<p>Uses <span class="math">\(H=X+X^{+}\)</span> where <span class="math">\(X\)</span> is
+a randomly generated quantum operator with a given <cite>density</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Shape of output quantum operator.</p>
+</div></blockquote>
+<p><strong>density</strong> : float</p>
+<blockquote>
+<div><p>Density etween [0,1] of output Hermitian operator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>NxN Hermitian quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.rand.rand_ket">
+<tt class="descname">rand_ket</tt><big>(</big><em>N</em>, <em>density=1</em>, <em>dims=None</em><big>)</big><a class="headerlink" href="#qutip.rand.rand_ket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a random Nx1 sparse ket vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Number of rows for output quantum operator.</p>
+</div></blockquote>
+<p><strong>density</strong> : float</p>
+<blockquote>
+<div><p>Density between [0,1] of output ket state.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>Nx1 ket state quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.rand.rand_unitary">
+<tt class="descname">rand_unitary</tt><big>(</big><em>N</em>, <em>density=0.75</em>, <em>dims=None</em><big>)</big><a class="headerlink" href="#qutip.rand.rand_unitary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a random NxN sparse unitary quantum object.</p>
+<p>Uses <span class="math">\(\exp(-iH)\)</span> where H is a randomly generated 
+Hermitian operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote>
+<div><p>Shape of output quantum operator.</p>
+</div></blockquote>
+<p><strong>density</strong> : float</p>
+<blockquote>
+<div><p>Density between [0,1] of output Unitary operator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>oper</strong> : qobj</p>
+<blockquote class="last">
+<div><p>NxN Unitary quantum operator.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip">
+<span id="miscellaneous"></span><span id="functions-misc"></span><h3>Miscellaneous<a class="headerlink" href="#module-qutip" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.about">
+<tt class="descname">about</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.about" title="Permalink to this definition">¶</a></dt>
+<dd><p>About box for qutip. Gives version numbers for 
+QuTiP, NumPy, SciPy, and MatPlotLib.
+GUI version requires PySide or PyQt4.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.clebsch">
+<tt class="descname">clebsch</tt><big>(</big><em>j1</em>, <em>j2</em>, <em>j3</em>, <em>m1</em>, <em>m2</em>, <em>m3</em><big>)</big><a class="headerlink" href="#qutip.clebsch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Clebsch-Gordon coefficient 
+for coupling (j1,m1) and (j2,m2) to give (j3,m3).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>j1</strong> : float</p>
+<blockquote>
+<div><p>Total angular momentum 1.</p>
+</div></blockquote>
+<p><strong>j2</strong> : float</p>
+<blockquote>
+<div><p>Total angular momentum 2.</p>
+</div></blockquote>
+<p><strong>j3</strong> : float</p>
+<blockquote>
+<div><p>Total angular momentum 3.</p>
+</div></blockquote>
+<p><strong>m1</strong> : float</p>
+<blockquote>
+<div><p>z-component of angular momentum 1.</p>
+</div></blockquote>
+<p><strong>m2</strong> : float</p>
+<blockquote>
+<div><p>z-component of angular momentum 2.</p>
+</div></blockquote>
+<p><strong>m3</strong> : float</p>
+<blockquote>
+<div><p>z-component of angular momentum 3.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>cg_coeff</strong> : float</p>
+<blockquote class="last">
+<div><p>Requested Clebsch-Gordan coefficient.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.demos">
+<tt class="descname">demos</tt><big>(</big><big>)</big><a class="headerlink" href="#qutip.demos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the demos scripts via a GUI window if PySide
+or PyQt4 are avaliable.  Otherwise, a commandline 
+interface is given in the terminal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.hinton">
+<tt class="descname">hinton</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.hinton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a Hinton diagram for visualizing a density matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>rho</strong> : qobj</p>
+<blockquote>
+<div><p>Input density matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>ValueError</strong> :</p>
+<blockquote class="last">
+<div><p>Input argument is not a quantum object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.orbital">
+<tt class="descname">orbital</tt><big>(</big><em>theta</em>, <em>phi</em>, <em>*args</em><big>)</big><a class="headerlink" href="#qutip.orbital" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates an angular wave function on a sphere.
+<tt class="docutils literal"><span class="pre">psi</span> <span class="pre">=</span> <span class="pre">orbital(theta,phi,ket1,ket2,...)</span></tt> calculates 
+the angular wave function on a sphere at the mesh of points 
+defined by theta and phi which is <span class="math">\(\sum_{lm} c_{lm} Y_{lm}(theta,phi)\)</span>
+where <span class="math">\(C_{lm}\)</span> are the coefficients specified by the list of kets. 
+Each ket has 2l+1 components for some integer l.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>theta</strong> : list/array</p>
+<blockquote>
+<div><p>Polar angles</p>
+</div></blockquote>
+<p><strong>phi</strong> : list/array</p>
+<blockquote>
+<div><p>Azimuthal angles</p>
+</div></blockquote>
+<p><strong>args</strong> : list/array</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> of ket vectors.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>``array`` for angular wave function</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.parfor">
+<tt class="descname">parfor</tt><big>(</big><em>func</em>, <em>frange</em><big>)</big><a class="headerlink" href="#qutip.parfor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a single-variable function in parallel.</p>
+<p>Parallel execution of a for-loop over function <cite>func</cite> 
+for a single variable <cite>frange</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>func: function_type</strong> :</p>
+<blockquote>
+<div><p>A single-variable function.</p>
+</div></blockquote>
+<p><strong>frange: array_type</strong> :</p>
+<blockquote>
+<div><p>An <tt class="docutils literal"><span class="pre">array</span></tt> of values to be passed on to <cite>func</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ans</strong> : list</p>
+<blockquote>
+<div><p>A <tt class="docutils literal"><span class="pre">list</span></tt> with length equal to number of input parameters
+containting the output from <cite>func</cite>.  In general, the ordering
+of the output variables will not be in the same order as <cite>frange</cite>.</p>
+</div></blockquote>
+<p><strong>.. note::</strong> :</p>
+<blockquote class="last">
+<div><p>Multiple values can be passed into the parfor function using Pythons
+builtin &#8216;zip&#8217; command, or using multidimensional <cite>lists</cite> or <cite>arrays</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.rhs_generate">
+<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1129c4440&gt;</em>, <em>solver='me'</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to generate the Cython functions for solving the dynamics of a
+given system before using the parfor function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<blockquote>
+<div><p>System Hamiltonian.</p>
+</div></blockquote>
+<p><strong>psi0</strong> : qobj</p>
+<blockquote>
+<div><p>Initial state vector</p>
+</div></blockquote>
+<p><strong>tlist</strong> : array_like</p>
+<blockquote>
+<div><p>Times at which results are recorded.</p>
+</div></blockquote>
+<p><strong>ntraj</strong> : int</p>
+<blockquote>
+<div><p>Number of trajectories to run.</p>
+</div></blockquote>
+<p><strong>c_ops</strong> : array_like</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of collapse operators.</p>
+</div></blockquote>
+<p><strong>e_ops</strong> : array_like</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of operators for calculating expectation values.</p>
+</div></blockquote>
+<p><strong>args</strong> : dict</p>
+<blockquote>
+<div><p>Arguments for time-dependent Hamiltonian and collapse operator terms.</p>
+</div></blockquote>
+<p><strong>options</strong> : Odeoptions</p>
+<blockquote>
+<div><p>Instance of ODE solver options.</p>
+</div></blockquote>
+<p><strong>solver: str</strong> :</p>
+<blockquote>
+<div><p>String indicating which solver &#8220;me&#8221; or &#8220;mc&#8221;</p>
+</div></blockquote>
+<p><strong>name: str</strong> :</p>
+<blockquote class="last">
+<div><p>Name of generated RHS</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.simdiag">
+<tt class="descname">simdiag</tt><big>(</big><em>ops</em>, <em>evals=True</em><big>)</big><a class="headerlink" href="#qutip.simdiag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulateous diagonalization of communting Hermitian matricies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>ops</strong> : list/array</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of qobjs representing commuting Hermitian operators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>eigs</strong> : tuple</p>
+<p><strong>Tuple of arrays representing eigvecs and eigvals of quantum objects</strong> :</p>
+<p class="last"><strong>corresponding to simultaneous eigenvectors and eigenvalues for each operator.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.sphereplot">
+<tt class="descname">sphereplot</tt><big>(</big><em>theta</em>, <em>phi</em>, <em>values</em>, <em>save=False</em><big>)</big><a class="headerlink" href="#qutip.sphereplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a matrix of values on a sphere</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>theta</strong> : float</p>
+<blockquote>
+<div><p>Angle with respect to z-axis</p>
+</div></blockquote>
+<p><strong>phi</strong> : float</p>
+<p><strong>Angle in x-y plane</strong> :</p>
+<p><strong>values</strong> : array</p>
+<blockquote>
+<div><p>Data set to be plotted</p>
+</div></blockquote>
+<p><strong>save</strong> : bool {False , True}</p>
+<blockquote>
+<div><p>Whether to save the figure or not</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>Plots figure, returns nonthing.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../changelog.html" title="Change Log"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="QuTiP classes"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../search.html">search</a>|&nbsp;</li>
+
+          <li><a href="apidoc.html" >API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+      Last updated on Sep 02, 2012.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-16824831-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
