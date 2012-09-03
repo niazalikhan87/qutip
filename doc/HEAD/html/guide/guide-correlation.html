@@ -1,112 +1,111 @@
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html><html>
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8"/>
     
-    <title>Two-time correlation functions &mdash; QuTiP: The Quantum Toolbox in Python 2.0 documentation</title>
+        <title>Two-time correlation functions &mdash; QuTiP 2.1 Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../_static/sphinx-bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                URL_ROOT:'../',
+                VERSION:'2.0',
+                COLLAPSE_INDEX:false,
+                FILE_SUFFIX:'.html',
+                HAS_SOURCE:  true
+            };
+        </script>
+            <script type="text/javascript" src="../_static/jquery.js"></script>
+            <script type="text/javascript" src="../_static/underscore.js"></script>
+            <script type="text/javascript" src="../_static/doctools.js"></script>
+            <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            <script type="text/javascript" src="../_static/bootstrap-dropdown.js"></script>
+            <link rel="shortcut icon" href="../_static/favicon.ico"/>
+        <link rel="top" title="QuTiP 2.1 Documentation" href="../index.html"/>
+            <link rel="up" title="QuTiP Users Guide" href="guide.html"/>
+            <link rel="next" title="Using QuTiP’s Built-in Parallel for-loop" href="guide-parfor.html"/>
+            <link rel="prev" title="Plotting on the Bloch Sphere" href="guide-bloch.html"/> 
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="QuTiP: The Quantum Toolbox in Python 2.0 documentation" href="../index.html" />
-    <link rel="up" title="QuTiP Users Guide" href="guide.html" />
-    <link rel="next" title="Using QuTiP’s Built-in Parallel for-loop" href="guide-parfor.html" />
-    <link rel="prev" title="Plotting on the Bloch Sphere" href="guide-bloch.html" /> 
-  </head>
-  <body>
+        <!-- analytics -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-00000000-1']);
+            
+            _gaq.push(['_trackPageview']);
 
-<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px">
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    
+</head>
+<body>
+
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+
+
+<div style="background-color: #EBEBEB; text-align: left; padding: 0px 0px 15px 15px; -webkit-border-radius:14px; -moz-border-radius:14px; border-radius:14px; margin: 1em;">
 <a href="../index.html"><img src="../_static/logo.png" border="0" alt="qutip"/></a>
 </div>
 
 
     <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="guide-parfor.html" title="Using QuTiP’s Built-in Parallel for-loop"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="guide-bloch.html" title="Plotting on the Bloch Sphere"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../search.html">search</a>|&nbsp;</li>
-
-          <li><a href="guide.html" accesskey="U">QuTiP Users Guide</a> &raquo;</li> 
-      </ul>
+        <ul class="nav">
+                <li class=""><a class="brand" href="../index.html">QuTiP</a></li>
+                <li>
+                    <a href="../genindex.html"
+                       title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                    <a href="../py-modindex.html"
+                       title="Python Module Index" >modules</a>
+                </li>
+                <li>
+                    <a href="guide-parfor.html"
+                       title="Using QuTiP’s Built-in Parallel for-loop" accesskey="N">next</a>
+                </li>
+                <li>
+                    <a href="guide-bloch.html"
+                       title="Plotting on the Bloch Sphere" accesskey="P">previous</a>
+                </li>
+                <li><a href="guide.html"
+                        accesskey="U">QuTiP Users Guide</a>
+                </li> 
+        </ul>
     </div>
 
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Two-time correlation functions</a><ul>
-<li><a class="reference internal" href="#steadystate-correlation-function">Steadystate correlation function</a></li>
-<li><a class="reference internal" href="#non-steadystate-correlation-function">Non-steadystate correlation function</a><ul>
-<li><a class="reference internal" href="#example-first-order-optical-coherence-function">Example: first-order optical coherence function</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="guide-bloch.html"
-                        title="previous chapter">Plotting on the Bloch Sphere</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="guide-parfor.html"
-                        title="next chapter">Using QuTiP&#8217;s Built-in Parallel for-loop</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/guide/guide-correlation.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+                <div class="pull-right">
+                    
+        <form class="navbar-search" action="../search.html"
+              method="get">
+            <input type="text" name="q" placeholder="search"/>
+            <input type="hidden" name="check_keywords" value="yes"/>
+            <input type="hidden" name="area" value="default"/>
+        </form>
+                </div>
+            </div>
         </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
+    </div>
+  
+    <div class="container">
+        <div class="content row">
+                <div class="span9">
+                    
   <div class="section" id="two-time-correlation-functions">
 <span id="correlation"></span><h1>Two-time correlation functions<a class="headerlink" href="#two-time-correlation-functions" title="Permalink to this headline">¶</a></h1>
 <p>With the QuTiP time-evolution functions (for example <tt class="xref py py-func docutils literal"><span class="pre">qutip.odesolve.mesolve</span></tt> and <a class="reference internal" href="../apidoc/functions.html#module-qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve</span></tt></a>), a state vector or density matrix can be evolved from an initial state at <span class="math">\(t_0\)</span> to an arbitrary time <span class="math">\(t\)</span>, <span class="math">\(\rho(t)=V(t, t_0)\left\{\rho(t_0)\right\}\)</span>, where <span class="math">\(V(t, t_0)\)</span> is the propagator defined by the equation of motion. The resulting density matrix can then be used to evaluate the expectation values of arbitrary combinations of <em>same-time</em> operators.</p>
@@ -238,47 +237,64 @@ Monte Carlo solver.</td>
 </div>
 
 
-          </div>
+                    
+                </div>
+                <div class="span3">
+                    
+        <div class="sphinxsidebar">
+            <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Two-time correlation functions</a><ul>
+<li><a class="reference internal" href="#steadystate-correlation-function">Steadystate correlation function</a></li>
+<li><a class="reference internal" href="#non-steadystate-correlation-function">Non-steadystate correlation function</a><ul>
+<li><a class="reference internal" href="#example-first-order-optical-coherence-function">Example: first-order optical coherence function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guide-bloch.html"
+                        title="previous chapter">Plotting on the Bloch Sphere</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="guide-parfor.html"
+                        title="next chapter">Using QuTiP&#8217;s Built-in Parallel for-loop</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/guide/guide-correlation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+            </div>
         </div>
-      </div>
-      <div class="clearer"></div>
+                </div>
+            
+        </div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="guide-parfor.html" title="Using QuTiP’s Built-in Parallel for-loop"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="guide-bloch.html" title="Plotting on the Bloch Sphere"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../search.html">search</a>|&nbsp;</li>
-
-          <li><a href="guide.html" >QuTiP Users Guide</a> &raquo;</li> 
-      </ul>
-    </div>
-
     <div class="footer">
-        &copy; Copyright 2011-2012, P.D. Nation, J.R. Johansson.
-      Last updated on Sep 02, 2012.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        
+        <div class="container">
+                    &copy;
+                        Copyright 2011-2012, P.D. Nation, J.R. Johansson.
+                Last updated
+                    on Sep 03, 2012.
+                Created using <a
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                    .
+        </div>
     </div>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-16824831-3");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
-  </body>
+
+
+<script type="text/javascript">
+    $('.nav .active').on('click', function () {
+        e.preventDefault()
+        $(this).siblings().toggle()
+    });
+</script>
+
+
+
+</body>
 </html>
