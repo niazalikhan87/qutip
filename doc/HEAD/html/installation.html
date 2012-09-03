@@ -36,7 +36,7 @@
         <!-- analytics -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-00000000-1']);
+            _gaq.push(['_setAccount', 'UA-16824831-3']);
             
             _gaq.push(['_trackPageview']);
 
@@ -65,7 +65,7 @@
 
     <div class="related">
         <ul class="nav">
-                <li class=""><a class="brand" href="index.html">QuTiP</a></li>
+                <li class=""><a href="index.html">home</a></li>
                 <li>
                     <a href="genindex.html"
                        title="General Index" accesskey="I">index</a>
@@ -128,9 +128,8 @@ floating-point dimensions, then we might reconsider.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Python</td>
-<td>2.6+ (not 3)</td>
-<td>Requires multiprocessing (v2.6 and higher only).
-At present, Matplotlib does not work for Python 3.</td>
+<td>2.6+</td>
+<td>Requires multiprocessing (v2.6 and higher only).</td>
 </tr>
 <tr class="row-odd"><td>Numpy</td>
 <td>1.6+</td>
@@ -182,6 +181,10 @@ Headers</td>
 <td>TexLive 2009+</td>
 <td>Optional.  Needed if using LaTex in figure labels.</td>
 </tr>
+<tr class="row-even"><td>nose</td>
+<td>1.1.2+</td>
+<td>Optional. For running tests.</td>
+</tr>
 </tbody>
 </table>
 <p>On all platforms (Linux, Mac), QuTiP works &#8220;out-of-the-box&#8221; using the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> version 7.1 or higher.  This distribution is created by the developers of Numpy and Scipy, and is free for academic use.</p>
@@ -202,12 +205,13 @@ Headers</td>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pyside</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">nose</span>         <span class="c"># recommended, for testing</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">extra</span> <span class="c"># recommended</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ubuntu-11-04-and-lower-skip-this-step-in-ubuntu-11-10">
-<h3>Ubuntu 11.04 and Lower (skip this step in Ubuntu 11.10+):<a class="headerlink" href="#ubuntu-11-04-and-lower-skip-this-step-in-ubuntu-11-10" title="Permalink to this headline">¶</a></h3>
+<h3>Ubuntu 11.04 and Lower (skip this step in Ubuntu 11.10+)<a class="headerlink" href="#ubuntu-11-04-and-lower-skip-this-step-in-ubuntu-11-10" title="Permalink to this headline">¶</a></h3>
 <p>These releases do not have Matplotlib&gt;=1.0, and we therefore need to add the unofficial repository:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">bgamari</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">-</span><span class="n">unofficial</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
@@ -215,14 +219,14 @@ Headers</td>
 </div>
 </div>
 <div class="section" id="install-matplotlib">
-<h3>Install Matplotlib:<a class="headerlink" href="#install-matplotlib" title="Permalink to this headline">¶</a></h3>
+<h3>Install Matplotlib<a class="headerlink" href="#install-matplotlib" title="Permalink to this headline">¶</a></h3>
 <p>Regardless of Ubuntu version, we are now in a position to install the plotting library:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="qutip-installation">
-<h3>QuTiP installation:<a class="headerlink" href="#qutip-installation" title="Permalink to this headline">¶</a></h3>
+<h3>QuTiP installation<a class="headerlink" href="#qutip-installation" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
@@ -245,6 +249,7 @@ Headers</td>
 <p>additional, but optional, ports include:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">ipython</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">cython</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">nose</span>
 </pre></div>
 </div>
 <p>and in addition:</p>
@@ -285,15 +290,15 @@ Headers</td>
 </div>
 </div>
 <div class="section" id="setup-via-scipy-superpack">
-<h3>Setup via SciPy Superpack:<a class="headerlink" href="#setup-via-scipy-superpack" title="Permalink to this headline">¶</a></h3>
+<h3>Setup via SciPy Superpack<a class="headerlink" href="#setup-via-scipy-superpack" title="Permalink to this headline">¶</a></h3>
 <p>A second option is to install the required Python packages using the <a class="reference external" href="http://fonnesbeck.github.com/ScipySuperpack/">SciPy Superpack</a>.  Further information on installing the superpack can be found on the <a class="reference external" href="http://www.scipy.org/Download">SciPy Downloads page</a>.  Note that, if you choose this option, the GUI elements of QuTiP will not be available without further installing either the PyQt4 or PySide packages separately.</p>
 </div>
 <div class="section" id="id2">
-<h3>Enthought Python Distribution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Enthought Python Distribution<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Finally, one can also use the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> version 7.1 or higher to satisfy the QuTiP dependencies.</p>
 </div>
 <div class="section" id="installing-qutip">
-<h3>Installing QuTiP:<a class="headerlink" href="#installing-qutip" title="Permalink to this headline">¶</a></h3>
+<h3>Installing QuTiP<a class="headerlink" href="#installing-qutip" title="Permalink to this headline">¶</a></h3>
 <p>No matter which installation path you choose, installing QuTiP is the same as on linux.  From the QuTiP directory:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
@@ -343,16 +348,16 @@ Headers</td>
 <li><a class="reference internal" href="#general-installation-requirements">General Installation Requirements</a></li>
 <li><a class="reference internal" href="#installation-on-ubuntu-linux">Installation on Ubuntu Linux</a><ul>
 <li><a class="reference internal" href="#manual-installation">Manual installation</a></li>
-<li><a class="reference internal" href="#ubuntu-11-04-and-lower-skip-this-step-in-ubuntu-11-10">Ubuntu 11.04 and Lower (skip this step in Ubuntu 11.10+):</a></li>
-<li><a class="reference internal" href="#install-matplotlib">Install Matplotlib:</a></li>
-<li><a class="reference internal" href="#qutip-installation">QuTiP installation:</a></li>
+<li><a class="reference internal" href="#ubuntu-11-04-and-lower-skip-this-step-in-ubuntu-11-10">Ubuntu 11.04 and Lower (skip this step in Ubuntu 11.10+)</a></li>
+<li><a class="reference internal" href="#install-matplotlib">Install Matplotlib</a></li>
+<li><a class="reference internal" href="#qutip-installation">QuTiP installation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#installation-on-mac-os-x-10-6">Installation on Mac OS X (10.6+)</a><ul>
 <li><a class="reference internal" href="#setup-using-macports">Setup Using Macports: </a></li>
-<li><a class="reference internal" href="#setup-via-scipy-superpack">Setup via SciPy Superpack:</a></li>
-<li><a class="reference internal" href="#id2">Enthought Python Distribution:</a></li>
-<li><a class="reference internal" href="#installing-qutip">Installing QuTiP:</a></li>
+<li><a class="reference internal" href="#setup-via-scipy-superpack">Setup via SciPy Superpack</a></li>
+<li><a class="reference internal" href="#id2">Enthought Python Distribution</a></li>
+<li><a class="reference internal" href="#installing-qutip">Installing QuTiP</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#verifying-the-installation">Verifying the Installation</a></li>

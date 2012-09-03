@@ -37,7 +37,7 @@
         <!-- analytics -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-00000000-1']);
+            _gaq.push(['_setAccount', 'UA-16824831-3']);
             
             _gaq.push(['_trackPageview']);
 
@@ -66,7 +66,7 @@
 
     <div class="related">
         <ul class="nav">
-                <li class=""><a class="brand" href="../index.html">QuTiP</a></li>
+                <li class=""><a href="../index.html">home </a></li>
                 <li>
                     <a href="../genindex.html"
                        title="General Index" accesskey="I">index</a>
@@ -161,7 +161,7 @@ to 0 if omitted.</p>
 
 <dl class="function">
 <dt id="qutip.states.coherent">
-<tt class="descname">coherent</tt><big>(</big><em>N</em>, <em>alpha</em>, <em>method='displacement'</em><big>)</big><a class="headerlink" href="#qutip.states.coherent" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">coherent</tt><big>(</big><em>N</em>, <em>alpha</em>, <em>method='operator'</em><big>)</big><a class="headerlink" href="#qutip.states.coherent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a coherent state with eigenvalue alpha.</p>
 <p>Constructed using displacement operator on vacuum state.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -394,11 +394,21 @@ formed by outer product.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data = </span>
-<span class="go">[[ 0.50000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
-<span class="go"> [ 0.00000+0.j  0.25000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j]</span>
-<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.12500+0.j  0.00000+0.j  0.00000+0.j]</span>
-<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.06250+0.j  0.00000+0.j]</span>
-<span class="go"> [ 0.00000+0.j  0.00000+0.j  0.00000+0.j  0.00000+0.j  0.03125+0.j]]</span>
+<span class="go">[[ 0.51612903  0.          0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.25806452  0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.12903226  0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.06451613  0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.          0.03225806]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;analytic&#39;</span><span class="p">)</span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 0.5      0.       0.       0.       0.     ]</span>
+<span class="go"> [ 0.       0.25     0.       0.       0.     ]</span>
+<span class="go"> [ 0.       0.       0.125    0.       0.     ]</span>
+<span class="go"> [ 0.       0.       0.       0.0625   0.     ]</span>
+<span class="go"> [ 0.       0.       0.       0.       0.03125]]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1430,7 +1440,7 @@ exception.</p>
 <span id="monte-carlo-evolution"></span><h3>Monte Carlo Evolution<a class="headerlink" href="#module-qutip.mcsolve" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.mcsolve.mcsolve">
-<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1129c43f8&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10ed19290&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo evolution of a state vector <span class="math">\(|\psi \rangle\)</span> for a given
 Hamiltonian and sets of collapse operators, and possibly, operators
 for calculating expectation values. Options for the underlying ODE solver are 
@@ -1520,7 +1530,7 @@ operator lists.</p>
 <span id="bloch-redfield-master-equation"></span><h3>Bloch-Redfield Master Equation<a class="headerlink" href="#module-qutip.bloch_redfield" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.bloch_redfield.brmesolve">
-<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x112b8bc20&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10ee75ab8&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Bloch-Redfeild master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1577,7 +1587,7 @@ an <em>array</em> of expectation values for the times specified by <cite>tlist</
 <span id="floquet-states-and-floquet-markov-master-equation"></span><h3>Floquet States and Floquet-Markov Master Equation<a class="headerlink" href="#module-qutip.floquet" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.floquet.fmmesolve">
-<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x112b8bab8&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10ee75950&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Floquet-Markov master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -2868,7 +2878,7 @@ builtin &#8216;zip&#8217; command, or using multidimensional <cite>lists</cite> 
 
 <dl class="function">
 <dt id="qutip.rhs_generate">
-<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x1129c4440&gt;</em>, <em>solver='me'</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10ed192d8&gt;</em>, <em>solver='me'</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used to generate the Cython functions for solving the dynamics of a
 given system before using the parfor function.</p>
 <table class="docutils field-list" frame="void" rules="none">
