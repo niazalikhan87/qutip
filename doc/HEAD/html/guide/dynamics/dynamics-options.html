@@ -16,7 +16,7 @@
         <script type="text/javascript">
             var DOCUMENTATION_OPTIONS = {
                 URL_ROOT:'../../',
-                VERSION:'2.0',
+                VERSION:'2.1.0',
                 COLLAPSE_INDEX:false,
                 FILE_SUFFIX:'.html',
                 HAS_SOURCE:  true
@@ -132,7 +132,7 @@
 <span class="go">    rhs_filename:  None</span>
 <span class="go">    rhs_reuse:     False</span>
 <span class="go">    gui:           True</span>
-<span class="go">    expect_avg:    True</span>
+<span class="go">    mc_avg:            True</span>
 </pre></div>
 </div>
 <p>These properties are detailed in the following table.  Assuming <tt class="docutils literal"><span class="pre">opts=Odeoptions()</span></tt>:</p>
@@ -202,7 +202,7 @@ of processors</td>
 <td>True (if GUI)</td>
 <td>Use the mcsolve progessbar. Defaults to False on Windows.</td>
 </tr>
-<tr class="row-odd"><td>opts.expect_avg</td>
+<tr class="row-odd"><td>opts.mc_avg</td>
 <td>True</td>
 <td>Average over trajectories for expectation values from mcsolve.</td>
 </tr>
@@ -236,7 +236,7 @@ of processors</td>
 <span class="go">rhs_filename:  None</span>
 <span class="go">rhs_reuse:     False</span>
 <span class="go">gui:           False</span>
-<span class="go">expect_avg:    True</span>
+<span class="go">mc_avg:    True</span>
 </pre></div>
 </div>
 <p>To use these new settings we can use the keyword argument <tt class="docutils literal"><span class="pre">options</span></tt> in either the <tt class="docutils literal"><span class="pre">mesolve</span></tt> or <tt class="docutils literal"><span class="pre">mcsolve</span></tt> function.  We can modify the last example as:</p>
@@ -281,7 +281,7 @@ of processors</td>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 03, 2012.
+                    on Sep 07, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

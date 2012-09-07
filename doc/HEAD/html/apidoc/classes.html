@@ -16,7 +16,7 @@
         <script type="text/javascript">
             var DOCUMENTATION_OPTIONS = {
                 URL_ROOT:'../',
-                VERSION:'2.0',
+                VERSION:'2.1.0',
                 COLLAPSE_INDEX:false,
                 FILE_SUFFIX:'.html',
                 HAS_SOURCE:  true
@@ -998,7 +998,7 @@ This overrides the &#8216;format&#8217; and &#8216;dirc&#8217; arguments.</p>
 <span id="classes-odeoptions"></span><h2>The Odeoptions class<a class="headerlink" href="#the-odeoptions-class" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="qutip.Odeoptions">
-<em class="property">class </em><tt class="descname">Odeoptions</tt><big>(</big><em>atol=1e-08</em>, <em>rtol=1e-06</em>, <em>method='adams'</em>, <em>order=12</em>, <em>nsteps=2500</em>, <em>first_step=0</em>, <em>max_step=0</em>, <em>min_step=0</em>, <em>mc_avg=True</em>, <em>tidy=True</em>, <em>num_cpus=0</em>, <em>rhs_reuse=False</em>, <em>rhs_filename=None</em>, <em>gui=True</em><big>)</big><a class="headerlink" href="#qutip.Odeoptions" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descname">Odeoptions</tt><big>(</big><em>atol=1e-08</em>, <em>rtol=1e-06</em>, <em>method='adams'</em>, <em>order=12</em>, <em>nsteps=1000</em>, <em>first_step=0</em>, <em>max_step=0</em>, <em>min_step=0</em>, <em>mc_avg=True</em>, <em>tidy=True</em>, <em>num_cpus=0</em>, <em>norm_tol=0.001</em>, <em>norm_steps=5</em>, <em>rhs_reuse=False</em>, <em>rhs_filename=None</em>, <em>gui=True</em><big>)</big><a class="headerlink" href="#qutip.Odeoptions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class of options for ODE solver used by <a class="reference internal" href="functions.html#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a> and <a class="reference internal" href="functions.html#module-qutip.mcsolve" title="qutip.mcsolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mcsolve</span></tt></a>.
 Options can be changed either inline:</p>
 <div class="highlight-python"><pre>opts=Odeoptions(gui=False,order=10,.....)</pre>
@@ -1053,6 +1053,14 @@ Options can be changed either inline:</p>
 <p><strong>num_cpus</strong> : int</p>
 <blockquote>
 <div><p>Number of cpus used by mcsolver (default = # of cpus).</p>
+</div></blockquote>
+<p><strong>norm_tol :float</strong> :</p>
+<blockquote>
+<div><p>Tolerance used when finding wavefunction norm in mcsolve.</p>
+</div></blockquote>
+<p><strong>norm_steps</strong> : int</p>
+<blockquote>
+<div><p>Max. number of steps used to find wavefunction norm to within norm_tol in mcsolve.</p>
 </div></blockquote>
 <p><strong>gui</strong> : bool {True,False}</p>
 <blockquote>
@@ -1171,7 +1179,7 @@ expectation values was done over a subset of total number of trajectories.</p>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 03, 2012.
+                    on Sep 07, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
