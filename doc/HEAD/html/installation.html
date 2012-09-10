@@ -246,18 +246,17 @@ Headers</td>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">matplotlib</span> <span class="o">+</span><span class="n">latex</span>
 </pre></div>
 </div>
-<p>additional, but optional, ports include:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">ipython</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">cython</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">nose</span>
-</pre></div>
-</div>
 <p>and in addition:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">pyside</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">pyside</span>   <span class="c"># recommended</span>
 </pre></div>
 </div>
 <p>or:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">pyqt4</span>
+</pre></div>
+</div>
+<p>Optional, but highly recommended ports include:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">ipython</span> <span class="o">+</span><span class="n">pyside</span><span class="o">+</span><span class="n">notebook</span><span class="o">+</span><span class="n">parallel</span><span class="o">+</span><span class="n">scientific</span>  <span class="c">#switch +pyside to +pyqt4 if using pyqt4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py27</span><span class="o">-</span><span class="n">cython</span>       <span class="c">#used for string-based time-dependent Hamiltonians</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -389,7 +388,7 @@ Headers</td>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 07, 2012.
+                    on Sep 10, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
