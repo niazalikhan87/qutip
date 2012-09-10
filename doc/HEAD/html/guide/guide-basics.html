@@ -115,7 +115,7 @@
 <p class="last">Do not run QuTiP from the installation directory.</p>
 </div>
 <p>To load the qutip modules, we must first call the import statement:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 <p>that will load all of the user available functions.  Note that, in the rest of the documentation, functions are written using <cite>qutip.module.function()</cite> notation which links to the corresponding function in the QuTiP API: <a class="reference internal" href="../apidoc/functions.html#functions"><em>QuTiP Function List</em></a>.  However, in calling <cite>import *</cite>, we have already loaded all of the QuTiP modules. Therefore, we will only need the function name and not the complete path when calling the function from the command line or a Python script.</p>
@@ -126,10 +126,11 @@
 <span id="basics-qobj-intro"></span><h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The key difference between classical and quantum mechanics lies in the use of operators instead of numbers as variables.  Moreover, we need to specify state vectors and their properties. Therefore, in computing the dynamics of quantum systems we need a data structure that is capable of encapsulating the properties of a quantum operator and ket/bra vectors.  The quantum object class, <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-func docutils literal"><span class="pre">qutip.Qobj</span></tt></a>, accomplishes this using matrix representation.</p>
 <p>To begin, let us create a blank Qobj:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Qobj</span><span class="p">()</span>
-<span class="go">Quantum object: dims = [[1], [1]], shape = [1, 1]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">Qobj</span><span class="p">()</span>
+<span class="gr">Out[2]: </span>
+<span class="go">Quantum object: dims = [[1], [1]], shape = [1, 1], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[0]]</span>
+<span class="go">[[ 0.]]</span>
 </pre></div>
 </div>
 <p>where we see the blank Qobj object with dimensions, shape, and data.  Here the data corresponds to a 1x1-dimensional matrix consisting of a single zero entry.</p>
@@ -138,31 +139,34 @@
 <p class="last">By convention, Class objects in Python such as <cite>Qobj()</cite> differ from functions in the use of a beginning capital letter.</p>
 </div>
 <p>We can create a Qobj with a user defined data set by passing a list or array of data into the Qobj:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Qobj</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">Quantum object: dims = [[1], [5]], shape = [1, 5]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">Qobj</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="gr">Out[3]: </span>
+<span class="go">Quantum object: dims = [[1], [5]], shape = [1, 5], type = bra</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[1 2 3 4 5]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">Qobj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1]</span>
+<span class="go">[[ 1.  2.  3.  4.  5.]]</span>
+
+<span class="gp">In [4]: </span><span class="n">x</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">]])</span>
+
+<span class="gp">In [5]: </span><span class="n">Qobj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gr">Out[5]: </span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[1]</span>
-<span class="go"> [2]</span>
-<span class="go"> [3]</span>
-<span class="go"> [4]</span>
-<span class="go"> [5]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">=</span><span class="n">random</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">Qobj</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<span class="go">[[ 1.]</span>
+<span class="go"> [ 2.]</span>
+<span class="go"> [ 3.]</span>
+<span class="go"> [ 4.]</span>
+<span class="go"> [ 5.]]</span>
+
+<span class="gp">In [6]: </span><span class="n">r</span><span class="o">=</span><span class="n">random</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="gp">In [7]: </span><span class="n">Qobj</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="gr">Out[7]: </span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 0.76799998  0.06936066  0.10970546  0.13724402]</span>
-<span class="go"> [ 0.70644984  0.15371775  0.90649545  0.15349102]</span>
-<span class="go"> [ 0.69515726  0.13609801  0.52707457  0.6484309 ]</span>
-<span class="go"> [ 0.78328543  0.87295996  0.58964046  0.3998962 ]]</span>
+<span class="go">[[ 0.79691435  0.62602696  0.05629455  0.27660734]</span>
+<span class="go"> [ 0.55904316  0.86815755  0.91927734  0.82349269]</span>
+<span class="go"> [ 0.48972564  0.90838651  0.50425791  0.12086241]</span>
+<span class="go"> [ 0.92610406  0.40757884  0.4688968   0.51759041]]</span>
 </pre></div>
 </div>
 <p>Notice how both the dims and shape change according to the input data.  Although dims and shape appear to have the same function, the difference will become quite clear in the section on tensor products and partial traces.</p>
@@ -288,44 +292,45 @@ representing spin, s = &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217;,
 </tbody>
 </table>
 <p>As an example, we give the output for a few of these objects:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gr">Out[8]: </span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
 <span class="go"> [ 0.]</span>
 <span class="go"> [ 0.]</span>
 <span class="go"> [ 1.]</span>
 <span class="go"> [ 0.]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">coherent</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="o">-</span><span class="mf">0.5</span><span class="n">j</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1]</span>
+
+<span class="gp">In [9]: </span><span class="n">coherent</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="o">-</span><span class="mf">0.5</span><span class="n">j</span><span class="p">)</span>
+<span class="gr">Out[9]: </span>
+<span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[  7.78801702e-01 -5.63234865e-20j]</span>
-<span class="go"> [  3.89391417e-01 -3.89391417e-01j]</span>
-<span class="go"> [  7.59246032e-19 -2.75458952e-01j]</span>
-<span class="go"> [ -7.89861710e-02 -7.89861710e-02j]</span>
-<span class="go"> [ -4.31427083e-02 +3.46944695e-18j]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<span class="go">[[ 0.77880170+0.j        ]</span>
+<span class="go"> [ 0.38939142-0.38939142j]</span>
+<span class="go"> [ 0.00000000-0.27545895j]</span>
+<span class="go"> [-0.07898617-0.07898617j]</span>
+<span class="go"> [-0.04314271+0.j        ]]</span>
+
+<span class="gp">In [10]: </span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gr">Out[10]: </span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.          1.          0.          0.        ]</span>
 <span class="go"> [ 0.          0.          1.41421356  0.        ]</span>
 <span class="go"> [ 0.          0.          0.          1.73205081]</span>
 <span class="go"> [ 0.          0.          0.          0.        ]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sigmaz</span><span class="p">()</span>
-<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+
+<span class="gp">In [11]: </span><span class="n">sigmaz</span><span class="p">()</span>
+<span class="gr">Out[11]: </span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.  0.]</span>
 <span class="go"> [ 0. -1.]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jmat</span><span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[6], [6]], shape = [6, 6]</span>
+
+<span class="gp">In [12]: </span><span class="n">jmat</span><span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+<span class="gr">Out[12]: </span>
+<span class="go">Quantum object: dims = [[6], [6]], shape = [6, 6], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.          2.23606798  0.          0.          0.          0.        ]</span>
 <span class="go"> [ 0.          0.          2.82842712  0.          0.          0.        ]</span>
@@ -339,13 +344,13 @@ representing spin, s = &#8216;x&#8217;, &#8216;y&#8217;, &#8216;z&#8217;,
 <div class="section" id="qobj-properties">
 <span id="basics-qobj-props"></span><h3>Qobj properties<a class="headerlink" href="#qobj-properties" title="Permalink to this headline">¶</a></h3>
 <p>We have seen that a quantum object has three internal attributes, the data, dims, and shape properties.  These can be accessed in the following way:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">.</span><span class="n">dims</span>
-<span class="go">[[4], [4]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">[4, 4]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">q</span><span class="o">.</span><span class="n">dims</span>
+<span class="gr">Out[14]: </span><span class="p">[[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+
+<span class="gp">In [15]: </span><span class="n">q</span><span class="o">.</span><span class="n">shape</span>
+<span class="gr">Out[15]: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>In general, the properties of a Qobj object (or any Python class) can be retrieved using the <cite>Q.property</cite> notation.  In addition to the properties shown with the <cite>print</cite> function, the Qobj class also has the following:</p>
@@ -389,21 +394,20 @@ products and partial traces).</td>
 </tbody>
 </table>
 <div class="figure align-center" id="about">
-<img alt="../_images/quide-basics-qobj-box.png" src="../_images/quide-basics-qobj-box.png" style="width: 3in;" />
+<img alt="../_images/quide-basics-qobj-box.png" src="../_images/quide-basics-qobj-box.png" style="width: 3.5in;" />
 <p class="caption">The <cite>Qobj</cite> Class viewed as a container for the properties need to characterize a quantum operator or state vector.</p>
 </div>
 <p>For the destruction operator above:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">type</span>
-<span class="go">&#39;oper&#39;</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">isherm</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">q</span><span class="o">.</span><span class="n">type</span>
+<span class="gr">Out[16]: </span><span class="s">&#39;oper&#39;</span>
+
+<span class="gp">In [17]: </span><span class="n">q</span><span class="o">.</span><span class="n">isherm</span>
+<span class="gr">Out[17]: </span><span class="bp">False</span>
+
+<span class="gp">In [18]: </span><span class="n">q</span><span class="o">.</span><span class="n">data</span>
+<span class="gr">Out[18]: </span>
 <span class="go">&lt;4x4 sparse matrix of type &#39;&lt;type &#39;numpy.complex128&#39;&gt;&#39;</span>
-<span class="go">        with 3 stored elements in Compressed Sparse Row format&gt;</span>
+<span class="go">	with 3 stored elements in Compressed Sparse Row format&gt;</span>
 </pre></div>
 </div>
 <p>The data property returns a message stating that the data is a sparse matrix.  All Qobj&#8217;s store their data as a sparse matrix to save memory.  To access the underlying matrix one needs to use the <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj.full" title="qutip.Qobj.full"><tt class="xref py py-func docutils literal"><span class="pre">qutip.Qobj.full</span></tt></a> function as described in the functions section.</p>
@@ -411,35 +415,38 @@ products and partial traces).</td>
 <div class="section" id="qobj-math">
 <span id="basics-qobj-math"></span><h3>Qobj Math<a class="headerlink" href="#qobj-math" title="Permalink to this headline">¶</a></h3>
 <p>The rules for mathematical operations on Qobj&#8217;s are similar to standard matrix arithmetic:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">=</span><span class="n">sigmax</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">+</span><span class="mi">5</span>
-<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">q</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [20]: </span><span class="n">x</span><span class="o">=</span><span class="n">sigmax</span><span class="p">()</span>
+
+<span class="gp">In [21]: </span><span class="n">q</span><span class="o">+</span><span class="mi">5</span>
+<span class="gr">Out[21]: </span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 5.          6.          5.          5.        ]</span>
-<span class="go"> [ 5.          5.          6.41421356  5.        ]</span>
-<span class="go"> [ 5.          5.          5.          6.73205081]</span>
-<span class="go"> [ 5.          5.          5.          5.        ]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
-<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+<span class="go">[[ 5.          1.          0.          0.        ]</span>
+<span class="go"> [ 0.          5.          1.41421356  0.        ]</span>
+<span class="go"> [ 0.          0.          5.          1.73205081]</span>
+<span class="go"> [ 0.          0.          0.          5.        ]]</span>
+
+<span class="gp">In [22]: </span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="gr">Out[22]: </span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.  0.]</span>
 <span class="go"> [ 0.  1.]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">q</span><span class="o">**</span><span class="mi">3</span>
-<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4]</span>
+
+<span class="gp">In [23]: </span><span class="n">q</span><span class="o">**</span><span class="mi">3</span>
+<span class="gr">Out[23]: </span>
+<span class="go">Quantum object: dims = [[4], [4]], shape = [4, 4], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.          0.          0.          2.44948974]</span>
 <span class="go"> [ 0.          0.          0.          0.        ]</span>
 <span class="go"> [ 0.          0.          0.          0.        ]</span>
 <span class="go"> [ 0.          0.          0.          0.        ]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2]</span>
+
+<span class="gp">In [24]: </span><span class="n">x</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gr">Out[24]: </span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.          0.70710678]</span>
 <span class="go"> [ 0.70710678  0.        ]]</span>
@@ -544,7 +551,8 @@ vector Q/Q.norm().</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gr">Out[25]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -552,15 +560,15 @@ vector Q/Q.norm().</td>
 <span class="go"> [ 0.]</span>
 <span class="go"> [ 1.]</span>
 <span class="go"> [ 0.]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+
+<span class="gp">In [26]: </span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="gr">Out[26]: </span>
 <span class="go">Quantum object: dims = [[1], [5]], shape = [1, 5], type = bra</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.  0.  0.  1.  0.]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [27]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gr">Out[27]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.36791117  0.36774407  0.26105441  0.14620658  0.08826704]</span>
@@ -568,49 +576,41 @@ vector Q/Q.norm().</td>
 <span class="go"> [ 0.26105441  0.26093584  0.18523331  0.10374209  0.06263061]</span>
 <span class="go"> [ 0.14620658  0.14614018  0.10374209  0.05810197  0.035077  ]</span>
 <span class="go"> [ 0.08826704  0.08822695  0.06263061  0.035077    0.0211765 ]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span>
-<span class="go">array([ 0.36791117,  0.36757705,  0.18523331,  0.05810197,  0.0211765 ])</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">full</span><span class="p">()</span>
-<span class="go">array([[ 0.36791117,  0.36774407,  0.26105441,  0.14620658,  0.08826704],</span>
-<span class="go">       [ 0.36774407,  0.36757705,  0.26093584,  0.14614018,  0.08822695],</span>
-<span class="go">       [ 0.26105441,  0.26093584,  0.18523331,  0.10374209,  0.06263061],</span>
-<span class="go">       [ 0.14620658,  0.14614018,  0.10374209,  0.05810197,  0.035077  ],</span>
-<span class="go">       [ 0.08826704,  0.08822695,  0.06263061,  0.035077  ,  0.0211765 ]])</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
-<span class="go">1.0</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sqrtm</span><span class="p">()</span>
-<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = False</span>
+
+<span class="gp">In [28]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">diag</span><span class="p">()</span>
+<span class="gr">Out[28]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">0.36791117</span><span class="p">,</span>  <span class="mf">0.36757705</span><span class="p">,</span>  <span class="mf">0.18523331</span><span class="p">,</span>  <span class="mf">0.05810197</span><span class="p">,</span>  <span class="mf">0.0211765</span> <span class="p">])</span>
+
+<span class="gp">In [29]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">full</span><span class="p">()</span>
+<span class="gr">Out[29]: </span>
+<span class="go">array([[ 0.36791117+0.j,  0.36774407+0.j,  0.26105441+0.j,  0.14620658+0.j,</span>
+<span class="go">         0.08826704+0.j],</span>
+<span class="go">       [ 0.36774407+0.j,  0.36757705+0.j,  0.26093584+0.j,  0.14614018+0.j,</span>
+<span class="go">         0.08822695+0.j],</span>
+<span class="go">       [ 0.26105441+0.j,  0.26093584+0.j,  0.18523331+0.j,  0.10374209+0.j,</span>
+<span class="go">         0.06263061+0.j],</span>
+<span class="go">       [ 0.14620658+0.j,  0.14614018+0.j,  0.10374209+0.j,  0.05810197+0.j,</span>
+<span class="go">         0.03507700+0.j],</span>
+<span class="go">       [ 0.08826704+0.j,  0.08822695+0.j,  0.06263061+0.j,  0.03507700+0.j,</span>
+<span class="go">         0.02117650+0.j]])</span>
+
+<span class="gp">In [30]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="gr">Out[30]: </span><span class="mf">1.0</span>
+
+<span class="gp">In [31]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sqrtm</span><span class="p">()</span>
+<span class="gr">Out[31]: </span>
+<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 0.36791117 +6.66013801e-09j  0.36774407 -2.87612199e-09j</span>
-<span class="go">   0.26105441 -4.24323387e-09j  0.14620658 -1.21628628e-09j</span>
-<span class="go">   0.08826704 -1.21357197e-09j]</span>
-<span class="go"> [ 0.36774407 -3.87481342e-09j  0.36757705 +1.66576107e-09j</span>
-<span class="go">   0.26093584 +2.50548614e-09j  0.14614018 +7.07508704e-10j</span>
-<span class="go">   0.08822695 +6.28805009e-10j]</span>
-<span class="go"> [ 0.26105441 -2.75065517e-09j  0.26093584 +1.15201146e-09j</span>
-<span class="go">   0.18523331 +1.92733313e-09j  0.10374209 +5.01775972e-10j</span>
-<span class="go">   0.06263061 +1.34247407e-10j]</span>
-<span class="go"> [ 0.14620658 -1.54053667e-09j  0.14614017 +6.89127552e-10j</span>
-<span class="go">   0.10374209 +8.65055761e-10j  0.05810198 +2.81704042e-10j</span>
-<span class="go">   0.03507700 +5.25048476e-10j]</span>
-<span class="go"> [ 0.08826704 -9.30044364e-10j  0.08822695 +4.99516749e-10j</span>
-<span class="go">   0.06263061 +1.14878928e-10j  0.03507700 +1.71358232e-10j</span>
-<span class="go">   0.02117650 +1.17185351e-09j]]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tr</span><span class="p">()</span>
-<span class="go">1.0</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="go">[[ 0.36791118  0.36774407  0.26105441  0.14620658  0.08826704]</span>
+<span class="go"> [ 0.36774407  0.36757705  0.26093584  0.14614018  0.08822695]</span>
+<span class="go"> [ 0.26105441  0.26093584  0.18523331  0.10374209  0.06263061]</span>
+<span class="go"> [ 0.14620658  0.14614018  0.10374209  0.05810197  0.035077  ]</span>
+<span class="go"> [ 0.08826704  0.08822695  0.06263061  0.035077    0.0211765 ]]</span>
+
+<span class="gp">In [32]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tr</span><span class="p">()</span>
+<span class="gr">Out[32]: </span><span class="mf">1.0</span>
+
+<span class="gp">In [33]: </span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">basis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="gr">Out[33]: </span>
 <span class="go">Quantum object: dims = [[4], [1]], shape = [4, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.        ]</span>
@@ -668,7 +668,7 @@ vector Q/Q.norm().</td>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 07, 2012.
+                    on Sep 10, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
