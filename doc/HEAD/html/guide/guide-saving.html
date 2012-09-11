@@ -113,41 +113,56 @@
 <h2>Storing and loading QuTiP objects<a class="headerlink" href="#storing-and-loading-qutip-objects" title="Permalink to this headline">¶</a></h2>
 <p>To store and load arbitrary QuTiP related objects (<tt class="xref py py-class docutils literal"><span class="pre">Qobj</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Odedata</span></tt>, etc.) there are two functions: <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt>. The function <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> takes an arbitrary object as first parameter and an optional filename as second parameter (default filename is <cite>qutip_data.qu</cite>). The filename extension is always <cite>.qu</cite>. The function <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt> takes a mandatory filename as first argument and loads and returns the objects in the file.</p>
 <p>To illustrate how these functions can be used, consider a simple calculation of the steadystate of the harmonic oscillator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rho_ss</span> <span class="o">=</span> <span class="n">steadystate</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
+
+<span class="gp">In [3]: </span><span class="n">rho_ss</span> <span class="o">=</span> <span class="n">steadystate</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The steadystate density matrix <cite>rho_ss</cite> is an instance of <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a>. It can be stored to a file <cite>steadystate.qu</cite> using</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">qsave</span><span class="p">(</span><span class="n">rho_ss</span><span class="p">,</span> <span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ls</span> <span class="o">*.</span><span class="n">qu</span>
-<span class="go">steadystate.qu</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">qsave</span><span class="p">(</span><span class="n">rho_ss</span><span class="p">,</span> <span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">ls</span> <span class="o">*.</span><span class="n">qu</span>
+<span class="go">density_matrix_vs_time.qu	steadystate.qu</span>
 </pre></div>
 </div>
 <p>and it can later be loaded again, and used in further calculations:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rho_ss_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">rho_ss_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;steadystate&#39;</span><span class="p">)</span>
 <span class="go">Loaded Qobj object:</span>
 <span class="go">Quantum object: dims = [[10], [10]], shape = [10, 10], type = oper, isHerm = True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">rho_ss_loaded</span><span class="p">)</span>
-<span class="go">array(0.9902248289344705)</span>
+
+
+<span class="gp">In [7]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">rho_ss_loaded</span><span class="p">)</span>
+<span class="gr">Out[8]: </span><span class="mf">0.99022482893451</span>
 </pre></div>
 </div>
 <p>The nice thing about the <tt class="xref py py-func docutils literal"><span class="pre">qutip.qsave</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.qload</span></tt> functions is that almost any object can be stored and load again later on. We can for example store a list of density matrices as returned by <a class="reference internal" href="../apidoc/functions.html#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">rand_ket</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dm_list</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="p">[])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">qsave</span><span class="p">(</span><span class="n">dm_list</span><span class="p">,</span> <span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
+
+<span class="gp">In [10]: </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">rand_ket</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="n">dm_list</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="p">[])</span>
+
+<span class="gp">In [13]: </span><span class="n">qsave</span><span class="p">(</span><span class="n">dm_list</span><span class="p">,</span> <span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And it can then be loaded and used again, for example in an other program:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dm_list_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
-<span class="go">Loaded list object.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># use it in some calculation</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([</span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span> <span class="k">for</span> <span class="n">dm</span> <span class="ow">in</span> <span class="n">dm_list_loaded</span><span class="p">])</span>
-<span class="go">array([ 4.30052873,  3.41114025,  2.78257234,  2.32509271,  1.98722684,</span>
-<span class="go">        1.73608258,  1.54875697,  1.4087477 ,  1.30396859,  1.22548884])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">dm_list_loaded</span> <span class="o">=</span> <span class="n">qload</span><span class="p">(</span><span class="s">&#39;density_matrix_vs_time&#39;</span><span class="p">)</span>
+<span class="go">Loaded Odedata object:</span>
+<span class="go">Odedata object missing solver information.</span>
+<span class="go">------------------------------------------</span>
+<span class="go">states = True</span>
+<span class="go">num_collapse = 0</span>
+
+<span class="gp">In [15]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [16]: </span><span class="n">expect</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">dm_list_loaded</span><span class="o">.</span><span class="n">states</span><span class="p">)</span>
+<span class="gr">Out[16]: </span>
+<span class="go">array([ 3.16255236,  2.56146482,  2.14962836,  1.85260208,  1.63399213,</span>
+<span class="go">        1.47171969,  1.35075326,  1.26036481,  1.19272869,  1.14207216])</span>
 </pre></div>
 </div>
 </div>
@@ -160,56 +175,75 @@
 </div>
 <p>where <cite>filename</cite> is the name of the file, <cite>data</cite> is the data to be written to the file (must be a <em>numpy</em> array), <cite>numtype</cite> (optional) is a flag indicating numerical type that can take values <cite>complex</cite> or <cite>real</cite>, <cite>numformat</cite> (optional) specifies the numerical format that can take the values <cite>exp</cite> for the format <cite>1.0e1</cite> and <cite>decimal</cite> for the format <cite>10.0</cite>, and <cite>sep</cite> (optional) is an arbitrary single-character field separator (usually a tab, space, comma, semicolon, etc.).</p>
 <p>A common use for the <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> function is to store the expectation values of a set of operators for a sequence of times, e.g., as returned by the <a class="reference internal" href="../apidoc/functions.html#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a> function, which is what the following example does:</p>
-<div class="highlight-python"><pre>&gt;&gt;&gt; a = destroy(10); H = a.dag() * a ; c_ops = [sqrt(0.5) * a, sqrt(0.25) * a.dag()]
-&gt;&gt;&gt; psi0 = rand_ket(10)
-&gt;&gt;&gt; tlist = linspace(0, 100, 100)
-&gt;&gt;&gt; expt_values = mesolve(H, psi0, tlist, c_ops, [a.dag() * a, a+a.dag(), -1j(a-a.dag())])
-&gt;&gt;&gt; shape(expt_values)
-(3, 100)
-&gt;&gt;&gt; shape(tlist)
-(100,1)
-&gt;&gt;&gt; output_data = vstack((tlist, expt_values))   # join time and expt data
-&gt;&gt;&gt; file_data_store('expect.dat', output_data.T) # Note the .T for transpose !
-&gt;&gt;&gt; ls *.dat
-expect.dat
-&gt;&gt;&gt; !head expect.dat
-# Generated by QuTiP: 100x4 complex matrix in decimal format [',' separated values].
-0.0000000000+0.0000000000j,4.2424841416+0.0000000000j,2.3200046262+0.0000000000j,0.1937084248+0.0000000000j
-0.1010101010+0.0000000000j,4.1379975175+0.0000000000j,2.2803919588+0.0000000000j,-0.0289188081+0.0000000000j
-0.2020202020+0.0000000000j,4.0424499915+0.0000000000j,2.2243729051+0.0000000000j,-0.2486713739+0.0000000000j
-0.3030303030+0.0000000000j,3.9527450545+0.0000000000j,2.1495725421+0.0000000000j,-0.4605913338+0.0000000000j
-0.4040404040+0.0000000000j,3.8674018874+0.0000000000j,2.0562127752+0.0000000000j,-0.6616078826+0.0000000000j
-0.5050505051+0.0000000000j,3.7856377679+0.0000000000j,1.9454779063+0.0000000000j,-0.8495893849+0.0000000000j
-0.6060606061+0.0000000000j,3.7069902520+0.0000000000j,1.8189312038+0.0000000000j,-1.0229166838+0.0000000000j
-0.7070707071+0.0000000000j,3.6311546972+0.0000000000j,1.6783060144+0.0000000000j,-1.1802965424+0.0000000000j
-0.8080808081+0.0000000000j,3.5579106202+0.0000000000j,1.5254272690+0.0000000000j,-1.3206823679+0.0000000000j</pre>
-</div>
-<p>In this case we didn&#8217;t really need to store both the real and imaginary parts, so instead we could use the <cite>numtype=&#8221;real&#8221;</cite> option:</p>
-<div class="highlight-python"><pre>&gt;&gt;&gt; file_data_store('expect.dat', output_data.T, numtype="real")
-&gt;&gt;&gt; !head -n5 expect.dat
-# Generated by QuTiP: 100x4 real matrix in decimal format [',' separated values].
-0.0000000000,4.2424841416,2.3200046262,0.1937084248
-0.1010101010,4.1379975175,2.2803919588,-0.0289188081
-0.2020202020,4.0424499915,2.2243729051,-0.2486713739
-0.3030303030,3.9527450545,2.1495725421,-0.4605913338</pre>
-</div>
-<p>and if we prefer scientific notation we can request that using the <cite>numformat=&#8221;exp&#8221;</cite> option</p>
-<div class="highlight-python"><pre>&gt;&gt;&gt; file_data_store('expect.dat', output_data.T, numtype="real", numformat="exp")
-&gt;&gt;&gt; !head -n 5 expect.dat
-# Generated by QuTiP: 100x4 real matrix in exp format [',' separated values].
-0.0000000000e+00,4.2424841416e+00,2.3200046262e+00,1.9370842484e-01
-1.0101010101e-01,4.1379975175e+00,2.2803919588e+00,-2.8918808147e-02
-2.0202020202e-01,4.0424499915e+00,2.2243729051e+00,-2.4867137392e-01
-3.0303030303e-01,3.9527450545e+00,2.1495725421e+00,-4.6059133382e-01</pre>
-</div>
-<p>Loading data previously stored using <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> (or some other software) is a even easier. Regardless of which deliminator was used, if data was stored as complex or real numbers, if it is in decimal or exponential form, the data can be loaded using the <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_read</span></tt>, which only takes the filename as mandatory argument.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">input_data</span> <span class="o">=</span> <span class="n">file_data_read</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shape</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
-<span class="go">(100, 4)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c"># do something with the data, e.g.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [17]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">destroy</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span> <span class="p">;</span> <span class="n">c_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()]</span>
+
+<span class="gp">In [18]: </span><span class="n">psi0</span> <span class="o">=</span> <span class="n">rand_ket</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="n">tlist</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="gp">In [20]: </span><span class="n">medata</span> <span class="o">=</span> <span class="n">mesolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">tlist</span><span class="p">,</span> <span class="n">c_ops</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">(),</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">())])</span>
+
+<span class="gp">In [21]: </span><span class="n">shape</span><span class="p">(</span><span class="n">medata</span><span class="o">.</span><span class="n">expect</span><span class="p">)</span>
+<span class="gr">Out[21]: </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">shape</span><span class="p">(</span><span class="n">tlist</span><span class="p">)</span>
+<span class="gr">Out[22]: </span><span class="p">(</span><span class="mi">100</span><span class="p">,)</span>
+
+<span class="gp">In [23]: </span><span class="n">output_data</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">((</span><span class="n">tlist</span><span class="p">,</span> <span class="n">medata</span><span class="o">.</span><span class="n">expect</span><span class="p">))</span>   <span class="c"># join time and expt data</span>
+
+<span class="gp">In [24]: </span><span class="n">file_data_store</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">,</span> <span class="n">output_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c"># Note the .T for transpose!</span>
+
+<span class="gp">In [25]: </span><span class="n">ls</span> <span class="o">*.</span><span class="n">dat</span>
+<span class="go">expect.dat</span>
+
+<span class="gp">In [26]: </span><span class="err">!</span><span class="n">head</span> <span class="n">expect</span><span class="o">.</span><span class="n">dat</span>
+<span class="c"># Generated by QuTiP: 100x4 complex matrix in decimal format [&#39;,&#39; separated values].</span>
+<span class="go">0.0000000000+0.0000000000j,4.9798134239+0.0000000000j,2.4553099731+0.0000000000j,-0.5173330350+0.0000000000j</span>
+<span class="go">1.0101010101+0.0000000000j,3.9986696637+0.0000000000j,0.7342048014+0.0000000000j,-1.9266469918+0.0000000000j</span>
+<span class="go">2.0202020202+0.0000000000j,3.2800221141+0.0000000000j,-1.0566924841+0.0000000000j,-1.3856041332+0.0000000000j</span>
+<span class="go">3.0303030303+0.0000000000j,2.7401494888+0.0000000000j,-1.4886287390+0.0000000000j,0.1409903846+0.0000000000j</span>
+<span class="go">4.0404040404+0.0000000000j,2.3309587164+0.0000000000j,-0.5787492825+0.0000000000j,1.1563689362+0.0000000000j</span>
+<span class="go">5.0505050505+0.0000000000j,2.0191312575+0.0000000000j,0.5846805494+0.0000000000j,0.9590153855+0.0000000000j</span>
+<span class="go">6.0606060606+0.0000000000j,1.7806890638+0.0000000000j,0.9781514375+0.0000000000j,0.0119717077+0.0000000000j</span>
+<span class="go">7.0707070707+0.0000000000j,1.5979557761+0.0000000000j,0.4621812518+0.0000000000j,-0.7174688433+0.0000000000j</span>
+<span class="go">8.0808080808+0.0000000000j,1.4577061764+0.0000000000j,-0.3163630667+0.0000000000j,-0.6749952046+0.0000000000j</span>
 </pre></div>
 </div>
+<p>In this case we didn&#8217;t really need to store both the real and imaginary parts, so instead we could use the <cite>numtype=&#8221;real&#8221;</cite> option:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">file_data_store</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">,</span> <span class="n">output_data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">numtype</span><span class="o">=</span><span class="s">&quot;real&quot;</span><span class="p">)</span>
+
+<span class="gp">In [28]: </span><span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="n">n5</span> <span class="n">expect</span><span class="o">.</span><span class="n">dat</span>
+<span class="c"># Generated by QuTiP: 100x4 real matrix in decimal format [&#39;,&#39; separated values].</span>
+<span class="go">0.0000000000,4.9798134239,2.4553099731,-0.5173330350</span>
+<span class="go">1.0101010101,3.9986696637,0.7342048014,-1.9266469918</span>
+<span class="go">2.0202020202,3.2800221141,-1.0566924841,-1.3856041332</span>
+<span class="go">3.0303030303,2.7401494888,-1.4886287390,0.1409903846</span>
+</pre></div>
+</div>
+<p>and if we prefer scientific notation we can request that using the <cite>numformat=&#8221;exp&#8221;</cite> option</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">file_data_store</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">,</span> <span class="n">output_data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">numtype</span><span class="o">=</span><span class="s">&quot;real&quot;</span><span class="p">,</span> <span class="n">numformat</span><span class="o">=</span><span class="s">&quot;exp&quot;</span><span class="p">)</span>
+
+<span class="gp">In [30]: </span><span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">5</span> <span class="n">expect</span><span class="o">.</span><span class="n">dat</span>
+<span class="c"># Generated by QuTiP: 100x4 real matrix in exp format [&#39;,&#39; separated values].</span>
+<span class="go">0.0000000000e+00,4.9798134239e+00,2.4553099731e+00,-5.1733303499e-01</span>
+<span class="go">1.0101010101e+00,3.9986696637e+00,7.3420480137e-01,-1.9266469918e+00</span>
+<span class="go">2.0202020202e+00,3.2800221141e+00,-1.0566924841e+00,-1.3856041332e+00</span>
+<span class="go">3.0303030303e+00,2.7401494888e+00,-1.4886287390e+00,1.4099038457e-01</span>
+</pre></div>
+</div>
+<p>Loading data previously stored using <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_store</span></tt> (or some other software) is a even easier. Regardless of which deliminator was used, if data was stored as complex or real numbers, if it is in decimal or exponential form, the data can be loaded using the <tt class="xref py py-func docutils literal"><span class="pre">qutip.file_data_read</span></tt>, which only takes the filename as mandatory argument.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">input_data</span> <span class="o">=</span> <span class="n">file_data_read</span><span class="p">(</span><span class="s">&#39;expect.dat&#39;</span><span class="p">)</span>
+
+<span class="gp">In [32]: </span><span class="n">shape</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+<span class="gr">Out[32]: </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [33]: </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="gp">In [34]: </span><span class="n">plot</span><span class="p">(</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">input_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="c">#plot the data</span>
+<span class="gr">Out[34]: </span><span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x110928cd0</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+<img alt="../_images/saving_ex.png" class="align-center" src="../_images/saving_ex.png" style="width: 4in;" />
 <p>(If a particularly obscure choice of deliminator was used it might be necessary to use the optional second argument, for example <cite>sep=&#8221;_&#8221;</cite> if _ is the deliminator).</p>
 </div>
 </div>
@@ -253,7 +287,7 @@ expect.dat
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 07, 2012.
+                    on Sep 11, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
