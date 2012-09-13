@@ -143,6 +143,7 @@ A full account of this feature is given in :ref:`odeoptions`.  Using the previou
 
 	from qutip import *
 	from pylab import *
+	
 	#construct operators
 	tlist = linspace(0.0, 10.0, 200)
 	psi0 = tensor(fock(2,0), fock(10, 5))

@@ -119,6 +119,10 @@
 </div>
 <div class="section" id="bug-fixes">
 <h3>Bug Fixes:<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<p>SVN-2571: mesolver now correctly user user defined rhs_filename in Odeoptions().</p>
+<p>SVN-2566: rhs_generate() now handles user defined filenames properly.</p>
+<p>SVN-2565: Density matrix returned by propagator_steadystate is now Hermitian.</p>
+<p>SVN-2548: eseries_value returns real list if all imag parts are zero.</p>
 <p>SVN-2518: mcsolver now gives correct results for strong damping rates.</p>
 <p>SVN-2513: Odeoptions now prints mc_avg correctly.</p>
 <p>SVN-2516: Do not check for PyObj in mcsolve when gui=False.</p>
@@ -310,7 +314,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 13, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
