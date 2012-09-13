@@ -1445,7 +1445,7 @@ exception.</p>
 <span id="monte-carlo-evolution"></span><h3>Monte Carlo Evolution<a class="headerlink" href="#module-qutip.mcsolve" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.mcsolve.mcsolve">
-<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x111eecb90&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x110e67b90&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo evolution of a state vector <span class="math">\(|\psi \rangle\)</span> for a given
 Hamiltonian and sets of collapse operators, and possibly, operators
 for calculating expectation values. Options for the underlying ODE solver are 
@@ -1535,7 +1535,7 @@ operator lists.</p>
 <span id="bloch-redfield-master-equation"></span><h3>Bloch-Redfield Master Equation<a class="headerlink" href="#module-qutip.bloch_redfield" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.bloch_redfield.brmesolve">
-<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x11233d3f8&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x111389320&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Bloch-Redfeild master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1592,7 +1592,7 @@ an <em>array</em> of expectation values for the times specified by <cite>tlist</
 <span id="floquet-states-and-floquet-markov-master-equation"></span><h3>Floquet States and Floquet-Markov Master Equation<a class="headerlink" href="#module-qutip.floquet" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.floquet.fmmesolve">
-<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x11233d2d8&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x111389200&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Floquet-Markov master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -2111,20 +2111,24 @@ See any Linear Algebra book with an iterative methods section.</p>
 <dl class="function">
 <dt id="qutip.propagator.propagator">
 <tt class="descname">propagator</tt><big>(</big><em>H</em>, <em>t</em>, <em>c_op_list</em>, <em>H_args=None</em>, <em>opt=None</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the propagator U(t) for the density matrix or wave function such that
-<span class="math">\(\psi(t) = U(t)\psi(0)\)</span> or <span class="math">\(\rho_{\mathrm vec}(t) = U(t) \rho_{\mathrm vec}(0)\)</span>
-where <span class="math">\(\rho_{\mathrm vec}\)</span> is the vector representation of the density matrix.</p>
+<dd><p>Calculate the propagator U(t) for the density matrix or wave function such
+that <span class="math">\(\psi(t) = U(t)\psi(0)\)</span> or
+<span class="math">\(\rho_{\mathrm vec}(t) = U(t) \rho_{\mathrm vec}(0)\)</span>
+where <span class="math">\(\rho_{\mathrm vec}\)</span> is the vector representation of the
+density matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : qobj or list</p>
 <blockquote>
-<div><p>Hamiltonian</p>
+<div><p>Hamiltonian as a Qobj instance of a nested list of Qobjs and 
+coefficients in the list-string or list-function format for
+time-dependent Hamiltonians (see description in <a class="reference internal" href="#module-qutip.mesolve" title="qutip.mesolve"><tt class="xref py py-func docutils literal"><span class="pre">qutip.mesolve</span></tt></a>).</p>
 </div></blockquote>
-<p><strong>t</strong> : float</p>
+<p><strong>t</strong> : float or array-like</p>
 <blockquote>
-<div><p>Time.</p>
+<div><p>Time or list of times for which to evaluate the propagator.</p>
 </div></blockquote>
 <p><strong>c_op_list</strong> : list</p>
 <blockquote>
@@ -2145,7 +2149,8 @@ where <span class="math">\(\rho_{\mathrm vec}\)</span> is the vector representat
 <dl class="function">
 <dt id="qutip.propagator.propagator_steadystate">
 <tt class="descname">propagator_steadystate</tt><big>(</big><em>U</em><big>)</big><a class="headerlink" href="#qutip.propagator.propagator_steadystate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the steady state for successive applications of the propagator <span class="math">\(U\)</span>.</p>
+<dd><p>Find the steady state for successive applications of the propagator
+<span class="math">\(U\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2158,8 +2163,100 @@ where <span class="math">\(\rho_{\mathrm vec}\)</span> is the vector representat
 </tr>
 <tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a</strong> : qobj</p>
 <blockquote class="last">
-<div><p>Instance representing the steady-state vector.</p>
+<div><p>Instance representing the steady-state density matrix.</p>
 </div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qutip.tomography">
+<span id="quantum-process-tomography"></span><h3>Quantum Process Tomography<a class="headerlink" href="#module-qutip.tomography" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="qutip.tomography.qpt">
+<tt class="descname">qpt</tt><big>(</big><em>U</em>, <em>op_basis_list</em><big>)</big><a class="headerlink" href="#qutip.tomography.qpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the quantum process tomography chi matrix for a given 
+(possibly nonunitary) transformation matrix U, which transforms a 
+density matrix in vector form according to:</p>
+<blockquote>
+<div><p>vec(rho) = U * vec(rho0)</p>
+<p>or</p>
+<p>rho = vec2mat(U * mat2vec(rho0))</p>
+</div></blockquote>
+<p>U can be calculated for an open quantum system using the QuTiP propagator
+function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>U</strong> : Qobj</p>
+<blockquote>
+<div><p>Transformation operator.  Can be calculated using QuTiP propagator function.</p>
+</div></blockquote>
+<p><strong>op_basis_list</strong> : list</p>
+<blockquote>
+<div><p>A list of Qobj&#8217;s representing the basis states.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>chi</strong> : array</p>
+<blockquote class="last">
+<div><p>QPT chi matrix</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.tomography.qpt_plot">
+<tt class="descname">qpt_plot</tt><big>(</big><em>chi</em>, <em>lbls_list</em>, <em>title=None</em>, <em>fig=None</em><big>)</big><a class="headerlink" href="#qutip.tomography.qpt_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the quantum process tomography chi matrix. Plot the real and
+imaginary parts separately.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>chi</strong> : array</p>
+<blockquote>
+<div><p>Input QPT chi matrix.</p>
+</div></blockquote>
+<p><strong>lbls_list</strong> : list</p>
+<blockquote>
+<div><p>List of labels for QPT plot axes.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib axes instance for the plot.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qutip.tomography.qpt_plot_combined">
+<tt class="descname">qpt_plot_combined</tt><big>(</big><em>chi</em>, <em>lbls_list</em>, <em>title=None</em>, <em>fig=None</em><big>)</big><a class="headerlink" href="#qutip.tomography.qpt_plot_combined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the quantum process tomography chi matrix. Plot bars with
+height and color corresponding to the absolute value and phase, respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>chi</strong> : array</p>
+<blockquote>
+<div><p>Input QPT chi matrix.</p>
+</div></blockquote>
+<p><strong>lbls_list</strong> : list</p>
+<blockquote>
+<div><p>List of labels for QPT plot axes.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib axes instance for the plot.</strong> :</p>
 </td>
 </tr>
 </tbody>
@@ -2883,9 +2980,9 @@ builtin &#8216;zip&#8217; command, or using multidimensional <cite>lists</cite> 
 
 <dl class="function">
 <dt id="qutip.rhs_generate">
-<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x111eecbd8&gt;</em>, <em>solver='me'</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>c_ops</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x110e41d88&gt;</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used to generate the Cython functions for solving the dynamics of a
-given system before using the parfor function.</p>
+given system using the mesolve function before calling parfor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2894,25 +2991,9 @@ given system before using the parfor function.</p>
 <blockquote>
 <div><p>System Hamiltonian.</p>
 </div></blockquote>
-<p><strong>psi0</strong> : qobj</p>
-<blockquote>
-<div><p>Initial state vector</p>
-</div></blockquote>
-<p><strong>tlist</strong> : array_like</p>
-<blockquote>
-<div><p>Times at which results are recorded.</p>
-</div></blockquote>
-<p><strong>ntraj</strong> : int</p>
-<blockquote>
-<div><p>Number of trajectories to run.</p>
-</div></blockquote>
 <p><strong>c_ops</strong> : array_like</p>
 <blockquote>
 <div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of collapse operators.</p>
-</div></blockquote>
-<p><strong>e_ops</strong> : array_like</p>
-<blockquote>
-<div><p><tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">array</span></tt> of operators for calculating expectation values.</p>
 </div></blockquote>
 <p><strong>args</strong> : dict</p>
 <blockquote>
@@ -2921,10 +3002,6 @@ given system before using the parfor function.</p>
 <p><strong>options</strong> : Odeoptions</p>
 <blockquote>
 <div><p>Instance of ODE solver options.</p>
-</div></blockquote>
-<p><strong>solver: str</strong> :</p>
-<blockquote>
-<div><p>String indicating which solver &#8220;me&#8221; or &#8220;mc&#8221;</p>
 </div></blockquote>
 <p><strong>name: str</strong> :</p>
 <blockquote class="last">
@@ -3028,6 +3105,7 @@ given system before using the parfor function.</p>
 <li><a class="reference internal" href="#module-qutip.essolve">Exponential Series</a></li>
 <li><a class="reference internal" href="#module-qutip.steady">Steady-state Solvers</a></li>
 <li><a class="reference internal" href="#module-qutip.propagator">Propagators</a></li>
+<li><a class="reference internal" href="#module-qutip.tomography">Quantum Process Tomography</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#other-functions">Other Functions</a><ul>
@@ -3066,7 +3144,7 @@ given system before using the parfor function.</p>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 11, 2012.
+                    on Sep 13, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
