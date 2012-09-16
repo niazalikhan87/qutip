@@ -212,19 +212,19 @@
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">es</span>
 <span class="gr">Out[19]: </span><span class="n">ESERIES</span> <span class="nb">object</span><span class="p">:</span> <span class="mi">2</span> <span class="n">terms</span>
 <span class="go">Hilbert space dimensions: [[2], [2]]</span>
-<span class="go">Exponent #0 = 0j</span>
-<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
-<span class="go">Qobj data =</span>
-<span class="go">[[ 1.  0.]</span>
-<span class="go"> [ 0.  0.]]</span>
-<span class="go">Exponent #1 = (-1+0j)</span>
+<span class="go">Exponent #0 = (-1+0j)</span>
 <span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[-1.  0.]</span>
 <span class="go"> [ 0.  1.]]</span>
+<span class="go">Exponent #1 = 0j</span>
+<span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
+<span class="go">Qobj data =</span>
+<span class="go">[[ 1.  0.]</span>
+<span class="go"> [ 0.  0.]]</span>
 </pre></div>
 </div>
-<p>or by evaluate it and arbitrary points in time (here at 0.0 and 1.0):</p>
+<p>or by evaluating it and arbitrary points in time (here at 0.0 and 1.0):</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">es</span><span class="o">.</span><span class="n">value</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 <span class="gr">Out[20]: </span>
 <span class="go">array([ Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
@@ -241,7 +241,7 @@
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">es_expect</span><span class="o">=</span><span class="n">expect</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span> <span class="n">es</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The result <cite>es_expect</cite> is now an exponential series with C-numbers as amplitudes, which easily can be evaluated at arbitrary times:</p>
+<p>The result <cite>es_expect</cite> is now an exponential series with c-numbers as amplitudes, which easily can be evaluated at arbitrary times:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">es_expect</span><span class="o">.</span><span class="n">value</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
 <span class="gr">Out[22]: </span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span>        <span class="p">,</span>  <span class="mf">0.26424112</span><span class="p">,</span>  <span class="mf">0.72932943</span><span class="p">,</span>  <span class="mf">0.90042586</span><span class="p">])</span>
 </pre></div>
@@ -253,13 +253,13 @@
 <span class="gp">In [25]: </span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>     <span class="c">#Import Matplotlib</span>
 
 <span class="gp">In [26]: </span><span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">sz_expect</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gr">Out[26]: </span><span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x10be31850</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="gr">Out[26]: </span><span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x1077edf50</span><span class="o">&gt;</span><span class="p">]</span>
 
 <span class="gp">In [27]: </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;Time&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Expectation value of sigma-z&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="gr">Out[27]: </span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">at</span> <span class="mh">0x10c179650</span><span class="o">&gt;</span>
+<span class="gr">Out[27]: </span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">at</span> <span class="mh">0x107c8bf90</span><span class="o">&gt;</span>
 
 <span class="gp">In [28]: </span><span class="n">title</span><span class="p">(</span><span class="s">&quot;The expectation value of the $\sigma_{z}$ operator&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="gr">Out[28]: </span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">at</span> <span class="mh">0x10c17be50</span><span class="o">&gt;</span>
+<span class="gr">Out[28]: </span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">at</span> <span class="mh">0x108036190</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <img alt="../_images/eseries_example.png" class="align-center" src="../_images/eseries_example.png" style="width: 4in;" />
@@ -305,7 +305,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 14, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
