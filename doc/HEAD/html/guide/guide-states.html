@@ -115,9 +115,9 @@
 <div class="section" id="state-vectors-kets-or-bras">
 <span id="states-vectors"></span><h2>State Vectors (kets or bras)<a class="headerlink" href="#state-vectors-kets-or-bras" title="Permalink to this headline">¶</a></h2>
 <p>Here we begin by creating a Fock <tt class="xref py py-func docutils literal"><span class="pre">qutip.basis</span></tt> vacuum state vector <span class="math">\(\left|0\right&gt;\)</span> with in a Hilbert space with 5 number states, 0 -&gt; 4:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="gp">In [3]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.]</span>
@@ -128,9 +128,9 @@
 </pre></div>
 </div>
 <p>and then create a lowering operator <span class="math">\(\left(\hat{a}\right)\)</span> corresponding to 5 number states using the <tt class="xref py py-func docutils literal"><span class="pre">qutip.destroy</span></tt> function:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span><span class="o">=</span><span class="n">destroy</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">In [5]: </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = False</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.          1.          0.          0.          0.        ]</span>
@@ -141,8 +141,8 @@
 </pre></div>
 </div>
 <p>Now lets apply the destruction operator to our vacuum state <tt class="docutils literal"><span class="pre">vec</span></tt>,</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">a</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[6]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -153,8 +153,8 @@
 </pre></div>
 </div>
 <p>We see that, as expected, the vacuum is transformed to the zero vector.  A more interesting example comes from using the adjoint of the lowering operator, the raising operator <span class="math">\(\hat{a}^{+}\)</span>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[7]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -165,10 +165,10 @@
 </pre></div>
 </div>
 <p>The raising operator has in indeed raised the state <cite>vec</cite> from the vacuum to the <span class="math">\(\left| 1\right&gt;\)</span> state.  Instead of using the dagger <tt class="docutils literal"><span class="pre">dag()</span></tt> command to raise the state, we could have also used the built in <tt class="xref py py-func docutils literal"><span class="pre">qutip.create</span></tt> function to make a raising operator:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">In [9]: </span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[9]: </span>
+<span class="gp">In [2]: </span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[2]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -179,8 +179,8 @@
 </pre></div>
 </div>
 <p>which obviously does the same thing.  We can of course raise the vacuum state more than once:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[10]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.        ]</span>
@@ -191,8 +191,8 @@
 </pre></div>
 </div>
 <p>or just taking the square of the raising operator <span class="math">\(\left(\hat{a}^{+}\right)^{2}\)</span>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[11]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.        ]</span>
@@ -203,8 +203,8 @@
 </pre></div>
 </div>
 <p>Applying the raising operator twice gives the expected <span class="math">\(\sqrt{n+1}\)</span> dependence.  We can use the product of <span class="math">\(c*a\)</span> to also apply the number operator to the state vector <tt class="docutils literal"><span class="pre">vec</span></tt>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[12]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -215,8 +215,8 @@
 </pre></div>
 </div>
 <p>or on the <span class="math">\(\left| 1\right&gt;\)</span> state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span>
-<span class="gr">Out[13]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -227,8 +227,8 @@
 </pre></div>
 </div>
 <p>or the <span class="math">\(\left| 2\right&gt;\)</span> state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span>
-<span class="gr">Out[14]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.        ]</span>
@@ -239,8 +239,8 @@
 </pre></div>
 </div>
 <p>Notice how in this last example, application of the number operator does not give the expected value <span class="math">\(n=2\)</span>, but rather <span class="math">\(2\sqrt{2}\)</span>.  This is because this last state is not normalized to unity as <span class="math">\(c\left| n\right&gt;=\sqrt{n+1}\left| n+1\right&gt;\)</span>.  Therefore, we should normalize our vector first:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
-<span class="gr">Out[15]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">vec</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -251,9 +251,9 @@
 </pre></div>
 </div>
 <p>Since we are giving a demonstration of using states and operators, we have done a lot more work than we should have.  For example, we do not need to operate on the vacuum state to generate a higher number Fock state.  Instead we can use the <tt class="xref py py-func docutils literal"><span class="pre">qutip.basis</span></tt> (or <tt class="xref py py-func docutils literal"><span class="pre">qutip.fock</span></tt>) function to directly obtain the required state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="gp">In [17]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -264,9 +264,9 @@
 </pre></div>
 </div>
 <p>Notice how it is automatically normalized.  We can also use the built in <tt class="xref py py-func docutils literal"><span class="pre">qutip.num</span></tt> operator:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">n</span><span class="o">=</span><span class="n">num</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">n</span><span class="o">=</span><span class="n">num</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">In [19]: </span><span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.  0.  0.  0.  0.]</span>
@@ -277,8 +277,8 @@
 </pre></div>
 </div>
 <p>Therefore, instead of <tt class="docutils literal"><span class="pre">c*a*(c**2*vec).unit()</span></tt> we have:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">n</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[20]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">n</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -289,9 +289,9 @@
 </pre></div>
 </div>
 <p>We can also create superpositions of states:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">vec</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">vec</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
 
-<span class="gp">In [22]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="k">print</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.70710678]</span>
@@ -302,8 +302,8 @@
 </pre></div>
 </div>
 <p>where we have used the <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj.unit" title="qutip.Qobj.unit"><tt class="xref py py-func docutils literal"><span class="pre">qutip.Qobj.unit</span></tt></a> function to again normalize the state.  Operating with the number function again:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">n</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[23]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">n</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.        ]</span>
@@ -314,14 +314,14 @@
 </pre></div>
 </div>
 <p>We can also create coherent states and squeezed states by applying the <tt class="xref py py-func docutils literal"><span class="pre">qutip.displace</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.squeez</span></tt> functions to the vacuum state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="gp">In [25]: </span><span class="n">d</span><span class="o">=</span><span class="n">displace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
+<span class="gp">In [3]: </span><span class="n">d</span><span class="o">=</span><span class="n">displace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
 
-<span class="gp">In [26]: </span><span class="n">s</span><span class="o">=</span><span class="n">squeez</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.25</span><span class="o">+</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="n">s</span><span class="o">=</span><span class="n">squeez</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.25</span><span class="o">+</span><span class="mf">0.25</span><span class="n">j</span><span class="p">)</span>
 
-<span class="gp">In [27]: </span><span class="n">d</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[27]: </span>
+<span class="gp">In [5]: </span><span class="n">d</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[5]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.60655682+0.j        ]</span>
@@ -331,8 +331,8 @@
 <span class="go"> [ 0.14552147+0.j        ]]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">d</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[28]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">d</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">vec</span>
+<span class="go"> Out[6]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.65893786+0.08139381j]</span>
@@ -348,10 +348,10 @@
 <span id="states-dm"></span><h2>Density matrices<a class="headerlink" href="#density-matrices" title="Permalink to this headline">¶</a></h2>
 <p>The main purpose of QuTiP is to explore the dynamics of <strong>open</strong> quantum systems, where the most general state of a system is not longer a state vector, but rather a density matrix.  Since operations on density matrices operate identically to those of vectors, we will just briefly highlight creating and using these structures.</p>
 <p>The simplest density matrix is created by forming the outer-product :math:leftpsiright&gt;left&lt;psiright|` of a ket vector:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="gp">In [30]: </span><span class="n">vec</span><span class="o">*</span><span class="n">vec</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
-<span class="gr">Out[30]: </span>
+<span class="gp">In [8]: </span><span class="n">vec</span><span class="o">*</span><span class="n">vec</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="go"> Out[8]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.  0.  0.  0.  0.]</span>
@@ -362,8 +362,8 @@
 </pre></div>
 </div>
 <p>A similar task can also be accomplished via the <tt class="xref py py-func docutils literal"><span class="pre">qutip.fock_dm</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">qutip.ket2dm</span></tt> functions:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="gr">Out[31]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">fock_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go"> Out[9]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.  0.  0.  0.  0.]</span>
@@ -373,8 +373,8 @@
 <span class="go"> [ 0.  0.  0.  0.  0.]]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="n">ket2dm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
-<span class="gr">Out[32]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">ket2dm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gr">Out[10]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.  0.  0.  0.  0.]</span>
@@ -385,8 +385,8 @@
 </pre></div>
 </div>
 <p>If we want to create a density matrix with equal classical probability of being found in the <span class="math">\(\left|2\right&gt;\)</span> or <span class="math">\(\left|4\right&gt;\)</span> number states we can do the following:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [33]: </span><span class="mf">0.5</span><span class="o">*</span><span class="n">ket2dm</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">ket2dm</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="gr">Out[33]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="mf">0.5</span><span class="o">*</span><span class="n">ket2dm</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">ket2dm</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="gr">Out[11]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.   0.   0.   0.   0. ]</span>
@@ -397,8 +397,8 @@
 </pre></div>
 </div>
 <p>or use <tt class="docutils literal"><span class="pre">0.5*fock_dm(5,2)+0.5*fock_dm(5,4)</span></tt>.  There are also several other built in functions for creating predefined density matrices, for example <tt class="xref py py-func docutils literal"><span class="pre">qutip.coherent_dm</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">qutip.thermal_dm</span></tt> which create coherent state and thermal state density matrices, respectively.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
-<span class="gr">Out[34]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
+<span class="gr">Out[12]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.20980701  0.26141096  0.23509686  0.15572585  0.13390765]</span>
@@ -408,8 +408,8 @@
 <span class="go"> [ 0.13390765  0.16684347  0.1500487   0.09939079  0.0854655 ]]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [35]: </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
-<span class="gr">Out[35]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
+<span class="gr">Out[13]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.46927974  0.          0.          0.          0.        ]</span>
@@ -420,61 +420,61 @@
 </pre></div>
 </div>
 <p>QuTiP also provides a set of distance metrics for determining how close two density matrix distributions are to each other.  Included are the trace distance <tt class="xref py py-func docutils literal"><span class="pre">qutip.tracedist</span></tt> and the fidelity <tt class="xref py py-func docutils literal"><span class="pre">qutip.fidelity</span></tt>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="n">x</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">x</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
 
-<span class="gp">In [37]: </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="n">j</span><span class="p">)</span> <span class="c">#&lt;-- note the &#39;j&#39;</span>
+<span class="gp">In [15]: </span><span class="n">y</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.25</span><span class="n">j</span><span class="p">)</span> <span class="c">#&lt;-- note the &#39;j&#39;</span>
 
-<span class="gp">In [38]: </span><span class="n">z</span><span class="o">=</span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.125</span><span class="p">)</span>
+<span class="gp">In [16]: </span><span class="n">z</span><span class="o">=</span><span class="n">thermal_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.125</span><span class="p">)</span>
 
-<span class="gp">In [39]: </span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="gr">Out[39]: </span><span class="mf">1.0000000245025398</span>
+<span class="gp">In [17]: </span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="gr">Out[17]: </span><span class="mf">1.0000000246502927</span>
 
-<span class="gp">In [40]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="gr">Out[40]: </span><span class="mf">0.0</span>
+<span class="gp">In [18]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="gr">Out[18]: </span><span class="mf">0.0</span>
 </pre></div>
 </div>
 <p>We also know that for two-pure states, the trace distance (T) and the fidelity (F) are related by <span class="math">\(T=\sqrt{1-F^{2}}\)</span>.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="gr">Out[41]: </span><span class="mf">0.9771565845862092</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="gr">Out[19]: </span><span class="mf">0.977156576627582</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [42]: </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">fidelity</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="gr">Out[42]: </span><span class="mf">0.9771565702789885</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">fidelity</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gr">Out[20]: </span><span class="mf">0.977156570084039</span>
 </pre></div>
 </div>
 <p>For a pure state and a mixed state, <span class="math">\(1-F^{2}\le T\)</span> which can also be verified:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [43]: </span><span class="mi">1</span><span class="o">-</span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-<span class="gr">Out[43]: </span><span class="mf">0.7782890474576686</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="mi">1</span><span class="o">-</span><span class="n">fidelity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="gr">Out[21]: </span><span class="mf">0.7782890516560762</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="gr">Out[44]: </span><span class="mf">0.8559028328862588</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">tracedist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="gr">Out[22]: </span><span class="mf">0.8559028328862563</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="qubit-two-level-systems">
 <span id="states-qubit"></span><h2>Qubit (two-level) systems<a class="headerlink" href="#qubit-two-level-systems" title="Permalink to this headline">¶</a></h2>
 <p>Having spent a fair amount of time on basis states that represent harmonic oscillator states, we now move on to qubit, or two-level spin systems.  To create a state vector corresponding to a qubit system, we use the same <tt class="xref py py-func docutils literal"><span class="pre">qutip.basis</span></tt>, or <tt class="xref py py-func docutils literal"><span class="pre">qutip.fock</span></tt>, function with only two levels:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [45]: </span><span class="n">spin</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">spin</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now at this point one may ask how this state is different than that of a harmonic oscillator in the vacuum state truncated to two energy levels?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="n">vec</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>At this stage, there is no difference.  This should not be surprising as we called the exact same function twice.  The difference between the two comes from the action of the spin operators <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmax</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmay</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmaz</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmap</span></tt>, and <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmam</span></tt> on these two-level states.  For example, if <tt class="docutils literal"><span class="pre">vec</span></tt> corresponds to the vacuum state of a harmonic oscillator, then, as we have already seen, we can use the raising operator to get the <span class="math">\(\left|1\right&gt;\)</span> state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">vec</span>
-<span class="gr">Out[47]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">vec</span>
+<span class="gr">Out[25]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.]</span>
 <span class="go"> [ 0.]]</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [48]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="gp">In [49]: </span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
-<span class="gr">Out[49]: </span>
+<span class="gp">In [27]: </span><span class="n">c</span><span class="o">*</span><span class="n">vec</span>
+<span class="gr">Out[27]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -482,15 +482,15 @@
 </pre></div>
 </div>
 <p>For a spin system, the operator analogous to the raising operator is the sigma-plus operator <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmap</span></tt>.  Operating on the <tt class="docutils literal"><span class="pre">spin</span></tt> state gives:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [50]: </span><span class="n">spin</span>
-<span class="gr">Out[50]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">spin</span>
+<span class="gr">Out[28]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.]</span>
 <span class="go"> [ 0.]]</span>
 
-<span class="gp">In [51]: </span><span class="n">sigmap</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
-<span class="gr">Out[51]: </span>
+<span class="gp">In [29]: </span><span class="n">sigmap</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
+<span class="gr">Out[29]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -498,31 +498,31 @@
 </pre></div>
 </div>
 <p>Now we see the difference!  The <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmap</span></tt> operator acting on the <tt class="docutils literal"><span class="pre">spin</span></tt> state returns the zero vector.  Why is this?  To see what happened, let us use the <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmaz</span></tt> operator:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [52]: </span><span class="n">sigmaz</span><span class="p">()</span>
-<span class="gr">Out[52]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">sigmaz</span><span class="p">()</span>
+<span class="gr">Out[30]: </span>
 <span class="go">Quantum object: dims = [[2], [2]], shape = [2, 2], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.  0.]</span>
 <span class="go"> [ 0. -1.]]</span>
 
-<span class="gp">In [53]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
-<span class="gr">Out[53]: </span>
+<span class="gp">In [31]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
+<span class="gr">Out[31]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.]</span>
 <span class="go"> [ 0.]]</span>
 
-<span class="gp">In [54]: </span><span class="n">spin2</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">In [32]: </span><span class="n">spin2</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [55]: </span><span class="n">spin2</span>
-<span class="gr">Out[55]: </span>
+<span class="gp">In [33]: </span><span class="n">spin2</span>
+<span class="gr">Out[33]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
 <span class="go"> [ 1.]]</span>
 
-<span class="gp">In [56]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin2</span>
-<span class="gr">Out[56]: </span>
+<span class="gp">In [34]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin2</span>
+<span class="gr">Out[34]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 0.]</span>
@@ -531,8 +531,8 @@
 </div>
 <p>The answer is now apparent.  Since the QuTiP <tt class="xref py py-func docutils literal"><span class="pre">qutip.sigmaz</span></tt> function uses the standard z-basis representation of the sigma-z spin operator, the <tt class="docutils literal"><span class="pre">spin</span></tt> state corresponds to the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state of a two-level spin system while <tt class="docutils literal"><span class="pre">spin2</span></tt> gives the <span class="math">\(\left|\mathrm{down}\right&gt;\)</span> state.  Therefore, in our previous example <tt class="docutils literal"><span class="pre">sigmap()*spin</span></tt>, we raised the qubit state out of the truncated two-level Hilbert space resulting in the zero state.</p>
 <p>While at first glance this convention might seem somewhat odd, it is in fact quite handy.  For one, the spin operators remain in the conventional form.  Second, when the spin system is in the <span class="math">\(\left|\mathrm{up}\right&gt;\)</span> state:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [57]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
-<span class="gr">Out[57]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [35]: </span><span class="n">sigmaz</span><span class="p">()</span><span class="o">*</span><span class="n">spin</span>
+<span class="gr">Out[35]: </span>
 <span class="go">Quantum object: dims = [[2], [1]], shape = [2, 1], type = ket</span>
 <span class="go">Qobj data =</span>
 <span class="go">[[ 1.]</span>
@@ -545,75 +545,75 @@
 <div class="section" id="expectation-values">
 <span id="states-expect"></span><h2>Expectation values<a class="headerlink" href="#expectation-values" title="Permalink to this headline">¶</a></h2>
 <p>Some of the most important information about quantum systems comes from calculating the expectation value of operators, both Hermitian and non-Hermitian, as the state or density matrix of the system varies in time.  Therefore, in this section we demonstrate the use of the <a class="reference internal" href="../apidoc/functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect</span></tt></a> function.  To begin:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [58]: </span><span class="n">vac</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="n">vac</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="gp">In [59]: </span><span class="n">one</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">In [37]: </span><span class="n">one</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [60]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">In [38]: </span><span class="n">c</span><span class="o">=</span><span class="n">create</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">In [61]: </span><span class="n">N</span><span class="o">=</span><span class="n">num</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">In [39]: </span><span class="n">N</span><span class="o">=</span><span class="n">num</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="gp">In [62]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">vac</span><span class="p">)</span>
-<span class="gr">Out[62]: </span><span class="mf">0.0</span>
+<span class="gp">In [40]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">vac</span><span class="p">)</span>
+<span class="gr">Out[40]: </span><span class="mf">0.0</span>
 
-<span class="gp">In [63]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">one</span><span class="p">)</span>
-<span class="gr">Out[63]: </span><span class="mf">1.0</span>
+<span class="gp">In [41]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">one</span><span class="p">)</span>
+<span class="gr">Out[41]: </span><span class="mf">1.0</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [64]: </span><span class="n">coh</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.0</span><span class="n">j</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [42]: </span><span class="n">coh</span><span class="o">=</span><span class="n">coherent_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">1.0</span><span class="n">j</span><span class="p">)</span>
 
-<span class="gp">In [65]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">coh</span><span class="p">)</span>
-<span class="gr">Out[65]: </span><span class="mf">0.9970555745806599</span>
+<span class="gp">In [43]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">coh</span><span class="p">)</span>
+<span class="gr">Out[43]: </span><span class="mf">0.9970555745806596</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [66]: </span><span class="n">cat</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mf">1.0</span><span class="n">j</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="n">cat</span><span class="o">=</span><span class="p">(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mf">1.0</span><span class="n">j</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
 
-<span class="gp">In [67]: </span><span class="n">expect</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cat</span><span class="p">)</span>
-<span class="gr">Out[67]: </span><span class="mf">0.99999999999999978</span><span class="n">j</span>
+<span class="gp">In [45]: </span><span class="n">expect</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cat</span><span class="p">)</span>
+<span class="gr">Out[45]: </span><span class="mf">0.99999999999999978</span><span class="n">j</span>
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="../apidoc/functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect</span></tt></a> function also accepts lists or arrays of state vectors or density matrices for the second input:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [68]: </span><span class="n">states</span><span class="o">=</span><span class="p">[(</span><span class="n">c</span><span class="o">**</span><span class="n">k</span><span class="o">*</span><span class="n">vac</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="c">#must normalize</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="n">states</span><span class="o">=</span><span class="p">[(</span><span class="n">c</span><span class="o">**</span><span class="n">k</span><span class="o">*</span><span class="n">vac</span><span class="p">)</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="c">#must normalize</span>
 
-<span class="gp">In [69]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">states</span><span class="p">)</span>
-<span class="gr">Out[69]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">])</span>
+<span class="gp">In [47]: </span><span class="n">expect</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">states</span><span class="p">)</span>
+<span class="gr">Out[47]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [70]: </span><span class="n">cat_list</span><span class="o">=</span><span class="p">[(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="n">j</span><span class="p">]]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [48]: </span><span class="n">cat_list</span><span class="o">=</span><span class="p">[(</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">basis</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="n">j</span><span class="p">]]</span>
 
-<span class="gp">In [71]: </span><span class="n">expect</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cat_list</span><span class="p">)</span>
-<span class="gr">Out[71]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">])</span>
+<span class="gp">In [49]: </span><span class="n">expect</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">cat_list</span><span class="p">)</span>
+<span class="gr">Out[49]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Notice how in this last example, all of the return values are complex numbers.  This is because the <a class="reference internal" href="../apidoc/functions.html#module-qutip.expect" title="qutip.expect"><tt class="xref py py-func docutils literal"><span class="pre">qutip.expect</span></tt></a> function looks to see whether the operator is Hermitian or not.  If the operator is Hermitian, than the output will always be real.  In the case of non-Hermitian operators, the return values may be complex.  Therefore, the expect function will return a array of complex values for non-Hermitian operators when the input is a list/array of states or density matrices.</p>
 <p>Of course, the expect function works for spin states and operators:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [72]: </span><span class="n">up</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [50]: </span><span class="n">up</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="gp">In [73]: </span><span class="n">down</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">In [51]: </span><span class="n">down</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [74]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">up</span><span class="p">)</span>
-<span class="gr">Out[74]: </span><span class="mf">1.0</span>
+<span class="gp">In [52]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">up</span><span class="p">)</span>
+<span class="gr">Out[52]: </span><span class="mf">1.0</span>
 
-<span class="gp">In [75]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">down</span><span class="p">)</span>
-<span class="gr">Out[75]: </span><span class="o">-</span><span class="mf">1.0</span>
+<span class="gp">In [53]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">down</span><span class="p">)</span>
+<span class="gr">Out[53]: </span><span class="o">-</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 <p>as well as the composite objects discussed in the next section <a class="reference internal" href="guide-tensor.html#tensor"><em>Using Tensor Products and Partial Traces</em></a>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [76]: </span><span class="n">spin1</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [54]: </span><span class="n">spin1</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="gp">In [77]: </span><span class="n">spin2</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">In [55]: </span><span class="n">spin2</span><span class="o">=</span><span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="gp">In [78]: </span><span class="n">two_spins</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">spin1</span><span class="p">,</span><span class="n">spin2</span><span class="p">)</span>
+<span class="gp">In [56]: </span><span class="n">two_spins</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">spin1</span><span class="p">,</span><span class="n">spin2</span><span class="p">)</span>
 
-<span class="gp">In [79]: </span><span class="n">sz1</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">In [57]: </span><span class="n">sz1</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">sigmaz</span><span class="p">(),</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="gp">In [80]: </span><span class="n">sz2</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmaz</span><span class="p">())</span>
+<span class="gp">In [58]: </span><span class="n">sz2</span><span class="o">=</span><span class="n">tensor</span><span class="p">(</span><span class="n">qeye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">sigmaz</span><span class="p">())</span>
 
-<span class="gp">In [81]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sz1</span><span class="p">,</span><span class="n">two_spins</span><span class="p">)</span>
-<span class="gr">Out[81]: </span><span class="mf">1.0</span>
+<span class="gp">In [59]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sz1</span><span class="p">,</span><span class="n">two_spins</span><span class="p">)</span>
+<span class="gr">Out[59]: </span><span class="mf">1.0</span>
 
-<span class="gp">In [82]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sz2</span><span class="p">,</span><span class="n">two_spins</span><span class="p">)</span>
-<span class="gr">Out[82]: </span><span class="o">-</span><span class="mf">1.0</span>
+<span class="gp">In [60]: </span><span class="n">expect</span><span class="p">(</span><span class="n">sz2</span><span class="p">,</span><span class="n">two_spins</span><span class="p">)</span>
+<span class="gr">Out[60]: </span><span class="o">-</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 </div>
@@ -661,7 +661,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

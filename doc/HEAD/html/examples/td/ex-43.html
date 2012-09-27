@@ -123,9 +123,6 @@
 <span class="c">#</span>
 <span class="kn">from</span> <span class="nn">qutip</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-
 
 <span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
 
@@ -206,7 +203,7 @@
     <span class="c"># (i.e., t -&gt; inf)</span>
     <span class="c">#</span>
     <span class="n">rho_ss</span>  <span class="o">=</span> <span class="n">propagator_steadystate</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
-    <span class="n">p_ex_ss</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">expect</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span><span class="p">,</span> <span class="n">rho_ss</span><span class="p">))</span>
+    <span class="n">p_ex_ss</span> <span class="o">=</span> <span class="n">expect</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="o">*</span> <span class="n">sm</span><span class="p">,</span> <span class="n">rho_ss</span><span class="p">)</span>
 
     <span class="c">#</span>
     <span class="c"># plot the results</span>
@@ -214,8 +211,8 @@
     <span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">output</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">output</span><span class="o">.</span><span class="n">expect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
     <span class="n">plot</span><span class="p">(</span><span class="n">tlist</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">tlist</span><span class="p">))</span> <span class="o">*</span> <span class="n">p_ex_ss</span><span class="p">,</span> <span class="s">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
     <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Probability&#39;</span><span class="p">)</span>
@@ -272,7 +269,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

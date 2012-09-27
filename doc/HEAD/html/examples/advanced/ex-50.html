@@ -30,7 +30,7 @@
             <link rel="shortcut icon" href="../../_static/favicon.ico"/>
         <link rel="top" title="QuTiP 2.1 Documentation" href="../../index.html"/>
             <link rel="up" title="Advanced topics and examples" href="../ex-advanced.html"/>
-            <link rel="next" title="Landau-Zener-Stückelberg interferometry" href="ex-lzs.html"/>
+            <link rel="next" title="Comparing the Lindblad and Bloch-Redfield master equations" href="ex-51.html"/>
             <link rel="prev" title="Advanced topics and examples" href="../ex-advanced.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
@@ -76,8 +76,8 @@
                        title="Python Module Index" >modules</a>
                 </li>
                 <li>
-                    <a href="ex-lzs.html"
-                       title="Landau-Zener-Stückelberg interferometry" accesskey="N">next</a>
+                    <a href="ex-51.html"
+                       title="Comparing the Lindblad and Bloch-Redfield master equations" accesskey="N">next</a>
                 </li>
                 <li>
                     <a href="../ex-advanced.html"
@@ -173,7 +173,8 @@
 
     <span class="c"># the time-dependent hamiltonian in list-string format</span>
     <span class="n">args</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">taulist</span><span class="p">)</span>
-    <span class="n">h_t</span> <span class="o">=</span> <span class="p">[[</span><span class="n">H0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">t_max</span> <span class="p">:</span> <span class="p">(</span><span class="n">t_max</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">t_max</span><span class="p">],</span> <span class="p">[</span><span class="n">H1</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">t_max</span> <span class="p">:</span> <span class="n">t</span><span class="o">/</span><span class="n">t_max</span><span class="p">]]</span>
+    <span class="n">h_t</span> <span class="o">=</span> <span class="p">[[</span><span class="n">H0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">t_max</span> <span class="p">:</span> <span class="p">(</span><span class="n">t_max</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">t_max</span><span class="p">],</span>
+           <span class="p">[</span><span class="n">H1</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">t_max</span> <span class="p">:</span> <span class="n">t</span><span class="o">/</span><span class="n">t_max</span><span class="p">]]</span>
 
     <span class="c">#</span>
     <span class="c"># callback function for each time-step</span>
@@ -249,17 +250,20 @@
             <span class="n">lw</span> <span class="o">=</span> <span class="mf">0.25</span>
         <span class="n">plot</span><span class="p">(</span><span class="n">taulist</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">taulist</span><span class="p">),</span> <span class="n">evals_mat</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">ls</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
 
-    <span class="c"># second, draw line that encode the occupation probability of each corresponding</span>
-    <span class="c"># state in the linewidth. thicker line =&gt; high occupation probability.</span>
+    <span class="c"># second, draw line that encode the occupation probability of each state in</span>
+    <span class="c"># its linewidth. thicker line =&gt; high occupation probability.</span>
     <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">taulist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">occ_mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])):</span>
             <span class="n">lw</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">occ_mat</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">lw</span> <span class="o">&gt;</span> <span class="mf">0.55</span><span class="p">:</span>
-                <span class="n">plot</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="n">taulist</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">taulist</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="n">taumax</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="n">evals_mat</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">n</span><span class="p">],</span> <span class="n">evals_mat</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">]])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+                <span class="n">plot</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="n">taulist</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">taulist</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="n">taumax</span><span class="p">,</span>
+                     <span class="n">array</span><span class="p">([</span><span class="n">evals_mat</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">n</span><span class="p">],</span> <span class="n">evals_mat</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">]])</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span>
+                     <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
 
     <span class="n">xlabel</span><span class="p">(</span><span class="s">r&#39;$\tau$&#39;</span><span class="p">)</span>
     <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Eigenenergies&#39;</span><span class="p">)</span>
-    <span class="n">title</span><span class="p">(</span><span class="s">&quot;Energyspectrum (</span><span class="si">%d</span><span class="s"> lowest values) of a chain of </span><span class="si">%d</span><span class="s"> spins.</span><span class="se">\n</span><span class="s">The occupation probabilities are encoded in the red line widths.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">title</span><span class="p">(</span><span class="s">&quot;Energyspectrum (</span><span class="si">%d</span><span class="s"> lowest values) of a chain of </span><span class="si">%d</span><span class="s"> spins.</span><span class="se">\n</span><span class="s"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+          <span class="o">+</span> <span class="s">&quot;The occupation probabilities are encoded in the red line widths.&quot;</span><span class="p">)</span>
     <span class="n">legend</span><span class="p">((</span><span class="s">&quot;Ground state&quot;</span><span class="p">,))</span>
 
     <span class="c">#</span>
@@ -274,7 +278,8 @@
 
     <span class="n">xlabel</span><span class="p">(</span><span class="s">r&#39;$\tau$&#39;</span><span class="p">)</span>
     <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Occupation probability&#39;</span><span class="p">)</span>
-    <span class="n">title</span><span class="p">(</span><span class="s">&quot;Occupation probability of the </span><span class="si">%d</span><span class="s"> lowest eigenstates for a chain of </span><span class="si">%d</span><span class="s"> spins&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">title</span><span class="p">(</span><span class="s">&quot;Occupation probability of the </span><span class="si">%d</span><span class="s"> lowest &quot;</span> <span class="o">%</span> <span class="n">M</span> <span class="o">+</span>
+          <span class="s">&quot;eigenstates for a chain of </span><span class="si">%d</span><span class="s"> spins&quot;</span> <span class="o">%</span> <span class="n">N</span><span class="p">)</span>
     <span class="n">legend</span><span class="p">((</span><span class="s">&quot;Ground state&quot;</span><span class="p">,))</span>
 
     <span class="n">show</span><span class="p">()</span>
@@ -300,8 +305,8 @@
   <p class="topless"><a href="../ex-advanced.html"
                         title="previous chapter">Advanced topics and examples</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ex-lzs.html"
-                        title="next chapter">Landau-Zener-Stückelberg interferometry</a></p>
+  <p class="topless"><a href="ex-51.html"
+                        title="next chapter">Comparing the Lindblad and Bloch-Redfield master equations</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/examples/advanced/ex-50.txt"
@@ -319,7 +324,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

@@ -136,49 +136,49 @@
 </table>
 <p>See the API documentation: <a class="reference internal" href="../apidoc/functions.html#functions-rand"><em>Random Operators and States</em></a> for details.</p>
 <p>In all cases, these functions can be called with a single parameter <span class="math">\(N\)</span> that indicates a <span class="math">\(NxN\)</span> matrix (<cite>rand_dm</cite>, <cite>rand_herm</cite>, <cite>rand_unitary</cite>), or a <span class="math">\(Nx1\)</span> vector (<cite>rand_ket</cite>), should be generated.  For example:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">rand_ket</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gr">Out[2]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">rand_ket</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [1]], shape = [5, 1], type = ket</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[-0.25374995+0.07655935j]</span>
-<span class="go"> [-0.50171657-0.16814244j]</span>
-<span class="go"> [-0.43883836-0.15728453j]</span>
-<span class="go"> [-0.49252945-0.1780082j ]</span>
-<span class="go"> [-0.29360152+0.26826603j]]</span>
+<span class="go">[[-0.15412557-0.23628632j]</span>
+<span class="go"> [-0.08352516-0.19835772j]</span>
+<span class="go"> [-0.42812674+0.22297206j]</span>
+<span class="go"> [-0.45598764-0.22954035j]</span>
+<span class="go"> [-0.58898814+0.18320011j]]</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">rand_herm</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gr">Out[3]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">rand_herm</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 0.00000000+0.j         -0.22946364+0.15658953j -0.19561077-0.01004105j</span>
-<span class="go">  -0.42584439+0.21095167j -0.13935016-0.23714855j]</span>
-<span class="go"> [-0.22946364-0.15658953j -0.85115082+0.j         -0.67775238-0.08417027j</span>
-<span class="go">  -0.34164162+0.23738628j  0.00000000+0.j        ]</span>
-<span class="go"> [-0.19561077+0.01004105j -0.67775238+0.08417027j -0.81722151+0.j</span>
-<span class="go">  -0.37977065+0.09348705j  0.00000000+0.j        ]</span>
-<span class="go"> [-0.42584439-0.21095167j -0.34164162-0.23738628j -0.37977065-0.09348705j</span>
-<span class="go">  -0.74429620+0.j         -0.45300491-0.16138037j]</span>
-<span class="go"> [-0.13935016+0.23714855j  0.00000000+0.j          0.00000000+0.j</span>
-<span class="go">  -0.45300491+0.16138037j -0.66099500+0.j        ]]</span>
+<span class="go">[[ 0.00000000+0.j         -0.17299948+0.16212136j -0.47830369-0.05170563j</span>
+<span class="go">  -0.08437531+0.11024263j -0.36056607+0.09708645j]</span>
+<span class="go"> [-0.17299948-0.16212136j  0.00000000+0.j         -0.47573353-0.1448804j</span>
+<span class="go">  -0.20168103+0.06008555j -0.30549014+0.00701932j]</span>
+<span class="go"> [-0.47830369+0.05170563j -0.47573353+0.1448804j  -0.29861764+0.j</span>
+<span class="go">  -0.42455015+0.03230808j  0.00000000+0.j        ]</span>
+<span class="go"> [-0.08437531-0.11024263j -0.20168103-0.06008555j -0.42455015-0.03230808j</span>
+<span class="go">   0.00000000+0.j         -0.16342187+0.12872213j]</span>
+<span class="go"> [-0.36056607-0.09708645j -0.30549014-0.00701932j  0.00000000+0.j</span>
+<span class="go">  -0.16342187-0.12872213j -0.61033551+0.j        ]]</span>
 </pre></div>
 </div>
 <p>In this previous example, we see that the generated Hermitian operator contains a fraction of elements that are identically equal to zero.  The number of nonzero elements is called the <cite>density</cite> and can be controlled by calling any of the random state/operator generators with a second argument between 0 and 1.  By default, the density for the operators is <cite>0.75</cite> where as ket vectors are completely dense (<cite>1</cite>).  For example:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="gr">Out[4]: </span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go"> Out[1]: </span>
 <span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 0.29064844+0.j          0.00000000+0.j          0.00000000+0.j</span>
-<span class="go">   0.16628214-0.08446764j  0.07977712+0.02643469j]</span>
-<span class="go"> [ 0.00000000+0.j          0.38110292+0.j          0.00000000+0.j</span>
-<span class="go">   0.00000000+0.j          0.11701919+0.01794617j]</span>
-<span class="go"> [ 0.00000000+0.j          0.00000000+0.j          0.00000000+0.j</span>
+<span class="go">[[ 0.00000000+0.j          0.00000000+0.j          0.00000000+0.j</span>
 <span class="go">   0.00000000+0.j          0.00000000+0.j        ]</span>
-<span class="go"> [ 0.16628214+0.08446764j  0.00000000+0.j          0.00000000+0.j</span>
-<span class="go">   0.15149600+0.j          0.00000000+0.j        ]</span>
-<span class="go"> [ 0.07977712-0.02643469j  0.11701919-0.01794617j  0.00000000+0.j</span>
-<span class="go">   0.00000000+0.j          0.17675263+0.j        ]]</span>
+<span class="go"> [ 0.00000000+0.j          0.20795306+0.j          0.10149712+0.03586883j</span>
+<span class="go">   0.07342011+0.06944286j  0.07354987+0.12362839j]</span>
+<span class="go"> [ 0.00000000+0.j          0.10149712-0.03586883j  0.28853989+0.j</span>
+<span class="go">   0.13319322+0.05914008j  0.09884666+0.01342993j]</span>
+<span class="go"> [ 0.00000000+0.j          0.07342011-0.06944286j  0.13319322-0.05914008j</span>
+<span class="go">   0.13681094+0.j          0.00000000+0.j        ]</span>
+<span class="go"> [ 0.00000000+0.j          0.07354987-0.12362839j  0.09884666-0.01342993j</span>
+<span class="go">   0.00000000+0.j          0.36669611+0.j        ]]</span>
 </pre></div>
 </div>
 <p>has rougly half nonzero elements, or equivilently a density of 0.5.</p>
@@ -189,20 +189,14 @@
 <div class="section" id="composite-random-objects">
 <h2>Composite random objects<a class="headerlink" href="#composite-random-objects" title="Permalink to this headline">¶</a></h2>
 <p>In many cases, one is interested in generating random quantum objects that correspond to composite systems generated using the <a class="reference internal" href="../apidoc/functions.html#qutip.tensor.tensor" title="qutip.tensor.tensor"><tt class="xref py py-func docutils literal"><span class="pre">qutip.tensor.tensor</span></tt></a> function.  Specifying the tensor structure of a quantum object is done using the <cite>dims</cite> keyword argument in the same fashion as one would do for a <a class="reference internal" href="../apidoc/classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> object:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="gr">Out[5]: </span>
-<span class="go">Quantum object: dims = [[5], [5]], shape = [5, 5], type = oper, isHerm = True</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="go"> Out[1]: </span>
+<span class="go">Quantum object: dims = [[2, 2], [2, 2]], shape = [4, 4], type = oper, isHerm = True</span>
 <span class="go">Qobj data =</span>
-<span class="go">[[ 0.00000000+0.j          0.00000000+0.j          0.00000000+0.j</span>
-<span class="go">   0.00000000+0.j          0.00000000+0.j        ]</span>
-<span class="go"> [ 0.00000000+0.j          0.32068225+0.j          0.10207696+0.04735742j</span>
-<span class="go">   0.11794661+0.17079269j  0.10859099-0.02630305j]</span>
-<span class="go"> [ 0.00000000+0.j          0.10207696-0.04735742j  0.47694083+0.j</span>
-<span class="go">   0.00000000+0.j          0.00000000+0.j        ]</span>
-<span class="go"> [ 0.00000000+0.j          0.11794661-0.17079269j  0.00000000+0.j</span>
-<span class="go">   0.15690898+0.j          0.03028647-0.07884832j]</span>
-<span class="go"> [ 0.00000000+0.j          0.10859099+0.02630305j  0.00000000+0.j</span>
-<span class="go">   0.03028647+0.07884832j  0.04546794+0.j        ]]</span>
+<span class="go">[[ 0.37788686  0.          0.          0.        ]</span>
+<span class="go"> [ 0.          0.37788686  0.          0.        ]</span>
+<span class="go"> [ 0.          0.          0.12211314  0.        ]</span>
+<span class="go"> [ 0.          0.          0.          0.12211314]]</span>
 </pre></div>
 </div>
 </div>
@@ -246,7 +240,7 @@
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 11, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
