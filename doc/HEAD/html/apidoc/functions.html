@@ -1445,7 +1445,7 @@ exception.</p>
 <span id="monte-carlo-evolution"></span><h3>Monte Carlo Evolution<a class="headerlink" href="#module-qutip.mcsolve" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.mcsolve.mcsolve">
-<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10d7aa170&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3dbde18&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo evolution of a state vector <span class="math">\(|\psi \rangle\)</span> for a given
 Hamiltonian and sets of collapse operators, and possibly, operators
 for calculating expectation values. Options for the underlying ODE solver are 
@@ -1535,7 +1535,7 @@ operator lists.</p>
 <span id="bloch-redfield-master-equation"></span><h3>Bloch-Redfield Master Equation<a class="headerlink" href="#module-qutip.bloch_redfield" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.bloch_redfield.brmesolve">
-<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10db488c0&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3991368&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Bloch-Redfeild master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1548,31 +1548,32 @@ collapse operators.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
 <blockquote>
-<div><p>system Hamiltonian.</p>
+<div><p>System Hamiltonian.</p>
 </div></blockquote>
 <p><strong>rho0 / psi0: :class:`qutip.Qobj`</strong> :</p>
 <blockquote>
-<div><p>initial density matrix or state vector (ket).</p>
+<div><p>Initial density matrix or state vector (ket).</p>
 </div></blockquote>
 <p><strong>tlist</strong> : <em>list</em> / <em>array</em></p>
 <blockquote>
-<div><p>list of times for <span class="math">\(t\)</span>.</p>
+<div><p>List of times for <span class="math">\(t\)</span>.</p>
 </div></blockquote>
 <p><strong>c_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
 <blockquote>
-<div><p>list of collapse operators.</p>
+<div><p>List of collapse operators.</p>
 </div></blockquote>
 <p><strong>expt_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
 <blockquote>
-<div><p>list of operators for which to evaluate expectation values.</p>
+<div><p>List of operators for which to evaluate expectation values.</p>
 </div></blockquote>
 <p><strong>args</strong> : <em>dictionary</em></p>
 <blockquote>
-<div><p>dictionary of parameters for time-dependent Hamiltonians and collapse operators.</p>
+<div><p>Dictionary of parameters for time-dependent Hamiltonians and collapse
+operators.</p>
 </div></blockquote>
 <p><strong>options</strong> : <tt class="xref py py-class docutils literal"><span class="pre">qutip.Qdeoptions</span></tt></p>
 <blockquote>
-<div><p>with options for the ODE solver.</p>
+<div><p>Options for the ODE solver.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -1592,7 +1593,7 @@ an <em>array</em> of expectation values for the times specified by <cite>tlist</
 <span id="floquet-states-and-floquet-markov-master-equation"></span><h3>Floquet States and Floquet-Markov Master Equation<a class="headerlink" href="#module-qutip.floquet" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.floquet.fmmesolve">
-<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10db487a0&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x39913f8&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Floquet-Markov master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1621,6 +1622,11 @@ an <em>array</em> of expectation values for the times specified by <cite>tlist</
 <p><strong>e_ops</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> / callback function</p>
 <blockquote>
 <div><p>list of operators for which to evaluate expectation values.</p>
+</div></blockquote>
+<p><strong>spectra_cb</strong> : list callback functions</p>
+<blockquote>
+<div><p>List of callback functions that compute the noise power spectrum as
+a function of frequency for the collapse operators in <cite>c_ops</cite>.</p>
 </div></blockquote>
 <p><strong>T</strong> : float</p>
 <blockquote>
@@ -1747,6 +1753,44 @@ initial Floquet modes Phi_alpha(0)</p>
 <dd><p>Pre-calculate the Floquet modes for a range of times spanning the floquet
 period. Can later be used as a table to look up the floquet modes for
 any time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_modes_0</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>Floquet modes at <span class="math">\(t\)</span></p>
+</div></blockquote>
+<p><strong>f_energies</strong> : list</p>
+<blockquote>
+<div><p>Floquet energies.</p>
+</div></blockquote>
+<p><strong>tlist</strong> : array</p>
+<blockquote>
+<div><p>The list of times at which to evaluate the floquet modes.</p>
+</div></blockquote>
+<p><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>system Hamiltonian, time-dependent with period <cite>T</cite></p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian.</p>
+</div></blockquote>
+<p><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>dictionary with variables required to evaluate H</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : nested list</p>
+<blockquote class="last">
+<div><p>A nested list of Floquet modes as kets for each time in <cite>tlist</cite></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1754,27 +1798,160 @@ any time.</p>
 <tt class="descname">floquet_modes_t_lookup</tt><big>(</big><em>f_modes_table_t</em>, <em>t</em>, <em>T</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_modes_t_lookup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup the floquet mode at time t in the pre-calculated table of floquet
 modes in the first period of the time-dependence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_modes_table_t</strong> : nested list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>A lookup-table of Floquet modes at times precalculated by
+<a class="reference internal" href="#qutip.floquet.floquet_modes_table" title="qutip.floquet.floquet_modes_table"><tt class="xref py py-func docutils literal"><span class="pre">qutip.floquet.floquet_modes_table</span></tt></a>.</p>
+</div></blockquote>
+<p><strong>t</strong> : float</p>
+<blockquote>
+<div><p>The time for which to evaluate the Floquet modes.</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : nested list</p>
+<blockquote class="last">
+<div><p>A list of Floquet modes as kets for the time that most closely matching
+the time <cite>t</cite> in the supplied table of Floquet modes.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.floquet.floquet_states_t">
 <tt class="descname">floquet_states_t</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>t</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_states_t" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate the floquet states at time t.</p>
-<p>Returns a list of the wavefunctions.</p>
+<dd><p>Evaluate the floquet states at time t given the initial Floquet modes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_modes_t</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>A list of initial Floquet modes (for time <span class="math">\(t=0\)</span>).</p>
+</div></blockquote>
+<p><strong>f_energies</strong> : array</p>
+<blockquote>
+<div><p>The Floquet energies.</p>
+</div></blockquote>
+<p><strong>t</strong> : float</p>
+<blockquote>
+<div><p>The time for which to evaluate the Floquet states.</p>
+</div></blockquote>
+<p><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>System Hamiltonian, time-dependent with period <cite>T</cite>.</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian.</p>
+</div></blockquote>
+<p><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>Dictionary with variables required to evaluate H.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of Floquet states for the time <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.floquet.floquet_wavefunction_t">
 <tt class="descname">floquet_wavefunction_t</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>f_coeff</em>, <em>t</em>, <em>H</em>, <em>T</em>, <em>args=None</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_wavefunction_t" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate the wavefunction for a time t using the Floquet states decompositon.</p>
-<p>Returns the wavefunction.</p>
+<dd><p>Evaluate the wavefunction for a time t using the Floquet state decompositon,
+given the initial Floquet modes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_modes_t</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>A list of initial Floquet modes (for time <span class="math">\(t=0\)</span>).</p>
+</div></blockquote>
+<p><strong>f_energies</strong> : array</p>
+<blockquote>
+<div><p>The Floquet energies.</p>
+</div></blockquote>
+<p><strong>f_coeff</strong> : array</p>
+<blockquote>
+<div><p>The coefficients for Floquet decomposition of the initial wavefunction.</p>
+</div></blockquote>
+<p><strong>t</strong> : float</p>
+<blockquote>
+<div><p>The time for which to evaluate the Floquet states.</p>
+</div></blockquote>
+<p><strong>H</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>System Hamiltonian, time-dependent with period <cite>T</cite>.</p>
+</div></blockquote>
+<p><strong>T</strong> : float</p>
+<blockquote>
+<div><p>The period of the time-dependence of the hamiltonian.</p>
+</div></blockquote>
+<p><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>Dictionary with variables required to evaluate H.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote class="last">
+<div><p>The wavefunction for the time <span class="math">\(t\)</span>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="qutip.floquet.floquet_state_decomposition">
-<tt class="descname">floquet_state_decomposition</tt><big>(</big><em>f_modes_0</em>, <em>f_energies</em>, <em>psi0</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_state_decomposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decompose the wavefunction psi in the Floquet states, return the coefficients
-in the decomposition as an array of complex amplitudes.</p>
+<tt class="descname">floquet_state_decomposition</tt><big>(</big><em>f_states</em>, <em>f_energies</em>, <em>psi</em><big>)</big><a class="headerlink" href="#qutip.floquet.floquet_state_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decompose the wavefunction <cite>psi</cite> (typically an initial state) in terms of 
+the Floquet states, <span class="math">\(\psi = \sum_\alpha c_\alpha \psi_\alpha(0)\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_states</strong> : list of <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a> (kets)</p>
+<blockquote>
+<div><p>A list of Floquet modes.</p>
+</div></blockquote>
+<p><strong>f_energies</strong> : array</p>
+<blockquote>
+<div><p>The Floquet energies.</p>
+</div></blockquote>
+<p><strong>psi</strong> : <a class="reference internal" href="classes.html#qutip.Qobj" title="qutip.Qobj"><tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj</span></tt></a></p>
+<blockquote>
+<div><p>The wavefunction to decompose in the Floquet state basis.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>output</strong> : array</p>
+<blockquote class="last">
+<div><p>The coefficients <span class="math">\(c_\alpha\)</span> in the Floquet state decomposition.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -2177,9 +2354,9 @@ time-dependent Hamiltonians (see description in <a class="reference internal" hr
 <dl class="function">
 <dt id="qutip.tomography.qpt">
 <tt class="descname">qpt</tt><big>(</big><em>U</em>, <em>op_basis_list</em><big>)</big><a class="headerlink" href="#qutip.tomography.qpt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the quantum process tomography chi matrix for a given 
-(possibly nonunitary) transformation matrix U, which transforms a 
-density matrix in vector form according to:</p>
+<dd><p>Calculate the quantum process tomography chi matrix for a given (possibly
+nonunitary) transformation matrix U, which transforms a density matrix in
+vector form according to:</p>
 <blockquote>
 <div><p>vec(rho) = U * vec(rho0)</p>
 <p>or</p>
@@ -2193,7 +2370,8 @@ function.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>U</strong> : Qobj</p>
 <blockquote>
-<div><p>Transformation operator.  Can be calculated using QuTiP propagator function.</p>
+<div><p>Transformation operator. Can be calculated using QuTiP propagator
+function.</p>
 </div></blockquote>
 <p><strong>op_basis_list</strong> : list</p>
 <blockquote>
@@ -2230,7 +2408,7 @@ imaginary parts separately.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib axes instance for the plot.</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib figure instance for the plot.</strong> :</p>
 </td>
 </tr>
 </tbody>
@@ -2256,7 +2434,7 @@ height and color corresponding to the absolute value and phase, respectively.</p
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib axes instance for the plot.</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>An matplotlib figure instance for the plot.</strong> :</p>
 </td>
 </tr>
 </tbody>
@@ -2885,7 +3063,7 @@ interface is given in the terminal.</p>
 
 <dl class="function">
 <dt id="qutip.hinton">
-<tt class="descname">hinton</tt><big>(</big><em>rho</em><big>)</big><a class="headerlink" href="#qutip.hinton" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">hinton</tt><big>(</big><em>rho</em>, <em>xlabels=None</em>, <em>ylabels=None</em>, <em>title=None</em>, <em>ax=None</em><big>)</big><a class="headerlink" href="#qutip.hinton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a Hinton diagram for visualizing a density matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2895,9 +3073,28 @@ interface is given in the terminal.</p>
 <blockquote>
 <div><p>Input density matrix.</p>
 </div></blockquote>
+<p><strong>xlabels</strong> : list of strings</p>
+<blockquote>
+<div><p>list of x labels</p>
+</div></blockquote>
+<p><strong>ylabels</strong> : list of strings</p>
+<blockquote>
+<div><p>list of y labels</p>
+</div></blockquote>
+<p><strong>title</strong> : string</p>
+<blockquote>
+<div><p>title of the plot (optional)</p>
+</div></blockquote>
+<p><strong>ax</strong> : a matplotlib axes instance</p>
+<blockquote>
+<div><p>The axes context in which the plot will be drawn.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>ValueError</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>An matplotlib axes instance for the plot.</strong> :</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first"><strong>ValueError</strong> :</p>
 <blockquote class="last">
 <div><p>Input argument is not a quantum object.</p>
 </div></blockquote>
@@ -2980,7 +3177,7 @@ builtin &#8216;zip&#8217; command, or using multidimensional <cite>lists</cite> 
 
 <dl class="function">
 <dt id="qutip.rhs_generate">
-<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>c_ops</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x10d61f368&gt;</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>c_ops</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3dbd1b8&gt;</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the Cython functions needed for solving the dynamics of a
 given system using the mesolve function inside a parfor loop.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3136,7 +3333,7 @@ given system using the mesolve function inside a parfor loop.</p>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 14, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

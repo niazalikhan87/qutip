@@ -30,8 +30,8 @@
             <link rel="shortcut icon" href="../_static/favicon.ico"/>
         <link rel="top" title="QuTiP 2.1 Documentation" href="../index.html"/>
             <link rel="up" title="QuTiP Users Guide" href="guide.html"/>
-            <link rel="next" title="Using QuTiP’s Built-in Parallel for-loop" href="guide-parfor.html"/>
-            <link rel="prev" title="Plotting on the Bloch Sphere" href="guide-bloch.html"/> 
+            <link rel="next" title="Plotting on the Bloch Sphere" href="guide-bloch.html"/>
+            <link rel="prev" title="An Overview of the Eseries Class" href="guide-eseries.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
         <!-- analytics -->
@@ -76,12 +76,12 @@
                        title="Python Module Index" >modules</a>
                 </li>
                 <li>
-                    <a href="guide-parfor.html"
-                       title="Using QuTiP’s Built-in Parallel for-loop" accesskey="N">next</a>
+                    <a href="guide-bloch.html"
+                       title="Plotting on the Bloch Sphere" accesskey="N">next</a>
                 </li>
                 <li>
-                    <a href="guide-bloch.html"
-                       title="Plotting on the Bloch Sphere" accesskey="P">previous</a>
+                    <a href="guide-eseries.html"
+                       title="An Overview of the Eseries Class" accesskey="P">previous</a>
                 </li>
                 <li><a href="guide.html"
                         accesskey="U">QuTiP Users Guide</a>
@@ -194,7 +194,10 @@ Monte Carlo solver.</td>
 <span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../guide/scripts/correlation_ex2.py">Source code</a>)</p>
+<p>(<a class="reference external" href="../guide/scripts/correlation_ex2.py">Source code</a>, <a class="reference external" href="../guide/scripts/correlation_ex2.png">png</a>, <a class="reference external" href="../guide/scripts/correlation_ex2.hires.png">hires.png</a>)</p>
+<div class="figure">
+<img alt="../_images/correlation_ex2.png" src="../_images/correlation_ex2.png" style="width: 4.0in;" />
+</div>
 <p>However, in some cases we might be interested in the correlation functions on the form <span class="math">\(\left&lt;A(t_1+t_2)B(t_1)\right&gt;\)</span>, but only as a function of time coordinate <span class="math">\(t_2\)</span>. In this case we can also use the <a class="reference internal" href="../apidoc/functions.html#qutip.correlation.correlation" title="qutip.correlation.correlation"><tt class="xref py py-func docutils literal"><span class="pre">qutip.correlation.correlation</span></tt></a> function, if we pass the density matrix at time <span class="math">\(t_1\)</span> as second argument, and <cite>None</cite> as third argument. The <a class="reference internal" href="../apidoc/functions.html#qutip.correlation.correlation" title="qutip.correlation.correlation"><tt class="xref py py-func docutils literal"><span class="pre">qutip.correlation.correlation</span></tt></a> function then returns a vector with the correlation values corresponding to the times in <cite>taulist</cite> (the fourth argument).</p>
 <div class="section" id="example-first-order-optical-coherence-function">
 <h3>Example: first-order optical coherence function<a class="headerlink" href="#example-first-order-optical-coherence-function" title="Permalink to this headline">¶</a></h3>
@@ -259,11 +262,11 @@ Monte Carlo solver.</td>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="guide-bloch.html"
-                        title="previous chapter">Plotting on the Bloch Sphere</a></p>
+  <p class="topless"><a href="guide-eseries.html"
+                        title="previous chapter">An Overview of the Eseries Class</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="guide-parfor.html"
-                        title="next chapter">Using QuTiP&#8217;s Built-in Parallel for-loop</a></p>
+  <p class="topless"><a href="guide-bloch.html"
+                        title="next chapter">Plotting on the Bloch Sphere</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/guide/guide-correlation.txt"
@@ -281,7 +284,7 @@ Monte Carlo solver.</td>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 10, 2012.
+                    on Sep 27, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
