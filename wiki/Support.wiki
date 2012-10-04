@@ -52,6 +52,6 @@
 </TR> 
 <TR> 
 <TD align='center'><font size="5" face="Verdana"><a href="http://dml.riken.jp/~rob" rel="nofollow">Robert</a></font> </TD>
-<TD align='center'><font size="5" face="Verdana"><a href="http://dml.riken.jp/~paul" rel="nofollow">Paul</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="http://nqdl.korea.ac.kr" rel="nofollow">Paul</a></font> </TD>
 </TR> 
 </TABLE>
