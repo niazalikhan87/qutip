@@ -5,7 +5,7 @@
 ################################
 
 
-A complete guide may be found at http://qutip.googlecode.com/svn/doc/2.0.0/html/installation.html
+A complete guide may be found at http://qutip.googlecode.com/svn/doc/2.1.0/html/installation.html
 
 
 ===> IMPORTANT: QuTiP is designed for use on Unix based systems only, and is known to break on Microsoft Windows platforms. <===
