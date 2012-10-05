@@ -751,22 +751,96 @@ or a <tt class="docutils literal"><span class="pre">list</span></tt> of kets tha
 <dt id="qutip.eseries">
 <em class="property">class </em><tt class="descname">eseries</tt><big>(</big><em>q=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em>, <em>s=array(</em><span class="optional">[</span><span class="optional">]</span>, <em>dtype=float64)</em><big>)</big><a class="headerlink" href="#qutip.eseries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class representation of an exponential-series expansion of time-dependent quantum objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes :</th><td class="field-body"><p class="first"><strong>ampl</strong> : ndarray</p>
+<blockquote>
+<div><p>Array of amplitudes for exponential series.</p>
+</div></blockquote>
+<p><strong>rates</strong> : ndarray</p>
+<blockquote>
+<div><p>Array of rates for exponential series.</p>
+</div></blockquote>
+<p><strong>dims</strong> : list</p>
+<blockquote>
+<div><p>Dimensions of exponential series components</p>
+</div></blockquote>
+<p><strong>shape</strong> : list</p>
+<blockquote>
+<div><p>Shape corresponding to exponential series components</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Methods :</th><td class="field-body"><p class="first"><strong>value(tlist)</strong> :</p>
+<blockquote>
+<div><p>Evaluate an exponential series at the times listed in tlist</p>
+</div></blockquote>
+<p><strong>spec(wlist)</strong> :</p>
+<blockquote>
+<div><p>Evaluate the spectrum of an exponential series at frequencies in wlist.</p>
+</div></blockquote>
+<p><strong>tidyup()</strong> :</p>
+<blockquote class="last">
+<div><p>Returns a tidier version of the exponential series</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="qutip.eseries.spec">
-<tt class="descname">spec</tt><big>(</big><em>es</em>, <em>wlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.spec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate the spectrum of an exponential series at frequencies in wlist.</p>
+<tt class="descname">spec</tt><big>(</big><em>wlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the spectrum of an exponential series at frequencies in <tt class="docutils literal"><span class="pre">wlist</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>wlist</strong> : array_like</p>
+<blockquote>
+<div><p>Array/list of frequenies.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>val_list</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>Values of exponential series at frequencies in <tt class="docutils literal"><span class="pre">wlist</span></tt>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="qutip.eseries.tidy">
-<tt class="descname">tidy</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.eseries.tidy" title="Permalink to this definition">¶</a></dt>
-<dd><p>return a tidier version of self</p>
+<dt id="qutip.eseries.tidyup">
+<tt class="descname">tidyup</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#qutip.eseries.tidyup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tidier version of exponential series.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="qutip.eseries.value">
 <tt class="descname">value</tt><big>(</big><em>tlist</em><big>)</big><a class="headerlink" href="#qutip.eseries.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate an exponential series at the times listed in tlist.</p>
+<dd><p>Evaluates an exponential series at the times listed in <tt class="docutils literal"><span class="pre">tlist</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>tlist</strong> : ndarray</p>
+<blockquote>
+<div><p>Times at which to evaluate exponential series.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>val_list</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>Values of exponential at times in <tt class="docutils literal"><span class="pre">tlist</span></tt>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1071,8 +1145,12 @@ Options can be changed either inline:</p>
 <div><p>Avg. expectation values in mcsolver.</p>
 </div></blockquote>
 <p><strong>rhs_reuse</strong> : bool {False,True}</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Reuse Hamiltonian data.</p>
+</div></blockquote>
+<p><strong>rhs_filename</strong> : str</p>
+<blockquote class="last">
+<div><p>Name for compiled Cython file.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -1179,7 +1257,7 @@ expectation values was done over a subset of total number of trajectories.</p>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 27, 2012.
+                    on Oct 05, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .

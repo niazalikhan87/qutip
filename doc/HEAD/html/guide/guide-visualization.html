@@ -265,13 +265,13 @@ whose elements can give insights about the state it represents, but one might
 also be interesting in plotting the matrix of an Hamiltonian to inspect the
 structure and relative importance of various elements.</p>
 <p>QuTiP offers a few functions for quickly visualizing matrix data in the
-form of histograms, <tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram</span></tt> and
-<tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram_complex</span></tt>, and as Hinton diagram of weighted
-squares, <tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.hinton</span></tt>. These functions takes a
+form of histograms, <a class="reference internal" href="../apidoc/functions.html#qutip.graph.matrix_histogram" title="qutip.graph.matrix_histogram"><tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram</span></tt></a> and
+<a class="reference internal" href="../apidoc/functions.html#qutip.graph.matrix_histogram_complex" title="qutip.graph.matrix_histogram_complex"><tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram_complex</span></tt></a>, and as Hinton diagram of weighted
+squares, <a class="reference internal" href="../apidoc/functions.html#qutip.graph.hinton" title="qutip.graph.hinton"><tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.hinton</span></tt></a>. These functions takes a
 <tt class="xref py py-class docutils literal"><span class="pre">qutip.Qobj.Qobj</span></tt> as first argument, and optional arguments to, for
 example, set the axis labels and figure title (see the function&#8217;s documentation
 for details).</p>
-<p>For example, to illustrate the use of <tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram</span></tt>,
+<p>For example, to illustrate the use of <a class="reference internal" href="../apidoc/functions.html#qutip.graph.matrix_histogram" title="qutip.graph.matrix_histogram"><tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.matrix_histogram</span></tt></a>,
 let&#8217;s visualize of the Jaynes-Cummings Hamiltonian:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -301,7 +301,7 @@ let&#8217;s visualize of the Jaynes-Cummings Hamiltonian:</p>
 </pre></div>
 </div>
 <img alt="../_images/visualization-H.png" class="align-center" src="../_images/visualization-H.png" style="width: 5.0in;" />
-<p>Similarly, we can use the function <tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.hinton</span></tt>, which is
+<p>Similarly, we can use the function <a class="reference internal" href="../apidoc/functions.html#qutip.graph.hinton" title="qutip.graph.hinton"><tt class="xref py py-func docutils literal"><span class="pre">qutip.graph.hinton</span></tt></a>, which is
 used below to visualize the corresponding steadystate density matrix:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [53]: </span><span class="n">rho_ss</span> <span class="o">=</span> <span class="n">steadystate</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">dag</span><span class="p">()])</span>
 
@@ -322,7 +322,7 @@ used below to visualize the corresponding steadystate density matrix:</p>
 <p>where <span class="math">\(N\)</span> is the number of states of the system (that is, <span class="math">\(\rho\)</span> is represented by an <span class="math">\([N\times N]\)</span> matrix). Given an orthogonal operator basis of our choice <span class="math">\(\{B_i\}_i^{N^2}\)</span>, which satisfies <span class="math">\({\rm Tr}[B_i^\dagger B_j] = N\delta_{ij}\)</span>, we can write the map as</p>
 <div class="math" id="equation-qpt-quantum-map-transformed">
 <span class="eqno">(2)</span>\[\epsilon(\rho_{\rm in}) = \rho_{\rm out} = \sum_{mn} \chi_{mn} B_m \rho_{\rm in} B_n^\dagger.\]</div>
-<p>where <span class="math">\(\chi_{mn} = \sum_{ij} b_{im}b_{jn}^*\)</span> and <span class="math">\(A_i = \sum_{m} b_{im}B_{m}\)</span>. Here, matrix <span class="math">\(\chi\)</span> is the transformation matrix we are after, since it describes how much <span class="math">\(B_m \rho_{\rm in} B_n^\dagger\)</span> contributes to the transformation from <span class="math">\(\rho_{\rm in}\)</span> to <span class="math">\(\rho_{\rm out}\)</span>.</p>
+<p>where <span class="math">\(\chi_{mn} = \sum_{ij} b_{im}b_{jn}^*\)</span> and <span class="math">\(A_i = \sum_{m} b_{im}B_{m}\)</span>. Here, matrix <span class="math">\(\chi\)</span> is the transformation matrix we are after, since it describes how much <span class="math">\(B_m \rho_{\rm in} B_n^\dagger\)</span> contributes to <span class="math">\(\rho_{\rm out}\)</span>.</p>
 <p>In a numerical simulation of a quantum process we usually do not have access to the quantum map in the form Eq. <a href="#equation-qpt-quantum-map">(1)</a>. Instead, what we usually can do is to calculate the propagator <span class="math">\(U\)</span> for the density matrix in superoperator form, using for example the QuTiP function <a class="reference internal" href="../apidoc/functions.html#qutip.propagator.propagator" title="qutip.propagator.propagator"><tt class="xref py py-func docutils literal"><span class="pre">qutip.propagator.propagator</span></tt></a>. We can then write</p>
 <div class="math">
 \[\epsilon(\tilde{\rho}_{\rm in}) = U \tilde{\rho}_{\rm in} = \tilde{\rho}_{\rm out}\]</div>
@@ -332,7 +332,7 @@ used below to visualize the corresponding steadystate density matrix:</p>
 <p>so we can identify</p>
 <div class="math">
 \[U = \sum_{mn} \chi_{mn} \tilde{B}_m \tilde{B}_n^\dagger.\]</div>
-<p>Now this is a linear equation systems for the <span class="math">\(N^2 \times N^2\)</span> elements in <span class="math">\(\chi\)</span>. We can solve it by writing <span class="math">\(\chi\)</span> and the superoperator propagator as <span class="math">\([N^4]\)</span> vectors, and likewise write the superoperator product <span class="math">\(\tilde{B}_m\tilde{B}_n^\dagger\)</span> in as a <span class="math">\([N^4\times N^4]\)</span> matrix <span class="math">\(M\)</span>:</p>
+<p>Now this is a linear equation systems for the <span class="math">\(N^2 \times N^2\)</span> elements in <span class="math">\(\chi\)</span>. We can solve it by writing <span class="math">\(\chi\)</span> and the superoperator propagator as <span class="math">\([N^4]\)</span> vectors, and likewise write the superoperator product <span class="math">\(\tilde{B}_m\tilde{B}_n^\dagger\)</span> as a <span class="math">\([N^4\times N^4]\)</span> matrix <span class="math">\(M\)</span>:</p>
 <div class="math">
 \[U_I = \sum_{J}^{N^4} M_{IJ} \chi_{J}\]</div>
 <p>with the solution</p>
@@ -341,7 +341,7 @@ used below to visualize the corresponding steadystate density matrix:</p>
 <p>Note that to obtain <span class="math">\(\chi\)</span> with this method we have to construct a matrix <span class="math">\(M\)</span> with a size that is the square of the size of the superoperator for the system. Obviously, this scales very badly with increasing system size, but this method can still be a very useful for small systems (such as system comprised of a small number of coupled qubits).</p>
 <div class="section" id="implementation-in-qutip">
 <h3>Implementation in QuTiP<a class="headerlink" href="#implementation-in-qutip" title="Permalink to this headline">¶</a></h3>
-<p>In QuTiP, the procedure described above is implemented in the function <a class="reference internal" href="../apidoc/functions.html#qutip.tomography.qpt" title="qutip.tomography.qpt"><tt class="xref py py-func docutils literal"><span class="pre">qutip.tomography.qpt</span></tt></a>, which returns the <span class="math">\(\chi\)</span> matrix given a density matrix propagator. To illustrate how to use this function, let&#8217;s consider the quantum <span class="math">\(i\)</span>-SWAP gate for two qubits. In QuTiP the function <tt class="xref py py-func docutils literal"><span class="pre">qutip.gates.iswap</span></tt> generates the unitary transformation for the state kets:</p>
+<p>In QuTiP, the procedure described above is implemented in the function <a class="reference internal" href="../apidoc/functions.html#qutip.tomography.qpt" title="qutip.tomography.qpt"><tt class="xref py py-func docutils literal"><span class="pre">qutip.tomography.qpt</span></tt></a>, which returns the <span class="math">\(\chi\)</span> matrix given a density matrix propagator. To illustrate how to use this function, let&#8217;s consider the <span class="math">\(i\)</span>-SWAP gate for two qubits. In QuTiP the function <tt class="xref py py-func docutils literal"><span class="pre">qutip.gates.iswap</span></tt> generates the unitary transformation for the state kets:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [56]: </span><span class="n">U_psi</span> <span class="o">=</span> <span class="n">iswap</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -417,7 +417,7 @@ used below to visualize the corresponding steadystate density matrix:</p>
                     &copy;
                         Copyright 2011-2012, P.D. Nation, J.R. Johansson.
                 Last updated
-                    on Sep 27, 2012.
+                    on Sep 28, 2012.
                 Created using <a
                         href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
                     .
