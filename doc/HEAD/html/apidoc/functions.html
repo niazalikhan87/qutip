@@ -1484,7 +1484,7 @@ exception.</p>
 <span id="monte-carlo-evolution"></span><h3>Monte Carlo Evolution<a class="headerlink" href="#module-qutip.mcsolve" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.mcsolve.mcsolve">
-<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3cf6c20&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mcsolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops</em>, <em>ntraj=500</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x4e4cb48&gt;</em><big>)</big><a class="headerlink" href="#qutip.mcsolve.mcsolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo evolution of a state vector <span class="math">\(|\psi \rangle\)</span> for a given
 Hamiltonian and sets of collapse operators, and possibly, operators
 for calculating expectation values. Options for the underlying ODE solver are 
@@ -1574,7 +1574,7 @@ operator lists.</p>
 <span id="bloch-redfield-master-equation"></span><h3>Bloch-Redfield Master Equation<a class="headerlink" href="#module-qutip.bloch_redfield" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.bloch_redfield.brmesolve">
-<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3d9a170&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">brmesolve</tt><big>(</big><em>H</em>, <em>psi0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x4ed8e18&gt;</em><big>)</big><a class="headerlink" href="#qutip.bloch_redfield.brmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Bloch-Redfeild master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1632,7 +1632,7 @@ an <em>array</em> of expectation values for the times specified by <cite>tlist</
 <span id="floquet-states-and-floquet-markov-master-equation"></span><h3>Floquet States and Floquet-Markov Master Equation<a class="headerlink" href="#module-qutip.floquet" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="qutip.floquet.fmmesolve">
-<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3d9a050&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fmmesolve</tt><big>(</big><em>H</em>, <em>rho0</em>, <em>tlist</em>, <em>c_ops</em>, <em>e_ops=</em><span class="optional">[</span><span class="optional">]</span>, <em>spectra_cb=</em><span class="optional">[</span><span class="optional">]</span>, <em>T=None</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x4ed8cf8&gt;</em><big>)</big><a class="headerlink" href="#qutip.floquet.fmmesolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the dynamics for the system using the Floquet-Markov master equation.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -3421,7 +3421,7 @@ builtin &#8216;zip&#8217; command, or using multidimensional <cite>lists</cite> 
 
 <dl class="function">
 <dt id="qutip.rhs_generate">
-<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>c_ops</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x3c96dd0&gt;</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rhs_generate</tt><big>(</big><em>H</em>, <em>c_ops</em>, <em>args={}</em>, <em>options=&lt;qutip.Odeoptions.Odeoptions instance at 0x4de9cf8&gt;</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#qutip.rhs_generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the Cython functions needed for solving the dynamics of a
 given system using the mesolve function inside a parfor loop.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -3486,8 +3486,10 @@ will result in an error.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>eigs</strong> : tuple</p>
-<p><strong>Tuple of arrays representing eigvecs and eigvals of quantum objects</strong> :</p>
-<p class="last"><strong>corresponding to simultaneous eigenvectors and eigenvalues for each operator.</strong> :</p>
+<blockquote class="last">
+<div><p>Tuple of arrays representing eigvecs and eigvals of quantum objects 
+corresponding to simultaneous eigenvectors and eigenvalues for each operator.</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
