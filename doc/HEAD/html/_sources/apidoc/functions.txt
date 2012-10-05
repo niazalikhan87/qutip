@@ -123,6 +123,13 @@ Quantum Process Tomography
     :members: qpt, qpt_plot, qpt_plot_combined
     :undoc-members:
 
+Graphs and visualization
+------------------------
+
+.. automodule:: qutip.graph
+    :members: hinton, matrix_histogram, matrix_histogram_complex
+    :undoc-members:
+
 Other Functions
 ===============
 
@@ -174,6 +181,6 @@ Miscellaneous
 --------------
 
 .. automodule:: qutip
-    :members: about, clebsch, demos, hinton, orbital, parfor, rhs_generate, simdiag, sphereplot
+    :members: about, clebsch, demos, hinton, orbital, parfor, rhs_generate, rhs_clear, simdiag, sphereplot
     :undoc-members:
 
