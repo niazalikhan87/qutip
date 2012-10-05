@@ -240,9 +240,9 @@ def configuration(parent_package='',top_path=None):
     return config
 
 #--------- Setup commands go here ----------------#
+
 setup(
     name = NAME,
-    version =FULLVERSION,
     packages = PACKAGES,
     include_dirs = INCLUDE_DIRS,
     ext_modules=EXT_MODULES,
