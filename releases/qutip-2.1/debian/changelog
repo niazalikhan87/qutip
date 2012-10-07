@@ -1,3 +1,10 @@
+qutip (2.1.0) precise; urgency=low
+
+  * New release 2.1.0.
+
+ -- Robert Johansson <jrjohansson@gmail.com>  Sun, 07 Oct 2012 21:16:00 +0900
+
+
 qutip (2.0.0) precise; urgency=low
 
   * New packaging for the 2.0.0 upstream release.
