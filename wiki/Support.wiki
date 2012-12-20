@@ -38,7 +38,7 @@
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/support/issue.png"/></TD>
 </TR> 
 <TR> 
-<TD align='center'><font size="5" face="Verdana"><a href="http://code.google.com/p/qutip/issues/list" rel="nofollow">Report a Bug</a></font> </TD>
+<TD align='center'><font size="5" face="Verdana"><a href="https://github.com/qutip/qutip/issues" rel="nofollow">Report a Bug</a></font> </TD>
 </TR> 
 </TABLE>
 
