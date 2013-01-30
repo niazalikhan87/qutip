@@ -8,7 +8,15 @@
 <table border="0" cellspacing="0" cellpadding="0" align="center" width="850">
 <tr> <td><img src="http://qutip.googlecode.com/svn/doc/figures/citing/us.png" /></td> <td><p>
 <font size="3" face="Verdana">QuTiP is developed by two physicists in their spare time.  As with anyone in academics, their life and death is determined entirely by citations and paper count.  Therefore, if you find QuTiP useful, please consider citing this project as:<br/></font>
+
 </p><p align="center">
+<font size="3" face="Verdana">J. R. Johansson, P. D. Nation, and F. Nori: "QuTiP 2: A Python framework for the dynamics of open quantum systems.", Comp. Phys. Comm. <b>184</b>, 1234 (2013) [DOI: <a href="http://dx.doi.org/10.1016/j.cpc.2012.11.019">10.1016/j.cpc.2012.11.019</a>].
+<br></br>
+<a href="http://qutip.googlecode.com/svn/doc/figures/citing/qutip2.bib" rel="nofollow"><img width="64" src="http://qutip.googlecode.com/svn/doc/figures/citing/bibtex.png" /></a>
+</font>
+</p>
+<br></br>
+<p align="center">
 <font size="3" face="Verdana">J. R. Johansson, P. D. Nation, and F. Nori: "QuTiP: An open-source Python framework for the dynamics of open quantum systems.", Comp. Phys. Comm. <b>183</b>, 1760–1772 (2012) [DOI: <a href="http://dx.doi.org/10.1016/j.cpc.2012.02.021">10.1016/j.cpc.2012.02.021</a>].
 <br></br>
 <a href="http://qutip.googlecode.com/svn/doc/figures/citing/qutip.bib" rel="nofollow"><img width="64" src="http://qutip.googlecode.com/svn/doc/figures/citing/bibtex.png" /></a>
