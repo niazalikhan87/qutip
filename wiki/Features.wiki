@@ -65,7 +65,7 @@
 <TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800>
 
 <TR>
-<TD><p><font size="3" face="Verdana">One of our continuing goals is to make QuTiP the fastest, most efficient way to calculate the dynamics of arbitrary open quantum systems.  Although not there yet, QuTiP is already extremely efficient, and in many cases (but not all) out performs the qotoolbox and matlab.</font></p> </TD>
+<TD><p><font size="3" face="Verdana">One of our continuing goals is to make QuTiP the fastest, most efficient way to calculate the dynamics of arbitrary open quantum systems.  Although work is still ongoing, QuTiP is already extremely efficient, and in many cases (but not all) out performs the qotoolbox and matlab.</font></p> </TD>
 </TR> 
 <TR>
 <TD> <img src="http://qutip.googlecode.com/svn/doc/figures/features/performance.png"/> </TD>
@@ -82,7 +82,5 @@
 <TD align="center"> <img src="http://qutip.googlecode.com/svn/doc/figures/features/docs.png"/> </TD>
 </TR> 
 </TABLE>
-
-
 
 
