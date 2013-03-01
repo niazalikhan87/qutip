@@ -21,13 +21,13 @@
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/gz.png" /></td>
 <td><p align="left">
-<a href="http://qutip.googlecode.com/files/QuTiP-2.1.0.tar.gz" onclick="if (event.button==0) setTimeout(function(){document.body.innerHTML='thanks!'},200)" ><font size="3" face="Verdana">QuTiP 2.1.0 tar.gz</font></a>
+<a href="http://qutip.googlecode.com/files/QuTiP-2.2.0.tar.gz" onclick="if (event.button==0) setTimeout(function(){document.body.innerHTML='thanks!'},200)" ><font size="3" face="Verdana">QuTiP 2.2.0 tar.gz</font></a>
 </p></td>
 </tr>
 <tr>
 <td><img src="http://qutip.googlecode.com/svn/doc/figures/download/zip.png" /></td>
 <td><p align="left">
-<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-2.1.0.zip">QuTiP 2.1.0 zip file</a></font>
+<font size="3" face="Verdana"><a href="http://qutip.googlecode.com/files/QuTiP-2.2.0.zip">QuTiP 2.2.0 zip file</a></font>
 </p></td>
 </tr>
 </table>
