@@ -38,7 +38,7 @@
 <font size="4" face="Verdana"><u><b>Installation:</b></u></font>
 </p>
 <p align="left">
-<font size="3" face="Verdana">Instructions for installing QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a>, or in the install.txt file included in the QuTiP source folder.</font>
+<font size="3" face="Verdana">Instructions for installing QuTiP can be found in the <a href="http://code.google.com/p/qutip/wiki/Documentation">documentation</a>, or in the INSTALL.txt file included in the QuTiP source folder.</font>
 </p>
 
 
