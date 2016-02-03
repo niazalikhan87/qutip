@@ -1,0 +1,315 @@
+<p></p><p><table cellpadding='0' border='0' align='center' cellspacing='0'><tr><td align='center'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/qutip2_header.png' /></td> </tr><tr><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td><td><a href='http://code.google.com/p/qutip'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/home.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td> <td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/features_red.png' /></a>
+</td> <td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td> <td><a href='http://code.google.com/p/qutip/wiki/Download'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/download.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td><td><a href='http://code.google.com/p/qutip/wiki/Documentation'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/documentation.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td><td><a href='http://code.google.com/p/qutip/wiki/Support'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/support.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td><td><a href='http://code.google.com/p/qutip/wiki/Updates'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/updates.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/spacer.png' /></a></td> <td><a href='http://code.google.com/p/qutip/wiki/Citing'><img src='http://qutip.googlecode.com/svn/doc/figures/nav/citing.png' /></a></td><td><a><img src='http://qutip.googlecode.com/svn/doc/figures/nav/end_spacer.png' /></a></td></tr></table></p><p>
+
+
+<br>
+<p><font size='5' face='Verdana'><u><b>Easy To Learn:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="10" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="350"><br>
+<br>
+ <p><font size='3' face='Verdana'>QuTiP has a straightforward syntax for constructing, manipulating, and evolving quantum objects.  Moreover, creating complex quantum objects can be accomplished in just a few lines of code; constructing a Schrödinger cat state takes only seven lines.  QuTiP has also been designed to require a minimal learning curve for those users familiar with the Quantum Optics Toolbox (qotoolbox).</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD ><br>
+<br>
+<img src='http://qutip.googlecode.com/svn/doc/figures/features/schcat.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size='5' face='Verdana'><u><b>Memory Efficient:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD ><br>
+<br>
+<img src='http://qutip.googlecode.com/svn/doc/figures/features/sparse.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="400"><br>
+<br>
+ <p><font size='3' face='Verdana'>We have strived to make QuTiP as memory efficient as possible.  Every quantum object is represented internally as a sparse matrix, and every operation on these objects maintains this sparsity when possible.  Thus, QuTiP lets you push your simulation size beyond what is possible in other packages such as the qotoolbox.</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size='5' face='Verdana'><u><b>Multiple Dynamics Solvers:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="400"><br>
+<br>
+<p><font size='3' face='Verdana'>QuTiP includes a variety of builtin solvers for simulating a variety of both open and closed quantum systems.  In addition to the standard Lindblad master equation and Monte Carlo Solvers, QuTiP 2 now includes routines for Bloch-Redfield master equations and periodic systems using the Floquet formalism.  Add to this, direct diagonalization via the eseries solver, as well as steady state analysis, and you have a wide variety of tools from which to explore your systems behavior.</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD><br>
+<br>
+ <img src='http://qutip.googlecode.com/svn/doc/figures/features/dynamics.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+
+<p><font size='5' face='Verdana'><u><b>Arbitrary Time Dependent Evolution:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD  align="center"><br>
+<br>
+<img src='http://qutip.googlecode.com/svn/doc/figures/features/ninja.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="400"><br>
+<br>
+ <p><font size='3' face='Verdana'>QuTiP 2 allows for arbitrary time-dependent Hamiltonians and collapse operators in both the Lindblad master equation and Monte Carlo solvers.  In fact, QuTiP can perform some sneaky ninja tricks behind the scene, and automatically compile a wide range of operators into C-code using Cython.</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size='5' face='Verdana'><u><b>Multiprocessing:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="400"><br>
+<br>
+<p><font size='3' face='Verdana'>QuTiP can make use of the multiple processing cores found in essentially all modern computers.  The QuTiP Monte-Carlo solver will run trajectories simultaneously over all, or any user defined, number of CPUs.  Furthermore, repetitive tasks such as simulating master equation evolution over a given range of parameters can also be run in parallel using the built-in <b>parfor</b> function.</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD align="center"><br>
+<br>
+ <img src='http://qutip.googlecode.com/svn/doc/figures/features/multiprocessing.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size='5' face='Verdana'><u><b>Performance:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="750"><br>
+<br>
+<p><font size='3' face='Verdana'>One of our continuing goals is to make QuTiP the fastest, most efficient way to calculate the dynamics of arbitrary open quantum systems.  Although work is still ongoing, QuTiP is already extremely efficient, and in many cases (but not all) out performs the qotoolbox and matlab.</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD><br>
+<br>
+ <img src='http://qutip.googlecode.com/svn/doc/figures/features/performance.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size='5' face='Verdana'><u><b>Documentation:</b></u></font><p>
+
+<br>
+<br>
+<TABLE border="0" cellspacing="0" cellpadding="0" align="center" width=800><br>
+<br>
+<br>
+<br>
+<br>
+<TR><br>
+<br>
+<br>
+<br>
+<br>
+<TD width="400"><br>
+<br>
+<p><font size='3' face='Verdana'>No software should be a black box to the user, especially in science.  QuTiP is not only completely open-source, but also includes <b>over 200 pages</b> of documentation that can be accessed online, or download in PDF form.  This includes <b>over 50 examples</b>, and a detailed description of every user accessible function and its parameters.  This is <b>5x</b> more documentation than some other packages (yes, we are talking about you qotoolbox).</font></p> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+<TD align="center"><br>
+<br>
+ <img src='http://qutip.googlecode.com/svn/doc/figures/features/docs.png' /> <br>
+<br>
+</TD><br>
+<br>
+<br>
+<br>
+<br>
+</TR><br>
+<br>
+<br>
+<br>
+<br>
+</TABLE><br>
+<br>
